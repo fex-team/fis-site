@@ -1,0 +1,133 @@
+body {
+    font-size:13px;
+}
+nav {
+    text-align: center;
+    padding: 0 0 14px;
+    background-color: #313037;
+}
+
+article {
+    max-width: 780px;
+    margin: auto;
+}
+
+nav header {
+    padding:20px 0 10px
+}
+nav header img {
+    width:129px;
+    height:116px
+}
+nav ul {
+    padding:0 25px;
+    text-align:left
+}
+nav ul li {
+    white-space:nowrap;
+    line-height:21px;
+    padding-top:2px;
+    padding-bottom:2px
+}
+nav ul li a {
+    display:block;
+    color: #bfbfc6;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color: #f84330;
+}
+
+nav ul li img {
+    float:right
+}
+
+
+pre code{
+    border-radius:3px;
+}
+
+.item-category {
+    border-top:1px solid #ccc;
+    padding-top:10px;
+    margin-top:10px
+}
+.item-category:first-child {
+    border-top:0;
+    padding-top:0;
+    margin-top:0
+}
+.item-sub {
+    padding-left:12px;
+}
+
+.container {
+    padding: 10px 25px;
+}
+
+@media (min-width: 761px){
+    nav {
+        width: 250px;
+        height: 100%;
+        float: left;
+        padding: 0;
+    }
+
+    .container {
+        padding: 30px 25px;
+        margin: 0 0 0 250px;
+    }
+}
+
+@media (min-width:480px) and (max-width:760px) {
+    nav header {
+        padding:20px 0
+    }
+    nav ul {
+        border-top:1px solid #ccc;
+        text-align:center;
+        margin:0 25px;
+        padding-top:10px
+    }
+    nav ul li {
+        display:inline;
+        white-space:normal;
+        margin-right:10px
+    }
+    nav ul li a {
+        display:inline
+    }
+    nav ul li img {
+        float:none;
+        vertical-align:text-bottom;
+        padding-right:4px
+    }
+    .nav-divider {
+        border:0
+    }
+    .nav-sub {
+        display:none
+    }
+}
+
+@media (min-width:761px) {
+    nav {
+        width: 250px;
+        height: 100%;
+        float: left;
+        padding: 0
+    }
+
+    nav header {
+        padding: 40px 0 20px
+    }
+
+    nav header img {
+        width: 164px;
+        height: 146px
+    }
+}

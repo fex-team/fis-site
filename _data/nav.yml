@@ -1,0 +1,91 @@
+- title: 首页
+  url: /index.html
+  type: category
+
+- title: Github
+  url: /index.html
+  type: category
+
+- title: Why FIS?
+  url: /index.html
+  type: none
+
+- title: Getting Started
+  url: /index.html
+  type: category
+
+- title: 文档
+  url: /index.html
+  type: category
+
+- title: 命令行
+  url: /index.html
+  type: sub
+
+- title: 配置API
+  url: /index.html
+  type: sub
+
+- title: 插件API
+  url: /index.html
+  type: sub
+
+- title: 进阶知识
+  url: /index.html
+  type: sub
+
+- title: 插件
+  url: /index.html
+  type: category
+
+- title: 官方插件
+  url: /index.html
+  type: sub
+
+- title: 社区插件
+  url: /index.html
+  type: sub
+
+- title: 定制自己的插件
+  url: /index.html
+  type: sub
+
+- title: 文章
+  url: /index.html
+  type: category
+
+- title: FAQ
+  url: /index.html
+  type: category
+
+- title: 进阶示例
+  url: /index.html
+  type: category
+
+- title: 简易自动打包
+  url: /index.html
+  type: sub
+
+- title: 前端模块化
+  url: /index.html
+  type: sub
+
+- title: Angularjs
+  url: /index.html
+  type: sub
+
+- title: 更多示例
+  url: /index.html
+  type: sub
+
+- title: 社区
+  url: /index.html
+  type: category
+
+- title: 提交反馈
+  url: /index.html
+  type: sub
+
+- title: 用户社群
+  url: /index.html
+  type: sub

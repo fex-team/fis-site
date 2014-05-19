@@ -1,0 +1,17 @@
+<aside>
+    <nav>
+        <header>
+            <a href="/index.html">
+            </a>
+        </header>
+        <ul>
+            {% for config in site.data.nav %}
+            <li class="item-{{ config.type }}">
+                <a href="{{ config.url }}">
+                    {{ config.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</aside>
