@@ -69,52 +69,16 @@ pre code{
     padding: 10px 25px;
 }
 
-@media (min-width: 761px){
-    nav {
-        width: 250px;
-        height: 100%;
-        float: left;
-        padding: 0;
-    }
-
-    .container {
-        padding: 30px 25px;
-        margin: 0 0 0 250px;
-    }
-}
-
-@media (min-width:480px) and (max-width:760px) {
-    nav header {
-        padding:20px 0
-    }
-    nav ul {
-        border-top:1px solid #ccc;
-        text-align:center;
-        margin:0 25px;
-        padding-top:10px
-    }
-    nav ul li {
-        display:inline;
-        white-space:normal;
-        margin-right:10px
-    }
-    nav ul li a {
-        display:inline
-    }
-    nav ul li img {
-        float:none;
-        vertical-align:text-bottom;
-        padding-right:4px
-    }
-    .nav-divider {
-        border:0
-    }
-    .nav-sub {
-        display:none
-    }
+ul {
+    padding: 0 0 0 20px;
 }
 
 @media (min-width:761px) {
+
+    ul {
+        padding: 0 0 0 40px;
+    }
+
     nav {
         width: 250px;
         height: 100%;
@@ -129,5 +93,10 @@ pre code{
     nav header img {
         width: 164px;
         height: 146px
+    }
+
+    .container {
+        padding: 30px 25px;
+        margin: 0 0 0 250px;
     }
 }
