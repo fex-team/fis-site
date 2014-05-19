@@ -1,7 +1,6 @@
 ---
 layout: index
-title: Hello World!
-tagline: Supporting tagline
+title: 前端解决方案通用框架- F.I.S
 ---
 
 ## FIS是什么
@@ -14,17 +13,52 @@ FIS与目前流行的构建工具的不同之处在于FIS更加专注于前端�
 
 ## 快速上手
 
-FIS无需任何插件支持就能够满足前端项目中诸如资源压缩、加[MD5戳](http://to.why.md5)、[图片Base64嵌入](http://to.why.inline)等构建需求，让我们试试看。
+FIS无需任何插件支持就能够满足前端项目中诸如资源压缩、加[md5戳](http://to.why.md5)、[图片base64嵌入](http://to.why.inline)等构建需求，让我们试试看。
 
 ### 安装
 
 FIS使用[Node.js](http://nodejs.org/)开发，以[npm](http://npmjs.org/)包的形式发布。
 
 ```
-npm install -g fis
+$ npm install -g fis
 ```
 
 安装遇到困难？[点击这里](http://to.install.fail)
+
+### 试用
+
+使用FIS前，我们需要准备一个前端示例项目，你可以尝试使用你自己的前端项目，或者使用我们提供的示例项目
+
+```
+$ fis install firstblood-demo #利用FIS内置的包管理能力下载示例项目
+```
+
+我们可以看到这个简单的项目拥有若干资源文件和一个HTML页面，不包含任何配置文件，那么接下来我们试试如何使用FIS来对这个简单的项目进行优化
+
+```
+$ cd firstblood
+$ fis release -omd ../dist #参数的含义可以通过 fis release -h 查看
+$ cd ../dist
+```
+
+让我们看看产出的内容
+
+```
+firstblood/
+  |-- images
+  |     |-- body-bg_dbb75d9.png
+  |     \-- logo_74e5229.gif
+  |-- demo_4de27aa.css
+  |-- demo_762c284.js
+  |-- index.html
+  |-- map.json
+  |-- script_d41d8cd.js
+  \-- style_ab25b35.css
+```
+
+我们可以看到所有静态资源均被添加md5版本戳，所有脚本资源均进行了压缩处理，同时images中的图片也已经经过了无损压缩。如果打开index.html，你还会发现index.html中所有对这些路径的引用均以更新md5版本戳。
+
+以上就是FIS最基础的构建能力的介绍，觉得意犹未尽？功能介绍里面的灵活配置、图片合并、资源打包、模块化等等功能在哪里呢？点击[这里](http://to.get.started)了解更多。
 
 ## 功能介绍
 
