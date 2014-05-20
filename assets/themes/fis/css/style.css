@@ -1,169 +1,142 @@
 body {
-    font-size:13px;
+  font-size: 13px;
 }
 nav {
-    text-align: center;
-    padding: 0 0 14px;
-    background-color: #313037;
+  text-align: center;
+  padding: 0 0 14px;
+  background-color: #21b291;
 }
-
 article {
-    max-width: 780px;
-    margin: auto;
+  max-width: 780px;
+  margin: auto;
 }
-
 nav header {
-    padding:20px 0 10px
+  padding: 20px 0 10px;
 }
 nav header img {
-    width:129px;
-    height:116px
+  width: 129px;
+  height: 116px;
 }
 nav ul {
-    padding:0 25px;
-    text-align:left
+  padding: 0 25px;
+  text-align: left;
 }
 nav ul li {
-    white-space:nowrap;
-    line-height:21px;
-    padding-top:2px;
-    padding-bottom:2px
+  white-space: nowrap;
+  line-height: 21px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
-nav ul li a{
-    display:block;
-    color: #bfbfc6;
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    text-decoration: none;
+nav ul li a {
+  display: block;
+  color: #ffffff;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  text-decoration: none;
 }
-
-nav ul li span{
-    cursor:default;
-    display:block;
-    color: #bfbfc6;
+nav ul li span {
+  cursor: default;
+  display: block;
+  color: #ffffff;
 }
-
-nav ul li a:hover{
-    color: #f84330;
+nav ul li a:hover {
+  color: #f84330;
 }
-
 nav ul li img {
-    float:right
+  float: right;
 }
-
-
-pre code{
-    border-radius:3px;
+pre code {
+  border-radius: 3px;
 }
-
 .item-category {
-    border-top:1px solid #666;
-    padding-top:10px;
-    margin-top:10px
+  border-top: 1px dotted #fff;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 .item-category:first-child {
-    border-top:0;
-    padding-top:0;
-    margin-top:0
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
 }
 .item-sub {
-    padding-left:12px;
+  padding-left: 12px;
 }
-
 .container {
-    padding: 10px 25px;
+  padding: 10px 25px;
 }
-
-.container .title{
-    text-align: center;
-    font-size: 24px;
+.container .title {
+  text-align: center;
+  font-size: 24px;
 }
-
 .container .fa {
-    font-size: 150px;
-    text-shadow: 4px 3px 0 white,9px 8px 0 rgba(0,0,0,.15);
-    color: black;
+  font-size: 150px;
+  text-shadow: 4px 3px 0 #ffffff, 9px 8px 0 rgba(0, 0, 0, 0.15);
+  color: #444444;
 }
-
-.container .logo-wrap{
-    display: none;
+.container .logo-wrap {
+  display: none;
 }
-
-.container .logo{
-    position: relative;
-    padding-left: 200px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+.container .logo {
+  position: relative;
+  padding-left: 200px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
-.container .logo .fa{
-    position: absolute;
-    left: 0;
-    top: 0;
+.container .logo .fa {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
-
-.container .logo h1{
-    text-align: left;
-    font-size: 60px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+.container .logo h1 {
+  text-align: left;
+  font-size: 60px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
-
-.container .logo .desc{
-    font-size: 36px;
-    line-height: 1.5;
-    font-weight: 400;
-    margin-top: 10px;
+.container .logo .desc {
+  font-size: 36px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: 10px;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
 }
-
-
-.sidebar .icon-link{
-    color: white;
-    text-decoration: none;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+.sidebar .icon-link {
+  color: white;
+  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
 .sidebar .fa {
-    font-size: 130px;
+  font-size: 130px;
 }
-
 .sidebar h1 {
-    margin:5px 0 0 0;
-    font-size: 50px;
+  margin: 5px 0 0 0;
+  font-size: 42px;
 }
-
 ul {
-    padding: 0 0 0 20px;
+  padding: 0 0 0 20px;
 }
-
-@media (min-width:761px) {
-
-    .container .logo-wrap {
-        display: block;
-    }
-
-    ul {
-        padding: 0 0 0 40px;
-    }
-
-    nav {
-        width: 250px;
-        height: 100%;
-        float: left;
-        padding: 0
-    }
-
-    nav header {
-        padding: 40px 0 10px
-    }
-
-    nav header img {
-        width: 164px;
-        height: 146px
-    }
-
-    .container {
-        padding: 30px 25px;
-        margin: 0 0 0 250px;
-    }
+@media (min-width: 761px) {
+  .container .logo-wrap {
+    display: block;
+  }
+  ul {
+    padding: 0 0 0 40px;
+  }
+  nav {
+    width: 250px;
+    height: 100%;
+    float: left;
+    padding: 0;
+  }
+  nav header {
+    padding: 40px 0 10px;
+  }
+  nav header img {
+    width: 164px;
+    height: 146px;
+  }
+  .container {
+    padding: 30px 25px;
+    margin: 0 0 0 250px;
+  }
 }
