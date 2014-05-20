@@ -58,7 +58,7 @@ pre code{
 }
 
 .item-category {
-    border-top:1px solid #ccc;
+    border-top:1px solid #666;
     padding-top:10px;
     margin-top:10px
 }
@@ -73,6 +73,59 @@ pre code{
 
 .container {
     padding: 10px 25px;
+}
+
+.container .title{
+    text-align: center;
+    font-size: 24px;
+}
+
+.container .fa {
+    font-size: 150px;
+    text-shadow: 4px 3px 0 white,9px 8px 0 rgba(0,0,0,.15);
+    color: black;
+}
+
+.container .logo{
+    position: relative;
+    padding-left: 200px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.container .logo .fa{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.container .logo h1{
+    text-align: left;
+    font-size: 60px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.container .logo .desc{
+    font-size: 36px;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+
+.sidebar .icon-link{
+    color: white;
+    text-decoration: none;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.sidebar .fa {
+    font-size: 130px;
+}
+
+.sidebar h1 {
+    margin:5px 0 0 0;
+    font-size: 50px;
 }
 
 ul {
@@ -93,7 +146,7 @@ ul {
     }
 
     nav header {
-        padding: 40px 0 20px
+        padding: 40px 0 10px
     }
 
     nav header img {
