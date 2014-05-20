@@ -29,13 +29,19 @@ nav ul li {
     padding-top:2px;
     padding-bottom:2px
 }
-nav ul li a {
+nav ul li a{
     display:block;
     color: #bfbfc6;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
     -o-transition: all 0.1s ease-in-out;
     text-decoration: none;
+}
+
+nav ul li span{
+    cursor:default;
+    display:block;
+    color: #bfbfc6;
 }
 
 nav ul li a:hover{

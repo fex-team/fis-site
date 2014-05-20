@@ -10,9 +10,37 @@
   url: /index.html
   type: none
 
-- title: Getting Started
+- title: 快速入门
   url: /index.html
   type: category
+
+- title: 目录定制
+  url: /index.html
+  type: sub
+
+- title: 插件安装
+  url: /index.html
+  type: sub
+
+- title: 自动合并
+  url: /index.html
+  type: sub
+
+- title: 进阶示例
+  url: /index.html
+  type: category
+
+- title: 前端模块化
+  url: /index.html
+  type: sub
+
+- title: Angularjs
+  url: /index.html
+  type: sub
+
+- title: 更多示例
+  url: /index.html
+  type: sub
 
 - title: 文档
   url: /index.html
@@ -58,32 +86,11 @@
   url: /index.html
   type: category
 
-- title: 进阶示例
-  url: /index.html
-  type: category
-
-- title: 简易自动打包
-  url: /index.html
-  type: sub
-
-- title: 前端模块化
-  url: /index.html
-  type: sub
-
-- title: Angularjs
-  url: /index.html
-  type: sub
-
-- title: 更多示例
-  url: /index.html
-  type: sub
-
 - title: 社区
-  url: /index.html
   type: category
 
 - title: 提交反馈
-  url: /index.html
+  url: https://github.com/fex-team/fis/issues/new
   type: sub
 
 - title: 用户社群
