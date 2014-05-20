@@ -86,6 +86,10 @@ pre code{
     color: black;
 }
 
+.container .logo-wrap{
+    display: none;
+}
+
 .container .logo{
     position: relative;
     padding-left: 200px;
@@ -133,6 +137,10 @@ ul {
 }
 
 @media (min-width:761px) {
+
+    .container .logo-wrap {
+        display: block;
+    }
 
     ul {
         padding: 0 0 0 40px;
