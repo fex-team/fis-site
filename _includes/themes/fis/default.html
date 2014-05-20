@@ -67,14 +67,14 @@
 <script>
     hljs.initHighlightingOnLoad();
 
-//    function fixNavHeight(){
-//        var height = $(document).height(), width = $(window).width();
-//        $(".aside").css({"min-height": width > 760 ? height : 100})
-//    }
-//    $(document).ready(function(){
-//        fixNavHeight();
-//        $(window).resize(fixNavHeight);
-//    });
+    function fixNavHeight(){
+        var height = $(document).height(), width = $(window).width();
+        $(".sidebar").css({"min-height": width > 760 ? height + 60 : 100})
+    }
+    $(document).ready(function(){
+        fixNavHeight();
+        $(window).resize(fixNavHeight);
+    });
 </script>
 </body>
 </html>
