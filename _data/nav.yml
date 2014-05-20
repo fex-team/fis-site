@@ -14,15 +14,15 @@
   url: /index.html
   type: category
 
-- title: 目录定制
-  url: /index.html
-  type: sub
-
 - title: 插件安装
   url: /index.html
   type: sub
 
 - title: 自动合并
+  url: /index.html
+  type: sub
+
+- title: 目录定制
   url: /index.html
   type: sub
 
