@@ -73,6 +73,11 @@
     $(document).ready(function(){
         fixNavHeight();
         $(window).resize(fixNavHeight);
+        $("a").each(function(index,ele){
+            if ($(ele).attr('href').indexOf('/') == 0){
+                $(ele).attr('href',"{{ BASE_PATH }}"+$(ele).attr('href'));
+            }
+        });
     });
 </script>
 </body>
