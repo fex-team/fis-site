@@ -41,8 +41,8 @@
 </head>
 
 <body>
+{% include /themes/fis/header.html %}
 <div id="wrap">
-
     {% include /themes/fis/nav.html %}
     <div class="container">
         {{ content }}
@@ -66,14 +66,14 @@
 <script>
     hljs.initHighlightingOnLoad();
 
-    function fixNavHeight(){
-        var height = $(document).height(), width = $(window).width();
-        $(".sidebar").css({"min-height": width > 760 ? height + 60 : 100})
-    }
+//    function fixNavHeight(){
+//        var height = $(document).height(), width = $(window).width();
+//        $(".sidebar").css({"min-height": width > 760 ? height + 60 : 100})
+//    }
     $(document).ready(function(){
-        fixNavHeight();
-        $(window).resize(fixNavHeight);
-        $("a").each(function(index,ele){
+//        fixNavHeight();
+//        $(window).resize(fixNavHeight);
+        $(".side a").each(function(index,ele){
             if ($(ele).attr('href').indexOf('/') == 0){
                 $(ele).attr('href',"{{ BASE_PATH }}"+$(ele).attr('href'));
             }

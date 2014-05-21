@@ -1,76 +1,56 @@
-- title: 首页
-  url: /index.html
-  type: category
-
-- title: Github
-  url: /index.html
-  type: category
-
-- title: Why FIS?
-  url: /index.html
-  type: none
-
 - title: 快速入门
+  type: category
+
+- title: 工具安装
   url: /docs/beginning/getting-started.html
-  type: category
+  type: sub
 
-- title: 插件安装
+- title: 资源压缩
+  url: /docs/beginning/getting-started.html#toc_2
+  type: sub
+
+- title: 资源合并
   url: /index.html
   type: sub
 
-- title: 自动合并
-  url: /index.html
-  type: sub
-
-- title: 目录定制
-  url: /index.html
-  type: sub
-
-- title: 进阶示例
-  url: /index.html
-  type: category
-
-- title: 前端模块化
-  url: /index.html
-  type: sub
-
-#- title: Angularjs
-#  url: /index.html
-#  type: sub
-
-- title: 更多示例
-  url: /index.html
-  type: sub
-
-- title: 文档
-  url: /index.html
+- title: API
   type: category
 
 - title: 命令行
   url: /index.html
   type: sub
 
-- title: 配置API
+- title: 功能配置
   url: /index.html
   type: sub
 
-#- title: 插件API
-#  url: /index.html
-#  type: sub
+- title: 插件开发
+  url: /index.html
+  type: sub
 
-- title: 了解更多
+- title: 进阶使用
+  type: category
+
+- title: 目录定制
+  url: /index.html
+  type: sub
+
+- title: 前端模块化
+  url: /index.html
+  type: sub
+
+- title: 接入后端
+  url: /index.html
+  type: sub
+
+- title: 查看更多
   url: /index.html
   type: sub
 
 - title: 插件
-  url: /index.html
   type: category
 
-- title: 官方插件
-  url: /index.html
-  type: sub
-
-- title: 社区插件
+- title: 插件列表
   url: /index.html
   type: sub
 
@@ -78,21 +58,6 @@
   url: /index.html
   type: sub
 
-- title: 文章
-  url: /index.html
-  type: category
-
 - title: FAQ
   url: /index.html
   type: category
-
-- title: 社区
-  type: category
-
-- title: 提交反馈
-  url: https://github.com/fex-team/fis/issues/new
-  type: sub
-
-- title: 用户社群
-  url: /index.html
-  type: sub

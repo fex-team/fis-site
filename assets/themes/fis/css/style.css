@@ -1,33 +1,33 @@
 body {
   font-size: 13px;
+  background-color: #21b291;
 }
-nav {
+.sidebar {
   text-align: center;
   padding: 0 0 14px;
-  background-color: #21b291;
 }
 article {
   max-width: 780px;
   margin: auto;
 }
-nav header {
+.sidebar header {
   padding: 20px 0 10px;
 }
-nav header img {
+.sidebar header img {
   width: 129px;
   height: 116px;
 }
-nav ul {
+.sidebar ul {
   padding: 0 25px;
   text-align: left;
 }
-nav ul li {
+.sidebar ul li {
   white-space: nowrap;
   line-height: 21px;
   padding-top: 2px;
   padding-bottom: 2px;
 }
-nav ul li a {
+.sidebar ul li a {
   display: block;
   color: #ffffff;
   -webkit-transition: all 0.1s ease-in-out;
@@ -35,16 +35,60 @@ nav ul li a {
   -o-transition: all 0.1s ease-in-out;
   text-decoration: none;
 }
-nav ul li span {
+.sidebar ul li span {
   cursor: default;
   display: block;
   color: #ffffff;
 }
-nav ul li a:hover {
+.sidebar ul li a:hover {
   color: #f84330;
 }
-nav ul li img {
+.sidebar ul li img {
   float: right;
+}
+.navbar {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #333333;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 9999;
+}
+.navbar .nav-v,
+.navbar .nav-brand,
+.navbar .nav-item {
+  text-align: center;
+  padding: 20px;
+  color: #333333;
+}
+.navbar .nav-v:hover,
+.navbar .nav-brand:hover,
+.navbar .nav-item:hover {
+  background-color: #ef4036;
+  color: #ffffff;
+  transition: all 300ms ease-out 0s;
+}
+.navbar .nav-brand {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 41.6667%;
+  float: left;
+}
+.navbar .nav-items {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 58.3333%;
+  float: left;
+}
+.navbar .nav-item {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 25%;
+  float: left;
 }
 pre code {
   border-radius: 3px;
@@ -69,6 +113,7 @@ pre code {
 }
 .container {
   padding: 10px 25px;
+  background-color: #fffefe;
 }
 .container .title {
   text-align: center;
@@ -135,16 +180,16 @@ ul {
   ul {
     padding: 0 0 0 40px;
   }
-  nav {
+  .sidebar {
     width: 250px;
     height: 100%;
     float: left;
     padding: 0;
   }
-  nav header {
+  .sidebar header {
     padding: 40px 0 10px;
   }
-  nav header img {
+  .sidebar header img {
     width: 164px;
     height: 146px;
   }
