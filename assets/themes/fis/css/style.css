@@ -49,6 +49,11 @@ nav ul li img {
 pre code {
   border-radius: 3px;
 }
+::selection {
+  color: #fff;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(216, 76, 49, 0.8);
+}
 .item-category {
   border-top: 1px dotted #fff;
   padding-top: 10px;

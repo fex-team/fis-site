@@ -34,9 +34,9 @@
   url: /index.html
   type: sub
 
-- title: Angularjs
-  url: /index.html
-  type: sub
+#- title: Angularjs
+#  url: /index.html
+#  type: sub
 
 - title: 更多示例
   url: /index.html
@@ -54,11 +54,11 @@
   url: /index.html
   type: sub
 
-- title: 插件API
-  url: /index.html
-  type: sub
+#- title: 插件API
+#  url: /index.html
+#  type: sub
 
-- title: 进阶知识
+- title: 了解更多
   url: /index.html
   type: sub
 
