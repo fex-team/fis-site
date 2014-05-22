@@ -12,6 +12,7 @@ body {
 article {
   max-width: 780px;
   margin: auto;
+  color: #454545;
 }
 .sidebar header {
   padding: 20px 0 10px;

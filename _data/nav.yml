@@ -13,21 +13,6 @@
   url: /index.html
   type: sub
 
-- title: API
-  type: category
-
-- title: 命令行
-  url: /index.html
-  type: sub
-
-- title: 功能配置
-  url: /index.html
-  type: sub
-
-- title: 插件开发
-  url: /index.html
-  type: sub
-
 - title: 进阶使用
   type: category
 
@@ -44,6 +29,82 @@
   type: sub
 
 - title: 查看更多
+  url: /index.html
+  type: sub
+
+#- title: API
+#  type: category
+#
+#- title: 命令行
+#  url: /index.html
+#  type: sub
+#
+#- title: 功能配置
+#  url: /index.html
+#  type: sub
+#
+#- title: 插件开发
+#  url: /index.html
+#  type: sub
+
+- title: 命令行
+  type: category
+
+- title: fis install
+  url: /index.html
+  type: sub
+
+- title: fis release
+  url: /index.html
+  type: sub
+
+- title: fis server
+  url: /index.html
+  type: sub
+
+- title: 配置API
+  type: category
+
+- title: project
+  url: /index.html
+  type: sub
+
+- title: modules
+  url: /index.html
+  type: sub
+
+- title: settings
+  url: /index.html
+  type: sub
+
+- title: roadmap
+  url: /index.html
+  type: sub
+
+- title: pack
+  url: /index.html
+  type: sub
+
+- title: deploy
+  url: /index.html
+  type: sub
+
+- title: 插件开发API
+  type: category
+
+- title: fis.cli
+  url: /index.html
+  type: sub
+
+- title: fis.file
+  url: /index.html
+  type: sub
+
+- title: fis.config
+  url: /index.html
+  type: sub
+
+- title: fis.compile
   url: /index.html
   type: sub
 
