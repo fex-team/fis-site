@@ -206,6 +206,9 @@ pre code:after {
   font-size: 32px;
   display: inline;
 }
+article {
+  line-height: 1.7;
+}
 article a,
 article a:visited {
   color: #ff4400;
