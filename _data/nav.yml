@@ -9,6 +9,9 @@
   url: /docs/beginning/getting-started.html#toc_2
   type: sub
 
+- title: 插件配置
+  type: sub
+
 - title: 资源合并
   type: sub
 
