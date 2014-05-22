@@ -51,42 +51,46 @@
   type: category
 
 - title: fis install
-  url: /index.html
+  url: /docs/api/cli.html#
   type: sub
 
 - title: fis release
-  url: /index.html
+  url: /docs/api/cli.html#release
   type: sub
 
 - title: fis server
-  url: /index.html
+  url: /docs/api/cli.html#server
   type: sub
 
 - title: 配置API
   type: category
 
+- title: 配置文件
+  url: /docs/api/fis-conf.html
+  type: sub
+
 - title: project
-  url: /index.html
+  url: /docs/api/fis-conf.html#project
   type: sub
 
 - title: modules
-  url: /index.html
+  url: /docs/api/fis-conf.html#modules
   type: sub
 
 - title: settings
-  url: /index.html
+  url: /docs/api/fis-conf.html#settings
   type: sub
 
 - title: roadmap
-  url: /index.html
+  url: /docs/api/fis-conf.html#roadmap
   type: sub
 
 - title: pack
-  url: /index.html
+  url: /docs/api/fis-conf.html#pack
   type: sub
 
 - title: deploy
-  url: /index.html
+  url: /docs/api/fis-conf.html#deploy
   type: sub
 
 - title: 插件开发API

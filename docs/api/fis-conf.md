@@ -47,6 +47,7 @@ fis.config.init({
     }
 });
 ```
+<i class="anchor" id='project'></i>
 
 ### project.charset
 
@@ -196,6 +197,8 @@ fis.config.init({
 > fis系统有非常灵活的插件扩展能力，详细内容请参看 [运行原理](https://github.com/fis-dev/fis/wiki/运行原理)，[插件调用机制](https://github.com/fis-dev/fis/wiki/插件调用机制)，[插件扩展点列表](https://github.com/fis-dev/fis/wiki/插件扩展点列表)等文档。
 >
 > fis所有的插件配置都支持定义一个 **数组或者逗号分隔的字符串序列** 来依次处理文件内容。
+
+<i class="anchor" id='modules'></i>
 
 ### modules.parser
 
@@ -455,6 +458,8 @@ fis.config.init({
     });
     ```
 
+<i class="anchor" id='settings'></i>
+
 ### settings
 
 * 解释：插件的运行配置节点。
@@ -662,6 +667,8 @@ fis.config.init({
 
 ## 目录规范与域名配置
 
+<i class="anchor" id='roadmap'></i>
+
 ### roadmap.path
 
 * 解释：定制项目文件属性，包括但不限于 **产出路径，访问url，资源id，默认依赖，文件类型**。
@@ -845,6 +852,8 @@ fis.config.init({
 
 ## 部署配置
 
+<i class="anchor" id='deploy'></i>
+
 ### deploy
 * 解释：设置项目的发布方式。
 * 值类型：``Object``
@@ -907,6 +916,8 @@ fis.config.init({
 * 小贴士：--dest参数支持使用逗号（,）分割多个发布配置，比如上面的例子，我们可以使用fis release --dest **remote,local,remote2** 命令在一次编译中同时发布多个目标。
 
 ## 打包配置
+
+<i class="anchor" id='pack'></i>
 
 ### pack
 * 解释：配置要打包合并的文件。

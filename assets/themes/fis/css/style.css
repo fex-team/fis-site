@@ -4,7 +4,7 @@ body {
 }
 #wrap {
   margin-top: 57px;
-  max-width: 1280px;
+  max-width: 1366px;
   margin: auto;
 }
 .sidebar {
@@ -13,6 +13,12 @@ body {
 }
 article {
   color: #454545;
+}
+article .anchor {
+  display: block;
+  position: relative;
+  top: -60px;
+  visibility: hidden;
 }
 .sidebar header {
   padding: 20px 0 10px;
