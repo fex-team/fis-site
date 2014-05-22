@@ -54,11 +54,13 @@ fis.config.init({
 * 值类型：``string``
 * 默认值：'utf8'
 * 用法：在项目的fis-conf.js里可以覆盖为
+
     ```javascript
     fis.config.set('project.charset', 'gbk');
     ```
 
     或者
+
     ```javascript
     fis.config.merge({
         project : { charset : 'gbk' }
@@ -71,11 +73,13 @@ fis.config.init({
 * 值类型：``number``
 * 默认值：7
 * 用法：在项目的fis-conf.js里可以修改为
+
     ```javascript
     fis.config.set('project.md5Length', 8);
     ```
 
     或者
+
     ```javascript
     fis.config.merge({
         project : { md5Length : 8 }
@@ -88,11 +92,13 @@ fis.config.init({
 * 值类型：``string``
 * 默认值：'_'
 * 用法：在项目的fis-conf.js里可以修改为
+
     ```javascript
     fis.config.set('project.md5Connector ', '.');
     ```
 
     或者
+
     ```javascript
     fis.config.merge({
         project : { md5Connector : '.' }
@@ -105,11 +111,13 @@ fis.config.init({
 * 值类型：``string`` | ``RegExp``
 * 默认值：无
 * 用法：在项目的fis-conf.js里可以修改为
+
     ```javascript
     fis.config.set('project.include', 'src/**');
     ```
 
     或者
+
     ```javascript
     fis.config.merge({
         project : { include : 'src/**' }
@@ -122,11 +130,13 @@ fis.config.init({
 * 值类型：``string`` | ``RegExp``
 * 默认值：无
 * 用法：在项目的fis-conf.js里可以修改为
+
     ```javascript
     fis.config.set('project.exclude', /^\/_build\//i);
     ```
 
     或者
+
     ```javascript
     fis.config.merge({
         project : { exclude : /^\/_build\//i }
@@ -140,11 +150,13 @@ fis.config.init({
 * 默认值：无
 * 说明：fis系统在编译时会对文本文件和图片类二进制文件做不同的处理，文件分类依据是后缀名。虽然内部已列出一些常见的文本文件后缀，但难保用户有其他的后缀文件，内部已列入文本文件后缀的列表为： [ **'css', 'tpl', 'js', 'php', 'txt', 'json', 'xml', 'htm', 'text', 'xhtml', 'html', 'md', 'conf', 'po', 'config', 'tmpl', 'coffee', 'less', 'sass', 'jsp', 'scss', 'manifest', 'bak', 'asp', 'tmp'** ]，用户配置会 **追加**，而非覆盖内部后缀列表。
 * 用法：编辑项目的fis-conf.js配置文件
+
     ```javascript
     fis.config.set('project.fileType.text', 'tpl, js, css');
     ```
 
     或者
+
     ```javascript
     fis.config.merge({
         project : {
@@ -162,11 +174,13 @@ fis.config.init({
 * 默认值：无
 * 说明：fis系统在编译时会对文本文件和图片类二进制文件做不同的处理，文件分类依据是后缀名。虽然内部已列出一些常见的图片类二进制文件后缀，但难保用户有其他的后缀文件，内部已列入文本文件后缀的列表为： [ **'svg', 'tif', 'tiff', 'wbmp', 'png', 'bmp', 'fax', 'gif', 'ico', 'jfif', 'jpe', 'jpeg', 'jpg', 'woff', 'cur'** ]，用户配置会 **追加**，而非覆盖内部后缀列表。
 * 用法：编辑项目的fis-conf.js配置文件
+
     ```javascript
     fis.config.set('project.fileType.image', 'swf, cur, ico');
     ```
 
     或者
+
     ```javascript
     fis.config.merge({
         project : {
@@ -228,11 +242,13 @@ fis.config.init({
 * 默认值：无
 * 说明：标准化预处理的下一个阶段就是标准化处理阶段，标准化处理阶段主要责任是 [扩展三种语言能力](https://github.com/fis-dev/fis/wiki/三种语言能力)，因此preprocessor插件可以在标准化处理之前对内容进行某些修改，比如 [fis-preprocessor-image-set](https://github.com/fouber/fis-preprocessor-image-set) 插件，用于实现对retina屏的css的image-set属性支持。
 * 用法：
+
     ```javascript
     fis.config.set('modules.preprocessor.css', 'image-set');
     ```
 
     或者
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -250,6 +266,7 @@ fis.config.init({
 * 解释：在fis对js、css和类html文件进行语言能力扩展之后调用的插件配置，可以根据 **文件后缀** 对文件进行后处理。该阶段的插件可以获取文件对象的完整requires信息。
 * 值类型：``Object``
 * 默认值：
+
     ```javascript
     { js : 'jswrapper' }
     ```
@@ -263,11 +280,13 @@ fis.config.init({
 * 默认值：无
 * 说明：fis支持在文件进行编译的过程中进行代码检查，这类插件 **不会对文件内容做任何修改**。fis模块内置没有安装任何校验插件，用户如果需要，可以自行开发，并发布到npm上。
 * 用法：
+
     ```javascript
     fis.config.set('modules.lint.js', 'jshint');
     ```
 
     或者
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -287,11 +306,13 @@ fis.config.init({
 * 默认值：无
 * 说明：fis支持在文件进行编译的过程中进行自动化测试，这类插件 **不会对文件内容做任何修改**。fis模块没有内置任何测试插件，用户如果需要，可以自行开发，并发布到npm上。
 * 用法：
+
     ```javascript
     fis.config.set('modules.test.js', 'phantomjs');
     ```
 
     或者
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -309,6 +330,7 @@ fis.config.init({
 * 解释：单文件编译过程中的最后阶段，对文件进行优化。
 * 值类型：``Object``
 * 默认值：
+
     ```javascript
     {
         js : 'uglify-js',
@@ -316,13 +338,16 @@ fis.config.init({
         png : 'png-compressor'
     }
     ```
+
 * 说明：单文件编译的最后阶段，可以对代码进行优化，通常是压缩、xss修复等工作，fis内置了3个压缩插件： [fis-optimizer-uglify-js](https://github.com/fis-dev/fis-optimizer-uglify-js)、[fis-optimizer-clean-css](https://github.com/fis-dev/fis-optimizer-clean-css)、[fis-optimizer-html-minifier](https://github.com/fis-dev/fis-optimizer-html-minifier)。
 * 用法：
+
     ```javascript
     fis.config.set('modules.optimizer.js', 'uglify-js');
     ```
 
     或者
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -342,11 +367,13 @@ fis.config.init({
 * 默认值：无
 * 说明：在fis打包操作前调用的插件， **不管调用fis release命令时是否使用 --pack 参数，该插件均会被调用**。
 * 用法：
+
     ```javascript
     fis.config.set('modules.prepackager', 'oo, xx');
     ```
 
     或者
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -364,11 +391,13 @@ fis.config.init({
 * 默认值：'map', fis内置了打包插件 ``fis-packager-map``，生成 **map.json** 文件
 * 说明：调用fis release命令时，添加 **--pack** 参数，该插件才会被调用。
 * 用法：
+
     ```javascript
     fis.config.set('modules.packager', 'your_packager');
     ```
 
     或者
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -385,11 +414,13 @@ fis.config.init({
 * 默认值：'csssprites'，fis内置了spriter插件 ``fis-spriter-csssprites``，支持自动css打包
 * 说明：调用fis release命令时，添加 **--pack** 参数，该插件才会被调用。
 * 用法：
+
     ```javascript
     fis.config.set('modules.spriter', 'your_spriter');
     ```
 
     或者
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -407,11 +438,13 @@ fis.config.init({
 * 默认值：无
 * 说明：在fis打包操作后调用的插件， **不管调用fis release命令时是否使用 --pack 参数，该插件均会被调用**。
 * 用法：
+
     ```javascript
     fis.config.set('modules.postpackager', 'your_postpackager');
     ```
 
     或者
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -429,12 +462,14 @@ fis.config.init({
 * 默认值：无
 * 说明：插件要工作，偶尔也需要配置数据，比如fis内置的[fis-optimizer-uglify-js](https://github.com/fis-dev/fis-optimizer-uglify-js/blob/master/index.js#L12)、[fis-optimizer-clean-css](https://github.com/fis-dev/fis-optimizer-clean-css/blob/master/index.js#L11)、[fis-optimizer-html-minifier](https://github.com/fis-dev/fis-optimizer-html-minifier/blob/master/index.js#L11)插件，它们的配置都是fis直接传递的，具体细节可以查看相应源码。配置节点具有很强的规律性，请参考下面的例子，小编就不一一枚举了。
 * 用法：
+
     ```javascript
     fis.config.set('settings.optimizer.uglify-js.output.max_line_len', 500);
     fis.config.set('settings.optimizer.clean-css.keepBreaks', true);
     ```
 
     或者
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -468,11 +503,13 @@ fis.config.init({
     * "template"：使用模板来定义包装结构，对template属性的设置优先级高于type属性。
     * ``wrapAll``：是否包装所有js文件。默认是false，只对标记为 ``isMod`` 的文件进行包装
 * 用法：
+
     ```javascript
     fis.config.set('settings.postprocessor.jswrapper.template', 'try{ ${content} }catch(e){e.message+="${id}";throw e;}');
     ```
 
     或者
+
     ```javascript
     fis.config.merge({
         settings : {
@@ -496,12 +533,14 @@ fis.config.init({
     * ``output``：输出控制，参看uglify-js文档 [codegen](http://lisperator.net/uglifyjs/codegen) 部分
     * ``compress``：优化参数，参看uglify-js文档 [compress](http://lisperator.net/uglifyjs/compress) 部分
 * 用法：
+
     ```javascript
     //配置字符串全部转换为ascii字符
     fis.config.set('settings.optimizer.uglify-js.output.ascii_only', true);
     ```
 
     或者
+
     ```javascript
     //配置字符串全部转换为ascii字符
     fis.config.merge({
@@ -525,12 +564,14 @@ fis.config.init({
 * 默认值：无
 * 选项：参看clean-css的 [文档](https://github.com/GoalSmashers/clean-css#how-to-use-clean-css-programmatically)
 * 用法：
+
     ```javascript
     //配置压缩css时保留换行
     fis.config.set('settings.optimizer.clean-css.keepBreaks', true);
     ```
 
     或者
+
     ```javascript
     //配置压缩css时保留换行
     fis.config.merge({
@@ -553,12 +594,14 @@ fis.config.init({
 * 选项：
     * ``type``：选择压缩器类型，默认是 'pngcrush'，可选值为 'pngquant'，pngquant会将所有 ``png24`` 的图片压缩为 ``png8``，压缩率极高，但alpha通道信息会有损失。
 * 用法：
+
     ```javascript
     //使用pngquant进行压缩，png图片压缩后均为png8
     fis.config.set('settings.optimizer.png-compressor.type', 'pngquant');
     ```
 
     或者
+
     ```javascript
     //使用pngquant进行压缩，png图片压缩后均为png8
     fis.config.merge({
@@ -578,6 +621,7 @@ fis.config.init({
 * 解释：csssprite处理运行配置，以css文件为单位，对其引用的png、gif、jpg、jpeg等图片进行csssprite合并处理。[@zhangyuanwei](https://github.com/zhangyuanwei) 同学将常用图片处理库的c++版本移植为nodejs的原生扩展，得到npm包 [node-images](https://npmjs.org/package/node-images)，fis团队在此基础上进行包装，开发出了这款十分易用的csssprite插件。
 * 值类型：``Object``
 * 默认值：
+
     ```javascript
     {
         margin       : 3,
@@ -595,12 +639,14 @@ fis.config.init({
     1. 只有 [打包的css文件](https://github.com/fis-dev/fis/wiki/%E9%85%8D%E7%BD%AEAPI#pack) 或者 [roadmap.path](https://github.com/fis-dev/fis/wiki/%E9%85%8D%E7%BD%AEAPI#roadmappath) 中 ``useSprite`` 属性标记为 ``true`` 的文件才会进行csssprite处理，因此请合理安排要进行csssprite处理的文件，尽量对合并后的文件做处理。
     1. 在css中引用图片时，只要加上 ``?__sprite`` 这个query标记就可以使用csssprite了。详情请参考fis-spriter-csssprites插件的 [使用文档](https://github.com/fis-dev/fis-spriter-csssprites#%E4%BD%BF%E7%94%A8)。
 * 用法：
+
     ```javascript
     //使用矩阵布局
     fis.config.set('settings.spriter.csssprites.layout', 'matrix');
     ```
 
     或者
+
     ```javascript
     //使用矩阵布局
     fis.config.merge({
@@ -744,6 +790,7 @@ fis.config.init({
 * 说明：fis扩展了html、js、css的[三种语言能力](https://github.com/fis-dev/fis/wiki/三种语言能力)，并支持对资源的定位，定位包括 **开发路径与发布路径的映射关系** 以及 **静态资源服务器域名设置**。roadmap.domain节点就是用于控制该能力的配置。
 * 注意：domain的值如果不是特殊需要，请 **不要以"/"结尾**。
 * 用法：
+
     ```javascript
     //fis-conf.js
     //用法一
@@ -778,6 +825,7 @@ fis.config.init({
 * 默认值：无
 * 说明：由于使用配置roadmap.domain.ext方式来配置图片资源太麻烦，fis提供了image字段，对于符合 [project.fileType.image](https://github.com/fis-dev/fis/wiki/%E9%85%8D%E7%BD%AEAPI#projectfiletypeimage) 规则的文件，设置相应domain配置。
 * 用法：
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -803,6 +851,7 @@ fis.config.init({
 * 默认值：无
 * 说明：当使用 fis release 命令时，参数 **--dest &lt;name&gt;** 可以指定项目发布配置。deploy配置是一个key-value的object对象，--dest参数的值如果与配置的key相同，则执行该配置的部署设置。fis支持使用post请求向http服务器发送文件，服务器端可以使用php、java等后端逻辑进行接收，[fis-command-release](https://github.com/fis-dev/fis-command-release)插件中提供了一个这样的 [php版示例](https://github.com/fis-dev/fis-command-release/blob/master/tools/receiver.php)，用户可以直接部署此文件于接收端服务器上。
 * 用法：
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -865,6 +914,7 @@ fis.config.init({
 * 默认值：无
 * 说明：fis内置的 [打包策略](https://github.com/fis-dev/fis/wiki/运行原理#----1) 与传统的打包概念不同，fis的打包实际上是在建立一个资源表，并将其描述并产出为一份map.json文件，用户应该围绕着这份描述文件来设计前后端运行框架，从而实现运行时判断打包输出策略的架构。
 * 用法：
+
     ```javascript
     //fis-conf.js
     fis.config.merge({
@@ -880,6 +930,7 @@ fis.config.init({
     ```
 
 * 输出结果：使用命令 fis release **--pack** --md5 --dest ./output 编译项目，然后到output目录下查看产出的map.json内容得到：
+
     ```json
     {
         "res": {
