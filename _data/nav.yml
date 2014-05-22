@@ -10,26 +10,21 @@
   type: sub
 
 - title: 资源合并
-  url: /index.html
   type: sub
 
 - title: 进阶使用
   type: category
 
 - title: 目录定制
-  url: /index.html
   type: sub
 
 - title: 前端模块化
-  url: /index.html
   type: sub
 
-- title: 接入后端
-  url: /index.html
+- title: 后端接入
   type: sub
 
 - title: 查看更多
-  url: /index.html
   type: sub
 
 #- title: API
@@ -97,32 +92,25 @@
   type: category
 
 - title: fis.cli
-  url: /index.html
   type: sub
 
 - title: fis.file
-  url: /index.html
   type: sub
 
 - title: fis.config
-  url: /index.html
   type: sub
 
 - title: fis.compile
-  url: /index.html
   type: sub
 
 - title: 插件
   type: category
 
 - title: 插件列表
-  url: /index.html
   type: sub
 
 - title: 定制自己的插件
-  url: /index.html
   type: sub
 
 - title: FAQ
-  url: /index.html
   type: category
