@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 功能配置- F.I.S
+title: 命令行- F.I.S
 category: api
 ---
 

@@ -120,8 +120,21 @@ article .anchor {
   width: 25%;
   float: left;
 }
-pre code {
+code {
+  margin: 0;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
   border-radius: 3px;
+  padding: 0;
+}
+code:before,
+code:after {
+  content: "\00a0";
+  letter-spacing: -0.2em;
+}
+pre code:before,
+pre code:after {
+  content: "";
 }
 ::selection {
   color: #fff;
@@ -144,6 +157,7 @@ pre code {
 .container {
   padding: 10px 25px;
   background-color: #fffefe;
+  max-width: 870px;
 }
 .container .title {
   text-align: center;
