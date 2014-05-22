@@ -73,7 +73,7 @@
     $(document).ready(function(){
 //        fixNavHeight();
 //        $(window).resize(fixNavHeight);
-        $(".side a").each(function(index,ele){
+        $(".side a,.nav-items a").each(function(index,ele){
             if ($(ele).attr('href').indexOf('/') == 0){
                 $(ele).attr('href',"{{ BASE_PATH }}"+$(ele).attr('href'));
             }
