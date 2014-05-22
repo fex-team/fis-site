@@ -6,28 +6,28 @@
   type: sub
 
 - title: 资源压缩
-  url: /docs/beginning/getting-started.html#toc_2
-  type: sub
-
-- title: 插件配置
+  url: /docs/beginning/getting-started.html#optimize
   type: sub
 
 - title: 资源合并
   type: sub
 
-- title: 进阶使用
+- title: 进阶教程
   type: category
 
-- title: 目录定制
+- title: 项目部署
   type: sub
 
 - title: 前端模块化
   type: sub
 
-- title: 后端接入
+- title: 二次开发
+  type: category
+
+- title: 插件开发
   type: sub
 
-- title: 查看更多
+- title: 解决方案封装
   type: sub
 
 #- title: API
@@ -41,7 +41,7 @@
 #  url: /index.html
 #  type: sub
 #
-#- title: 插件开发
+#- title: 插件API
 #  url: /index.html
 #  type: sub
 
@@ -106,14 +106,8 @@
 - title: fis.compile
   type: sub
 
-- title: 插件
-  type: category
-
 - title: 插件列表
-  type: sub
-
-- title: 定制自己的插件
-  type: sub
+  type: category
 
 - title: FAQ
   type: category

@@ -78,6 +78,11 @@
                 $(ele).attr('href',"{{ BASE_PATH }}"+$(ele).attr('href'));
             }
         });
+        $("a").each(function(index,ele){
+            if ($(ele).attr('href').indexOf('{{ BASE_PATH }}/') !== 0){
+                $(ele).attr('target','_blank');
+            }
+        });
     });
 </script>
 </body>

@@ -4,6 +4,8 @@ title: 配置API- F.I.S
 category: api
 ---
 
+# 配置API
+
 ## 零配置
 
 不使用任何配置，fis将支持：
