@@ -38,6 +38,8 @@
     <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
     <script src="{{ ASSET_PATH }}/js/jquery.min.js"></script>
+    <script src="{{ ASSET_PATH }}/js/scrollspy.js"></script>
+    <script src="{{ ASSET_PATH }}/js/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -62,28 +64,5 @@
 
 <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ ASSET_PATH }}/js/highlight.pack.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-
-//    function fixNavHeight(){
-//        var height = $(document).height(), width = $(window).width();
-//        $(".sidebar").css({"min-height": width > 760 ? height + 60 : 100})
-//    }
-    $(document).ready(function(){
-//        fixNavHeight();
-//        $(window).resize(fixNavHeight);
-        $(".sidebar a,.nav-items a").each(function(index,ele){
-            if ($(ele).attr('href').indexOf('/') == 0){
-                $(ele).attr('href',"{{ BASE_PATH }}"+$(ele).attr('href'));
-            }
-        });
-        $("a").each(function(index,ele){
-            if ($(ele).attr('href').indexOf('{{ BASE_PATH }}/') !== 0){
-                $(ele).attr('target','_blank');
-            }
-        });
-    });
-</script>
 </body>
 </html>
