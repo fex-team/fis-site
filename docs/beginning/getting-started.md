@@ -52,7 +52,12 @@ $ lights install fis-quickstart-demo
 
     再次查看一下网站的静态资源统计 ```15 requests|146KB transferred``` ，可以发现静态资源已经被压缩。
 
+    细心的朋友可能还会发现，index.html中原本使用相对路径对资源定位，在我们的构建产出中已经全部修改为了绝对路径，这是因为FIS构建工具内置了[三种语言能力](/docs/advance/fis-standard.html)，如果只希望对静态资源进行压缩，不希望对路径进行调整，可以通过[配置文件](https://gist.github.com/hefangshi/a7bee8a1b29f3f85f1a0)关闭标准化处理功能。
+
+
 1. 继续改变参数，添加md5戳参数
+
+   由于添加md5戳功能依赖FIS的三种语言能力的扩展，因此如果通过配置关闭了标准化处理功能，需要 **删除** ```fis-conf.js``` 文件。
 
     ```
     $ fis release --optimize --md5

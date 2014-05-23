@@ -209,6 +209,15 @@ pre code:after {
 article {
   line-height: 1.7;
 }
+article blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+  margin: 0;
+}
+article img {
+  max-width: 100%;
+}
 article a,
 article a:visited {
   color: #ff4400;

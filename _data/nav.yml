@@ -34,6 +34,9 @@
 - title: 解决方案封装
   type: sub
 
+- title: 更多文档
+  url: /docs/advance/more.html
+  type: sub
 #- title: API
 #  type: category
 #
