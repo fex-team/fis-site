@@ -81,27 +81,27 @@ article .anchor {
   box-sizing: border-box;
 }
 .navbar .nav-v,
-.navbar .nav-brand,
+.navbar .logo,
 .navbar .nav-item {
   text-align: center;
   padding: 20px;
-  color: #333333;
+  color: #888;
   box-sizing: border-box;
   line-height: 16px;
 }
 .navbar .nav-v:hover,
-.navbar .nav-brand:hover,
+.navbar .logo:hover,
 .navbar .nav-item:hover {
-  background-color: #ef4036;
-  color: #ffffff;
+  color: #444;
   transition: all 300ms ease-out 0s;
 }
-.navbar .nav-brand {
+.navbar .logo {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
   width: 41.6667%;
   float: left;
+  color: rgb(0, 102, 129);
   font-weight: bold;
   font-style: normal;
 }
