@@ -12,6 +12,10 @@
 - title: 资源合并
   type: sub
 
+- title: 命令行
+  url: /docs/api/cli.html
+  type: sub
+
 - title: 进阶教程
   type: category
 
@@ -44,21 +48,6 @@
 #- title: 插件API
 #  url: /index.html
 #  type: sub
-
-- title: 命令行
-  type: category
-
-- title: fis install
-  url: /docs/api/cli.html#
-  type: sub
-
-- title: fis release
-  url: /docs/api/cli.html#release
-  type: sub
-
-- title: fis server
-  url: /docs/api/cli.html#server
-  type: sub
 
 - title: 配置API
   type: category

@@ -22,7 +22,7 @@ $ npm install -g fis
 
 ## 资源压缩
 
-在使用FIS进行前端性能优化前，我们需要准备一个前端示例项目，可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
+在使用FIS进行前端项目资源压缩、优化性能前，我们需要准备一个前端示例项目，可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
 
 ```
 $ npm install -g lights

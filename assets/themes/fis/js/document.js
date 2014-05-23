@@ -43,6 +43,11 @@
         }
     }
 
+    function fixAffixPosition(){
+        var docRight = $(window).width()- ($(".doc-content").position().left+$(".doc-content").width()+250);
+        $(".toc").css('right', docRight);
+    }
+
     $(document).ready(function(){
         //初始化高亮差距
         $('pre code').each(function(i, block) {
@@ -69,6 +74,8 @@
                 }
             });
         });
+        fixAffixPosition();
+        $(window).resize(fixAffixPosition);
     });
 })();
 
