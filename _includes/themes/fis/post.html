@@ -8,7 +8,7 @@
         //初始化高亮差距
         hljs.initHighlightingOnLoad();
         //修复绝对路径
-        $(".sidebar a,.nav-items a").each(function(index,ele){
+        $(".sidebar a,.nav-items a,.doc-content a").each(function(index,ele){
             if ($(ele).attr('href').indexOf('/') === 0){
                 $(ele).attr('href',"{{ BASE_PATH }}"+$(ele).attr('href'));
             }
