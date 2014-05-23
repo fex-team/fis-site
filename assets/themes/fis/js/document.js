@@ -59,17 +59,13 @@
             var top = i === 0 ? 0: me.position().top - 60;
             var next = me.nextUntil(me[0].tagName).last().next();
             var end = next.length === 0 ? $(document).height() : me.nextUntil(me[0].tagName).last().next().position().top - 60;
-            console.log('set', me.attr('data-id'));
-            console.log('min: ' + top + ' / max: ' + end);
             me.scrollspy({
                 min: top,
                 max: end,
                 onEnter: function(element, position) {
-                    if(console) console.log('entering ' +   $(element).attr('data-id'));
                     $(".toc a[href='#" + $(element).attr('data-id') + "']").parent('li').addClass('active');
                 },
                 onLeave: function(element, position) {
-                    if(console) console.log('leaving ' +   $(element).attr('data-id'));
                     $(".toc a[href='#" + $(element).attr('data-id') + "']").parent('li').removeClass('active');
                 }
             });
