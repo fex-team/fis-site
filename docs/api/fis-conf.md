@@ -49,9 +49,9 @@ fis.config.init({
     }
 });
 ```
-## 项目配置
-
 <i class="anchor" id='project'></i>
+
+## 项目配置
 
 ### charset
 
@@ -196,13 +196,13 @@ fis.config.init({
     });
     ```
 
+<i class="anchor" id='modules'></i>
+
 ## 插件配置
 
 > fis系统有非常灵活的插件扩展能力，详细内容请参看 [运行原理](https://github.com/fis-dev/fis/wiki/运行原理)，[插件调用机制](https://github.com/fis-dev/fis/wiki/插件调用机制)，[插件扩展点列表](https://github.com/fis-dev/fis/wiki/插件扩展点列表)等文档。
 >
 > fis所有的插件配置都支持定义一个 **数组或者逗号分隔的字符串序列** 来依次处理文件内容。
-
-<i class="anchor" id='modules'></i>
 
 ### parser
 
