@@ -6,22 +6,26 @@
 <meta charset="utf-8">
 <title>FIS</title>
 <link rel="stylesheet" type="text/css" href="assets/css/index.css" media="all">
-<link rel="stylesheet" type="text/css" href="assets/css/jquery.fullPage.css" media="all">
+<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 
 <body>
 <nav>
 	<section>
-	<a href="#"><div class="nav-brand">F.I.S - 前端工具框架</div></a>
+	<a href="/fis-site/index.html"><div class="logo"><i class="fa fa-cogs"></i> F.I.S - 前端工具框架</div></a>
 	
 	<div class="nav-items">
-		<a href="#"><div class="nav-item">首页</div></a>
-		<a href="docs/beginning/getting-started.html"><div class="nav-item">使用文档</div></a>
-		<a href="#"><div class="nav-item">下载安装</div></a>
-		<a href="#contact"><div class="nav-item">联系我们</div></a>
+		<a href="#download-sec"><div class="nav-item">下载安装</div></a>
+		<a href="#"><div class="nav-item">使用文档</div></a>
+		<a href="#"><div class="nav-item">Blog</div></a>
+		<a target="_blank" href="http://fex.baidu.com"><div class="nav-item">FEX官网</div></a>
 	</div>
 	</section>
 </nav>
+
+<!-- fork on github -->
+<div id="forkongithub"><a target="_blank" href="https://github.com/fex-team/fis-plus">Github</a></div>
 
 <div id="fullpage">
 
@@ -40,8 +44,13 @@
 			<br>
 			<img src="assets/images/slogan.png" />
 			<p>
-				<br><br><br>
-				<a class="button-call-white" href="#about">了解更多</a>
+				<div id="command">
+					<span>fis  install</span>
+					<span>fis   release</span> 
+					<span>fis   server</span>
+				</div>
+				<a class="button-call-white" href="#about-sec">了解更多</a>
+				<a class="button-call-white" href="#download-sec">安装使用</a>
 			</p>
 		</div>
 
@@ -57,18 +66,18 @@
 	
 	<div class="wrap clearfix">
 		<div class="title">	
-			<img class="imgcenter levitate" src="assets/images/about-i2.png" alt="Our Work">
+			<div class="circle"><i class="fa fa-list-ul fa-2x green"></i></div>
 			<span>FIS能做什么</span>
 		</div>	
 
 		<div class="about-vid-left">
-			<h5>功能介绍</h5>
+			<h5><i class="fa fa-book"></i>  功能介绍</h5>
 			<p>
-				FIS是一个专为解决前端开发中有关自动化工具、性能优化、模块化框架、开发规范、代码部署、开发流程等问题的工具框架。<br><br>
+				FIS是专为解决前端开发中自动化工具、性能优化、模块化框架、开发规范、代码部署、开发流程等问题的工具框架。<br><br>
 				专注于前端构建，无需进行任何配置轻松应付常见需求。
 			</p>
 			<ul>
-			<li><img class="imgcenter hovv" src="assets/images/web.png">
+			<li><img class="imgcenter hovv" src="assets/images/uxui.png">
 				<p>跨平台</p>
 			</li>
 			<li><img class="imgcenter hovv" src="assets/images/brand.png">
@@ -80,7 +89,7 @@
 			<li><img class="imgcenter hovv" src="assets/images/print.png">
 				<p>灵活扩展</p>
 			</li>
-			<li><img class="rott imgcenter hovv" src="assets/images/_con.png">
+			<li><img class="rott imgcenter hovv" src="assets/images/web.png">
 				<p>本地调试</p>
 			</li>			
 			<li><img class="imgcenter hovv" src="assets/images/mo.png">
@@ -91,13 +100,13 @@
 
 		<div class="about-vid-right">
 			<h6 class="mobile"></h6>
-			<h5>视频演示</h5>
+			<h5><i class="fa fa-video-camera"></i>  视频演示</h5>
 			<p>
 				FIS使用简单，上手容易，轻松解决前端开发常见问题。
 			</p>
 			<br><br>
 			<div class="flex-video vimeo">
-				<iframe src="http://player.youku.com/player.php/Type/Folder/Fid/22254265/Ob/1/sid/XNzE0Nzc0OTQ0/v.swf" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" height="200" width="356">
+				<iframe src="http://player.youku.com/player.php/sid/XNjA3NzQzNDY0/v.swf" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" height="200" width="356">
 				</iframe>
 			</div>
 		</div>
@@ -106,12 +115,33 @@
 <!-- 第二屏 功能介绍 end-->
 
 
+<!-- 第三屏 安装使用 start-->
+<div id="download" class="section">
+	
+	<div class="wrap clearfix">
+		<div class="title">	
+			<div class="circle"><i class="fa fa-download  fa-2x blue"></i></div>
+			<span>下载安装</span>
+		</div>	
+
+		<div class="code_wrap">
+			<div class="code">npm install -g fis</div>
+			<span>安装环境: <a target="_blank" href="http://nodejs.org/">node.js</a>、<a target="_blank"  href="https://www.npmjs.org/">npm</a></span>
+		</div>
+
+		<a class="get-started" href="#">查看详细</a>
+
+	</div>
+</div>
+<!-- 第三屏 安装使用 end-->
+
 <!-- 第四屏 使用指南 start-->
 <div id="guider" class="section">
 	<div class="wrap clearfix">
 		<div class="title">	
-			<img class="imgcenter lev" src="assets/images/work-i2.png" alt="Our Work">
-		</div>
+			<div class="circle"><i class="fa fa-empire fa-2x"></i></div>
+			<span>使用FIS</span>
+		</div>	
 		<div class="main-holder">
 			<!-- 进度条-->
 			<div class="timeline-container" style="margin-top:50px;">
@@ -145,102 +175,72 @@
 		      </div>
 		    </div>
 
-			<a href="http://wearemovingthings.com/tao-po/" alt="Tao Po!">
-				<div class="work-item">				
-					<div class="view effect">
-						<img src="assets/images/taopo_cover.png" class="attachment-homey wp-post-image" alt="文件合并" height="300" width="400">
-					<div class="mask">  
-						<br>
-						<h5>文件合并</h5>开发必杀技之一		
-					</div>  
-					</div>
+		    <div id="destination">
+				<a href="#" alt="" data-id="level_1">
+					<div class="work-item">				
+						<div class="view effect  grid-green">
+							<i class="fa fa-copy"></i> 
+							<div class="mask">  
+								<br>
+								<h5>文件合并</h5>开发必杀技之一		
+							</div>  
+						</div>
 
-				</div>
-			</a>
-			<a href="http://wearemovingthings.com/tao-po/" alt="Tao Po!">
-				<div class="work-item">				
-					<div class="view effect">
-						<img src="assets/images/taopo_cover.png" class="attachment-homey wp-post-image" alt="文件合并" height="300" width="400">
-					<div class="mask">  
-						<br>
-						<h5>文件合并</h5>开发必杀技之一		
-					</div>  
 					</div>
+				</a>
 
-				</div>
-			</a>
-			<a href="http://wearemovingthings.com/tao-po/" alt="Tao Po!">
-				<div class="work-item">				
-					<div class="view effect">
-						<img src="assets/images/taopo_cover.png" class="attachment-homey wp-post-image" alt="文件合并" height="300" width="400">
-					<div class="mask">  
-						<br>
-						<h5>文件合并</h5>开发必杀技之一		
-					</div>  
+				<a href="#" alt="" data-id="level_1">
+					<div class="work-item">				
+						<div class="view effect  grid-blue">
+							<i class="fa">MD5</i> 
+							<div class="mask">  
+								<br>
+								<h5>添加MD5戳</h5>开发必杀技之二		
+							</div>  
+						</div>
+
 					</div>
+				</a>
 
-				</div>
-			</a>
-			<a href="http://wearemovingthings.com/tao-po/" alt="Tao Po!">
-				<div class="work-item">				
-					<div class="view effect">
-						<img src="assets/images/taopo_cover.png" class="attachment-homey wp-post-image" alt="文件合并" height="300" width="400">
-					<div class="mask">  
-						<br>
-						<h5>文件合并</h5>开发必杀技之一		
-					</div>  
+				<a href="#" alt="" data-id="level_1">
+					<div class="work-item">				
+						<div class="view effect  grid-orange">
+							<i class="fa fa-cube"></i> 
+							<div class="mask">  
+								<br>
+								<h5>资源压缩</h5>开发必杀技之三		
+							</div>  
+						</div>
+
 					</div>
+				</a>
 
-				</div>
-			</a>
-			<a href="http://wearemovingthings.com/tao-po/" alt="Tao Po!">
-				<div class="work-item">				
-					<div class="view effect">
-						<img src="assets/images/taopo_cover.png" class="attachment-homey wp-post-image" alt="文件合并" height="300" width="400">
-					<div class="mask">  
-						<br>
-						<h5>文件合并</h5>开发必杀技之一		
-					</div>  
+				<a href="#" alt="" data-id="level_1">
+					<div class="work-item">				
+						<div class="view effect  grid-red">
+							<i class="fa fa-gavel"></i> 
+							<div class="mask">  
+								<br>
+								<h5>使用插件</h5>开发必杀技之四		
+							</div>  
+						</div>
+
 					</div>
+				</a>
 
-				</div>
-			</a>
-			<a href="http://wearemovingthings.com/tao-po/" alt="Tao Po!">
-				<div class="work-item">				
-					<div class="view effect">
-						<img src="assets/images/taopo_cover.png" class="attachment-homey wp-post-image" alt="文件合并" height="300" width="400">
-					<div class="mask">  
-						<br>
-						<h5>文件合并</h5>开发必杀技之一		
-					</div>  
+				<a href="#" alt="" data-id="level_1">
+					<div class="work-item">				
+						<div class="view effect  grid-5">
+							<i class="fa fa-file-code-o"></i> 
+							<div class="mask">  
+								<br>
+								<h5>文件合并</h5>开发必杀技之一		
+							</div>  
+						</div>
+
 					</div>
-
-				</div>
-			</a>
-			<a href="http://wearemovingthings.com/tao-po/" alt="Tao Po!">
-				<div class="work-item">				
-					<div class="view effect">
-						<img src="assets/images/taopo_cover.png" class="attachment-homey wp-post-image" alt="文件合并" height="300" width="400">
-					<div class="mask">  
-						<br>
-						<h5>文件合并</h5>开发必杀技之一		
-					</div>  
-					</div>
-
-				</div>
-			</a>
-			<a href="http://wearemovingthings.com/tao-po/" alt="Tao Po!">
-				<div class="work-item">				
-					<div class="view effect">
-						<img src="assets/images/taopo_cover.png" class="attachment-homey wp-post-image" alt="文件合并" height="300" width="400">
-					<div class="mask">  
-						<br>
-						<h5>文件合并</h5>开发必杀技之一		
-					</div>  
-					</div>
-
-				</div>
-			</a>											
+				</a>
+			</div>											
 		</div>
 	</div>
 </div>
@@ -250,40 +250,33 @@
 	<footer>
 	<h6 class="quarter"></h6>
 	<div class="footer-one">
-		<h5>Let's Talk</h5>
+		<h5>社区</h5>
 		<hr>
-		<p>We like to create things with fun, like-minded people. Feel free to say hello!
-			<br><br><a class="view-more" style="color: rgb(239, 64, 54);" href="mailto:hello%20@%20wearemovingthings.com">hello @ wearemovingthings.com</a>
+		<p>
+			Copyright © 2014.FE@Baidu<br/>
+			Hi群：1383676 <br/>
+			QQ群：315973236<br/>
 		</p>
 		<h6 class="quarter"></h6>
 	</div>
 
 	<div class="footer-one">
-		<h5>Connect with us</h5>
+		<h5>友情链接</h5>
 		<hr>
 		<ul>
-		<li><a href="http://facebook.com/wearemovingthings">Facebook</a></li>
-		<li><a href="http://twitter.com/moving_things">Twitter</a></li>
+			<li><a href="http://fex.baidu.com">Fex</a></li>
+			<li><a href="http://hunter.baidu.com">Hunter</a></li>
+			<li><a href="http://ueditor.baidu.com">Ueditor</a></li>
+			<li><a href="http://gmu.baidu.com">Gmu</a></li>
+			<li><a href="http://dp.baidu.com">Dp</a></li>
+			<li><a href="http://gmuteam.github.io/webuploader/">Web Uploader</a></li>
 		</ul>
 	</div>
 
 	<div class="footer-two">
-		<h5>From our Blog</h5>
+		<h5>捐助我们</h5>
 		<hr>
-		<ul>
-									 	
-			<li><a href="http://wearemovingthings.com/blog/moving-things-x-newlyweds/" alt="Moving Things x Newlyweds">Moving Things x Newlyweds</a>
-			</li>
 		
-				
-						 	
-			<li><a href="http://wearemovingthings.com/blog/we-are-one/" alt="We are one!">We are one!</a>
-			</li>
-		
-				
-						<li><a class="view-more" href="http://wearemovingthings.com/blog/" style="color: rgb(239, 64, 54);">View More on the Moving Blog</a></li>
-		<h6 class="mobile"></h6>
-		</ul>
 
 	</div>
 	</footer>
@@ -293,18 +286,25 @@
 
 </div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery-ui.min.js"></script>		
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>		
 <script type="text/javascript" src="assets/js/jquery.fullPage.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.quicksand.js"></script>
+
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.fullPage.css" media="all">
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#fullpage').fullpage({
 			'verticalCentered': false,
 			'css3': true,
+			'anchors':['FIS', 'about-sec','download-sec','guider-sec','contact-sec'],
+			'scrollingSpeed': 300,
 			'navigation': true,
 			'navigationPosition': 'right',
-			'navigationTooltips': ['fullPage.js', 'Powerful', 'Amazing', 'Simple']
+			'navigationTooltips': ['FIS介绍','能做什么', '下载安装', '使用文档', '联系我们']
 		});
+
+
 	});
 </script>
 
