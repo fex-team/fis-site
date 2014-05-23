@@ -84,7 +84,7 @@ article .anchor {
   font-weight: bold;
   color: #006681;
   line-height: 16px;
-  text-align: center;
+  text-align: left;
 }
 .navbar section:before,
 .navbar section:after {
