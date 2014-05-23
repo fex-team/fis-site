@@ -15,9 +15,8 @@ body {
 }
 
 #wrap {
-  margin-top: 57px;
   max-width: 1366px;
-  margin: auto;
+  margin: 57px auto 0 auto;
 }
 
 .sidebar {
@@ -88,10 +87,25 @@ article {
 
   section {
     width: 100%;
-    margin: 0px auto;
-    max-width: 1140px;
+    margin: 0px 100px;
     box-sizing: border-box;
+
+    .logo{
+      font-size: 18px;
+      position: relative;
+      padding: 20px;
+      padding-left: 0.9375em;
+      padding-right: 0.9375em;
+      width: 41.6667%;
+      float: left;
+      font-weight: bold;
+      color: rgb(0, 102, 129);
+      line-height: 16px;
+      text-align: center;
+    }
   }
+
+
 
   section:before, section:after {
     content: " ";
@@ -124,15 +138,33 @@ article {
     position: relative;
     padding-left: 0.9375em;
     padding-right: 0.9375em;
-    width: 58.3333%;
+    width: 45.3333%;
     float: left;
     box-sizing: border-box;
   }
   .nav-item {
     position: relative;
+    padding: 20px;
     padding-left: 0.9375em;
     padding-right: 0.9375em;
-    width: 25%; float: left;
+    width: 25%;
+    float: left;
+    text-align: center;
+    color: #999;
+  }
+}
+
+#forkongithub {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 20000;
+  a {
+    display: block;
+    width: 149px;
+    height: 149px;
+    text-indent: -100000px;
+    background: url(../../../images/ForkMeOnGithub.png) no-repeat;
   }
 }
 

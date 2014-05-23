@@ -29,7 +29,7 @@ $ npm install -g lights
 $ lights install fis-quickstart-demo
 ```
 
-我们可以看到这个简单的项目拥有若干资源文件和一个HTML页面，不包含任何构建相关的配置文件，那么接下来我们试试如何使用FIS来对这个简单的项目进行优化：
+我们可以看到这个简单的项目拥有若干资源文件和一个HTML页面，那么接下来我们试试如何使用FIS来对这个简单的项目进行优化：
 
 1. 首先我们可以通过 ```fis server start``` 命令启动FIS的本地调试服务器功能对构建发布的项目进行预览调试
 
@@ -44,7 +44,7 @@ $ lights install fis-quickstart-demo
     我们可以利用浏览器的开发者工具查看一下网站的静态资源统计 ```15 requests|399KB transferred```
 
 
-1. 我们再调整一下 ```fis release``` 的参数，使用FIS对项目进行优化
+1. 使用FIS对示例项目进行资源压缩
 
     ```
     $ fis release --optimize
@@ -52,18 +52,19 @@ $ lights install fis-quickstart-demo
 
     再次查看一下网站的静态资源统计 ```15 requests|146KB transferred``` ，可以发现静态资源已经被压缩。
 
-    细心的朋友可能还会发现，index.html中原本使用相对路径对资源定位，在我们的构建产出中已经全部修改为了绝对路径，这是因为FIS构建工具内置了[三种语言能力](/docs/advance/fis-standard.html)，如果只希望对静态资源进行压缩，不希望对路径进行调整，可以通过[配置文件](https://gist.github.com/hefangshi/a7bee8a1b29f3f85f1a0)关闭标准化处理功能。
+细心的朋友可能还会发现，index.html中原本使用相对路径对资源定位，在我们的构建产出中已经全部修改为了绝对路径，这是因为FIS构建工具内置了[三种语言能力](/docs/advance/fis-standard.html)，其中资源定位功能会将所有路径引用调整为绝对路径，如果只希望对静态资源进行压缩，不希望对路径进行调整，可以通过[配置文件](https://gist.github.com/hefangshi/a7bee8a1b29f3f85f1a0)关闭标准化处理功能。
 
+## 静态资源添加md5戳
 
-1. 继续改变参数，添加md5戳参数
+使用FIS为静态资源添加md5戳，我们可以实现与添加[时间戳](http://to.how.add.timestamp)一样的静态资源缓存管理能力。但是md5戳比时间戳在版本管理和发布部署上都有更多的优势，点击[了解更多](http://to.why.md5)。
 
-   由于添加md5戳功能依赖FIS的三种语言能力的扩展，因此如果通过配置关闭了标准化处理功能，需要 **删除** ```fis-conf.js``` 文件。
+由于添加md5戳功能依赖FIS的三种语言能力的扩展，因此如果在上面的例子中通过配置关闭了标准化处理功能，需要**删除**相应配置。
 
-    ```
-    $ fis release --optimize --md5
-    ```
+```
+$ fis release --optimize --md5
+```
 
-    查看一下源代码，可以看到所有静态资源引用都被设置了md5戳，通过md5戳，我们可以实现与添加[时间戳](http://to.how.add.timestamp)一样的静态资源缓存管理能力。但是md5戳比时间戳在版本管理和发布部署上都有更多的优势，点击[了解更多](http://to.why.md5)。
+查看一下源代码，可以看到所有静态资源引用都被设置了md5戳。
 
 值得注意的是我们上面的操作均是[零配置](/docs/api/fis-conf.html)，并未像其他构建工具一样必须先添加配置才能进行优化工作，这就是FIS对前端项目构建的理解能力，通过指定简单的参数，就可以完成传统前端项目的性能优化工作。
 
