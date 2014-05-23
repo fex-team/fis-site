@@ -16,7 +16,7 @@ body {
 
 #wrap {
   max-width: 1366px;
-  margin: 57px auto 0 auto;
+  margin: 0 auto;
 }
 
 .sidebar {
@@ -74,6 +74,7 @@ article {
 }
 
 .navbar {
+  display: none;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid #e5e5e5;
@@ -155,6 +156,7 @@ article {
 }
 
 #forkongithub {
+  display: none;
   position: fixed;
   top: 0px;
   right: 0px;
@@ -301,6 +303,7 @@ ul {
 }
 
 .toc {
+  display: none;
   right: 150px;
   top: 80px;
   width: 220px;
@@ -357,11 +360,23 @@ ul {
   display: block;
 }
 
-.doc-content {
-  margin-right: 220px;
-}
-
 @media (min-width:761px) {
+    .navbar {
+      display: block;
+    }
+
+    .doc-content {
+      margin-right: 220px;
+    }
+
+    #forkongithub{
+      display: block;
+    }
+
+    .toc {
+      display: block;
+    }
+
     #wrap {
       margin-top: 57px;
     }
