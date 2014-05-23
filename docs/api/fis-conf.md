@@ -4,6 +4,8 @@ title: 配置API- F.I.S
 category: api
 ---
 
+# 配置API
+
 ## 零配置
 
 不使用任何配置，fis将支持：
@@ -47,9 +49,11 @@ fis.config.init({
     }
 });
 ```
+## 项目配置
+
 <i class="anchor" id='project'></i>
 
-### project.charset
+### charset
 
 * 解释：指定项目编译后产出文件的编码。
 * 值类型：``string``
@@ -68,7 +72,7 @@ fis.config.init({
     });
     ```
 
-### project.md5Length
+### md5Length
 
 * 解释：文件MD5戳长度。
 * 值类型：``number``
@@ -87,7 +91,7 @@ fis.config.init({
     });
     ```
 
-### project.md5Connector
+### md5Connector
 
 * 解释：设置md5与文件的连字符。
 * 值类型：``string``
@@ -106,7 +110,7 @@ fis.config.init({
     });
     ```
 
-### project.include
+### include
 
 * 解释：设置项目源码文件include过滤器。只有命中include的文件才被视为源码，其他文件则忽略。
 * 值类型：``string`` | ``RegExp``
@@ -125,7 +129,7 @@ fis.config.init({
     });
     ```
 
-### project.exclude
+### exclude
 
 * 解释：设置项目源码文件exclude过滤器。如果同时设置了 [project.include](https://github.com/fis-dev/fis/wiki/%E9%85%8D%E7%BD%AEAPI#projectinclude) 和 ``project.exclude`` 则表示在include所命中的文件中排除掉某些文件。
 * 值类型：``string`` | ``RegExp``
@@ -144,7 +148,7 @@ fis.config.init({
     });
     ```
 
-### project.fileType.text
+### fileType.text
 
 * 解释：追加文本文件后缀列表。
 * 值类型：``Array`` | ``string``
@@ -168,7 +172,7 @@ fis.config.init({
     });
     ```
 
-### project.fileType.image
+### fileType.image
 
 * 解释：追加图片类二进制文件后缀列表。
 * 值类型：``Array`` | ``string``
@@ -200,7 +204,7 @@ fis.config.init({
 
 <i class="anchor" id='modules'></i>
 
-### modules.parser
+### parser
 
 * 解释：配置编译器插件，可以根据 **文件后缀** 将某种语言编译成标准的js、css、html语言。
 * 值类型：``Object``
@@ -238,7 +242,7 @@ fis.config.init({
     });
     ```
 
-### modules.preprocessor
+### preprocessor
 
 * 解释：配置 标准化预处理器插件，可以根据 **文件后缀** 对文件进行预处理。
 * 值类型：``Object``
@@ -264,7 +268,7 @@ fis.config.init({
     });
     ```
 
-### modules.postprocessor
+### postprocessor
 
 * 解释：在fis对js、css和类html文件进行语言能力扩展之后调用的插件配置，可以根据 **文件后缀** 对文件进行后处理。该阶段的插件可以获取文件对象的完整requires信息。
 * 值类型：``Object``
@@ -276,7 +280,7 @@ fis.config.init({
 * 说明：标准化处理之后，fis已经完成了对前端领域语言的 [三种语言能力](https://github.com/fis-dev/fis/wiki/三种语言能力) 扩展，此时文件对象的相关信息已经获取到了，这个阶段我们可以对文件进行一些相关处理，比如amd包装等。fis内置的 [fis-postprocessor- jswrapper](https://github.com/fis-dev/fis-postprocessor-jswrapper) 插件就是在这个阶段对js进行包装的。
 * 用法：类似 [modules.preprocessor](https://github.com/fis-dev/fis/wiki/配置API#modulespreprocessor)
 
-### modules.lint
+### lint
 
 * 解释：单文件编译过程中的代码检查插件。
 * 值类型：``Object``
@@ -302,7 +306,7 @@ fis.config.init({
     });
     ```
 
-### modules.test
+### test
 
 * 解释：单文件编译过程中的自动测试插件。
 * 值类型：``Object``
@@ -328,7 +332,7 @@ fis.config.init({
     });
     ```
 
-### modules.optimizer
+### optimizer
 
 * 解释：单文件编译过程中的最后阶段，对文件进行优化。
 * 值类型：``Object``
@@ -363,7 +367,7 @@ fis.config.init({
     });
     ```
 
-### modules.prepackager
+### prepackager
 
 * 解释：打包预处理插件。
 * 值类型：``Array`` | ``string``
@@ -387,7 +391,7 @@ fis.config.init({
     });
     ```
 
-### modules.packager
+### packager
 
 * 解释：打包处理插件。
 * 值类型：``Array`` | ``string``
@@ -411,7 +415,7 @@ fis.config.init({
     });
     ```
 
-### modules.spriter
+### spriter
 * 解释：打包后处理csssprite的插件。
 * 值类型：``Array`` | ``string``
 * 默认值：'csssprites'，fis内置了spriter插件 ``fis-spriter-csssprites``，支持自动css打包
@@ -434,7 +438,7 @@ fis.config.init({
     });
     ```
 
-### modules.postpackager
+### postpackager
 
 * 解释：打包后处理插件。
 * 值类型：``Array`` | ``string``
@@ -457,6 +461,8 @@ fis.config.init({
         }
     });
     ```
+
+## 插件运行配置
 
 <i class="anchor" id='settings'></i>
 
@@ -497,7 +503,7 @@ fis.config.init({
 
 ## 内置插件运行配置
 
-### settings.postprocessor.jswrapper
+### postprocessor.jswrapper
 
 * 项目：https://github.com/fis-dev/fis-postprocessor-jswrapper
 * 解释：用于自动包装js代码的插件。
@@ -527,7 +533,7 @@ fis.config.init({
     });
     ```
 
-### settings.optimizer.uglify-js
+### optimizer.uglify-js
 
 * 项目：https://github.com/fis-dev/fis-optimizer-uglify-js
 * 解释：uglify-js压缩器配置。fis-optimizer-uglify-js 插件内置了 [uglify-js](https://github.com/mishoo/UglifyJS2) 包，并调用了它的 [minify](https://github.com/mishoo/UglifyJS2/blob/master/tools/node.js#L52) 接口，把配置选项直接传递过去。因此，fis的配置完全等价于uglify-js的minify函数所需的配置
@@ -561,7 +567,7 @@ fis.config.init({
     });
     ```
 
-### settings.optimizer.clean-css
+### optimizer.clean-css
 
 * 项目：https://github.com/fis-dev/fis-optimizer-clean-css
 * 解释：clean-css压缩器配置。fis-optimizer-clean-css 插件调用 [clean-css](https://github.com/GoalSmashers/clean-css) 的压缩接口进行压缩，fis负责把 ``settings.optimizer.clean-css`` 配置节点的数据传递给压缩器，因此，这里的配置完全等价于clean-css的运行配置。
@@ -590,7 +596,7 @@ fis.config.init({
     });
     ```
 
-### settings.optimizer.png-compressor
+### optimizer.png-compressor
 
 * 项目：https://github.com/fis-dev/fis-optimizer-png-compressor
 * 解释：png图片压缩器运行配置。fis团队将 ``pngquant`` 和 ``pngcrush`` 两个优秀的png图片压缩工具移植为nodejs的原生扩展（[node-pngcrush](https://github.com/xiangshouding/node-pngcrush)与[node-pngquant-native](https://github.com/xiangshouding/node-pngquant-native)），相比同类型工具采用进程调用的方式更高性能，压缩速度更快。
@@ -620,7 +626,7 @@ fis.config.init({
     });
     ```
 
-### settings.spriter.csssprites
+### spriter.csssprites
 
 * 项目：https://github.com/fis-dev/fis-spriter-csssprites
 * 解释：csssprite处理运行配置，以css文件为单位，对其引用的png、gif、jpg、jpeg等图片进行csssprite合并处理。[@zhangyuanwei](https://github.com/zhangyuanwei) 同学将常用图片处理库的c++版本移植为nodejs的原生扩展，得到npm包 [node-images](https://npmjs.org/package/node-images)，fis团队在此基础上进行包装，开发出了这款十分易用的csssprite插件。

@@ -4,13 +4,13 @@ title: 快速入门- F.I.S
 category: beginning
 ---
 
-## 快速上手
+# 快速入门
 
 FIS无需任何插件支持就能够满足前端项目中诸如资源压缩、加[md5戳](http://to.why.md5)、[图片base64嵌入](http://to.why.inline)等构建需求，让我们试试看。
 
-### 安装
+## 工具安装
 
-FIS使用[Node.js](http://nodejs.org/)开发，以[npm](http://npmjs.org/)包的形式发布。
+FIS使用[Node.js](http://nodejs.org/)开发，以[npm](http://npmjs.org/)包的形式发布，因此使用FIS需要先[安装Node.js](http://www.baidu.com/?isidx=1#wd=Node.js+%E5%AE%89%E8%A3%85)。
 
 ```
 $ npm install -g fis
@@ -18,28 +18,49 @@ $ npm install -g fis
 
 安装遇到困难？[点击这里](http://to.install.fail)
 
-### 试用
+<i class="anchor" id="optimize"></i>
 
-使用FIS前，我们需要准备一个前端示例项目，可以使用[lights](http://lights.baidu.com)包管理，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取
+## 资源压缩
+
+在使用FIS进行前端项目资源压缩、优化性能前，我们需要准备一个前端示例项目，可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
 
 ```
 $ npm install -g lights
 $ lights install fis-quickstart-demo
 ```
 
-我们可以看到这个简单的项目拥有若干资源文件和一个HTML页面，不包含任何构建相关的配置文件，那么接下来我们试试如何使用FIS来对这个简单的项目进行优化
+我们可以看到这个简单的项目拥有若干资源文件和一个HTML页面，不包含任何构建相关的配置文件，那么接下来我们试试如何使用FIS来对这个简单的项目进行优化：
 
-```
-$ cd fis-quickstart-demo
-$ fis release -omd ../dist #参数的含义可以通过 fis release -h 查看
-$ cd ../dist
-```
+1. 首先我们可以通过 ```fis server start``` 命令启动FIS的本地调试服务器功能对构建发布的项目进行预览调试
 
-进入dist目录我们可以看到所有静态资源均被添加md5版本戳，所有脚本资源均进行了压缩处理，同时图片也已经经过了无损压缩。如果打开index.html，你还会发现index.html中所有对这些路径的引用均以更新md5版本戳。
+    ```
+    $ cd fis-quickstart-demo
+    $ fis release #不进行任何优化重新发布一次
+    $ fis server start #如果8080端口被占用，使用-p参数设置可用的端口
+    ```
 
-这里需要注意的是我们并未像其他构建工具一样必须事先配置才能进行优化工作，这就是FIS对前端项目构建工作的理解能力，通过指定简单的参数，节约大量的人工优化操作。
+    本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080```。
 
-希望了解更多？可以看看更全面的[教程](http://to.get.started)。
+    我们可以利用浏览器的开发者工具查看一下网站的静态资源统计 ```15 requests|399KB transferred```
+
+
+1. 我们再调整一下 ```fis release``` 的参数，使用FIS对项目进行优化
+
+    ```
+    $ fis release --optimize
+    ```
+
+    再次查看一下网站的静态资源统计 ```15 requests|146KB transferred``` ，可以发现静态资源已经被压缩。
+
+1. 继续改变参数，添加md5戳参数
+
+    ```
+    $ fis release --optimize --md5
+    ```
+
+    查看一下源代码，可以看到所有静态资源引用都被设置了md5戳，通过md5戳，我们可以实现与添加[时间戳](http://to.how.add.timestamp)一样的静态资源缓存管理能力。但是md5戳比时间戳在版本管理和发布部署上都有更多的优势，点击[了解更多](http://to.why.md5)。
+
+值得注意的是我们上面的操作均是[零配置](/docs/api/fis-conf.html)，并未像其他构建工具一样必须先添加配置才能进行优化工作，这就是FIS对前端项目构建的理解能力，通过指定简单的参数，就可以完成传统前端项目的性能优化工作。
 
 ## 功能介绍
 
