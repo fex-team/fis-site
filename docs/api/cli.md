@@ -43,9 +43,9 @@ install命令被设计用来 **各种安装**，无论你是想初始化一个�
 
 少说多练，咱们先来装个小东西瞧瞧：
 
-```
-    $ fis install firstblood-demo
-    install [firstblood-demo@latest]
+```bash
+$ fis install firstblood-demo
+install [firstblood-demo@latest]
 ```
 如果你在执行命令的目录下发现了一个叫firstblood的目录，恭喜你，你已踏出前端工业化之路的第一步啦！
 
