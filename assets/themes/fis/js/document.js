@@ -49,27 +49,30 @@
     }
 
     $(document).ready(function(){
-        //初始化高亮差距
-//        $('pre code').each(function(i, block) {
-//            hljs.highlightBlock(block);
-//        });
-        renderToc(getToc($(".doc-content")), $(".toc"));
-        $(".doc-content h2, .doc-content h3").each(function(i){
-            var me = $(this);
-            var top = i === 0 ? 0: me.position().top - 60;
-            var next = me.nextUntil(me[0].tagName).last().next();
-            var end = next.length === 0 ? $(document).height() : me.nextUntil(me[0].tagName).last().next().position().top - 60;
-            me.scrollspy({
-                min: top,
-                max: end,
-                onEnter: function(element, position) {
-                    $(".toc a[href='#" + $(element).attr('data-id') + "']").parent('li').addClass('active');
-                },
-                onLeave: function(element, position) {
-                    $(".toc a[href='#" + $(element).attr('data-id') + "']").parent('li').removeClass('active');
-                }
+        function setScrollSpy(){
+            $(".doc-content h2, .doc-content h3").each(function(i){
+                var me = $(this);
+                var top = i === 0 ? 0: me.position().top - 60;
+                var next = me.nextUntil(me[0].tagName).last().next();
+                var end = next.length === 0 ? $(document).height() : me.nextUntil(me[0].tagName).last().next().position().top - 60;
+                me.scrollspy({
+                    min: top,
+                    max: end,
+                    onEnter: function(element, position) {
+                        $(".toc a[href='#" + $(element).attr('data-id') + "']").parent('li').addClass('active');
+                    },
+                    onLeave: function(element, position) {
+                        $(".toc a[href='#" + $(element).attr('data-id') + "']").parent('li').removeClass('active');
+                    }
+                });
             });
-        });
+        }
+        renderToc(getToc($(".doc-content")), $(".toc"));
+        if (respond != undefined && !respond.mediaQueriesSupported) {
+            setTimeout(setScrollSpy, 3000);
+        }else{
+            setScrollSpy();
+        }
         fixAffixPosition();
         $(window).resize(fixAffixPosition);
     });
