@@ -18,18 +18,16 @@ $ npm install -g fis
 
 安装遇到困难？[点击这里](http://to.install.fail)
 
-<i class="anchor" id="optimize"></i>
+## 示例准备
 
-## 资源压缩
-
-在使用FIS进行前端项目资源压缩、优化性能前，我们需要准备一个前端示例项目，可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
+在介绍FIS的主要功能前，需要先准备一个示例项目，我们将会围绕这个项目介绍如何利用FIS对传统Web项目进行性能优化。你可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
 
 ```
 $ npm install -g lights
 $ lights install fis-quickstart-demo
 ```
 
-我们可以看到这个简单的项目拥有若干资源文件和一个HTML页面，那么接下来我们试试如何使用FIS来对这个简单的项目进行优化：
+## 本地预览
 
 首先我们可以通过 ```fis server start``` 命令启动FIS的本地调试服务器功能对构建发布的项目进行预览调试
 
@@ -39,9 +37,13 @@ $ fis release #不进行任何优化重新发布一次
 $ fis server start #如果8080端口被占用，使用-p参数设置可用的端口
 ```
 
-本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080```。
+本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080```
 
 我们可以利用浏览器的开发者工具查看一下网站的静态资源统计 ```15 requests|399KB transferred```
+
+<i class="anchor" id="optimize"></i>
+
+## 资源压缩
 
 接下来我们可以使用FIS对示例项目进行资源压缩
 
@@ -51,7 +53,9 @@ $ fis release --optimize
 
 再次查看一下网站的静态资源统计 ```15 requests|146KB transferred``` ，可以发现静态资源已经被压缩。
 
-细心的朋友可能还会发现，index.html中原本使用相对路径对资源定位，在我们的构建产出中已经全部修改为了绝对路径，这是因为FIS构建工具内置了[三种语言能力](/docs/advance/fis-standard.html)，其中资源定位功能会将所有路径引用调整为绝对路径，如果只希望对静态资源进行压缩，不希望对路径进行调整，可以通过[配置文件](https://gist.github.com/hefangshi/a7bee8a1b29f3f85f1a0)关闭标准化处理功能。
+**注意**
+
+细心的朋友可能还会发现，index.html中原本使用相对路径对资源定位，在我们的构建产出中已经全部修改为了**绝对路径**，这是因为FIS构建工具内置了[三种语言能力](/docs/advance/fis-standard.html)，其中资源定位功能会将所有路径引用调整为绝对路径，如果只希望对静态资源进行压缩，不希望对路径进行调整，可以通过[配置文件](https://gist.github.com/hefangshi/a7bee8a1b29f3f85f1a0)关闭标准化处理功能。
 
 ## 静态资源添加md5戳
 
