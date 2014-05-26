@@ -55,13 +55,13 @@ article .anchor {
 .sidebar ul li img {
   float: right;
 }
-.navbar {
+#nav {
   display: none;
   width: 100%;
   background-color: #fff;
   opacity: 0.95;
+  border-bottom: 1px solid #ccc; 
   filter: alpha(opacity=95);
-  border-bottom: 1px solid #e5e5e5;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -70,14 +70,14 @@ article .anchor {
   font-size: 16px;
   font-family: "微软雅黑", "Helvetica", sans-serif;
 }
-.navbar section {
+#nav .nav_wrap {
   width: 100%;
   margin: 0px 100px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.navbar section .logo {
+#nav  .logo {
   font-size: 18px;
   position: relative;
   padding: 20px;
@@ -90,17 +90,17 @@ article .anchor {
   line-height: 16px;
   text-align: left;
 }
-.navbar section:before,
-.navbar section:after {
+#nav .nav_wrap:before,
+#nav .nav_wrap:after {
   content: " ";
   display: table;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.navbar .nav-v,
-.navbar .nav-brand,
-.navbar .nav-item {
+#nav .nav-v,
+#nav .nav-brand,
+#nav .nav-item {
   text-align: center;
   padding: 20px;
   color: #333333;
@@ -109,7 +109,7 @@ article .anchor {
   box-sizing: border-box;
   line-height: 16px;
 }
-.navbar .nav-brand {
+#nav .nav-brand {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -118,7 +118,7 @@ article .anchor {
   font-weight: bold;
   font-style: normal;
 }
-.navbar .nav-items {
+#nav .nav-items {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -128,7 +128,7 @@ article .anchor {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.navbar .nav-item {
+#nav .nav-item {
   position: relative;
   padding: 20px;
   padding-left: 0.9375em;
@@ -318,7 +318,7 @@ ul {
   display: block;
 }
 @media (min-width: 761px) {
-  .navbar {
+  #nav {
     display: block;
   }
   .doc-content {
@@ -358,3 +358,4 @@ ul {
     margin: 0 0 0 250px;
   }
 }
+
