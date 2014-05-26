@@ -55,13 +55,13 @@ article .anchor {
 .sidebar ul li img {
   float: right;
 }
-#nav {
+.navbar {
   display: none;
   width: 100%;
   background-color: #fff;
   opacity: 0.95;
-  border-bottom: 1px solid #ccc; 
   filter: alpha(opacity=95);
+  border-bottom: 1px solid #e5e5e5;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -70,37 +70,36 @@ article .anchor {
   font-size: 16px;
   font-family: "微软雅黑", "Helvetica", sans-serif;
 }
-#nav .nav_wrap {
-  width: 100%;
+.navbar section {
   margin: 0px 100px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#nav  .logo {
+.navbar section .logo {
   font-size: 18px;
   position: relative;
   padding: 20px;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
-  width: 39.6667%;
+  width: 41.8667%;
   float: left;
   font-weight: bold;
   color: #006681;
   line-height: 16px;
   text-align: left;
 }
-#nav .nav_wrap:before,
-#nav .nav_wrap:after {
+.navbar section:before,
+.navbar section:after {
   content: " ";
   display: table;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#nav .nav-v,
-#nav .nav-brand,
-#nav .nav-item {
+.navbar .nav-v,
+.navbar .nav-brand,
+.navbar .nav-item {
   text-align: center;
   padding: 20px;
   color: #333333;
@@ -109,7 +108,7 @@ article .anchor {
   box-sizing: border-box;
   line-height: 16px;
 }
-#nav .nav-brand {
+.navbar .nav-brand {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -118,17 +117,17 @@ article .anchor {
   font-weight: bold;
   font-style: normal;
 }
-#nav .nav-items {
+.navbar .nav-items {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
-  width: 45.3333%;
-  float: left;
+  width: 50%;
+  float: right;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#nav .nav-item {
+.navbar .nav-item {
   position: relative;
   padding: 20px;
   padding-left: 0.9375em;
@@ -159,6 +158,7 @@ code {
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 1px 3px;
+  word-wrap: normal;
 }
 .highlight code {
   display: block;
@@ -318,7 +318,7 @@ ul {
   display: block;
 }
 @media (min-width: 761px) {
-  #nav {
+  .navbar {
     display: block;
   }
   .doc-content {
@@ -358,4 +358,3 @@ ul {
     margin: 0 0 0 250px;
   }
 }
-
