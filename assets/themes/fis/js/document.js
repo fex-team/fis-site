@@ -68,7 +68,7 @@
             });
         }
         renderToc(getToc($(".doc-content")), $(".toc"));
-        if (respond != undefined && !respond.mediaQueriesSupported) {
+        if (window.respond && !window.respond.mediaQueriesSupported) {
             setTimeout(setScrollSpy, 3000);
         }else{
             setScrollSpy();
