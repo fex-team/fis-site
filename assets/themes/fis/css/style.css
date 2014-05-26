@@ -71,6 +71,8 @@ article .anchor {
 .navbar section {
   width: 100%;
   margin: 0px 100px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 .navbar section .logo {
@@ -79,7 +81,7 @@ article .anchor {
   padding: 20px;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
-  width: 41.6667%;
+  width: 39.6667%;
   float: left;
   font-weight: bold;
   color: #006681;
@@ -90,6 +92,8 @@ article .anchor {
 .navbar section:after {
   content: " ";
   display: table;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 .navbar .nav-v,
@@ -98,6 +102,8 @@ article .anchor {
   text-align: center;
   padding: 20px;
   color: #333333;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   line-height: 16px;
 }
@@ -116,6 +122,8 @@ article .anchor {
   padding-right: 0.9375em;
   width: 45.3333%;
   float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 .navbar .nav-item {
@@ -148,15 +156,6 @@ code {
   background-color: #f8f8f8;
   border-radius: 3px;
   padding: 0;
-}
-code:before,
-code:after {
-  content: "\00a0";
-  letter-spacing: -0.2em;
-}
-pre code:before,
-pre code:after {
-  content: "";
 }
 ::selection {
   color: #fff;

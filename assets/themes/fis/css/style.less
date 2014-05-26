@@ -9,6 +9,12 @@
 @super-link:#f40;
 @super-hover-link:#f10;
 
+.box-sizing(@sizing){
+  -webkit-box-sizing:	@sizing;
+  -moz-box-sizing: @sizing;
+  box-sizing: @sizing;
+}
+
 body {
     font-size:13px;
     background-color: @sidebar-color;
@@ -89,7 +95,7 @@ article {
   section {
     width: 100%;
     margin: 0px 100px;
-    box-sizing: border-box;
+    .box-sizing(border-box);
 
     .logo{
       font-size: 18px;
@@ -97,7 +103,7 @@ article {
       padding: 20px;
       padding-left: 0.9375em;
       padding-right: 0.9375em;
-      width: 41.6667%;
+      width: 39.6667%;
       float: left;
       font-weight: bold;
       color: rgb(0, 102, 129);
@@ -111,14 +117,14 @@ article {
   section:before, section:after {
     content: " ";
     display: table;
-    box-sizing: border-box;
+    .box-sizing(border-box);
   }
 
   .nav-v, .nav-brand, .nav-item {
     text-align: center;
     padding: 20px;
     color: rgb(51, 51, 51);
-    box-sizing: border-box;
+    .box-sizing(border-box);
     line-height: 16px;
   }
 //  .nav-v:hover, .nav-brand:hover, .nav-item:hover {
@@ -141,7 +147,7 @@ article {
     padding-right: 0.9375em;
     width: 45.3333%;
     float: left;
-    box-sizing: border-box;
+    .box-sizing(border-box);
   }
   .nav-item {
     position: relative;
@@ -177,15 +183,15 @@ code{
   border-radius: 3px;
   padding: 0;
 }
-
-code:before, code:after{
-  content: "\00a0";
-  letter-spacing: -0.2em;
-}
-
-pre code:before, pre code:after{
-  content: "";
-}
+//
+//code:before, code:after{
+//  content: "\00a0";
+//  letter-spacing: -0.2em;
+//}
+//
+//pre code:before, pre code:after{
+//  content: "";
+//}
 
 ::selection {
   color: #fff;
