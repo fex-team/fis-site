@@ -50,9 +50,9 @@
 
     $(document).ready(function(){
         //初始化高亮差距
-        $('pre code').each(function(i, block) {
-            hljs.highlightBlock(block);
-        });
+//        $('pre code').each(function(i, block) {
+//            hljs.highlightBlock(block);
+//        });
         renderToc(getToc($(".doc-content")), $(".toc"));
         $(".doc-content h2, .doc-content h3").each(function(i){
             var me = $(this);
