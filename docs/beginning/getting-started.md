@@ -12,7 +12,7 @@ FIS与目前流行的构建工具的不同之处在于FIS更加专注于前端�
 
 同时FIS不仅仅是配置简单，使用方便。FIS还有完善的插件系统和扩展能力满足你各式各样的需求，更赞的是FIS还支持二次包装，你可以通过对FIS进行简单的封装来打造属于你自己的开发工具。
 
-接下来让我们一起尝试一下使用FIS如何快速的对一个传统前端项目进行资源压缩、添加md5戳等实用功能。
+接下来让我们一起了解一下如何使用FIS快速的对一个传统前端项目进行资源压缩、添加md5戳、资源合并等性能优化工作。
 
 ## 工具安装
 
@@ -26,7 +26,7 @@ $ npm install -g fis
 
 ## 示例准备
 
-在介绍FIS的主要功能前，需要先准备一个示例项目，我们将会围绕这个项目介绍如何利用FIS对传统Web项目进行性能优化。你可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
+在介绍FIS的主要功能前，需要先准备一个示例项目。你可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
 
 ```
 $ npm install -g lights
