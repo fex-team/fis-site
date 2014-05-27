@@ -56,43 +56,46 @@ __inline('c.js');
 而fis的打包概念实际上是 **资源备份**。fis在打包期间最重要的生成物是 **map.json**，当使用fis release命令添加 **--pack** 参数时，会触发打包过程，此时，会根据fis-conf.js中的 **pack** 节点配置将文件进行合并，然后把合并后的打包文件相关信息记录到map.json中，并生成相应文件。所以fis的打包结果并 **不会再嵌入到某个文件内**，而是利用map.json中的数据进行运行时打包信息查询。举个栗子：
 
 1. fis-conf.js中配置:
-```javascript
-fis.config.merge({
-    pack : {
-        'aio.js' : ['a.js', 'b.js', 'c.js']
-    }
-});
-```
+
+    ```javascript
+    fis.config.merge({
+        pack : {
+            'aio.js' : ['a.js', 'b.js', 'c.js']
+        }
+    });
+    ```
+
 1. 执行命令 fis release **--pack** --dest ./output
 1. 进入output目录，查看map.json文件，得到内容：
-```json
-{
-    "res" : {
-        "a.js" : {
-            "uri" : "/a.js",
-            "type" : "js",
-            "pkg" : "p0"
+
+    ```json
+    {
+        "res" : {
+            "a.js" : {
+                "uri" : "/a.js",
+                "type" : "js",
+                "pkg" : "p0"
+            },
+            "b.js" : {
+                "uri" : "/b.js",
+                "type" : "js",
+                "pkg" : "p0"
+            },
+            "c.js" : {
+                "uri" : "/c.js",
+                "type" : "js",
+                "pkg" : "p0"
+            }
         },
-        "b.js" : {
-            "uri" : "/b.js",
-            "type" : "js",
-            "pkg" : "p0"
-        },
-        "c.js" : {
-            "uri" : "/c.js",
-            "type" : "js",
-            "pkg" : "p0"
-        }
-    },
-    "pkg" : {
-        "p0" : {
-            "uri" : "/aio.js",
-            "type" : "js",
-            "has" : ["a.js", "b.js", "c.js"]
+        "pkg" : {
+            "p0" : {
+                "uri" : "/aio.js",
+                "type" : "js",
+                "has" : ["a.js", "b.js", "c.js"]
+            }
         }
     }
-}
-```
+    ```
 1. 将map.json交给某个前端或后端框架，当运行时需要“a.js”资源的时候，该框架应该读取map.json的信息，并根据一定的策略决定是否应该返回“a.js”资源所标记的“p0”包的uri。
 
 再次强调，在fis系统内， **打包只是资源的备份**，这样做的原因有：
@@ -125,10 +128,12 @@ fis的插件也是一个npm包，利用fis.require函数来加载。当我们在
 fis插件系统巧妙的利用了nodejs的require机制来实现其扩展机制。这意味着，要想扩展fis可以有 **三种途径** ：
 
 1. 使用fis的用户，自己需要某种插件，可以在fis安装目录的 **同级**，安装自己扩展的插件。比如：
-```bash
-$ npm install -g fis
-$ npm install -g fis-parser-coffee-script
-```
+
+    ```bash
+    $ npm install -g fis
+    $ npm install -g fis-parser-coffee-script
+    ```
+    
 1. fis团队会衡量某个插件的通用性，把它放到fis的依赖里，最优先加载。目前已经内置的插件包括：
     * [fis-kernel](https://github.com/fis-dev/fis-kernel)：fis编译机制内核
     * [fis-command-release](https://github.com/fis-dev/fis-command-release)：fis release命令的提供者，处理编译过程，并提供文件监听、自动上传等功能
@@ -294,6 +299,7 @@ $ npm install -g fis-parser-coffee-script
     1. 模板引擎加载并渲染 tpl_path 所指向的模板文件，即 /template/A.tpl，并输出它的html内容
     1. 查看 A/A.tpl 资源的 **deps** 属性，发现它依赖资源 **A/A.css**
     1. 在表中查找id为 A/A.css 的资源，取得它的资源路径为 _/static/css/A_7defa41.css_，存入 **uris数组** 中，并在 **has表** 里标记已加载 A/A.css 资源，我们得到：
+    
         ```javascript
         uris = [
             '/static/css/A_7defa41.css'
@@ -303,6 +309,7 @@ $ npm install -g fis-parser-coffee-script
         };
         ```
 1. 执行 load_widget('B')，步骤与上述步骤3相同，我们得到：
+    
     ```javascript
     uris = [
         '/static/css/A_7defa41.css',
@@ -313,7 +320,9 @@ $ npm install -g fis-parser-coffee-script
         'B/B.css' : true
     };
     ```
+
 1. 执行 load_widget('C')，步骤与上述步骤3相同，我们得到：
+    
     ```javascript
     uris = [
         '/static/css/A_7defa41.css',
@@ -327,22 +336,24 @@ $ npm install -g fis-parser-coffee-script
     };
     ```
 1. 在要输出的html前面，我们读取 **uris数组** 的数据，生成静态资源外链，我们得到最终的html结果：
-```html
-<html>
-    <link href="/static/css/A_7defa41.css">
-    <link href="/static/css/B_33c5143.css">
-    <link href="/static/css/C_ba59c31.css">
-    <div>html of A</div>
-    <div>html of B</div>
-    <div>html of C</div>
-</html>
-```
+
+    ```html
+    <html>
+        <link href="/static/css/A_7defa41.css">
+        <link href="/static/css/B_33c5143.css">
+        <link href="/static/css/C_ba59c31.css">
+        <div>html of A</div>
+        <div>html of B</div>
+        <div>html of C</div>
+    </html>
+    ```
 
 看到了么！！！，我们不但可以让资源按需加载，还能全部映射到正确的md5戳哦，这全依赖fis的表生成技术！那么，基于这项技术，我们是如何处理打包的呢：
 
 ##### 打包——资源的备份读取
 
 现在，我们再来使用fis的 [pack配置项](https://github.com/fis-dev/fis/wiki/配置API#pack)，对网站的静态资源进行打包，配置文件大致为：
+
 ```javascript
 fis.config.merge({
     pack : {
@@ -408,6 +419,7 @@ fis.config.merge({
     1. 在表中查找id为 A/A.css 的资源，我们发现该资源有 **pkg属性**，表明它被 **备份** 在了一个打包文件中。
     1. 我们使用它的pkg属性值 **p0** 作为key，在pkg表里读取信息，取的这个包的资源路径为 _/static/pkg/aio_0cb4a19.css_ 存入 **uris数组** 中
     1. 将p0包的 **has** 属性所声明的资源加入到 **has表** 里我们得到：
+        
         ```javascript
         uris = [
             '/static/pkg/aio_0cb4a19.css'
@@ -421,14 +433,15 @@ fis.config.merge({
 1. 执行 ``load_widget('B')``，步骤与上述步骤3相同，但当我们要加载B/B.tpl的资源B/B.css时，发现它已经被has表标记为 **已收集**，因此跳过资源收集过程
 1. 执行 ``load_widget('C')``，结果与步骤4相同
 1. 在要输出的html前面，我们读取 **uris数组** 的数据，生成静态资源外链，我们得到最终的html结果：
-```html
-<html>
-    <link href="/static/pkg/aio_0cb4a19.css">
-    <div>html of A</div>
-    <div>html of B</div>
-    <div>html of C</div>
-</html>
-```
+    
+    ```html
+    <html>
+        <link href="/static/pkg/aio_0cb4a19.css">
+        <div>html of A</div>
+        <div>html of B</div>
+        <div>html of C</div>
+    </html>
+    ```
 
 **出现打包了有木有啊！！！**
 
@@ -441,10 +454,11 @@ fis.config.merge({
 * 静态资源路径都带md5戳，这个值只跟内容有关，静态资源服务器从此可以放心开启强缓存了！还能实现静态资源的分级发布，回滚神马的超方便哦！
 * 我们给 ``load_widget(id)`` 加一个小小的“后门”，我们可以利用cookie、url中的get参数来控制瞬间切换线上的页面输出结果为打包或者不打包、甚至是压缩或者不压缩的资源， **方便定位线上问题** 有木有！
 * 我们再给 ``load_widget(id)`` 加一个小小的“后门”，让它可以读取一个 domains.conf 配置文件，内容形如：
-```ini
-default=http://static.example.com
-debug=http://localhost:8080
-```
+
+    ```ini
+    default=http://static.example.com
+    debug=http://localhost:8080
+    ```
 然后我们约定一个cookie或者url值，可以一键 **把线上资源映射到本地** 有木有！！！方便调试啊，魂淡！
 * 我们还可以继续折腾，比如根据国际化、皮肤，终端等信息约定一种资源路径规范，当后端适配到特定地区、特定机型的访问时，静态资源管理系统帮你 **送达不同的资源给不同的用户** 啊，有木有！
 * 更多好处，等你来挖掘，请鞭挞我吧，公瑾！
