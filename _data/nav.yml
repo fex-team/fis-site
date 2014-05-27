@@ -29,9 +29,11 @@
   type: category
 
 - title: 插件开发
+  url: /docs/dev/plugin.html
   type: sub
 
 - title: 解决方案封装
+  url: /docs/dev/solution.html
   type: sub
 
 - title: 更多文档
@@ -84,32 +86,32 @@
   type: sub
 
 - title: 插件开发API
-  type: category
   url: /docs/api/dev.html
+  type: category
 
 - title: fis.util
-  type: sub
   url: /docs/api/dev.html#fisutil
+  type: sub
 
 - title: fis.cli
-  type: sub
   url: /docs/api/dev.html#fiscli
+  type: sub
 
 - title: fis.file
-  type: sub
   url: /docs/api/dev.html#fisfile
+  type: sub
 
 - title: fis.config
-  type: sub
   url: /docs/api/dev.html#fisconfig
+  type: sub
 
 - title: fis.compile
-  type: sub
   url: /docs/api/dev.html#fiscompile
+  type: sub
 
 - title: fis.log
-  type: sub
   url: /docs/api/dev.html#fislog
+  type: sub
 
 - title: 插件列表
   type: category
