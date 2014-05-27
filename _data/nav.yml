@@ -30,12 +30,15 @@
   type: category
 
 - title: 二次开发
+  url: /docs/dev/intro.html
   type: category
 
 - title: 插件开发
+  url: /docs/dev/plugin.html
   type: sub
 
 - title: 解决方案封装
+  url: /docs/dev/solution.html
   type: sub
 
 - title: 更多文档
@@ -88,18 +91,31 @@
   type: sub
 
 - title: 插件开发API
+  url: /docs/api/dev.html
   type: category
 
+- title: fis.util
+  url: /docs/api/dev.html#fisutil
+  type: sub
+
 - title: fis.cli
+  url: /docs/api/dev.html#fiscli
   type: sub
 
 - title: fis.file
+  url: /docs/api/dev.html#fisfile
   type: sub
 
 - title: fis.config
+  url: /docs/api/dev.html#fisconfig
   type: sub
 
 - title: fis.compile
+  url: /docs/api/dev.html#fiscompile
+  type: sub
+
+- title: fis.log
+  url: /docs/api/dev.html#fislog
   type: sub
 
 - title: FAQ
