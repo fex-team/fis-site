@@ -3,6 +3,7 @@ layout: post
 title: 插件开发
 category: dev
 ---
+# 插件开发
 
 按照[插件扩展点](插件扩展点列表)文档的介绍，在整个编译流程可以扩展的点有；
 
@@ -27,7 +28,7 @@ category: dev
 * 发布插件
 * 使用插件
 
-### 开发插件
+## 开发插件
 
 FIS API
 
@@ -36,7 +37,7 @@ FIS API
 * fis.util      util类
 * fis.compile   编译
 
-@see [开发产检API](/docs/api/dev.html)
+@see [开发插件API](/docs/api/dev.html)
 
 ### 编译阶段插件
 
@@ -70,7 +71,7 @@ module.exports = function(content, file, conf){
 
 最后return处理后的结果。
 
-#### 打包阶段插件
+### 打包阶段插件
 以prepackager插件为例。prepackager即打包前需要对文件做某些处理，比如想在所有的html注释里面插入编译时间。
 
 Sample:
@@ -94,7 +95,7 @@ module.exports = function(ret, conf, settings, opt) {
 * settings  插件用户配置信息
 * opt    命令行参数
 
-### 发布插件
+## 发布插件
 
 在插件开发目录下执行
 
@@ -107,7 +108,7 @@ $ npm init
 $ npm publish . #发布
 ```
 
-### 使用插件
+## 使用插件
 
 先全局安装
 
