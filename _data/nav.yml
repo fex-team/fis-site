@@ -85,6 +85,7 @@
 
 - title: 插件开发API
   type: category
+  url: /docs/api/dev.html
 
 - title: fis.util
   type: sub
