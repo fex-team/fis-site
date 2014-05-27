@@ -44,7 +44,7 @@
     }
 
     function fixAffixPosition(){
-        var docRight = $(window).width()- ($(".doc-content").position().left+$(".doc-content").width()+250);
+        var docRight = $(window).width()- ($(".doc-content").position().left+$(".doc-content").width()+235);
         $(".toc").css('right', docRight);
     }
 
