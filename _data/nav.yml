@@ -10,6 +10,7 @@
   type: sub
 
 - title: 资源合并
+  url: /docs/beginning/resource-combine.html
   type: sub
 
 - title: 命令行
@@ -24,6 +25,9 @@
 
 - title: 前端模块化
   type: sub
+
+- title: 插件列表
+  type: category
 
 - title: 二次开发
   type: category
@@ -97,9 +101,6 @@
 
 - title: fis.compile
   type: sub
-
-- title: 插件列表
-  type: category
 
 - title: FAQ
   type: category

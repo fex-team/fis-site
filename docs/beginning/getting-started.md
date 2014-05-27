@@ -18,7 +18,7 @@ category: beginning
 
 FIS使用[Node.js](http://nodejs.org/)开发，以[npm](http://npmjs.org/)包的形式发布。因此使用FIS需要先[安装Node.js](http://www.baidu.com/?isidx=1#wd=Node.js+%E5%AE%89%E8%A3%85)，再通过npm安装命令进行FIS安装。
 
-```
+```bash
 $ npm install -g fis
 ```
 
@@ -28,7 +28,7 @@ $ npm install -g fis
 
 在介绍FIS的主要功能前，需要先准备一个示例项目。你可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
 
-```
+```bash
 $ npm install -g lights
 $ lights install fis-quickstart-demo
 ```
@@ -37,10 +37,10 @@ $ lights install fis-quickstart-demo
 
 首先我们可以通过 ```fis server start``` 命令启动FIS的本地调试服务器功能对构建发布的项目进行预览调试
 
-```
+```bash
 $ cd fis-quickstart-demo
 $ fis release #不进行任何优化重新发布一次
-$ fis server start #如果8080端口被占用，使用-p参数设置可用的端口
+$ fis server start #如果8080端口被占用，使用-p参数设置可用的端口，可以忽略Java与PHP环境依赖的报错
 ```
 
 本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080```
@@ -53,7 +53,7 @@ $ fis server start #如果8080端口被占用，使用-p参数设置可用的端
 
 资源压缩一直是前端项目优化中非常重要的一环，接下来我们演示如何使用FIS对示例项目进行资源压缩
 
-```
+```bash
 $ fis release --optimize
 ```
 
@@ -67,15 +67,16 @@ $ fis release --optimize
 
 ## 静态资源添加md5戳
 
+> 由于添加md5戳功能依赖FIS的三种语言能力的扩展，因此如果在上面的例子中通过配置关闭了标准化处理功能，需要**删除**相应配置。
+
 使用FIS为静态资源添加md5戳，md5戳的添加实际上是[静态资源版本更新与缓存](http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part1)方面非常重要的能力，但是如果采用手动添加的形式，工作量会比目前大量使用的版本号或时间戳的模式大很多，但是使用FIS，我们可以仅仅通过一个参数，完成这个繁重的工作。
 
 <!-- 我们可以实现与添加[时间戳](http://to.how.add.timestamp)一样的静态资源缓存管理能力。但是md5戳比时间戳在版本管理和发布部署上都有更多的优势，点击[了解更多](http://to.why.md5)。 -->
 
-由于添加md5戳功能依赖FIS的三种语言能力的扩展，因此如果在上面的例子中通过配置关闭了标准化处理功能，需要**删除**相应配置。
 
 那么接下来，我们通过开启 ```--md5``` 参数，为项目中的静态资源添加md5戳
 
-```
+```bash
 $ fis release --optimize --md5
 ```
 
