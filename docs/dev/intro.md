@@ -6,7 +6,10 @@ category: dev
 
 ## 二次开发
 
-FIS具有高扩展性，可以通过配置进行各种目录结构等的定制，同时FIS拥有足够数量的插件，用户可以下载这些插件，配置使用。也可以按照自己的需求开发定制插件。可能有些人会问，如果插件多了后该如何维护。其实，FIS具有可包装性。比如现在市面上的[fis-plus][fis-plus]、[gois][gois]、[jello][jello]、[spt][spt]等都是包装了FIS。
+FIS具有高扩展性，可以通过配置进行各种目录结构等的定制，同时FIS拥有足够数量的插件，用户可以下载这些插件，配置使用。也可以按照自己的需求开发定制插件。可能有些人会问，如果插件多了后该如何维护。其实，FIS具有可包装性。比如现在市面上的[fis-plus][fis-plus]、[gois][gois]、[jello][jello]、[spt][spt]等都是包装了FIS，可以使用这种包装性，把多个插件以及FIS包装成为新的一个工具。这就是为什么FIS会定义为工具框架的原因。
+
++ 简单的一个配置即可成为另外一个工具
++ 自定义插件+规范+... 一个解决诸多问题的解决方案
 
 这些包装了FIS的扩展我们定义为**解决方案**，也许包装了只是一个简单的配置，如[spt][spt]，抑或是放置了很多自定义的插件、目录规范等的[fis-plus][fis-plus]、[jello][jello]、[gois][gois]。
 
@@ -133,7 +136,7 @@ fis插件系统巧妙的利用了nodejs的require机制来实现其扩展机制�
     $ npm install -g fis
     $ npm install -g fis-parser-coffee-script
     ```
-    
+
 1. fis团队会衡量某个插件的通用性，把它放到fis的依赖里，最优先加载。目前已经内置的插件包括：
     * [fis-kernel](https://github.com/fis-dev/fis-kernel)：fis编译机制内核
     * [fis-command-release](https://github.com/fis-dev/fis-command-release)：fis release命令的提供者，处理编译过程，并提供文件监听、自动上传等功能
