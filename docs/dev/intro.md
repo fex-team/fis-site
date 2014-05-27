@@ -4,7 +4,7 @@ title: 二次开发
 category: dev
 ---
 
-## 二次开发
+# 二次开发
 
 FIS具有高扩展性，可以通过配置进行各种目录结构等的定制，同时FIS拥有足够数量的插件，用户可以下载这些插件，配置使用。也可以按照自己的需求开发定制插件。可能有些人会问，如果插件多了后该如何维护。其实，FIS具有可包装性。比如现在市面上的[fis-plus][fis-plus]、[gois][gois]、[jello][jello]、[spt][spt]等都是包装了FIS，可以使用这种包装性，把多个插件以及FIS包装成为新的一个工具。这就是为什么FIS会定义为工具框架的原因。
 
@@ -29,13 +29,13 @@ _如果嫌麻烦，也可以暂时不看原理部分，直接点击上面的链�
 
 --------
 
-### 编译过程运行原理
+## 编译过程运行原理
 
 > fis的编译过程可以分为两个阶段： **单文件编译** 和 **打包**。处理流程如下图
 
 ![编译流程](https://raw.githubusercontent.com/fouber/fis-wiki-img/master/workflow.png)
 
-#### 单文件编译过程 ( [源码](https://github.com/fis-dev/fis-kernel/blob/master/lib/compile.js#L246-L260) )
+### 单文件编译过程 ( [源码](https://github.com/fis-dev/fis-kernel/blob/master/lib/compile.js#L246-L260) )
 
 该过程对每个文件采用管道式处理流程，并在最开始处建立缓存，以提升编译性能。每个文件的处理过程又可细分为：
 
@@ -47,7 +47,7 @@ _如果嫌麻烦，也可以暂时不看原理部分，直接点击上面的链�
 1. **test**(测试器)：自动测试阶段，使用 fis release命令的 **--test** 参数会调用该过程。
 1. **optimizer**(优化器)：代码优化阶段，使用 fis release命令的 **--optimize** 参数会调用该过程。fis内置的[fis-optimizer-uglify-js](https://github.com/fis-dev/fis-optimizer-uglify-js)插件和[fis-optimizer-clean-css](https://github.com/fis-dev/fis-optimizer-clean-css)插件都是这类扩展。
 
-#### 打包过程 ( [源码](https://github.com/fis-dev/fis-kernel/blob/master/lib/release.js) )
+### 打包过程 ( [源码](https://github.com/fis-dev/fis-kernel/blob/master/lib/release.js) )
 
 fis的打包概念和传统编译工具 **概念上有很大区别**，如果为了实现简单的文件合并，可以使用三种语言能力中的 **内容嵌入** 能力来实现，比如创建一个aio.js，里面写上对需要合并的文件的内容嵌入语法：
 
@@ -127,7 +127,7 @@ fis系统的打包过程提供了4个可扩展的处理过程，它们是：
 1. **spriter**(csssprite处理器)：对css进行sprites化处理
 1. **postpackager**(打包后处理器)：打包之后对文件进行处理，通常用来将map.json转换成其他语言的文件，比如php
 
-### FIS插件调用机制
+## FIS插件调用机制
 
 插件调用机制的 [实现](https://github.com/fis-dev/fis-kernel/blob/master/fis-kernel.js#L77-L86) 非常简单：
 
@@ -157,7 +157,7 @@ fis插件系统巧妙的利用了nodejs的require机制来实现其扩展机制�
     * [fis-postprocessor-jswrapper](https://github.com/fis-dev/fis-postprocessor-jswrapper)：fis的后处理器插件，用于对js文件进行包装，支持amd的define包装或者匿名自执行函数包装。
 1. 开发一个依赖于fis模块的npm包，并在这个包里定制所需要的插件。这种方式与上一条类似，也是将插件安装在fis的同级目录下。
 
-### 插件扩展点
+## 插件扩展点
 
 > fis的编译过程可以分为两个阶段： **单文件编译** 和 **打包**。处理流程如下图
 
@@ -167,11 +167,11 @@ fis编译系统具有一个既简单又容易扩展的插件体系，它是fis�
 
 fis在不做任何定制的情况下即可满足前端开发的基本需求，于此同时，系统也具有极强的可扩展性，fis的两大编译流程一共提供了10项扩展点，再加上命令行扩展能力，fis系统一共具有 **11项扩展点**：
 
-#### 单文件编译扩展
+### 单文件编译扩展
 
 > fis的单文件编译过程有6项扩展点
 
-##### parser(编译器插件)
+#### parser(编译器插件)
 * 命名规则：fis-parser-xxx
 * 功能职责：将文件编译成标准js、css或者html语言
 * 使用示例：
@@ -225,7 +225,7 @@ fis在不做任何定制的情况下即可满足前端开发的基本需求，�
     * [fis-parser-marked](https://github.com/fouber/fis-parser-marked)：把markdown文件编译成html
     * [fis-parser-utc](https://github.com/fouber/fis-parser-utc)：把underscore前端模板编译成js
 
-##### preprocessor(标准预处理器插件)
+#### preprocessor(标准预处理器插件)
 * 命名规则：fis-preprocessor-xxx
 * 功能职责：在标准化处理之前进行预处理
 * 使用示例：
@@ -257,23 +257,23 @@ fis在不做任何定制的情况下即可满足前端开发的基本需求，�
 * 示例插件：
     * [fis-preprocessor-image-set](https://github.com/fouber/fis-preprocessor-image-set)：如果css中使用的背景图比如a.png，旁边有一个a_2x.png文件，则将图片的背景设置为-    webkit-image-set形式。此功能为retina屏适配项目开发。
 
-##### postprocessor(标准后处理器插件)
+#### postprocessor(标准后处理器插件)
 * 命名规则：fis-postprocessor-xxx
 * 功能职责：在fis对js、css和类html文件进行语言能力扩展之后调用的插件，该阶段可获取到文件的requires等信息。
 * 示例插件：
     * [fis-postprocessor- jswrapper](https://github.com/fis-dev/fis-postprocessor-jswrapper)：用于对js文件进行amd定义包装。
 
-##### lint(校验器插件)
+#### lint(校验器插件)
 * 命名规则：fis-lint-xxx
 * 功能职责：用于对代码进行校验，执行fis release命令时添加 **--lint**参数会调用该类型插件。
 * 示例插件： _暂无_
 
-##### test(自动测试插件)
+#### test(自动测试插件)
 * 命名规则：fis-test-xxx
 * 功能职责：用于对代码进行测试，执行fis release命令时添加 **--test**参数会调用该类型插件。
 * 示例插件： _暂无_
 
-##### optimizer(代码优化器插件)
+#### optimizer(代码优化器插件)
 * 命名规则：fis-optimizer-xxx
 * 功能职责：代码优化插件，用于对代码进行压缩等优化，执行fis release命令时添加 **--optimize**参数会调用该类型插件。
 * 示例插件： 
@@ -281,37 +281,37 @@ fis在不做任何定制的情况下即可满足前端开发的基本需求，�
     * [fis-optimizer-clean-css](https://github.com/fis-dev/fis-optimizer-clean-css)：调用clean-css对css文件进行压缩优化。
     * [fis-optimizer-html-minifier](https://github.com/fis-dev/fis-optimizer-html-minifier)：调用html-minifier对html、htm文件进行压缩优化。
 
-#### 打包扩展
+### 打包扩展
 
 > fis的打包流程有4项扩展点：
 
-##### prepackager(打包预处理器插件)
+#### prepackager(打包预处理器插件)
 * 命名规则：fis-prepackager-xxx
 * 功能职责：用于对要打包的文件进行预处理。
 * 示例插件： _暂无_
 
-##### packager(打包处理器插件)
+#### packager(打包处理器插件)
 * 命名规则：fis-packager-xxx
 * 功能职责：用于对要打包的文件进行处理，fis内置的处理逻辑是收集依赖关系，生成map.json文件，执行fis release命令时添加 **--pack** 参数会调用该类型插件。
 * 注意事项：fis内置的packager插件即是 **收集、生成map.json的过程**，除非你有非常好的打包策略，否则请不要随意扩展这个接口。
 * 示例插件：
     * [fis-packager-map](https://github.com/fis-dev/fis-packager-map)：将打包资源输出给map表。
 
-##### spriter(sprite处理器插件)
+#### spriter(sprite处理器插件)
 * 命名规则：fis-spriter-xxx
 * 功能职责：用于要发布的文件进行css sprite处理。
 * 示例插件： _暂无_
 
-##### postpackager(打包后处理器插件)
+#### postpackager(打包后处理器插件)
 * 命名规则：fis-postpackager-xxx
 * 功能职责：用于要发布的文件进行打包后处理。
 * 示例插件： _暂无_
 
-#### 命令行扩展
+### 命令行扩展
 
 > fis还提供了扩展命令行命令的方式，fis内置了3条命令：fis release，fis server，fis install。如果还嫌这些不够，用户可以自行扩展。
 
-##### command(命令行插件)
+#### command(命令行插件)
 * 命名规则：fis-command-xxx
 * 功能职责：对fis的命令行进行扩展。
 * 示例插件：
@@ -319,7 +319,7 @@ fis在不做任何定制的情况下即可满足前端开发的基本需求，�
     * [fis-command-install](https://github.com/fis-dev/fis-command-install)：fis install命令的提供者，用于从fis仓库下载组件、配置、框架、素材等资源
     * [fis-command-server](https://github.com/fis-dev/fis-command-server)：fis server命令的提供者，用于开启一个本地php-cgi服务器，对项目进行预览、调试。
 
-### 基于map.json的前后端框架设计
+## 基于map.json的前后端框架设计
 
 前端工具在解决了编译、优化之后，最重要的问题就是打包（静态资源合并）了。我们来看一个最常见的前端开发栗子：
 
@@ -397,9 +397,9 @@ fis在不做任何定制的情况下即可满足前端开发的基本需求，�
 
 我们在页面有了一堆冗余的资源，有些资源（比如皮肤）， **甚至是互斥的**！大家可以看到，传统的前端性能优化方式在大型互联网项目中很有可能非但不能优化性能，反倒会导致性能的下降。相信每个开发过大型互联网应用的前端er都遇到过这样的问题，那么，我们如何将性能优化理论在大规模的平台上应用起来呢？这将是一个非常大的挑战！让我们来看看fis是如何解决这个问题的：
 
-#### FIS的静态资源管理方案
+### FIS的静态资源管理方案
 
-##### 组件化拆分你的页面
+#### 组件化拆分你的页面
 
 首先，我们将页面的每个小部件，当做一个组件，在fis中，我们叫它 **widget** ——你也可以叫它pagelet、component神马的——接下来，让我们回到上面小栗子的开始，经过我们的 **组件化** 之后，页面代码变成了：
 
@@ -425,7 +425,7 @@ fis在不做任何定制的情况下即可满足前端开发的基本需求，�
         ├ C.tpl
         └ C.css
 
-##### 让fis帮你产出静态资源表
+#### 让fis帮你产出静态资源表
 
 大家还记得fis会产出的那个 [map.json](https://github.com/fis-dev/fis/wiki/%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86#----1) 么？使用fis，加入适当的配置，对这个项目进行编译会得到一个 map.json的文件，它的内容是：
 
@@ -461,7 +461,7 @@ fis在不做任何定制的情况下即可满足前端开发的基本需求，�
 
 到这里或许你已经猜到我们的 **load_widget(id)** 是如何工作的了：
 
-##### 静态资源管理系统
+#### 静态资源管理系统
 
 1. 准备两个数据结构：
     * uris = []，数组，顺序存放要输出资源的uri
@@ -523,7 +523,7 @@ fis在不做任何定制的情况下即可满足前端开发的基本需求，�
 
 看到了么！！！，我们不但可以让资源按需加载，还能全部映射到正确的md5戳哦，这全依赖fis的表生成技术！那么，基于这项技术，我们是如何处理打包的呢：
 
-##### 打包——资源的备份读取
+#### 打包——资源的备份读取
 
 现在，我们再来使用fis的 [pack配置项](https://github.com/fis-dev/fis/wiki/配置API#pack)，对网站的静态资源进行打包，配置文件大致为：
 
@@ -618,7 +618,7 @@ fis.config.merge({
 
 **出现打包了有木有啊！！！**
 
-##### 这样做的好处
+#### 这样做的好处
 
 > 抱歉，这货好处实在太多了。
 
@@ -636,7 +636,8 @@ fis.config.merge({
 * 我们还可以继续折腾，比如根据国际化、皮肤，终端等信息约定一种资源路径规范，当后端适配到特定地区、特定机型的访问时，静态资源管理系统帮你 **送达不同的资源给不同的用户** 啊，有木有！
 * 更多好处，等你来挖掘，请鞭挞我吧，公瑾！
 
-##### 说到这里，一些同学可能会问：
+#### 说到这里，一些同学可能会问：
+
 > 这样做岂不是增加了后端性能开销？
 
 对于这个问题，我只想说，这非常值得！其实这个后端开销很少，算法非常简单直白，但他所换来的前端工程化水平提高非常大！！
