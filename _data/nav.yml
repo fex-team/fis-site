@@ -1,4 +1,5 @@
 - title: 快速入门
+  url: /docs/beginning/getting-started.html
   type: category
 
 - title: 工具安装
@@ -60,6 +61,7 @@
 #  type: sub
 
 - title: 配置API
+  url: /docs/api/fis-conf.html
   type: category
 
 - title: 配置文件

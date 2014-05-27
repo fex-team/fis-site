@@ -14,7 +14,9 @@ category: advance
  - 插件系统
      - 插件调用机制
      - 插件扩展点列表
-     - 定制自己的插件
- - 静态资源表
-     - 基于map.json的前后端架构设计指导
-     - [静态资源管理与模板框架](http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part2/)
+ - 前端工程化
+     - [基于map.json的前后端架构设计指导](/docs/more/mapjson.html)，利用FIS的核心产出map.json与后端相结合进行前端工程化优化的基础原理
+     - [静态资源管理与模板框架](http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part2/)，基于map.json的前端工程化实现思路其二
+     - [前端工程之模块化](http://fex.baidu.com/blog/2014/03/fis-module/)，详细描述了如何搭建一个完备的前端模块化系统
+     - [手机百度前端工程化之路
+](http://mweb.baidu.com/p/baidusearch-front-end-road.html)，针对移动端的缓存现状，利用后端模板框架实现资源管理
