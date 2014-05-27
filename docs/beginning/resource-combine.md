@@ -14,11 +14,11 @@ category: beginning
 
 本篇指南使用的示例与资源压缩指南中使用的是相同的示例，示例项目的准备工作可以参考[资源压缩](/docs/beginning/getting-started.html)
 
+为了达到静态资源自动合并的目的，我们需要扩展FIS的功能，添加插件[fis-postpackager-reqmin](https://github.com/hefangshi/fis-postpackager-reqmin)，它的功能是收集页面中的已有的script和link标签，将这些标签引用的资源进行自动合并，并将原有的script和link标签替换为自动合并后的标签，最终达到页面级的静态资源合并能力。
+
 ## 插件安装
 
 > FIS的编译系统拥有一个使用简单、扩展方便的插件体系，这套插件体系保证了FIS编译工具的灵活性和生命力。这里我们简单介绍一下FIS插件的安装方法，更加详细的插件系统介绍可以查看配置API [modules](/docs/api/fis-conf.html#modules)。
-
-为了达到静态资源自动合并的目的，我们要使用的插件是[fis-postpackager-reqmin](https://github.com/hefangshi/fis-postpackager-reqmin)，它的功能是收集页面中的已有的script和link标签，并将这些标签引用的资源进行自动合并，并将原有的script和link标签替换为自动合并后的标签，最终达到页面级的静态资源合并能力。
 
 插件的安装分为两步，首先我们需要通过[npm](http://npmjs.org)包管理工具进行插件安装
 
@@ -26,7 +26,7 @@ category: beginning
 $ npm install -g fis-postpackager-reqmin
 ```
 
-插件安装到本地后，我们还需要通过项目配置文件开启插件，项目的配置文件可以参考fis-quickstart-demo根目录下的fis-conf-reqmin.js。在根目录建立fis-conf.js文件，并开启reqmin插件。
+插件安装到本地后，我们还需要通过项目配置文件开启插件，修改项目根目录下的fis-conf.js配置，加入reqmin插件
 
 ```
 $ cd fis-quickstart-demo
