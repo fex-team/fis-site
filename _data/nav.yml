@@ -26,6 +26,7 @@
   type: sub
 
 - title: 二次开发
+  url: /docs/dev/intro.html
   type: category
 
 - title: 插件开发
