@@ -25,6 +25,7 @@
   type: sub
 
 - title: 前端模块化
+  url: /docs/advance/modjs-solution.html
   type: sub
 
 - title: 插件列表
