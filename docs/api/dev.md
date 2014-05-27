@@ -4,28 +4,37 @@ title: 插件开发API
 category: api
 ---
 
-## Object
+插件开发中需要用到的一些接口。
 
-OO
+> 如果说明还是不够清晰，nodejs里面查看方法最好最容易的方法就是require这个包，并`console.log`出来。这样就可以一个一个尝试效果。
+>> \#打开node交互命令行。<br />
+>> $ node <br />
+>> \> var fis = require("fis"); <br/>
+>> \> console.log(fis.file);
 
-define:
+## Object-Oriented
+
+FIS在OO这块扩展了Object，给其添加了一个派生方法`Object.derive`。细节就不说了，直接来看使用。
+
+定义一个Object
 
 ```javascript
 
 var Foo = Object.derive(function() {
-    //blabla
+    //constructor
 }, {
     //extend
 });
 
 ```
-use:
+使用Object
 
 ```javascript
 var foo = new Foo();
 ```
 
 ## fis.util
+`fis.util`包含了很多有用的工具方法，比如转码、读取文件、map等。
 
 ### is(source, type)
 
@@ -157,7 +166,7 @@ fis.util.toEncoding('中文', 'gbk');
 ### find(rPath, include, exclude)
     
 ```javascript
-fis.util.find('/home/fis', /.###\.js/); // all javascript file
+fis.util.find('/home/fis', /.*\.js/); // all javascript file
 // => [...]
 ```
 ### del(rPath, include, exclude)
@@ -167,6 +176,18 @@ fis.util.find('/home/fis', /.###\.js/); // all javascript file
 ### pathinfo(path)
 
 ## fis.config
+
+`fis.config`提供了一个比较灵活的设置配置的方式。在`fis-conf.js`里面进行配置都可以在插件中拿到。
+
+```javascript
+fis.config.set('a.b.c', {e:'0'});
+fis.config.get('a');
+// => {b:{c:{e:'0'}}}
+fis.config.get('a.b');
+// => {c:{e:'0'}}
+fis.config.get('c');
+// => {e:'0'}
+```
 
 ### fis.config.merge(obj)
 
@@ -197,102 +218,102 @@ fis.config.get('namespace') //获取namespace
 设置项目路径
 
 ## fis.file
+`fis.file`是一个比较主要的类型，每一个文件进入fis处理都会指向一个fis.file对象。可以获取文件的各种信息。比如修改事件、后缀、是否是文本、图片亦或是产出路径等等。
 
 ### wrap()
-
+实例化一个file对象
 ```javascript
 var file = fis.file.wrap('/home/fis/debug/static/demo.js');
 ```
-### file object
-
-### isHtmlLike  
+### Object file
+#### isHtmlLike  
 是否是类HTML文件，比如tpl
-### isJsLike    
+#### isJsLike    
 是否是类JS文件，比如coffeescript
-### isCssLike   
+#### isCssLike   
 是否是类CSS文件，比如less、sass
-### requires    
+#### requires    
 文件依赖的id列表
-### extras      
+#### extras      
 文件额外属性
-### useMap      
+#### useMap      
 是否记录到map.json
-### isMod       
+#### isMod       
 是否需要组件化
 
-### exists()
+#### exists()
 
 ```javascript
 file.exists();
 // => true or false
 ```
-### isText()  
+#### isText()  
 是否为一文本文件
 
 ```javascript
 file.isText();
 // => true or false
 ```
-### isImage() 
+#### isImage() 
 是否为一个图像文件
     
 ```javascript
 file.isImage();
 // => true or false
 ```
-### toString() 
+#### toString() 
 file的真实路径
 
 ```javascript
 file.toString();
 // => /home/fis/debug/static/demo.js
 ```
-### getMtime() 
+#### getMtime() 
 获取文件最后修改时间
     
 ```javascript
 var mtime = file.getMtime();
 ```
 
-### setContent(c) 
+#### setContent(c) 
 设置文件内容
 
 ```javascript
 file.setContent('content');
 ```
-### getContent() 
+#### getContent() 
 获取文件内容
 
 ```javascript
 var content = file.getContent();
 ```
-### getHash()  
+#### getHash()  
 获取文件内容hash
 
 ```javascript
 var hash = file.getHash();
 ```
-### getBase64(prefix) 
+#### getBase64(prefix) 
 获取文件的base64
 
 ```javascript
 var base64 = file.getBase64();
 ```
-### getId() 
+#### getId() 
 获取文件对应的ID
 
 ```javascript
 var id = file.getId();
 ```
 
-### getUrl(withHash, withDomain)  
+#### getUrl(withHash, withDomain)  
 获取文件的url
 
 ```javascript
 var url = file.getUrl(true, true);
 ```
 
-### addRequire(id)  
+#### addRequire(id)  
 给文件添加依赖
 
 ```javascript
@@ -300,7 +321,7 @@ file.addRequire('a.js');
 // demo.js 
 依赖与a.js
 ```
-### removeRequire(id)
+#### removeRequire(id)
     
 ```javascript
 file.removeRequire('a.js');
@@ -310,6 +331,7 @@ file.removeRequire('a.js');
 ## fis.compile
 
 ## fis.log
+打印log，适合调试报错等
 
 ### debug
 
