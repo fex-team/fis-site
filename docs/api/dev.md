@@ -186,7 +186,7 @@ fis.config.get('a');
 // => {b:{c:{e:'0'}}}
 fis.config.get('a.b');
 // => {c:{e:'0'}}
-fis.config.get('c');
+fis.config.get('a.b.c');
 // => {e:'0'}
 ```
 
