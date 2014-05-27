@@ -86,17 +86,29 @@
 - title: 插件开发API
   type: category
 
+- title: fis.util
+  type: sub
+  url: /docs/api/dev.html#fisutil
+
 - title: fis.cli
   type: sub
+  url: /docs/api/dev.html#fiscli
 
 - title: fis.file
   type: sub
+  url: /docs/api/dev.html#fisfile
 
 - title: fis.config
   type: sub
+  url: /docs/api/dev.html#fisconfig
 
 - title: fis.compile
   type: sub
+  url: /docs/api/dev.html#fiscompile
+
+- title: fis.log
+  type: sub
+  url: /docs/api/dev.html#fislog
 
 - title: 插件列表
   type: category
