@@ -353,11 +353,11 @@ ul {
   }
   .sidebar.scrollbar {
     position: fixed;
-    top: 60px;
+    top: 57px;
     height: auto;
   }
   .bottom-shadow {
-    bottom: 1px;
+    bottom: 0;
     opacity: 1;
     border-bottom: 1px solid #ebebeb;
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
