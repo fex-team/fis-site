@@ -245,6 +245,7 @@ code {
 }
 article {
   line-height: 1.7;
+  font-size: 14px;
 }
 article blockquote {
   border-left: 4px solid #DDD;

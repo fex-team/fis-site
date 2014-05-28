@@ -112,7 +112,7 @@ category: more
 
 #### 让fis帮你产出静态资源表
 
-大家还记得fis会产出的那个 [map.json](https://github.com/fis-dev/fis/wiki/%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86#----1) 么？使用fis，加入适当的配置，对这个项目进行编译会得到一个 map.json的文件，它的内容是：
+大家还记得fis会产出的那个 [map.json](/docs/more/fis-base.html#pack) 么？使用fis，加入适当的配置，对这个项目进行编译会得到一个 map.json的文件，它的内容是：
 
 ```json
 {
@@ -212,7 +212,7 @@ category: more
 
 #### 打包——资源的备份读取
 
-现在，我们再来使用fis的 [pack配置项](https://github.com/fis-dev/fis/wiki/配置API#pack)，对网站的静态资源进行打包，配置文件大致为：
+现在，我们再来使用fis的 [pack配置项](/docs/api/fis-conf.html#pack)，对网站的静态资源进行打包，配置文件大致为：
 
 ```javascript
 fis.config.merge({
@@ -312,7 +312,7 @@ fis.config.merge({
 > 抱歉，这货好处实在太多了。
 
 * 我们可以统计 ``load_widget(id)`` 插件的调用情况，然后自动生成最优的打包配置，让网站可以 **自适应优化**
-* 工程师不用关心资源在哪，怎么来的，怎么没的，所有 [资源定位](https://github.com/fis-dev/fis/wiki/三种语言能力) 的事情，都交给fis好了。解决了前面说的 **功能下线不敢删除相应资源** 的问题
+* 工程师不用关心资源在哪，怎么来的，怎么没的，所有 [资源定位](/docs/more/fis-standard.html) 的事情，都交给fis好了。解决了前面说的 **功能下线不敢删除相应资源** 的问题
 * 静态资源路径都带md5戳，这个值只跟内容有关，静态资源服务器从此可以放心开启强缓存了！还能实现静态资源的分级发布，回滚神马的超方便哦！
 * 我们给 ``load_widget(id)`` 加一个小小的“后门”，我们可以利用cookie、url中的get参数来控制瞬间切换线上的页面输出结果为打包或者不打包、甚至是压缩或者不压缩的资源， **方便定位线上问题** 有木有！
 * 我们再给 ``load_widget(id)`` 加一个小小的“后门”，让它可以读取一个 domains.conf 配置文件，内容形如：

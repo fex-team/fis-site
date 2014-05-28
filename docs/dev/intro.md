@@ -41,7 +41,7 @@ _如果嫌麻烦，也可以暂时不看原理部分，直接点击上面的链�
 
 1. **parser**(编译器)：将其他语言编译为标准js、css，比如将前端模板、coffee-script编译为js，将less、sass编译为css。
 1. **preprocessor**(标准预处理器)：在fis进行标准化处理之前进行某些修改，比如 [支持image-set语法的预处理插件](https://github.com/fouber/fis-preprocessor-image-set)
-1. **standard**(标准化处理)：前面两项处理会将文件处理为标准的js、css、html语法，fis内核的标准化处理过程对这些语言进行 [三种语言能力](https://github.com/fis-dev/fis/wiki/三种语言能力) 扩展处理。这也就意味着，使用less、coffee等语法在fis系统中一样具备 **资源定位、内容嵌入，依赖声明** 的能力。该过程 **不可扩展**。
+1. **standard**(标准化处理)：前面两项处理会将文件处理为标准的js、css、html语法，fis内核的标准化处理过程对这些语言进行 [三种语言能力](/docs/more/fis-standard.html) 扩展处理。这也就意味着，使用less、coffee等语法在fis系统中一样具备 **资源定位、内容嵌入，依赖声明** 的能力。该过程 **不可扩展**。
 1. **postprocessor**(标准后处理器)：对文件进行标准化之后的处理，比如利用依赖声明能力实现的 [js包装器插件](https://github.com/fouber/fis-postprocessor-jswrapper)，可以获取js文件的依赖关系，并添加define包装。
 1. **lint**(校验器)：代码校验阶段，使用 fis release命令的 **--lint** 参数会调用该过程。
 1. **test**(测试器)：自动测试阶段，使用 fis release命令的 **--test** 参数会调用该过程。
@@ -163,7 +163,7 @@ fis插件系统巧妙的利用了nodejs的require机制来实现其扩展机制�
 
 ![编译流程](https://raw.githubusercontent.com/fouber/fis-wiki-img/master/workflow.png)
 
-fis编译系统具有一个既简单又容易扩展的插件体系，它是fis编译系统生命力的源泉。在了解插件机制之前，你可能需要了解一下fis的 [运行原理](https://github.com/fis-dev/fis/wiki/运行原理)，使用插件的说明请阅读 [插件调用机制](https://github.com/fis-dev/fis/wiki/插件调用机制)
+fis编译系统具有一个既简单又容易扩展的插件体系，它是fis编译系统生命力的源泉。在了解插件机制之前，你可能需要了解一下fis的 [运行原理](/docs/more/fis-base.html)，使用插件的说明请阅读 [插件调用机制](/docs/more/how-plugin-works.html)
 
 fis在不做任何定制的情况下即可满足前端开发的基本需求，于此同时，系统也具有极强的可扩展性，fis的两大编译流程一共提供了10项扩展点，再加上命令行扩展能力，fis系统一共具有 **11项扩展点**：
 
@@ -427,7 +427,7 @@ fis在不做任何定制的情况下即可满足前端开发的基本需求，�
 
 #### 让fis帮你产出静态资源表
 
-大家还记得fis会产出的那个 [map.json](https://github.com/fis-dev/fis/wiki/%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86#----1) 么？使用fis，加入适当的配置，对这个项目进行编译会得到一个 map.json的文件，它的内容是：
+大家还记得fis会产出的那个 [map.json](/docs/more/fis-base.html#pack) 么？使用fis，加入适当的配置，对这个项目进行编译会得到一个 map.json的文件，它的内容是：
 
 ```json
 {
