@@ -20,3 +20,6 @@ category: advance
      - [前端工程之模块化](http://fex.baidu.com/blog/2014/03/fis-module/)，详细描述了如何搭建一个完备的前端模块化系统
      - [手机百度前端工程化之路
 ](http://mweb.baidu.com/p/baidusearch-front-end-road.html)，针对移动端的缓存现状，利用后端模板框架实现资源管理
+
+ - FIS杂谈
+     - [FIS与FIS-PLUS的区别](http://fex.baidu.com/blog/2014/03/fis-plus/)
