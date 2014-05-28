@@ -414,10 +414,50 @@ ul {
 
     .sidebar {
         width: 250px;
-        height: 100%;
-        float: left;
-        padding: 0
+        padding: 0;
+        position: fixed;
+        top: 60px;
+        bottom: 0px;
+        min-height: 0px;
+        overflow:hidden;
     }
+
+    .sidebar.fixed{
+        position: relative;
+        height: 100%;
+        float:left;
+        top:0;
+    }
+//
+//    ::-webkit-scrollbar-corner {
+//      background: transparent;
+//    }
+//
+//    ::-webkit-scrollbar-track {
+//      background-clip: padding-box;
+//      border: solid transparent;
+//      border-width: 0 0 0 1px;
+//    }
+//
+//    ::-webkit-scrollbar-button {
+//      height: 0;
+//      width: 0;
+//    }
+//
+//    ::-webkit-scrollbar-thumb {
+//      background-color: rgba(0,0,0,.2);
+//      background-clip: padding-box;
+//      border: solid transparent;
+//      border-width: 1px 1px 1px 10px;
+//      min-height: 28px;
+//      padding: 100px 0 0;
+//    }
+//
+//    ::-webkit-scrollbar {
+//      height: 16px;
+//      overflow: visible;
+//      width: 16px;
+//    }
 
     .sidebar header {
         padding: 40px 0 10px

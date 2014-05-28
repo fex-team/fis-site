@@ -342,9 +342,18 @@ ul {
   }
   .sidebar {
     width: 250px;
+    padding: 0;
+    position: fixed;
+    top: 60px;
+    bottom: 0px;
+    min-height: 0px;
+    overflow: hidden;
+  }
+  .sidebar.fixed {
+    position: relative;
     height: 100%;
     float: left;
-    padding: 0;
+    top: 0;
   }
   .sidebar header {
     padding: 40px 0 10px;

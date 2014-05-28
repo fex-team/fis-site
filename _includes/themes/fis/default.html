@@ -18,7 +18,7 @@
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
     <!--<link href="{{ ASSET_PATH }}/css/highlight/monokai_sublime.css" rel="stylesheet" type="text/css" media="all">-->
     <link href="{{ ASSET_PATH }}/css/pygments/github.css" rel="stylesheet" type="text/css" media="all">
-
+    <link href="{{ ASSET_PATH }}/css/perfect-scrollbar.min.css" rel="stylesheet">
     <link href="{{ BASE_PATH }}/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -67,5 +67,25 @@
 
 <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ ASSET_PATH }}/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript">
+    (function(){
+        function isIE( version, comparison ){
+            var $div = $('<div style="display:none;"/>').appendTo($('body'));
+            $div.html('<!--[if '+(comparison||'')+' IE '+(version||'')+']><a>&nbsp;</a><![endif]-->');
+            var ieTest = $div.find('a').length;
+            $div.remove();
+            return ieTest;
+        }
+        if (!isIE(8, 'lte')){
+            $(".sidebar").perfectScrollbar({
+                wheelSpeed: 10,
+                wheelPropagation: false
+            });
+        }else{
+            $(".sidebar").addClass('fixed');
+        }
+    }());
+</script>
 </body>
 </html>
