@@ -108,10 +108,9 @@
         }
 
         if (!isIE(8, 'lte')){
+            $(".sidebar").addClass('scrollbar');
             updateScrollBar();
             $(window).resize(updateScrollBar);
-        }else{
-            $(".sidebar").addClass('fixed');
         }
     }());
 </script>
