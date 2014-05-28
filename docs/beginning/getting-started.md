@@ -30,7 +30,7 @@ $ npm install -g fis
 
 ### 示例准备
 
-在介绍FIS的主要功能前，需要先准备一个示例项目。你可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
+在介绍FIS的主要功能前，需要先准备一个示例项目。我们可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
 
 ```bash
 $ npm install -g lights
