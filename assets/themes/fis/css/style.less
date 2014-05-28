@@ -414,7 +414,7 @@ ul {
 
     .sidebar {
         width: 250px;
-        padding: 0;
+        padding: 0 0 10px 0;
         position: fixed;
         top: 60px;
         bottom: 0px;
@@ -427,6 +427,21 @@ ul {
         height: 100%;
         float:left;
         top:0;
+    }
+
+    .bottom-shadow{
+      bottom: 1px;
+      opacity: 1;
+      border-bottom: 1px solid #ebebeb;
+      border-bottom: 1px solid rgba(0,0,0,0.4);
+      background: -webkit-gradient(linear,left bottom,left top,from(rgba(0,0,0,.3)),to(rgba(0,0,0,0)));
+      -webkit-mask-box-image: -webkit-gradient(linear,left bottom,right bottom,color-stop(0.0,rgba(0,0,0,0)),color-stop(0.5,rgba(0,0,0,.8)),color-stop(1.0,rgba(0,0,0,0)));
+      background-image: -moz-radial-gradient(bottom,ellipse farthest-side,rgba(0,0,0,.3),rgba(0,0,0,0));
+      margin-right: 0;
+      height: 8px;
+      left: 0;
+      position: fixed;
+      width: 250px;
     }
 //
 //    ::-webkit-scrollbar-corner {
