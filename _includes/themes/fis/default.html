@@ -70,6 +70,8 @@
 <script src="{{ ASSET_PATH }}/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript">
     (function(){
+        var scrollBarEnabled = false;
+
         function isIE( version, comparison ){
             var $div = $('<div style="display:none;"/>').appendTo($('body'));
             $div.html('<!--[if '+(comparison||'')+' IE '+(version||'')+']><a>&nbsp;</a><![endif]-->');
@@ -77,11 +79,37 @@
             $div.remove();
             return ieTest;
         }
+
+        function updateScrollBar(){
+            function enableScrollBar(){
+                if (scrollBarEnabled)
+                    return;
+                console.log('enable');
+                scrollBarEnabled = true;
+                $(".sidebar").perfectScrollbar({
+                    wheelSpeed: 10,
+                    wheelPropagation: false
+                });
+            }
+
+            function disableScrollBar(){
+                if (!scrollBarEnabled)
+                    return;
+                console.log('disable');
+                scrollBarEnabled = false;
+                $(".sidebar").perfectScrollbar('destroy');
+            }
+
+            if ($(window).width()>760){
+                enableScrollBar();
+            }else{
+                disableScrollBar();
+            }
+        }
+
         if (!isIE(8, 'lte')){
-            $(".sidebar").perfectScrollbar({
-                wheelSpeed: 10,
-                wheelPropagation: false
-            });
+            updateScrollBar();
+            $(window).resize(updateScrollBar);
         }else{
             $(".sidebar").addClass('fixed');
         }
