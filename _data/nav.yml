@@ -44,7 +44,7 @@
   type: sub
 
 - title: 更多文档
-  url: /docs/advance/more.html
+  url: /docs/dev/more.html
   type: sub
 #- title: API
 #  type: category

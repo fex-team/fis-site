@@ -100,7 +100,7 @@
                 $(".sidebar").perfectScrollbar('destroy');
             }
 
-            if ($(window).width()>760){
+            if ($(window).width()>760 && $(".sidebar").height() < $(".sidebar ul").height()){
                 enableScrollBar();
             }else{
                 disableScrollBar();
