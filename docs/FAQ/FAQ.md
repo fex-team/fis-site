@@ -20,14 +20,13 @@ npm install some-npm-module -g --registry=国内镜像
 * 下面提供一个国内镜像。其他镜像大家可以自己找找
 * --registry=http://r.cnpmjs.org
 
-
 ## FIS中使用less和coffee？
 
 项目中使用less、coffee的方法：
 
 安装less、coffee的FIS扩展插件： 
 
-```shell 
+```bash
 npm install -g fis-parser-less 
 npm install -g fis-parser-coffee
 ```
@@ -40,9 +39,9 @@ fis.config.set('modules.parser.coffee', 'coffee');
 
 这样，你项目中的less、coffee后缀的文件就都能被编译成css或者js了。
 
-另外，wiki看过了么： https://github.com/fis-dev/fis/wiki
+详细信息可以查看[wiki](https://github.com/fis-dev/fis/wiki)
 
-FIS的编译有一个内置的流程，你可以根据需要在适当的流程中使用插件处理你的文件。每个文件的处理，以后缀名为依据，分别会经过：语言处理（parser）→标准预处理（preprocessor）→标准后处理（postprocessor）→校验（lint）→测试（test）→优化（optimizer）
+FIS的编译有一个内置的流程，可以根据需要在适当的流程中使用插件处理文件。**每个文件的处理，以后缀名为依据**，分别会经过：语言处理（parser）→标准预处理（preprocessor）→标准后处理（postprocessor）→校验（lint）→测试（test）→优化（optimizer）
 
 配置的方式是
 
@@ -56,9 +55,9 @@ fis.config.set('modules.流程名.文件后缀', '插件名');
 插件：在 parser 阶段，fis会根据fis-conf.js的配置和文件后缀调用插件，fis内置了几个插件，但没有less、coffee，所以在需要less、coffee构建的时候，你需要先安装相关插件，来扩展fis的功能。插件的命名是 fis-流程名-插件名，比如这里我们要在parser阶段编译less，那么我们的插件名就是 fis-parser-less。
 
 
-## release error，看详细信息？
+## 查看release error详细报错信息？
 
-fis release 加上 --verbose参数，可以显示详细信息.
+fis release 加上 **--verbose参数**，可以显示详细信息.
 
 
 ## deploy时，多个字符串替换？
@@ -97,7 +96,7 @@ fis.config.set('modules.preprocessor.js', function(content){
 上面的配置只是针对js后缀的文件的。
 
 
-## fis release 之后得目录在哪里啊?
+## fis release 之后得目录在哪?
 如果没有指定或者設置常量会存放到用戶跟目錄下。可以使用以下命令打开。
 
 ```bash
@@ -111,7 +110,7 @@ fis.config.set('modules.preprocessor.js', function(content){
 [FIS & FISP](http://fex.baidu.com/blog/2014/03/fis-plus/)
 
 
-## less @import (inline)时，--watch不起作用？
+## less @import()，--watch不起作用？
 
 import (inline) 是less处理的，没有让fis管理。可以尝试把@import (inline) "b.less"改成@import url('b.less?__inline'); 有FIS来管理。
 
