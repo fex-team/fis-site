@@ -12,11 +12,12 @@ FIS作为nodejs模块发布托管在 [npm](https://www.npmjs.org/)上，npm是no
 * ``由于npm经常被墙，安装FIS的时候会出现速度过慢，或者安装不上的问题`` 。
 * 可以通过 npm的 ``--registry`` 参数指定仓库。指定国内的npm镜像来解决npm被墙的问题。
 
-例如： 
+例如：
 
 ```bash
 npm install some-npm-module -g --registry=国内镜像
 ```
+
 * 下面提供一个国内镜像。其他镜像大家可以自己找找
 * --registry=http://r.cnpmjs.org
 
@@ -25,10 +26,10 @@ npm install some-npm-module -g --registry=国内镜像
 
 项目中使用less、coffee的方法：
 
-安装less、coffee的FIS扩展插件： 
+安装less、coffee的FIS扩展插件：
 
-```shell 
-npm install -g fis-parser-less 
+```bash
+npm install -g fis-parser-less
 npm install -g fis-parser-coffee
 ```
 配置fis，调用相关插件
