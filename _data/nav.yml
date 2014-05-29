@@ -122,4 +122,5 @@
   type: sub
 
 - title: FAQ
+  url: /docs/api/faq/faq.html
   type: category

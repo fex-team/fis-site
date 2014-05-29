@@ -58,11 +58,7 @@ install [firstblood-demo@latest]
 release是一个非常强大的命令，它的主要任务就是进行代码的 **编译** 与 **部署**，它的参数囊括了前端开发所需的各种基础功能：
 
 1. 添加 **--watch** 或 **-w** 参数，支持对项目进行增量编译，监听文件变化再触发编译
-1. 添加 **--live** 或 **-L** 参数，支持编译后自动刷新浏览器。fis需要使用 [LiveReload浏览器扩展](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) 来连接fis的livereload服务器：
-    * [Safari](http://download.livereload.com/2.0.9/LiveReload-2.0.9.safariextz)
-    * [Chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
-    * [Firefox](http://download.livereload.com/2.0.8/LiveReload-2.0.8.xpi)
-    * [IE](https://github.com/dvdotsenko/livereload_ie_extension/downloads) - 真应该滚粗地球
+1. 添加 **--live** 或 **-L** 参数，支持编译后自动刷新浏览器。Liveload功能需要浏览器支持Web Socket功能，例如Chrome、Firefox、Safari等浏览器。
 1. 添加 **--dest [path|name]** 或 **-d** 参数，来指定编译后的代码部署路径，支持发布到 **本地目录、本地调试服务器目录、远程机器目录(需要配置)**，它与--watch参数配合使用，可以让你的代码保存就上传！而且--dest值支持逗号分隔，这也就意味着，你 **一次编译可以同时发布到本地以及多台远程机器上**！举几个栗子：
     * 发布到fis server open目录下用于本地调试
 

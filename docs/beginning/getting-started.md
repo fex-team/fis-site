@@ -26,11 +26,11 @@ FIS使用[Node.js](http://nodejs.org/)开发，以[npm](http://npmjs.org/)包的
 $ npm install -g fis
 ```
 
-安装遇到困难？[点击这里](http://to.install.fail)
+安装遇到困难？[点击这里](/docs/faq/faq.html#why-install-failed)
 
 ### 示例准备
 
-在介绍FIS的主要功能前，需要先准备一个示例项目。你可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
+在介绍FIS的主要功能前，需要先准备一个示例项目。我们可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
 
 ```bash
 $ npm install -g lights
@@ -196,6 +196,8 @@ $ fis release -op
 ## 写在最后
 
 至此，我们完整的演示了如何使用FIS对一个传统的Web项目如何进行资源压缩、合并等优化工作，大幅提高网站性能，并且整个过程需要的配置文件也非常的少，而配置完成后仅需一个命令，就可以完成一系列的优化工作，节约大量的手工维护成本。
+
+除了构建能力之外，FIS还通过 ```fis server``` 提供了本地预览能力，你还可以通过 ```fis release --watch --live``` 来达到文件修改监控与页面自动刷新功能，更多用法请参考[命令行](/docs/api/cli.html)。
 
 但是这样就满足还是太早了，有没有觉得就算有了资源自动合并，但是每次还要手动的添加资源引用是一件非常繁琐的事情，并且可能有一天某个资源已经不需要使用了，还需要去手工维护这段代码的引用是不是非常恼人呢？特别是如果一个脚本的功能可能被多个地方使用的话，不经过回归测试，你还敢轻易的移除它么？
 
