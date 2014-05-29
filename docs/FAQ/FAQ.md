@@ -182,4 +182,3 @@ fis.config.set('roadmap.path', [
 
 另外，经过许多团队的实践表明，application cache目前还有各种莫名其妙的坑，如果决定使用，请仔细验证可行性和可靠性问题
 
-
