@@ -4,13 +4,12 @@ title: FAQ- F.I.S
 category: FAQ
 ---
 
-## fis安装不上怎么办？
+## FIS安装不上？
 
-[npm](https://www.npmjs.org/)是nodejs的包管理工具。安装nodejs后，npm就自动一起安装了。
+FIS作为nodejs模块发布托管在 [npm](https://www.npmjs.org/)上，npm是nodejs的包管理工具。[查看npm网站](https://www.npmjs.org/search?q=fis)，
 
-* 用nodejs写的模块都发布在npm上。[npm网站](https://www.npmjs.org/)
-* 用户需要使用npm install命令来安装nodejs模块。更多npm使用，执行 npm -h 来查看
-* ``由于npm经常被墙，安装fis的时候会出现速度过慢，或者安装不上的问题`` 。
+* 用户需要使用npm install命令来安装FIS。更多npm使用，执行 npm -h 来查看
+* ``由于npm经常被墙，安装FIS的时候会出现速度过慢，或者安装不上的问题`` 。
 * 可以通过 npm的 ``--registry`` 参数指定仓库。指定国内的npm镜像来解决npm被墙的问题。
 
 例如： 
@@ -22,11 +21,16 @@ npm install some-npm-module -g --registry=国内镜像
 * --registry=http://r.cnpmjs.org
 
 
-## fis中怎么使用less和coffee？
+## FIS中使用less和coffee？
 
 项目中使用less、coffee的方法：
 
-安装less、coffee的fis扩展插件： shell npm install -g fis-parser-less npm install -g fis-parser-coffee
+安装less、coffee的FIS扩展插件： 
+
+```shell 
+npm install -g fis-parser-less 
+npm install -g fis-parser-coffee
+```
 配置fis，调用相关插件
 
 ```javascript
@@ -38,7 +42,7 @@ fis.config.set('modules.parser.coffee', 'coffee');
 
 另外，wiki看过了么： https://github.com/fis-dev/fis/wiki
 
-fis的编译有一个内置的流程，你可以根据需要在适当的流程中使用插件处理你的文件。每个文件的处理，以后缀名为依据，分别会经过：语言处理（parser）→标准预处理（preprocessor）→标准后处理（postprocessor）→校验（lint）→测试（test）→优化（optimizer）
+FIS的编译有一个内置的流程，你可以根据需要在适当的流程中使用插件处理你的文件。每个文件的处理，以后缀名为依据，分别会经过：语言处理（parser）→标准预处理（preprocessor）→标准后处理（postprocessor）→校验（lint）→测试（test）→优化（optimizer）
 
 配置的方式是
 
@@ -52,12 +56,12 @@ fis.config.set('modules.流程名.文件后缀', '插件名');
 插件：在 parser 阶段，fis会根据fis-conf.js的配置和文件后缀调用插件，fis内置了几个插件，但没有less、coffee，所以在需要less、coffee构建的时候，你需要先安装相关插件，来扩展fis的功能。插件的命名是 fis-流程名-插件名，比如这里我们要在parser阶段编译less，那么我们的插件名就是 fis-parser-less。
 
 
-## release的时候有error，怎么看详细信息？
+## release error，看详细信息？
 
 fis release 加上 --verbose参数，可以显示详细信息.
 
 
-## deploy时如何进行多个字符串替换？
+## deploy时，多个字符串替换？
 
 ```javascript
 {
@@ -111,9 +115,9 @@ http://fex.baidu.com/blog/2014/03/fis-plus/
 
 import (inline) 是less处理的，没有让fis管理。可以尝试把@import (inline) "b.less"改成@import url('b.less?__inline'); 有FIS来管理。
 
-## 想扩展fis，实现manifest功能怎么做？
+## 想扩展FIS，实现manifest功能怎么做？
 
-可以的，fis没有针对前端领域开发的方方面面做出demo，但fis是一个很灵活的构建系统，以manifest为例，可以这样配置fis来生成：
+可以的，FIS没有针对前端领域开发的方方面面做出demo，但FIS是一个很灵活的构建系统，以manifest为例，可以这样配置FIS来生成：
 
 ```javascript
 //配置fis在打包后处理阶段的一些操作
@@ -141,7 +145,7 @@ fis.config.set('modules.postpackager', function(ret){
 ```
 
 
-这样，我们就基于fis，开发出了一种manifest支持的模式，工程师无需手动维护文件的内容。当然，我们也可以给文件自定义一些属性，来控制是否加入到manifest表中。比如我们假设 只允许某些特定文件做manifest，其他文件不需要。我们可以修改前面的配置，加上一个小小的标示：
+这样，我们就基于FIS，开发出了一种manifest支持的模式，工程师无需手动维护文件的内容。当然，我们也可以给文件自定义一些属性，来控制是否加入到manifest表中。比如我们假设 只允许某些特定文件做manifest，其他文件不需要。我们可以修改前面的配置，加上一个小小的标示：
 
 ```javascript
 fis.config.set('modules.postpackager', function(ret){
