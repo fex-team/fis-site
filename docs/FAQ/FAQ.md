@@ -96,6 +96,11 @@ fis.config.set('modules.preprocessor.js', function(content){
 上面的配置只是针对js后缀的文件的。
 
 
+## deploy上传出错，报RESET？
+一般：RESET一般都是目标机开着防火墙导致的，nginx关一下policy frame,ligttpd关一下fireware。
+具体怎么做，请查看服务器相关文档。
+
+
 ## fis release 之后得目录在哪?
 如果没有指定或者設置常量会存放到用戶跟目錄下。可以使用以下命令打开。
 
@@ -103,12 +108,44 @@ fis.config.set('modules.preprocessor.js', function(content){
     fis server open
 ```
 
-
 ## fis & fisp 区别
 
 可以参考以下文章：
 [FIS & FISP](http://fex.baidu.com/blog/2014/03/fis-plus/)
 
+## 如何关闭自动添加md5功能？
+
+设置``useHash`` 为false即可。
+
+```javascript
+
+fis.config.set('roadmap.path', [
+    {
+        reg: /.*\.(js|css)$/
+        useHash: false
+    }
+]);
+```
+
+## 如何使用时间戳代替md5？
+可以参考如下配置：
+
+```javascript
+var now = new Date();
+fis.config.set('timestamp', [now.getFullYear(), now.getMonth()+1, now.getDate(), now.getHours()].join(''));
+
+fis.config.set('roadmap.path', [
+    {
+        reg: /.*\.(js|css)$/,
+        query: '?t=${timestamp}',
+        useHash: false
+    },
+    {
+        reg: '**.html',
+        useCache: false
+    }
+]);
+```
 
 ## less @import()，--watch不起作用？
 
