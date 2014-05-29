@@ -12,9 +12,13 @@ category: beginning
 
 > 同时FIS不仅仅是配置简单，使用方便。FIS还有完善的插件系统和扩展能力满足你各式各样的需求，更赞的是FIS还支持二次包装，你可以通过对FIS进行简单的封装来打造属于你自己的开发工具。
 
-让我们快速上手，一起了解一下如何使用FIS轻松的完成一个传统前端项目的资源压缩、添加md5戳、资源合并等性能优化工作。
+使用FIS我们可以轻松的完成前端项目的性能优化工作，对应雅虎性能优化14条准则，通过资源压缩减少网站加载的文件体积，通过添加md5戳完美的解决缓存更新问题，通过资源合并尽可能减少HTTP的请求数。
 
-## 工具安装
+让我们快速上手，一起试试看如何使用FIS轻松的完成一个传统前端项目的[资源压缩](/docs/beginning/getting-started.html#资源压缩)、[添加md5戳](/docs/beginning/getting-started.html#添加md5戳)、[资源合并](/docs/beginning/getting-started.html#资源合并)等性能优化工作。
+
+## 准备工作
+
+### 工具安装
 
 FIS使用[Node.js](http://nodejs.org/)开发，以[npm](http://npmjs.org/)包的形式发布。因此使用FIS需要先[安装Node.js](http://www.baidu.com/?isidx=1#wd=Node.js+%E5%AE%89%E8%A3%85)，再通过npm安装命令进行FIS安装。
 
@@ -24,22 +28,22 @@ $ npm install -g fis
 
 安装遇到困难？[点击这里](http://to.install.fail)
 
-## 示例准备
+### 示例准备
 
-在介绍FIS的主要功能前，需要先准备一个示例项目。你可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
+在介绍FIS的主要功能前，需要先准备一个示例项目。我们可以使用[Lights包管理](http://lightjs.duapp.com/)安装，也可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)获取。
 
 ```bash
 $ npm install -g lights
 $ lights install fis-quickstart-demo
 ```
 
-## 本地预览
+### 本地预览
 
 首先我们可以通过 ```fis server start``` 命令启动FIS的本地调试服务器功能对构建发布的项目进行预览调试
 
 ```bash
 $ cd fis-quickstart-demo
-$ fis release #不进行任何优化重新发布一次
+$ fis release #不进行任何优化发布一次
 $ fis server start #如果8080端口被占用，使用-p参数设置可用的端口，可以忽略Java与PHP环境依赖的报错
 ```
 
@@ -57,9 +61,9 @@ $ fis server start #如果8080端口被占用，使用-p参数设置可用的端
 $ fis release --optimize
 ```
 
-再次查看一下网站的静态资源统计 ```15 requests|146KB transferred``` ，可以发现静态资源已经被压缩。
+再次查看一下网站的静态资源统计 ```15 requests|146KB transferred``` ，可以发现静态资源已经被压缩。并且不仅仅是脚本资源与样式资源被压缩，包括所有图片资源也默认进行了无损压缩。
 
-是不是很简单呢？FIS会默认对脚本与样式表资源进行压缩，通过安装插件还可以无缝使用[coffescript](https://github.com/fouber/fis-parser-coffee-script)、[less](https://github.com/fouber/fis-parser-less)、[sass](https://github.com/fouber/fis-parser-sass)等前端语言进行开发并对其编译结果进行压缩。
+是不是很简单呢？FIS会默认对脚本与样式表资源以及图片进行压缩，通过安装插件还可以无缝使用[coffescript](https://github.com/fouber/fis-parser-coffee-script)、[less](https://github.com/fouber/fis-parser-less)、[sass](https://github.com/fouber/fis-parser-sass)等前端语言进行开发并对其编译结果进行压缩。
 
 > 细心的朋友可能还会发现，index.html中原本使用相对路径对资源定位，在我们的构建产出中已经全部修改为了**绝对路径**，这是因为FIS构建工具内置了[三种语言能力](/docs/more/fis-standard.html)，其中资源定位功能会将所有路径引用调整为绝对路径。
 
@@ -69,12 +73,12 @@ $ fis release --optimize
 
 > 由于添加md5戳功能依赖FIS的三种语言能力的扩展，因此如果在上面的例子中通过配置关闭了标准化处理功能，需要**删除**相应配置。
 
-使用FIS为静态资源添加md5戳，md5戳的添加实际上是[静态资源版本更新与缓存](http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part1)方面非常重要的能力，但是如果采用手动添加的形式，工作量会比目前大量使用的版本号或时间戳的模式大很多，但是使用FIS，我们可以仅仅通过一个参数，完成这个繁重的工作。
+使用FIS为静态资源添加md5戳，md5戳的添加实际上是[静态资源版本更新与缓存](http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part1)方面非常重要的能力，但是如果采用手动添加的形式，工作量会比目前大量使用的版本号或时间戳的模式大很多，可以说人工添加基本不可行，而如果使用FIS，我们可以仅仅通过一个参数，完成这个繁重的工作。
 
 <!-- 我们可以实现与添加[时间戳](http://to.how.add.timestamp)一样的静态资源缓存管理能力。但是md5戳比时间戳在版本管理和发布部署上都有更多的优势，点击[了解更多](http://to.why.md5)。 -->
 
 
-那么接下来，我们通过开启 ```--md5``` 参数，为项目中的静态资源添加md5戳
+我们通过开启 ```--md5``` 参数，为项目中的静态资源添加md5戳
 
 ```bash
 $ fis release --optimize --md5
@@ -82,7 +86,7 @@ $ fis release --optimize --md5
 
 查看一下源代码，可以看到不仅静态资源文件被加上了md5戳，所有静态资源引用都被设置了md5戳。
 
-那么总结一下，我们通过简单的两个参数，完成了对前端项目的资源压缩和版本管理工作。值得注意的是我们以上的操作均是[零配置](/docs/api/fis-conf.html)，并不像其他构建工具一样必须先添加配置才能进行优化工作，这就是FIS对前端项目构建的理解能力，通过指定简单的参数，就可以进行传统前端项目的性能优化工作。
+**总结一下**，我们通过简单的两个参数，完成了对前端项目的资源压缩和版本管理工作。值得注意的是我们以上的操作均是[零配置](/docs/api/fis-conf.html)，并不像其他构建工具一样必须先添加配置才能进行优化工作，这就是FIS对前端项目构建的理解能力，通过指定简单的参数，就可以进行传统前端项目的性能优化工作。
 
 <i class="anchor" id="combine"></i>
 
