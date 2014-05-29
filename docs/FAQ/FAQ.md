@@ -108,7 +108,7 @@ fis.config.set('modules.preprocessor.js', function(content){
 ## fis & fisp 区别
 
 可以参考以下文章：
-http://fex.baidu.com/blog/2014/03/fis-plus/
+[FIS & FISP](http://fex.baidu.com/blog/2014/03/fis-plus/)
 
 
 ## less @import (inline)时，--watch不起作用？
