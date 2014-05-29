@@ -147,6 +147,21 @@ fis.config.set('roadmap.path', [
 ]);
 ```
 
+## 如何关闭FIS的编译流程？
+
+设置``useCompile`` 为false即可。
+
+```javascript
+
+fis.config.set('roadmap.path', [
+    {
+        reg: /.*\.(js|css)$/
+        useCompile: false
+    }
+]);
+```
+
+
 ## less @import()，--watch不起作用？
 
 import (inline) 是less处理的，没有让fis管理。可以尝试把@import (inline) "b.less"改成@import url('b.less?__inline'); 有FIS来管理。
