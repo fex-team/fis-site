@@ -119,7 +119,7 @@ category: dev
 
 ## 覆写插件
 
-写过 node 的同学应该都知道 require 的查找顺序，比如 require('fis-command-release')。当第一加载此模块的时候，先会尝试当前脚本所在的目录下查找 node_modules/fis-command-release 模块，如果没找到，再往上级目录找，知道找到或者没有上级目录了。那么，当fis cli执行的时候，require 某个命令模块，其实最先找到的是 fis 模块下的 fis-command-xxx 然后才是 hello 模块的 fis-command-xxx。如是出现了一个问题就是，我们的模块里面只能新加模块，而不能覆写模块。
+写过 node 的同学应该都知道 require 的查找顺序，比如 require('fis-command-release')。当第一次加载此模块的时候，先会尝试当前脚本所在的目录下查找 node_modules/fis-command-release 模块，如果没找到，再往上级目录找，直到找到或者没有上级目录了为止。那么，当fis cli执行的时候，require 某个命令模块，其实最先找到的是 fis 模块下的 fis-command-xxx 然后才是 hello 模块的 fis-command-xxx。如是出现了一个问题，就是我们的模块里面只能新加模块，而不能覆写模块。
 
 的确，之前确实是这样的，好在 fis 内部所有 require 模块的地方不是直接使用系统的require 方法，而是 fis.require 方法。如是，小修改了下逻辑，原来是固定查找 fis- 打头的插件，现在你可以控制，让其先加载 hello- 打头的插件，然后才查找 fis- 打头的插件。
 

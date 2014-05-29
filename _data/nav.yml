@@ -124,7 +124,3 @@
 - title: FAQ
   url: /docs/faq/faq.html
   type: category
-
-- title: 问题反馈
-  url: https://github.com/fex-team/fis/issues/new
-  type: category

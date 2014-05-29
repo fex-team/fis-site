@@ -55,7 +55,7 @@ fis.config.set('modules.流程名.文件后缀', '插件名');
 插件：在 parser 阶段，fis会根据fis-conf.js的配置和文件后缀调用插件，fis内置了几个插件，但没有less、coffee，所以在需要less、coffee构建的时候，你需要先安装相关插件，来扩展fis的功能。插件的命名是 fis-流程名-插件名，比如这里我们要在parser阶段编译less，那么我们的插件名就是 fis-parser-less。
 
 
-## release error，看详细信息？
+## 查看release error详细报错信息？
 
 fis release 加上 **--verbose参数**，可以显示详细信息.
 
@@ -96,21 +96,73 @@ fis.config.set('modules.preprocessor.js', function(content){
 上面的配置只是针对js后缀的文件的。
 
 
-## fis release 之后得目录在哪里啊?
+## deploy上传出错，报RESET？
+一般：RESET一般都是目标机开着防火墙导致的，nginx关一下policy frame,ligttpd关一下fireware。
+具体怎么做，请查看服务器相关文档。
+
+
+## fis release 之后得目录在哪?
 如果没有指定或者設置常量会存放到用戶跟目錄下。可以使用以下命令打开。
 
 ```bash
     fis server open
 ```
 
-
 ## fis & fisp 区别
 
 可以参考以下文章：
 [FIS & FISP](http://fex.baidu.com/blog/2014/03/fis-plus/)
 
+## 如何关闭自动添加md5功能？
 
-## less @import (inline)时，--watch不起作用？
+设置``useHash`` 为false即可。
+
+```javascript
+
+fis.config.set('roadmap.path', [
+    {
+        reg: /.*\.(js|css)$/
+        useHash: false
+    }
+]);
+```
+
+## 如何使用时间戳代替md5？
+可以参考如下配置：
+
+```javascript
+var now = new Date();
+fis.config.set('timestamp', [now.getFullYear(), now.getMonth()+1, now.getDate(), now.getHours()].join(''));
+
+fis.config.set('roadmap.path', [
+    {
+        reg: /.*\.(js|css)$/,
+        query: '?t=${timestamp}',
+        useHash: false
+    },
+    {
+        reg: '**.html',
+        useCache: false
+    }
+]);
+```
+
+## 如何关闭FIS的编译流程？
+
+设置``useCompile`` 为false即可。
+
+```javascript
+
+fis.config.set('roadmap.path', [
+    {
+        reg: /.*\.(js|css)$/
+        useCompile: false
+    }
+]);
+```
+
+
+## less @import()，--watch不起作用？
 
 import (inline) 是less处理的，没有让fis管理。可以尝试把@import (inline) "b.less"改成@import url('b.less?__inline'); 有FIS来管理。
 
