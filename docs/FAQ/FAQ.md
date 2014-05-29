@@ -4,7 +4,7 @@ title: FAQ- F.I.S
 category: FAQ
 ---
 
-1. fis安装不上怎么办？
+## fis安装不上怎么办？
 
 [npm](https://www.npmjs.org/)是nodejs的包管理工具。安装nodejs后，npm就自动一起安装了。
 
@@ -22,7 +22,7 @@ npm install some-npm-module -g --registry=国内镜像
 * --registry=http://r.cnpmjs.org
 
 
-2. fis中怎么使用less和coffee？
+## fis中怎么使用less和coffee？
 
 项目中使用less、coffee的方法：
 
@@ -52,12 +52,12 @@ fis.config.set('modules.流程名.文件后缀', '插件名');
 插件：在 parser 阶段，fis会根据fis-conf.js的配置和文件后缀调用插件，fis内置了几个插件，但没有less、coffee，所以在需要less、coffee构建的时候，你需要先安装相关插件，来扩展fis的功能。插件的命名是 fis-流程名-插件名，比如这里我们要在parser阶段编译less，那么我们的插件名就是 fis-parser-less。
 
 
-3. release的时候有error，怎么看详细信息？
+## release的时候有error，怎么看详细信息？
 
 fis release 加上 --verbose参数，可以显示详细信息.
 
 
-4. deploy时如何进行多个字符串替换？
+## deploy时如何进行多个字符串替换？
 
 ```javascript
 {
@@ -93,7 +93,7 @@ fis.config.set('modules.preprocessor.js', function(content){
 上面的配置只是针对js后缀的文件的。
 
 
-5. fis release 之后得目录在哪里啊?
+## fis release 之后得目录在哪里啊?
 如果没有指定或者設置常量会存放到用戶跟目錄下。可以使用以下命令打开。
 
 ```bash
@@ -101,17 +101,17 @@ fis.config.set('modules.preprocessor.js', function(content){
 ```
 
 
-6. fis & fisp 区别
+## fis & fisp 区别
 
 可以参考以下文章：
 http://fex.baidu.com/blog/2014/03/fis-plus/
 
 
-7. less @import (inline)时，--watch不起作用？
+## less @import (inline)时，--watch不起作用？
 
 import (inline) 是less处理的，没有让fis管理。可以尝试把@import (inline) "b.less"改成@import url('b.less?__inline'); 有FIS来管理。
 
-4. 想扩展fis，实现manifest功能怎么做？
+## 想扩展fis，实现manifest功能怎么做？
 
 可以的，fis没有针对前端领域开发的方方面面做出demo，但fis是一个很灵活的构建系统，以manifest为例，可以这样配置fis来生成：
 
