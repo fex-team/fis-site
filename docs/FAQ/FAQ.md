@@ -1,12 +1,12 @@
 ---
 layout: post
-title: FAQ- F.I.S
+title: FAQ-F.I.S
 category: FAQ
 ---
 
 ## FIS安装不上？
 
-FIS作为nodejs模块发布托管在 [npm](https://www.npmjs.org/)上，npm是nodejs的包管理工具。[查看npm网站](https://www.npmjs.org/search?q=fis)，
+FIS作为nodejs模块发布托管在 [npm](https://www.npmjs.org/)上，npm是nodejs的包管理工具。[查看npm网站](https://www.npmjs.org/search?q=fis)
 
 * 用户需要使用npm install命令来安装FIS。更多npm使用，执行 npm -h 来查看
 * ``由于npm经常被墙，安装FIS的时候会出现速度过慢，或者安装不上的问题`` 。
