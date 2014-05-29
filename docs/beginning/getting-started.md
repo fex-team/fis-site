@@ -96,9 +96,9 @@ $ fis release --optimize --md5
 
 > 关于FIS的静态资源管理思路，可以参考 [静态资源管理与模板框架](http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part2/)，但是这里描述的是一种较完备的方案，需要根据后端的技术选型进行一些后端模板开发。本篇指南则是介绍一种利用FIS在构建阶段自动完成资源合并工作的方法，使用成本更加低，更加适合中小型项目。
 
-FIS内置提供了[pack](/docs/api/fis-conf.html#pack)设置为资源进行打包，然而由于FIS的资源打包功能的初衷是为[静态资源管理与模板框架](http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part2/)服务，因此没有在构建阶段进行静态资源引用路径的合并管理。
+FIS内置提供了[pack](/docs/api/fis-conf.html#pack)设置为资源进行打包，同时为了达到静态资源引用标签自动合并的目的，我们需要扩展FIS的功能，添加简单打包插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)。
 
-为了达到静态资源自动合并的目的，我们需要扩展FIS的功能，添加简单打包插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)，它的功能是收集页面中的已有的script和link标签，将这些标签引用的资源进行自动合并，并将原有的script和link标签替换为自动合并后的标签，最终达到页面级的静态资源合并能力。
+<!-- 它的功能是收集页面中的已有的script和link标签，将这些标签引用的资源进行自动合并，并将原有的script和link标签替换为自动合并后的标签，最终达到页面级的静态资源合并能力。-->
 
 ### 插件安装
 
