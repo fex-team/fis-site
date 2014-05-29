@@ -14,7 +14,7 @@ category: beginning
 
 本篇指南使用的示例与资源压缩指南中使用的是相同的示例，示例项目的准备工作可以参考[资源压缩](/docs/beginning/getting-started.html)
 
-为了达到静态资源自动合并的目的，我们需要扩展FIS的功能，添加插件[fis-postpackager-combine](https://github.com/hefangshi/fis-postpackager-combine)，它的功能是收集页面中的已有的script和link标签，将这些标签引用的资源进行自动合并，并将原有的script和link标签替换为自动合并后的标签，最终达到页面级的静态资源合并能力。
+为了达到静态资源自动合并的目的，我们需要扩展FIS的功能，添加插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)，它的功能是收集页面中的已有的script和link标签，将这些标签引用的资源进行自动合并，并将原有的script和link标签替换为自动合并后的标签，最终达到页面级的静态资源合并能力。
 
 ## 插件安装
 
@@ -23,10 +23,10 @@ category: beginning
 插件的安装分为两步，首先我们需要通过[npm](http://npmjs.org)包管理工具进行插件安装
 
 ```
-$ npm install -g fis-postpackager-combine
+$ npm install -g fis-postpackager-simple
 ```
 
-插件安装到本地后，我们还需要通过项目配置文件开启插件，修改项目根目录下的fis-conf.js配置，加入combine插件
+插件安装到本地后，我们还需要通过项目配置文件开启插件，修改项目根目录下的fis-conf.js配置，加入fis-postpackager-simple插件
 
 ```
 $ cd fis-quickstart-demo
@@ -35,7 +35,7 @@ $ vi fis-conf.js
 
 ```javascript
 //file : fis-conf.js
-fis.config.set('modules.postpackager', 'combine');
+fis.config.set('modules.postpackager', 'simple');
 ```
 
 ## 资源合并
@@ -54,7 +54,7 @@ $ fis server start #如果8080端口被占用，使用-p参数设置可用的端
 
 ### 资源合并优化
 
-对于[减少HTTP连接数](http://www.baidu.com/?isidx=1#wd=%E5%87%8F%E5%B0%91HTTP%E8%BF%9E%E6%8E%A5%E6%95%B0)的必要性在这里我们就不再赘述。让我们直接试试看在combine插件支持下，如何通过FIS对这些独立的请求进行合并。
+对于[减少HTTP连接数](http://www.baidu.com/?isidx=1#wd=%E5%87%8F%E5%B0%91HTTP%E8%BF%9E%E6%8E%A5%E6%95%B0)的必要性在这里我们就不再赘述。让我们直接试试看在fis-postpackager-simple插件支持下，如何通过FIS对这些独立的请求进行合并。
 
 ```bash
 $ fis release --optimize --pack
@@ -68,7 +68,7 @@ $ fis release -op
 
 再次浏览我们可以发现所有的脚本资源均被自动合并为了一个文件，并且原来的script标签的引用路径也被自动替换为合并文件的路径。
 
-不仅如此，combine插件还自动将原来在顶部的脚本资源引用移动到了页面最下方，进一步的加快了页面的展现速度，关于combine插件更多的静态资源处理策略和使用方法，请参考[fis-postpackager-combine](https://github.com/hefangshi/fis-postpackager-combine#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5)。
+不仅如此，fis-postpackager-simple插件还自动将原来在顶部的脚本资源引用移动到了页面最下方，进一步的加快了页面的展现速度，关于fis-postpackager-simple插件更多的静态资源处理策略和使用方法，请参考[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5)。
 
 ### 人工干预合并
 

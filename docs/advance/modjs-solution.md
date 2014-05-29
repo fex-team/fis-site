@@ -79,7 +79,7 @@ $ pure release -pmo
 
 可能有的同学会问了，这个pure到底是个什么东西，和FIS是什么关系？想做纯前端的模块化开发就只能用pure了么？
 
-实际上pure只是通过FIS的解决方案封装能力封装而成，其底层核心仍然是FIS，与FIS不同之处在于默认集成了一些功能扩展插件，比如用于模块化资源自动加载的[fis-prepackager-autoload](https://github.com/hefangshi/fis-prepackager-autoload)以及静态资源自动合并插件[fis-prepackager-combine](https://github.com/hefangshi/fis-prepackager-combine)。
+实际上pure只是通过FIS的解决方案封装能力封装而成，其底层核心仍然是FIS，与FIS不同之处在于默认集成了一些功能扩展插件，比如用于模块化资源自动加载的[fis-prepackager-autoload](https://github.com/hefangshi/fis-prepackager-autoload)以及静态资源自动合并插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)。
 
 除此之外，pure还对模块化开发提供了一个目录规范参考，具体可以参见[pure](https://github.com/fex-team/fis-pure)的文档内容。
 
@@ -144,4 +144,4 @@ $ pure release -pmo
 
 相应的，我们还需要在前端使用一套类似AMD/CMD规范的模块化加载库[Mod](https://github.com/fex-team/mod)，Mod的特点在于弱化了前端的依赖分析能力，通过FIS工具在构建时期完成这些繁重的工作。这样的优势是模块化加载库的功能更加单一，逻辑更加简单，并且将资源合并工作交给编译时或后端运行时解决，进一步降低复杂度。
 
-但是光有这些，我们的资源都还是按照模块独立的进行加载，这样很明显是不符合我们的减少HTTP请求的目标的。这个问题听起来很耳熟，有没有想到如何解决？没错！就是使用我们在快速入门时介绍过的资源合并插件[fis-postpackager-combine](https://github.com/hefangshi/fis-postpackager-combine)，通过autoload插件注入资源依赖，再通过combine插件合并资源依赖，我们就像**拼积木**一样通过FIS构建出了一套高可用性的前端模块化解决方案，最终的产出，就是我们前文中介绍的[pure](https://github.com/fex-team/fis-pure)
+但是光有这些，我们的资源都还是按照模块独立的进行加载，这样很明显是不符合我们的减少HTTP请求的目标的。这个问题听起来很耳熟，有没有想到如何解决？没错！就是使用我们在快速入门时介绍过的资源合并插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)，通过autoload插件注入资源依赖，再通过simple插件合并资源依赖，我们就像**拼积木**一样通过FIS构建出了一套高可用性的前端模块化解决方案，最终的产出，就是我们前文中介绍的[pure](https://github.com/fex-team/fis-pure)
