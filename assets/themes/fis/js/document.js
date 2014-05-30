@@ -44,7 +44,7 @@
     }
 
     function fixAffixPosition(){
-        var docRight = $(window).width()- ($(".doc-content").position().left+$(".doc-content").width()+235);
+        var docRight = $(window).width()- ($(".doc-content").position().left+$(".doc-content").width()+255);
         $(".toc").css('right', docRight);
     }
 
@@ -71,7 +71,7 @@
         if (window.respond && !window.respond.mediaQueriesSupported) {
             setTimeout(setScrollSpy, 3000);
         }else{
-            setScrollSpy();
+            setTimeout(setScrollSpy, 300);
         }
         fixAffixPosition();
         $(window).resize(fixAffixPosition);
