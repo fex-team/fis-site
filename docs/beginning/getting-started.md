@@ -51,6 +51,10 @@ $ fis server start #如果8080端口被占用，使用-p参数设置可用的端
 
 本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080```
 
+查看一下静态资源情况
+
+![预览发布](img/quickstart/normal.png)
+
 <!-- 我们可以利用浏览器的开发者工具查看一下网站的静态资源统计 ```15 requests|399KB transferred``` -->
 
 <i class="anchor" id="optimize"></i>
@@ -64,6 +68,8 @@ $ fis release --optimize
 ```
 浏览一下网站的静态资源，我们会发现脚本、样式、图片资源都已经压缩完成，是不是非常方便快捷？
 
+![资源压缩](img/quickstart/compress.png)
+
 <!-- 再次查看一下网站的静态资源统计 ```15 requests|146KB transferred``` ，可以发现静态资源已经被压缩。并且不仅仅是脚本资源与样式资源被压缩，包括所有图片资源也默认进行了无损压缩。
 
 是不是很简单呢？FIS会默认对脚本与样式表资源以及图片进行压缩，通过安装插件还可以无缝使用[coffescript](https://github.com/fouber/fis-parser-coffee-script)、[less](https://github.com/fouber/fis-parser-less)、[sass](https://github.com/fouber/fis-parser-sass)等前端语言进行开发并对其编译结果进行压缩。
@@ -76,25 +82,20 @@ $ fis release --optimize
 > 如果只希望对静态资源进行压缩，不希望对路径进行调整，可以通过[配置文件](https://gist.github.com/hefangshi/a7bee8a1b29f3f85f1a0)关闭标准化处理功能。但是标准化处理功能是FIS的核心特色，除非需求仅是对资源进行压缩，否则不建议关闭。
  -->
 
-<!-- ## 添加md5戳
+## 添加文件版本
 
-> 由于添加md5戳功能依赖FIS的三种语言能力的扩展，因此如果在上面的例子中通过配置关闭了标准化处理功能，需要**删除**相应配置。
+FIS能够根据静态资源的内容自动生成文件版本，自动更新资源引用路径，解决手动更新时间戳的烦恼。
 
-使用FIS为静态资源添加md5戳，md5戳的添加实际上是[静态资源版本更新与缓存](http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part1)方面非常重要的能力，但是如果采用手动添加的形式，工作量会比目前大量使用的版本号或时间戳的模式大很多，可以说人工添加基本不可行，而如果使用FIS，我们可以仅仅通过一个参数，完成这个繁重的工作。
-
-我们可以实现与添加[时间戳](http://to.how.add.timestamp)一样的静态资源缓存管理能力。但是md5戳比时间戳在版本管理和发布部署上都有更多的优势，点击[了解更多](http://to.why.md5)。
-
-
-我们通过开启 ```--md5``` 参数，为项目中的静态资源添加md5戳
+我们通过开启 ```--md5``` 参数，为项目中的静态资源添加md5版本号
 
 ```bash
 $ fis release --optimize --md5
 ```
 
-查看一下源代码，可以看到不仅静态资源文件被加上了md5戳，所有静态资源引用都被设置了md5戳。
+刷新页面，我们可以看到所有资源均加上了md5版本号
 
-**总结一下**，我们通过简单的两个参数，完成了对前端项目的资源压缩和版本管理工作。值得注意的是我们以上的操作均是[零配置](/docs/api/fis-conf.html)，并不像其他构建工具一样必须先添加配置才能进行优化工作，这就是FIS对前端项目构建的理解能力，通过指定简单的参数，就可以进行传统前端项目的性能优化工作。
- -->
+![资源压缩](img/quickstart/md5.png)
+
 <i class="anchor" id="combine"></i>
 
 ## 资源合并
@@ -135,16 +136,18 @@ fis.config.set('modules.postpackager', 'simple');
 对于[减少HTTP连接数](http://www.baidu.com/?isidx=1#wd=%E5%87%8F%E5%B0%91HTTP%E8%BF%9E%E6%8E%A5%E6%95%B0)的必要性在这里我们就不再赘述。让我们直接试试看在fis-postpackager-simple插件支持下，如何通过FIS对这些独立的请求进行合并。
 
 ```bash
-$ fis release --optimize --pack
+$ fis release --optimize --md5 --pack
 ```
 
 如果觉得参数输入比较麻烦，实际上也有等价的更短的命令可以灵活组合，更多的参数可以参考[命令行](/docs/api/cli.html)。
 
 ```bash
-$ fis release -op
+$ fis release -omp
 ```
 
-再次浏览我们可以发现所有的脚本资源均被自动合并为了一个文件，并且原来的script标签的引用路径也被自动替换为合并文件的路径，关于fis-postpackager-simple插件更多的静态资源处理策略和使用方法，请参考[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5)。
+再次浏览我们可以发现所有的脚本资源均被自动合并为了一个文件，关于fis-postpackager-simple插件更多的静态资源处理策略和使用方法，请参考[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5)。
+
+![资源合并](img/quickstart/combine.png)
 
 ### 人工干预合并
 
@@ -168,10 +171,12 @@ fis.config.set('pack', {
 再次运行FIS构建项目
 
 ```bash
-$ fis release -op
+$ fis release -omp
 ```
 
-我们会发现原有的 ```auto_combine_0.js``` 被分解为了 ```auto_combine_0.js``` 和 ```lib.js``` ，```lib.js``` 被独立打成了一个包。
+我们会发现 ```lib.js``` 已经被独立打包加载了
+
+![人工干预合并](img/quickstart/pack-combine.png)
 
 ### 合并图片
 
@@ -197,11 +202,13 @@ fis.config.set('settings.spriter.csssprites.margin', 20);
 $ fis release -op
 ```
 
-再次查看项目，添加几个待办项，我们会发现所有待办项的图片都合并在了一张图片中。
+刷新一下，添加几个待办项，我们会发现所有待办项的图片都合并在了一张图片中。
+
+![人工干预合并](img/quickstart/pic-combine.png)
 
 ## 写在最后
 
-至此，我们完整的演示了如何使用FIS对一个传统的Web项目如何进行资源压缩、合并等优化工作，大幅提高网站性能，并且整个过程需要的配置工作也非常的少，而配置完成后仅需一个命令，就可以完成一系列的优化工作，节约大量的手工维护成本。
+至此，我们完整的演示了如何使用FIS对一个传统的Web项目如何进行资源压缩、合并等优化工作，大幅提高网站性能，并且整个过程需要的[配置工作](https://github.com/hefangshi/fis-quickstart-demo/blob/master/fis-conf.js)也非常的少，而配置完成后仅需一个命令，就可以完成一系列的优化工作，节约大量的手工维护成本。
 
 除了构建能力之外，FIS还通过 ```fis server``` 提供了本地预览能力，你还可以通过 ```fis release --watch --live``` 来达到文件修改监控与页面自动刷新功能，更多用法请参考[辅助开发](/docs/beginning/assist.html)。
 
