@@ -79,15 +79,11 @@ $ pure release -pmo
 
 可能有的同学会问了，这个pure到底是个什么东西，和FIS是什么关系？想做纯前端的模块化开发就只能用pure了么？
 
-实际上pure只是通过FIS的解决方案封装能力封装而成，其底层核心仍然是FIS，与FIS不同之处在于默认集成了一些功能扩展插件，比如用于模块化资源自动加载的[fis-prepackager-autoload](https://github.com/hefangshi/fis-prepackager-autoload)以及静态资源自动合并插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)。
+实际上pure只是通过FIS的解决方案封装能力封装而成，其底层核心仍然是FIS，与FIS不同之处在于默认集成了一些功能扩展插件，比如用于模块化资源自动加载的[fis-prepackager-autoload](https://github.com/hefangshi/fis-prepackager-autoload)以及静态资源自动合并插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)。这些插件与配置的集成实际上都是十分简单快速的，具体可以参考[解决方案封装](/docs/dev/solution.html)部分以及[fis-pure](https://github.com/fex-team/fis-pure)的源码部分。
 
-除此之外，pure还对模块化开发提供了一个目录规范参考，具体可以参见[pure](https://github.com/fex-team/fis-pure)的文档内容。
+<!-- 除此之外，pure还对模块化开发提供了一个目录规范参考，具体可以参见[pure](https://github.com/fex-team/fis-pure)的文档内容。-->
 
-而上述的这些集成实际上都是十分简单快速的，只需要通过[package.json](https://github.com/fex-team/fis-pure/blob/master/package.json#L24-L29)添加需要默认安装的插件，并通过与 ```fis-conf.js``` 语法一致的配置API开启插件并添加一些默认的目录配置即可（[源码](https://github.com/fex-team/fis-pure/blob/master/pure.js)）。
-
-所以你也可以参照pure去实现一套属于你自己的解决方案，可能你不需要underscore的前端模版预编译功能，而是需要handlebars的前端模版预编译功能，那么简单的将[fis-parser-utc](https://github.com/fouber/fis-parser-utc)替换成[fis-parser-handlebars](https://github.com/fouber/fis-parser-handlebars)。希望能够混合使用CoffeeScript与JavaScript？没问题，只需要添加[fis-parser-coffee-script](https://github.com/fouber/fis-parser-coffee-script)即可，FIS就像乐高积木一样，你可以不断的在FIS的基础上添砖加瓦，定制属于你自己的解决方案。
-
-可是有时候只想自己用一下，不希望发布解决方案这么麻烦？当然可以，你还可以像[modjs-autoload-demo](https://github.com/hefangshi/modjs-autoload-demo)一样通过[项目配置](https://github.com/hefangshi/modjs-autoload-demo/blob/master/fis-conf-with-combine.js)，达到pure一样的效果。
+<!-- 只需要通过[package.json](https://github.com/fex-team/fis-pure/blob/master/package.json#L24-L29)添加需要默认安装的插件，并通过与 ```fis-conf.js``` 语法一致的配置API开启插件并添加一些默认的目录配置即可（[源码](https://github.com/fex-team/fis-pure/blob/master/pure.js)）。-->
 
 总而言之，FIS的优势在于灵活的定制、扩展、封装能力，并且通过内建的[语言能力扩展](/docs/more/fis-standard.html)能力，解决了大量复杂繁重的工作，让开发插件变成一种乐趣。无论是个人使用，还是大中小各种规模的团队，都可以通过FIS满足自己的开发需求。
 
@@ -144,4 +140,4 @@ $ pure release -pmo
 
 相应的，我们还需要在前端使用一套类似AMD/CMD规范的模块化加载库[Mod](https://github.com/fex-team/mod)，Mod的特点在于弱化了前端的依赖分析能力，通过FIS工具在构建时期完成这些繁重的工作。这样的优势是模块化加载库的功能更加单一，逻辑更加简单，并且将资源合并工作交给编译时或后端运行时解决，进一步降低复杂度。
 
-但是光有这些，我们的资源都还是按照模块独立的进行加载，这样很明显是不符合我们的减少HTTP请求的目标的。这个问题听起来很耳熟，有没有想到如何解决？没错！就是使用我们在快速入门时介绍过的资源合并插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)，通过autoload插件注入资源依赖，再通过simple插件合并资源依赖，我们就像**拼积木**一样通过FIS构建出了一套高可用性的前端模块化解决方案，最终的产出，就是我们前文中介绍的[pure](https://github.com/fex-team/fis-pure)
+但是光有这些，我们的资源都还是按照模块独立的进行加载，这样很明显是不符合我们的减少HTTP请求的目标的。这个问题听起来很耳熟，有没有想到如何解决？没错！就是使用我们在快速入门时介绍过的资源合并插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)，通过autoload插件注入资源依赖，再通过simple插件合并资源依赖，我们就像**拼积木**一样通过FIS构建出了一套高可用性的前端模块化解决方案，最终的产出，就是我们前文中介绍的[pure](https://github.com/fex-team/fis-pure)。
