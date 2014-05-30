@@ -2,16 +2,16 @@
   url: /docs/beginning/getting-started.html
   type: category
 
-- title: 工具安装
-  url: /docs/beginning/getting-started.html
-  type: sub
-
 - title: 资源压缩
   url: /docs/beginning/getting-started.html#optimize
   type: sub
 
 - title: 资源合并
   url: /docs/beginning/getting-started.html#combine
+  type: sub
+
+- title: 辅助开发
+  url: /docs/beginning/assist.html
   type: sub
 
 - title: 命令行

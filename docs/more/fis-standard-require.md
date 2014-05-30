@@ -21,7 +21,7 @@ category: advance
 -->
 ```
 
-由于默认情况下，只有js和css文件可以被录入map.json表中，如果想将html文件加入表中，需要添加配置声明html文件为模块化文件，例如：
+默认情况下，只有js和css文件会输出到map.json表中，如果想将html文件加入表中，需要通过配置 ```useMap``` 让HTML文件加入map.json，例如：
 
 ```javascript
 //fis-conf.js
@@ -31,8 +31,8 @@ fis.config.merge({
             {
                 //所有的html文件
                 reg : '**.html',
-                //都是组件化文件
-                isMod : true
+                //输出到map.json表中
+                useMap : true
             }
         ]
     }
