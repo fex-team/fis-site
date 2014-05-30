@@ -4,6 +4,8 @@ title: FAQ-F.I.S
 category: FAQ
 ---
 
+# FAQ
+
 ## FIS安装不上？
 
 FIS作为nodejs模块发布托管在 [npm](https://www.npmjs.org/)上，npm是nodejs的包管理工具。[查看npm网站](https://www.npmjs.org/search?q=fis)
