@@ -141,7 +141,7 @@ $ fis release -omp
 
 再次浏览我们可以发现所有的脚本资源均被自动合并为了一个文件，关于fis-postpackager-simple插件更多的静态资源处理策略和使用方法，请参考[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5)。
 
-![资源合并](img/quickstart/combine.png)
+![资源合并](img/quickstart/combine_2.png)
 
 ### 人工干预合并
 
@@ -170,7 +170,7 @@ $ fis release -omp
 
 我们会发现 ```lib.js``` 已经被独立打包加载了
 
-![人工干预合并](img/quickstart/pack-combine.png)
+![人工干预合并](img/quickstart/pack_combine_2.png)
 
 ### 合并图片
 
@@ -193,12 +193,12 @@ fis.config.set('settings.spriter.csssprites.margin', 20);
 再次运行FIS构建项目
 
 ```bash
-$ fis release -op
+$ fis release -omp
 ```
 
 刷新一下，添加几个待办项，我们会发现所有待办项的图片都合并在了一张图片中。
 
-![人工干预合并](img/quickstart/pic-combine.png)
+![人工干预合并](img/quickstart/pic_combine_2.png)
 
 ## 写在最后
 
