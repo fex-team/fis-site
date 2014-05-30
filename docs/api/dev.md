@@ -223,6 +223,7 @@ fis.config.get('namespace') //获取namespace
 
 ### wrap()
 实例化一个file对象
+
 ```javascript
 var file = fis.file.wrap('/home/fis/debug/static/demo.js');
 ```
@@ -320,7 +321,7 @@ var url = file.getUrl(true, true);
 ```javascript
 file.addRequire('a.js');
 // demo.js 
-依赖与a.js
+//依赖与a.js
 ```
 #### removeRequire(id)
     
