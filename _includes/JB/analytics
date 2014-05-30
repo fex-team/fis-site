@@ -9,6 +9,8 @@
   {% include JB/analytics-providers/mixpanel %}
 {% when "piwik" %}
   {% include JB/analytics-providers/piwik %}
+{% when "baidu" %}
+  {% include JB/analytics-providers/baidu %}
 {% when "custom" %}
   {% include custom/analytics %}
 {% endcase %}
