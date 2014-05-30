@@ -12,9 +12,10 @@ category: advance
 
 ## 纯前端模块化方案
 
-已经对FIS有过了解的同学一定知道FIS的模块化思路是依托于静态资源表[map.json](/docs/more/mapjson.html)与后端静态资源管理框架来进行细粒度的模块化管理工作，但是这也对很多希望使用FIS的同学造成了困扰，是不是不进行后端扩展，就无法将FIS与模块化管理紧密的结合在一起了呢？答案当然是否定的，无论出于什么原因，即使无法对后端进行任何扩展，甚至项目就是一个类似Backbone或者Angularjs的纯前端网站，我们也是可以使用FIS来进行模块化开发的。
+<!-- 已经对FIS有过了解的同学一定知道FIS的模块化思路是依托于静态资源表[map.json](/docs/more/mapjson.html)与后端静态资源管理框架来进行细粒度的模块化管理工作，但是这也对很多希望使用FIS的同学造成了困扰，是不是不进行后端扩展，就无法将FIS与模块化管理紧密的结合在一起了呢？答案当然是否定的，无论出于什么原因，即使无法对后端进行任何扩展，甚至项目就是一个类似Backbone或者Angularjs的纯前端网站，我们也是可以使用FIS来进行模块化开发的。
+-->
 
-为了降低大家的使用门槛，我们通过FIS的[二次封装能力](/docs/dev/solution.html)，封装了一个功能完备的纯前端模块化方案[pure](https://github.com/fex-team/fis-pure)。接下来就让我们使用[pure](https://github.com/fex-team/fis-pure)，体验一下在FIS构建能力的支持下，如何轻松的完成一个**高性能**的纯前端模块化项目的构建与优化工作。
+FIS通过插件扩展也可以完美的支持模块化的前端开发方案，我们通过FIS的[二次封装能力](/docs/dev/solution.html)，封装了一个功能完备的纯前端模块化方案[pure](https://github.com/fex-team/fis-pure)。接下来就让我们使用[pure](https://github.com/fex-team/fis-pure)，体验一下在FIS构建能力的支持下，如何轻松的完成一个**高性能**的纯前端模块化项目的构建与优化工作。
 
 ### pure安装
 
@@ -39,6 +40,8 @@ $ lights install fis-pure-demo
 首先[fis-pure-demo](https://github.com/hefangshi/fis-pure-demo)与[fis-quickstart-demo](https://github.com/hefangshi/fis-quickstart-demo)都是一个TODO DEMO
 
 但是对比一下可以发现，两个项目最大的区别在于fis-quickstart-demo得index.html中包含了大量的脚本和样式资源引用，而在fis-pure-demo中，我们只看到了对[Mod](https://github.com/fex-team/mod)库的引用。
+
+![项目区别](img/mod.png)
 
 其次通过浏览两者的脚本文件，我们会发现fis-quickstart-demo的脚本中都添加了 ```define``` 包装
 
@@ -73,7 +76,7 @@ $ pure release -pmo
 
 经过简单的一个命令，我们再次刷新页面，可以看到请求数已经大幅减少，可以尝试不同的release优化参数，感受不同的优化参数带来的不同体验。
 
-简单的几个步骤，我们就实现了模块化资源的自动加载以及完全脱离后端的资源管理能力，是不是感觉很不错呢？不妨自己写一个小DEMO体验一下静态资源自动化管理、性能优化简单可依赖的快感吧！
+简单的几个步骤，我们就实现了模块化资源的**自动加载**以及完全**脱离后端**的资源管理能力，是不是感觉很不错呢？不妨自己写一个小DEMO体验一下静态资源自动化管理、性能优化简单可依赖的快感吧！
 
 ### 了解更多
 
