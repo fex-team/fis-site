@@ -18,7 +18,7 @@
   url: /docs/api/cli.html
   type: sub
 
-- title: 进阶教程
+- title: 进阶使用
   type: category
 
 - title: 项目部署
@@ -28,9 +28,9 @@
   url: /docs/advance/modjs-solution.html
   type: sub
 
-- title: 插件列表
-  url: /docs/plugin-list.html
-  type: category
+- title: 更多插件
+  url: /docs/advance/plugin-list.html
+  type: sub
 
 - title: 二次开发
   url: /docs/dev/intro.html

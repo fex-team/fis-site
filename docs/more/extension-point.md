@@ -127,7 +127,6 @@ fis在不做任何定制的情况下即可满足前端开发的基本需求，�
 * 示例插件：
     * [fis-optimizer-uglify-js](https://github.com/fis-dev/fis-optimizer-uglify-js)：调用uglify-js对js文件进行压缩优化。
     * [fis-optimizer-clean-css](https://github.com/fis-dev/fis-optimizer-clean-css)：调用clean-css对css文件进行压缩优化。
-    * [fis-optimizer-html-minifier](https://github.com/fis-dev/fis-optimizer-html-minifier)：调用html-minifier对html、htm文件进行压缩优化。
 
 ## 打包扩展
 

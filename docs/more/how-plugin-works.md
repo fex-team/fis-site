@@ -28,6 +28,5 @@ $ npm install -g fis-parser-coffee-script
     * [fis-command-server](https://github.com/fis-dev/fis-command-server)：fis server命令的提供者，用于开启一个本地php-cgi服务器，对项目进行预览、调试。
     * [fis-optimizer-uglify-js](https://github.com/fis-dev/fis-optimizer-uglify-js)：fis的优化插件，调用uglify-js对文件内容进行js压缩。
     * [fis-optimizer-clean-css](https://github.com/fis-dev/fis-optimizer-clean-css)：fis的优化插件，调用clean-css对文件内容进行css压缩。
-    * [fis-optimizer-html-minifier](https://github.com/fis-dev/fis-optimizer-html-minifier)：fis的优化插件，调用html-minifier对文件内容进行html压缩。
     * [fis-postprocessor-jswrapper](https://github.com/fis-dev/fis-postprocessor-jswrapper)：fis的后处理器插件，用于对js文件进行包装，支持amd的define包装或者匿名自执行函数包装。
 1. 开发一个依赖于fis模块的npm包，并在这个包里定制所需要的插件。这种方式与上一条类似，也是将插件安装在fis的同级目录下。

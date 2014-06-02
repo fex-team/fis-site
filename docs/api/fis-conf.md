@@ -346,7 +346,7 @@ fis.config.init({
     }
     ```
 
-* 说明：单文件编译的最后阶段，可以对代码进行优化，通常是压缩、xss修复等工作，fis内置了3个压缩插件： [fis-optimizer-uglify-js](https://github.com/fis-dev/fis-optimizer-uglify-js)、[fis-optimizer-clean-css](https://github.com/fis-dev/fis-optimizer-clean-css)、[fis-optimizer-html-minifier](https://github.com/fis-dev/fis-optimizer-html-minifier)。
+* 说明：单文件编译的最后阶段，可以对代码进行优化，通常是压缩、xss修复等工作，fis内置了3个压缩插件： [fis-optimizer-uglify-js](https://github.com/fis-dev/fis-optimizer-uglify-js)、[fis-optimizer-clean-css](https://github.com/fis-dev/fis-optimizer-clean-css)、[fis-optimizer-png-compressor](https://github.com/fex-team/fis-optimizer-png-compressor)。
 * 用法：
 
     ```javascript
@@ -471,7 +471,7 @@ fis.config.init({
 * 解释：插件的运行配置节点。
 * 值类型：``Object``
 * 默认值：无
-* 说明：插件要工作，偶尔也需要配置数据，比如fis内置的[fis-optimizer-uglify-js](https://github.com/fis-dev/fis-optimizer-uglify-js/blob/master/index.js#L12)、[fis-optimizer-clean-css](https://github.com/fis-dev/fis-optimizer-clean-css/blob/master/index.js#L11)、[fis-optimizer-html-minifier](https://github.com/fis-dev/fis-optimizer-html-minifier/blob/master/index.js#L11)插件，它们的配置都是fis直接传递的，具体细节可以查看相应源码。配置节点具有很强的规律性，请参考下面的例子，小编就不一一枚举了。
+* 说明：插件要工作，偶尔也需要配置数据，比如fis内置的[fis-optimizer-uglify-js](https://github.com/fis-dev/fis-optimizer-uglify-js/blob/master/index.js#L12)、[fis-optimizer-clean-css](https://github.com/fis-dev/fis-optimizer-clean-css/blob/master/index.js#L11)，它们的配置都是fis直接传递的，具体细节可以查看相应源码。配置节点具有很强的规律性，请参考下面的例子，小编就不一一枚举了。
 * 用法：
 
     ```javascript
