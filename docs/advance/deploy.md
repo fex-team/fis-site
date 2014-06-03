@@ -26,7 +26,7 @@ _all.css_
 
 可能编译以后得到的结果是这样的
 
-_all\_[md5].css_
+*all_[md5].css*
 
 ```css
 @import url('http://static.baidu.com/static/release/a_2f4ef26.css');
