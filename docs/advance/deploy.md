@@ -27,7 +27,7 @@ _all.css_
 _all\_<md5>.css_
 
 ```css
-@import url('http://static.baidu.com/static/release/a_123acda.css');
+@import url('http://static.baidu.com/static/release/a_2f4ef26.css');
 ```
 
 也有可能是其他形式。
@@ -53,3 +53,20 @@ fis.config.set("roadmap.path", [{
 就可以轻松修改资源的线上部署路径，也能搞定上面例子中看到的情况。
 
 执行命令 `fis release -Dmd output`，可在`output`目录下看到产出结果。
+
+```bash
+➜  tree
+.
+├── all.css
+├── fis-conf.js
+├── output
+│   ├── all_4e47d46.css
+│   ├── map.json #万能的map.json
+│   └── static
+│       └── release
+│           └── a_2f4ef26.css
+└── static
+    └── a.css
+
+4 directories, 6 files
+```
