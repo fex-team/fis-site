@@ -5,6 +5,7 @@ category: advance
 ---
 
 在FIS中通过配置`roadmap.path`来磨平源码路径和线上路径的差异；整个FIS设计中你不需要去关心产出线上路径是什么，而只需要关心源码路径。这句话怎么理解呢，假设你源码目录是这样的；
+
 ```bash
 ➜  tree
 .
@@ -16,6 +17,7 @@ category: advance
 ```
 
 其中`all.css`要import `a.css`；无需关心`a.css`最终会被产出到什么路径下，无需关心`a.css`是否会加`domain`、`md5`而导致无法访问到`a.css`。只需要关注源码路径；
+
 _all.css_
 
 ```css
@@ -24,7 +26,7 @@ _all.css_
 
 可能编译以后得到的结果是这样的
 
-_all\_<md5>.css_
+_all\_[md5].css_
 
 ```css
 @import url('http://static.baidu.com/static/release/a_2f4ef26.css');
