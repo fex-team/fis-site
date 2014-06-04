@@ -197,6 +197,9 @@ checking java support : version 1.6.0
 checking php-cgi support : version 5.2.11
 starting fis-server on port : 8080
 ```
+
+> 不需要再使用调试服务器时，可以通过 ```fis server stop``` 关闭
+
 服务器启动之后，它会自动检查环境，最后告诉你它监听了8080端口，这个时候，你的浏览器应该打开了一个调试服务器根目录的浏览页面，地址是 **http://localhost:8080/**。
 
 在刚刚的firstblood项目中执行命令：
@@ -205,3 +208,4 @@ starting fis-server on port : 8080
 $ fis release --md5 --optimize --watch
 ```
 现在，fis已经将编译好的代码发布到调试服务器中啦，刷新浏览器，你会看到我们的firstblood示例项目的运行效果。此时，你修改项目文件都将自动编译并发布到调试服务器目录下，看看页面源代码，你会发现更多惊喜！顺便恭喜你，至此你已完全掌握了fis的基本用法，你可以借助fis这个利器去挑战大型商业产品开发了！
+
