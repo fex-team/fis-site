@@ -40,7 +40,7 @@ category: advance
 
 这里列举的是一些基于FIS扩展出的更完备的解决方案，建议希望自己搭建如[基于map.json的前后端架构设计指导](/docs/more/mapjson.html)文中描述的细粒度静态资源管理框架的朋友可以对照参考。
 
- - [fis-plus](http://fis.baidu.com/fis-plus)：适用于PHP+Smarty后端选型
+ - [fis-plus](/fis-plus)：适用于PHP+Smarty后端选型
  - [jello](https://github.com/fex-team/jello)：适用于Java+Velocity后端选型
  - [phiz](https://github.com/fouber/phiz/)：适用于纯PHP后端选型
  - [goiz](https://github.com/xiangshouding/gois)：适用于go+martini后端选型
