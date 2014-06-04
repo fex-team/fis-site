@@ -9,12 +9,13 @@ encoding: utf-8
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : F.I.S
+title : FIS
 tagline: Site Tagline
 author :
   name : fis team
   email : fe@baidu.com
   github : fex-team
+
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -53,7 +54,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
- BASE_PATH : http://newfishome.duapp.com
+  BASE_PATH : http://newfishome.duapp.com
 
  # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
  # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
@@ -63,7 +64,7 @@ JB :
  #   http://s3.amazonaws.com/yoursite/themes/watermelon
  #   /assets
  #
- ASSET_PATH : http://hefangshi.github.io/fis-site/assets/themes/fis
+  ASSET_PATH : http://hefangshi.github.io/fis-site/assets/themes/fis
 
   # These paths are to the main pages Jekyll-Bootstrap ships with.
   # Some JB helpers refer to these paths; change them here if needed.
