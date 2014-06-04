@@ -47,7 +47,7 @@
 
 - title: 更多文档
   url: /docs/dev/more.html
-  type: sub
+  type: category
 #- title: API
 #  type: category
 #
@@ -123,6 +123,10 @@
   url: /docs/api/dev.html#fislog
   type: sub
 
+- title: 问题反馈
+  url: https://github.com/fex-team/fis/issues/new
+  type: category
+
 - title: FAQ
-  url: /docs/FAQ/FAQ.html
+  url: https://github.com/fex-team/fis/issues?labels=faq&page=1&state=open
   type: category

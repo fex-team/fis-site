@@ -63,3 +63,9 @@ category: plugin
 > 在项目进行打包处理操作后，用于处理整个项目的插件。在这个阶段的插件除了源代码插件信息，还能够获取到打包文件信息。
 
 * [fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)：自动合并页面中引用的脚本、样式资源，减少HTTP连接数。
+
+## 命令行扩展插件
+
+> 命令行扩展插件是非常特殊的一类插件，实际上我们使用的fis release、fis server、fis install均是通过相应的插件扩展而来，详细内容可以查看[命令行扩展](/docs/more/extension-point.html)。
+
+* [fis-command-init](https://github.com/xiangshouding/fis-command-init)：为FIS提供可扩展的脚手架功能。
