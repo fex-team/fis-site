@@ -4,6 +4,8 @@ title: 项目部署 - roadmap.path
 category: advance
 ---
 
+# 项目部署
+
 在FIS中通过配置`roadmap.path`来磨平源码路径和线上路径的差异；整个FIS设计中你不需要去关心产出线上路径是什么，而只需要关心源码路径。这句话怎么理解呢，假设你源码目录是这样的；
 
 ```bash
