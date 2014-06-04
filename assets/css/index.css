@@ -617,9 +617,9 @@ h5{
 }
 
 /* CSS Styles (Copy this into the style.css file of your theme) */
-.tooltip { display:inline; position:relative;cursor: pointer;}
-.tooltip:hover { text-decoration:none }
-.tooltip:hover:after {
+.feature-tooltip { display:inline; position:relative;cursor: pointer;}
+.feature-tooltip:hover { text-decoration:none }
+.feature-tooltip:hover:after {
 	color:#FFF;
 	font-size: 14px;
 	background:#000;
@@ -633,7 +633,7 @@ h5{
 	bottom:18px;
 	z-index:8
 }
-.tooltip:hover:before {
+.feature-tooltip:hover:before {
         border:solid;
         border-color:rgba(0,0,0,.8) transparent;
         border-width:6px 6px 0 6px;
