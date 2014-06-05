@@ -10,6 +10,8 @@ category: beginning
 
 使用FIS可以方便的将各种异构语言转换为前端语言，比如说可以将CoffeeScript编译为JavaScript、LESS编译为CSS、前端模板预编译、Markdown编译为HTML等等，并且可以做到各种异构语言无缝混用，我们以LESS为例演示如何使用FIS来扩展前端开发语言。
 
+> 更多的语言扩展类插件可以查看[更多插件](/docs/advance/plugin-list.html)
+
 ### 插件安装
 
 ```bash
@@ -29,7 +31,7 @@ fis.config.set('modules.parser.less', 'less');
 fis.config.set('roadmap.ext.less', 'css');
 ```
 
-### 测试一下
+### 快速试用
 
 在fis-conf.js同目录编写一个LESS文件
 
@@ -61,7 +63,7 @@ body .container {
 
 ### 文件监视
 
-通过文件监视功能，我们可以要求FIS在项目文件出现修改时，自动增量构建项目文件。并且增量构建是考虑了各种嵌入关系的，比如a.css文件内嵌了b.css文件，那么当b.css文件修改时，FIS会自动重新构建a.css和b.css两个文件。
+通过文件监视功能，我们可以要求FIS在项目文件出现修改时，自动增量构建项目文件。并且增量构建是考虑了各种**嵌入关系**的，比如a.css文件内嵌了b.css文件，那么当b.css文件修改时，FIS会自动重新构建a.css和b.css两个文件。
 
 可以使用快速入门中的fis-quickstart-demo试试看，首先开启文件监听功能
 

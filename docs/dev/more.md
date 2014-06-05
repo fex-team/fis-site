@@ -27,6 +27,7 @@ category: advance
  - [基于map.json的前后端架构设计指导](/docs/more/mapjson.html)，利用FIS的核心产出map.json与后端相结合进行前端工程化优化的基础原理
  - [静态资源管理与模板框架](http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part2/)，基于map.json的前端工程化实现思路其二
  - [前端工程之模块化](http://fex.baidu.com/blog/2014/03/fis-module/)，详细描述了如何搭建一个完备的前端模块化系统
+ - [如何高效地管理网站静态资源](http://fex.baidu.com/blog/2014/04/fis-static-resource-management/)，脱离FIS，从抽象层面描述了静态资源管理思路
  - [手机百度前端工程化之路](http://mweb.baidu.com/p/baidusearch-front-end-road.html)，针对移动端的缓存现状，利用后端模板框架实现资源管理
 
 ### FIS杂谈
@@ -34,7 +35,7 @@ category: advance
  - [FIS与FIS-PLUS的区别](http://fex.baidu.com/blog/2014/03/fis-plus/)
  - [如何利用FIS构建纯前端模块化方案](/docs/more/fis-mod.html)
 
-## 更多示例
+## 更多解决方案
 
 ### 后端静态资源管理
 
