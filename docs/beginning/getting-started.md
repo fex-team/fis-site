@@ -30,7 +30,7 @@ FIS使用[Node.js](http://nodejs.org/)开发，以[npm](http://npmjs.org/)包的
 $ npm install -g fis
 ```
 
-安装遇到困难？[点击这里](/docs/faq/faq.html#why-install-failed)
+安装遇到困难？[点击这里](https://github.com/fex-team/fis/issues/65)
 
 ### 示例准备
 
