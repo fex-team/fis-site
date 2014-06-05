@@ -6,6 +6,8 @@ category: advance
 
 # 前端模块化
 
+> 本文介绍了一种基于FIS的纯前端模块化方案，[点击这里](/docs/dev/more.html#solution)可以了解更多的基于FIS的模块化解决方案。
+
 FIS通过插件扩展可以完美的支持模块化的前端开发方案，我们通过FIS的[二次封装能力](/docs/dev/solution.html)，封装了一个功能完备的纯前端模块化方案[pure](https://github.com/fex-team/fis-pure)。接下来就让我们使用[pure](https://github.com/fex-team/fis-pure)，体验一下在FIS构建能力的支持下，如何轻松的完成一个**高性能**的纯前端模块化项目的构建与优化工作。
 
 ## pure安装

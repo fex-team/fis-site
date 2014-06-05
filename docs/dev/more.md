@@ -35,6 +35,8 @@ category: advance
  - [FIS与FIS-PLUS的区别](http://fex.baidu.com/blog/2014/03/fis-plus/)
  - [如何利用FIS构建纯前端模块化方案](/docs/more/fis-mod.html)
 
+<i class="anchor" id="solution"/>
+
 ## 更多解决方案
 
 ### 后端静态资源管理
