@@ -6,8 +6,6 @@ category: advance
 
 # 前端模块化
 
-> 本文介绍了一种基于FIS的纯前端模块化方案，[点击这里](/docs/dev/more.html#solution)可以了解更多的基于FIS的模块化解决方案。
-
 FIS通过插件扩展可以完美的支持模块化的前端开发方案，我们通过FIS的[二次封装能力](/docs/dev/solution.html)，封装了一个功能完备的纯前端模块化方案[pure](https://github.com/fex-team/fis-pure)。接下来就让我们使用[pure](https://github.com/fex-team/fis-pure)，体验一下在FIS构建能力的支持下，如何轻松的完成一个**高性能**的纯前端模块化项目的构建与优化工作。
 
 ## pure安装
@@ -73,14 +71,10 @@ $ pure release -pmo
 
 ## 了解更多
 
-可能有的同学会问了，这个pure到底是个什么东西，和FIS是什么关系？想做纯前端的模块化开发就只能用pure了么？
-
 实际上pure只是通过FIS的解决方案封装能力封装而成，其底层核心仍然是FIS，与FIS不同之处在于默认集成了一些功能扩展插件，比如用于模块化资源自动加载的[fis-postpackager-autoload](https://github.com/hefangshi/fis-postpackager-autoload)以及静态资源自动合并插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)。这些插件与配置的集成实际上都是十分简单快速的，具体可以参考[解决方案封装](/docs/dev/solution.html)部分以及[fis-pure](https://github.com/fex-team/fis-pure)的源码部分。
 
-<!-- 除此之外，pure还对模块化开发提供了一个目录规范参考，具体可以参见[pure](https://github.com/fex-team/fis-pure)的文档内容。-->
-
-<!-- 只需要通过[package.json](https://github.com/fex-team/fis-pure/blob/master/package.json#L24-L29)添加需要默认安装的插件，并通过与 ```fis-conf.js``` 语法一致的配置API开启插件并添加一些默认的目录配置即可（[源码](https://github.com/fex-team/fis-pure/blob/master/pure.js)）。-->
-
-总而言之，FIS的优势在于灵活的定制、扩展、封装能力，并且通过内建的[语言能力扩展](/docs/more/fis-standard.html)能力，解决了大量复杂繁重的工作，让开发插件变成一种乐趣。无论是个人使用，还是大中小各种规模的团队，都可以通过FIS满足自己的开发需求。
+FIS的优势在于灵活的定制、扩展、封装能力，并且通过内建的[语言能力扩展](/docs/more/fis-standard.html)能力，解决了大量复杂繁重的工作，让开发插件变成一种乐趣。无论是个人使用，还是大中小各种规模的团队，都可以通过FIS满足自己的开发需求。
 
 关于FIS的模块化思想，可以点击[了解更多](/docs/more/fis-mod.html)。
+
+pure与Require.js、Sea.js等模块化方案相比，拥有同步加载脚本资源的能力，首屏渲染时间更短。并且资源打包无需依赖后端Combo服务等外部依赖。但是作为纯前端解决方案，必然也有其局限性，pure不支持类似母版页的技术，每个页面文件均需要是完整的网页，即需要包含完整的head、body元素。如果希望支持后端模板组件化能力，可以[点击这里](/docs/dev/more.html#solution)了解更多的基于FIS的模块化解决方案。
