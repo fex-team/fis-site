@@ -48,8 +48,10 @@ $ lights install fis-quickstart-demo
 ```bash
 $ cd fis-quickstart-demo
 $ fis release #不进行任何优化发布一次
-$ fis server start #如果8080端口被占用，使用-p参数设置可用的端口，可以忽略Java与PHP环境依赖的报错
+$ fis server start #如果8080端口被占用，使用-p参数设置可用的端口
 ```
+
+> 可以通过 ```fis server start --type node``` 启动Node版fis server，无需java、php等环境依赖。
 
 本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080```
 
