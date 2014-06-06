@@ -67,7 +67,7 @@ $ fis server start #如果8080端口被占用，使用-p参数设置可用的端
 $ fis release --optimize
 ```
 
-> FIS默认的产出目录可以通过 ```fis server open``` 打开，更多可以参考[FAQ](https://github.com/fex-team/fis/issues/70)
+FIS默认的产出目录可以通过 ```fis server open``` 打开，详情可以参考[FAQ](https://github.com/fex-team/fis/issues/70)
 
 查看一下网站的静态资源，我们会发现脚本、样式、图片资源都已经压缩完成。无需额外的插件和配置编写，一条命令就完成了压缩工作，是不是非常方便快捷？
 
