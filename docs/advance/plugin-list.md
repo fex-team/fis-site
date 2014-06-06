@@ -52,16 +52,11 @@ category: plugin
 * [fis-optimizer-png-compressor](https://github.com/fex-team/fis-optimizer-png-compressor):压缩图片，已内置。
 * [fis-optimizer-shutup](https://github.com/fouber/fis-optimizer-shutup)：移除alert，console，console.log等调试信息
 
-## 打包前处理插件
-
-> 在项目进行打包处理操作前，用于处理整个项目的插件。在这个阶段的插件获取了所有源代码信息，包括资源依赖信息、文件发布路径等等。
-
-* [fis-prepackager-autoload](https://github.com/hefangshi/fis-prepackager-autoload)：自动加载页面依赖的脚本与样式资源
-
 ## 打包后处理插件
 
 > 在项目进行打包处理操作后，用于处理整个项目的插件。在这个阶段的插件除了源代码插件信息，还能够获取到打包文件信息。
 
+* [fis-postpackager-autoload](https://github.com/hefangshi/fis-postpackager-autoload)：自动加载页面依赖的脚本与样式资源
 * [fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)：自动合并页面中引用的脚本、样式资源，减少HTTP连接数。
 
 ## 命令行扩展插件

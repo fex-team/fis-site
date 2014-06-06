@@ -75,7 +75,7 @@ $ pure release -pmo
 
 可能有的同学会问了，这个pure到底是个什么东西，和FIS是什么关系？想做纯前端的模块化开发就只能用pure了么？
 
-实际上pure只是通过FIS的解决方案封装能力封装而成，其底层核心仍然是FIS，与FIS不同之处在于默认集成了一些功能扩展插件，比如用于模块化资源自动加载的[fis-prepackager-autoload](https://github.com/hefangshi/fis-prepackager-autoload)以及静态资源自动合并插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)。这些插件与配置的集成实际上都是十分简单快速的，具体可以参考[解决方案封装](/docs/dev/solution.html)部分以及[fis-pure](https://github.com/fex-team/fis-pure)的源码部分。
+实际上pure只是通过FIS的解决方案封装能力封装而成，其底层核心仍然是FIS，与FIS不同之处在于默认集成了一些功能扩展插件，比如用于模块化资源自动加载的[fis-postpackager-autoload](https://github.com/hefangshi/fis-postpackager-autoload)以及静态资源自动合并插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)。这些插件与配置的集成实际上都是十分简单快速的，具体可以参考[解决方案封装](/docs/dev/solution.html)部分以及[fis-pure](https://github.com/fex-team/fis-pure)的源码部分。
 
 <!-- 除此之外，pure还对模块化开发提供了一个目录规范参考，具体可以参见[pure](https://github.com/fex-team/fis-pure)的文档内容。-->
 
