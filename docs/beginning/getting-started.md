@@ -223,7 +223,9 @@ $ fis release -omp
 
 ## 写在最后
 
-至此，我们完整的演示了如何使用FIS对一个传统的Web项目如何进行资源压缩、合并等优化工作，大幅提高网站性能，FIS与业内的其他构建工具不同之处在于FIS能够理解的项目，不再需要手工定制流程，因此整个构建过程需要的[配置工作](https://github.com/hefangshi/fis-quickstart-demo/blob/master/fis-conf.js)非常的少，仅需一个命令，就可以完成一系列的优化工作。
+至此，我们完整的演示了如何使用FIS对一个传统的Web项目如何进行资源压缩、合并等优化工作，大幅提高网站性能。
+
+FIS与业内的其他构建工具不同之处在于FIS能够理解前端项目的优化诉求，不再需要手工定制流程，因此整个构建过程需要的[配置工作](https://github.com/hefangshi/fis-quickstart-demo/blob/master/fis-conf.js)非常的少，仅需一个命令，就可以完成一系列的优化工作。
 
 除了构建能力之外，FIS还提供了各种辅助开发功能，比如文件监听、自动编译、自动刷新等功能，具体用法可以参考[辅助开发](/docs/beginning/assist.html)。
 
