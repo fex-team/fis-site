@@ -388,6 +388,12 @@
 		$(".time-line-circle").bind("click",function(){
 			$(".circleLine").css({opacity:0});
 			$(this).find(".circleLine").css({opacity:1});
+        });
+
+        $("body").keyup(function(event){
+            if (event.which == 36){
+                window.location.hash = "FIS";
+            }
         })
 	});
 </script>
