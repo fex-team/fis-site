@@ -21,6 +21,10 @@
 - title: 进阶使用
   type: category
 
+- title: 语言能力
+  url: /docs/more/fis-standard.html
+  type: sub
+
 - title: 项目部署
   url: /docs/advance/deploy.html
   type: sub
