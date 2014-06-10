@@ -17,7 +17,6 @@ category: plugin
 > 语言扩展类插件的主要工作是将异构语言编译为前端语言。举例来说将CoffeeScript或TypeScript翻译为JavaScript、将Less或Sass翻译为CSS、将各种前端模版预编译为JavaScript提高运行时的效率，总之就是将各种非原生前端语言编译为浏览器支持的前端语言。通过语言扩展类插件我们可以按照自己喜好混合各种语言，无需各种工具支撑，使用FIS发布一次就全部处理完成。
 
 * [fis-parser-coffee-script](https://github.com/fouber/fis-parser-coffee-script)：将[CoffeeScript](http://coffeescript.org/)编译成JavaScript
-* [fis-parser-typescript](https://github.com/jakeauyeung/fis-parser-typescript)：将[TypeScript](http://www.typescriptlang.org/)编译成JavaScript
 * [fis-parser-less](https://github.com/fouber/fis-parser-less)：将[Less](http://lesscss.org/)编译成CSS
 * [fis-parser-sass](https://github.com/fouber/fis-parser-sass)：将[Sass](http://www.sass-lang.com/)编译成CSS
 * [fis-parser-jade](fis-parser-jade)：将[Jade](http://jade-lang.com)编译成HTML
