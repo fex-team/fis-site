@@ -289,6 +289,8 @@ a.button {
 .timeline-container {
     height:100%;
     margin:0 auto;
+	position: relative;
+
 }
 
 
@@ -312,9 +314,11 @@ a.button {
     -webkit-border-radius: 21px;
     -moz-border-radius: 21px;
     border-radius: 21px;
-    background:orange;
-    color:orange;
+    background:#fff;
+    border: 1px solid #ccc;
+    color:#888;
 }
+
     
 .time-line-href span {
     position:absolute;
@@ -333,11 +337,25 @@ a.button {
     top:-16px;
     color:#000;
 }
+.hover .time-line-href{
+	color:#7ab366;
+	background-color: #7ab366;
+	border-color :#7ab366;
+}
 
 #timeline-line {
     height:5px;
     border-radius:5px;
-    background:orange;
+    background:white;
+    border: 1px solid #ccc;
+}
+#timeline-line-top{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height:5px;
+	width: 12.5%;
+	background-color: #7ab366;
 }
 
 .circleLine {
@@ -353,39 +371,7 @@ a.button {
     background:#fff;
 }
 
-#timeline-outputtext {
-    width: 235px;
-    height: auto;
-    font-size: 25px;
-    position: absolute;
-    background: #fff;
-    background: orange;
-    top: 260px;
-    padding: 30px 20px 30px 20px;
-}
-        
-#timeline-outputtext span {
-    color: #4B6EB2;
-    text-transform: uppercase;
-    line-height: 1.2em;
-    display: block;
-}
-
-#timeline-outputtext h1 {
-    text-transform: uppercase;
-    font-size: 25px;
-    line-height: 1.2em;
-    margin: 0 0 10px 0;
-    display: block;
-    text-align:left;
-}
-
-#timeline-outputtext p {
-    font-size: 16px;
-    line-height: 1.3em;
-    text-align: justify;
-    float: left;
-}
+   
     
 .timeline-container {
 	width:100%;
@@ -643,4 +629,61 @@ h5{
 	left:50%;
 	bottom:12px;
         z-index:9
+}
+
+
+/******************************update list***********************************************/
+
+.trends {
+	padding: 30px ;
+	width: 800px;
+	border-radius: 5px;
+	margin:  50px auto 0px;
+	border: 1px solid #ccc;
+
+}
+#update .circle{
+	background-color: rgb(149, 194, 243);
+	color: white;
+}
+.trends-list {
+	border-left: 1px solid #ddd;
+	margin-left: 10px;
+}
+.usual-color {
+	color: #999;
+}
+.idx-bgicon {
+	background-image: url(../images/cloud-icon.png);
+	background-repeat: no-repeat;
+}
+.trends-list li {
+	list-style: none outside none;
+	padding-left: 26px;
+	line-height: 37px;
+	position: relative;
+	background-position: -292px 9px;
+	margin-left: -4px;
+}
+.trends .content {
+	margin-left: 20px;
+}
+.trends-list .new {
+	top: -6px;
+	width: 26px;
+	height: 12px;
+	display: inline-block;
+	position: relative;
+	margin-left: 15px;
+}
+.trends-list .new, .trends-list .highlight {
+	background-position: -67px top;
+}
+.trends-list .highlight {
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	left: -5px;
+	top: 9px;
+	background-position: -31px top;
 }
