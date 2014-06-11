@@ -204,8 +204,8 @@
 					<div class="work-item mix level_1">		
 						<a target="_blank" href="docs/beginning/getting-started.html#combine" alt="">
 							<div class="view effect  grid-green">
-								<i class="fa fa-copy"></i> 
-								<div class="mask">  
+								<i class="fa fa-copy"></i>
+								<div class="mask">
 									<br>
 									<h5>文件合并</h5>
 								</div>  
@@ -415,7 +415,7 @@
 </div>
 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>		
+<script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.fullPage.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.mixitup.min.js"></script>
 
@@ -426,6 +426,7 @@
 			'verticalCentered': false,
             'animateAnchor' : false,
 			'css3': true,
+            'autoScrolling': true,
 			'resize' : false,
 			'anchors':['FIS', 'about-sec','download-sec','guider-sec','update-sec','contact-sec'],
 			'scrollingSpeed': 50,
@@ -453,12 +454,6 @@
 			}
 			$("#timeline-line-top").animate({width:rate+"%"});
         });
-
-        $("body").keyup(function(event){
-            if (event.which == 36){
-                window.location.hash = "FIS";
-            }
-        })
 	});
 </script>
 <script type="text/javascript">
