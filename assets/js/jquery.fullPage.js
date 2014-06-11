@@ -513,6 +513,7 @@
          * http://www.sitepoint.com/html5-javascript-mouse-wheel/
          */
         var last_wheel_event = 0;
+        var last_firts_wheel_event = 0;
         function MouseWheelHandler(e) {
             if(options.autoScrolling){
                 // cross-browser wheel delta
@@ -521,11 +522,12 @@
                     (e.wheelDelta || -e.deltaY || -e.detail)));
                 var scrollable;
                 var activeSection = $('.section.active');
-                if ( e.timeStamp - last_wheel_event < 200 ) {
+                if ( e.timeStamp - last_wheel_event < 80 && e.timeStamp - last_firts_wheel_event < 500) {
                     last_wheel_event = e.timeStamp;
-                    return;
+                    return false;
                 }
                 last_wheel_event = e.timeStamp;
+                last_firts_wheel_event = e.timeStamp;
                 if (!isMoving) { //if theres any #
 
                     //if there are landscape slides, we check if the scrolling bar is in the current one or not
