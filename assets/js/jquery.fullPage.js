@@ -522,7 +522,7 @@
                     (e.wheelDelta || -e.deltaY || -e.detail)));
                 var scrollable;
                 var activeSection = $('.section.active');
-                if ( e.timeStamp - last_wheel_event < 200 && e.timeStamp - last_firts_wheel_event < 500) {
+                if ( e.timeStamp - last_wheel_event < 100 && e.timeStamp - last_firts_wheel_event < 1200) {
                     last_wheel_event = e.timeStamp;
                     return false;
                 }
