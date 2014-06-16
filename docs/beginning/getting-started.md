@@ -130,7 +130,7 @@ $ npm install -g fis-postpackager-simple
 
 ```
 $ cd fis-quickstart-demo
-$ vi fis-conf.js
+$ vi fis-conf.js #vi是linux下的文本编辑器，windows用户可以选用任意文本编辑器对fis-conf.js文件进行编辑。
 ```
 
 ```javascript
