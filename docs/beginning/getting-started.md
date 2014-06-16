@@ -130,7 +130,7 @@ $ npm install -g fis-postpackager-simple
 
 插件安装到本地后，我们还需要通过项目配置文件开启插件，修改项目根目录下的fis-conf.js配置，开启fis-postpackager-simple插件
 
-```
+```bash
 $ cd fis-quickstart-demo
 $ vi fis-conf.js #vi是linux下的文本编辑器，windows用户可以选用任意文本编辑器对fis-conf.js文件进行编辑。
 ```
