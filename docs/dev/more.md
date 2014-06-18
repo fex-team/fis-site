@@ -45,8 +45,9 @@ category: advance
 
  - [fis-plus](/fis-plus)：适用于PHP+Smarty后端选型
  - [jello](https://github.com/fex-team/jello)：适用于Java+Velocity后端选型
- - [phiz](https://github.com/fouber/phiz/)：适用于纯PHP后端选型
  - [goiz](https://github.com/xiangshouding/gois)：适用于go+martini后端选型
+ - [fis-php-md](https://github.com/fouber/fis-php-md.js)：适用于纯PHP后端选型
+
 
 ### 前端静态资源管理
 
