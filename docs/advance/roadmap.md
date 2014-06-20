@@ -1,3 +1,9 @@
+---
+layout: post
+title: 详解roadmap- F.I.S
+category: advance
+---
+
 ## 详解roadmap
 
 相信大家在使用FIS的过程中，roadmap的配置一直都难点之一，本文会详细讲解roadmap的配置方法，建议与[roadmap文档](fis.baidu.com/docs/api/fis-conf.html#roadmap)对照阅读。
