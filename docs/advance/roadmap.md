@@ -6,7 +6,7 @@ category: advance
 
 # 详解roadmap
 
-相信大家在使用FIS的过程中，roadmap的配置一直都难点之一，本文会详细讲解roadmap的配置方法，建议与[roadmap文档](fis.baidu.com/docs/api/fis-conf.html#roadmap)对照阅读。
+> 相信大家在使用FIS的过程中，roadmap的配置一直都难点之一，本文会详细讲解roadmap的配置方法，建议与[roadmap文档](fis.baidu.com/docs/api/fis-conf.html#roadmap)对照阅读。
 
 roadmap配置拥有三个配置项
 
@@ -20,13 +20,13 @@ roadmap配置拥有三个配置项
 
 前面已经提到，path配置的是目录规范，目录规范承载的含义包括：
     
-1. **产出路径**，项目文件在构建后产出路径的规则，相关属性为release
-1. **资源引用路径**，项目文件在构建后引用路径的规则，相关属性为release, url, query
-1. **资源ID**，项目文件的资源ID生成规则，相关属性为id
-1. **默认依赖**，项目文件的默认依赖配置，相关属性为requires
+1. **产出路径**，项目文件在构建后产出路径的规则，相关属性为`release`
+1. **资源引用路径**，项目文件在构建后引用路径的规则，相关属性为`release`, `url`, `query`
+1. **资源ID**，项目文件的资源ID生成规则，相关属性为`id`
+1. **默认依赖**，项目文件的默认依赖配置，相关属性为`requires`
 1. **编译属性**，针对项目文件配置编译属性，用于FIS编译和插件识别文件类型，在编译期进行不同的处理，相关属性参见[编译属性](#编译属性)章节
 
-看起来有点多？让我们先看看roadmap.path的基础语法
+看起来有点多？让我们先看看`roadmap.path`的基础语法
 
 随便举个栗子
 
@@ -43,7 +43,7 @@ fis.config.set('roadmap.path',[
 ]);
 ```
 
-roadmap.path属性是一个数组，内部每一个Object都是一条roadmap.path规则，让我们看看如何设置这些规则，已经有了解的同学也可以跳过此处，但是请 **一定** 关注一下roadmap.path配置需要注意的地方。 [传送门](#注意事项)
+roadmap.path属性是一个数组，内部每一个Object都是一条roadmap.path规则，让我们看看如何设置这些规则，已经有了解的同学也可以跳过此处，但是请**一定**关注一下roadmap.path配置需要注意的地方。 [传送门](#注意事项)
 
 ### 指定文件
 
@@ -53,7 +53,7 @@ roadmap.path属性是一个数组，内部每一个Object都是一条roadmap.pat
 
     通过 `*` 可以匹配一级目录下的任意文件，也可以通过 `*.js` 指定后缀名，还可以指定更详细的目录 `/a/*.js`。
     
-    通过 `**`可以匹配任意路径深度的文件或目录，通过灵活组合，可以快速的指定目录或文件
+    通过 `**` 可以匹配任意路径深度的文件或目录，通过灵活组合，可以快速的指定目录或文件
     
     ```
     /a/a.js
@@ -86,7 +86,7 @@ roadmap.path属性是一个数组，内部每一个Object都是一条roadmap.pat
 
 首先我们需要先设置reg属性匹配到modules文件夹，如[指定文件](#指定文件)一节中提到的，我们设定 `/^\/modules\/(.*)/i` 匹配modules文件夹，同时将内部文件夹结构保存在了分组1中，那么我们就可以在release时通过`$1`来替换这个内部文件夹结构。
 
-因此我们将release设置为`/static/$1`， 这样就可以将`/modules/moduleA/a.js` 在产出目录中移动到 `/static/moduleA/a.js`了。
+因此我们将release设置为`/static/$1`， 还记得$1的内容是`moduleA/a.js`么？通过$1引用捕获路径我们就可以将`/modules/moduleA/a.js` 在产出目录中移动到 `/static/moduleA/a.js`了。
 
 ```javascript
 fis.config.set('roadmap.path',[
