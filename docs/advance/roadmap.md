@@ -162,9 +162,9 @@ fis.config.set('roadmap.path',[
 资源ID设置的意义主要在于模块化开发时可以通过更短的ID进行依赖声明，如果不打算使用模块化开发，可以暂且略过此节。
 
 ```javascript
-require('/modules/moduleA/a.js'); #now
+require('/modules/moduleA/a.js'); //now
 
-require('moduleA/a'); #wanted
+require('moduleA/a'); //wanted
 ```
 
 我们可以通过设置规则中的`id`属性来满足这项需求，当然正则捕获组又要立功啦。
