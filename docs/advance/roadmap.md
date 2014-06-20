@@ -1,7 +1,6 @@
-roadmap详解
------------------
+## 详解roadmap
 
-相信大家在使用FIS的过程中，roadmap的配置一直都难点之一，本文会详细讲解roadmap的配置方法。
+相信大家在使用FIS的过程中，roadmap的配置一直都难点之一，本文会详细讲解roadmap的配置方法，建议与[roadmap文档](fis.baidu.com/docs/api/fis-conf.html#roadmap)对照阅读。
 
 roadmap配置拥有三个配置项
 
@@ -15,11 +14,11 @@ roadmap配置拥有三个配置项
 
 前面已经提到，path配置的是目录规范，目录规范承载的含义包括：
     
-1. 项目文件在构建后所在路径的规则，即文件实际**产出路径**
-1. 项目文件在构建后引用路径的规则，用于调整**资源引用路径**
-1. 项目文件的**资源ID**生成规则
-1. 项目文件的**默认依赖**
-1. 项目文件**编译属性**配置，用于FIS编译和插件识别文件类型，进行不同的操作
+1. **产出路径**，项目文件在构建后产出路径的规则，相关属性为release
+1. **资源引用路径**，项目文件在构建后引用路径的规则，相关属性为release, url, query
+1. **资源ID**，项目文件的资源ID生成规则，相关属性为id
+1. **默认依赖**，项目文件的默认依赖配置，相关属性为requires
+1. **编译属性**，针对项目文件配置编译属性，用于FIS编译和插件识别文件类型，在编译期进行不同的处理，相关属性参见[编译属性](#编译属性)章节
 
 看起来有点多？让我们先看看roadmap.path的基础语法
 
@@ -38,13 +37,13 @@ fis.config.set('roadmap.path',[
 ]);
 ```
 
-roadmap.path属性是一个数组，内部每一个Object都是一条roadmap.path规则，让我们看看如何设置这些规则，已经有了解的同学也可以跳过此处，直接了解一下roadmap.path配置需要注意的地方。 [传送门](#注意事项)
+roadmap.path属性是一个数组，内部每一个Object都是一条roadmap.path规则，让我们看看如何设置这些规则，已经有了解的同学也可以跳过此处，但是请 **一定** 关注一下roadmap.path配置需要注意的地方。 [传送门](#注意事项)
 
 #### 指定文件
 
-规则中必备的属性就是reg属性，他用于指定这条规则适用的文件路径，reg支持两种匹配规则
+规则中必备的属性就是`reg`属性，他用于指定这条规则适用的文件路径，`reg`支持两种匹配规则
 
-1. glob模式，是一种简单的目录匹配模式，reg属性设置为字符串代表使用glob模式进行文件匹配
+1. glob模式，是一种简单的目录匹配模式，`reg`属性设置为**字符串**代表使用glob模式进行文件匹配
 
     通过 `*` 可以匹配一级目录下的任意文件，也可以通过 `*.js` 指定后缀名，还可以指定更详细的目录 `/a/*.js`。
     
@@ -60,7 +59,7 @@ roadmap.path属性是一个数组，内部每一个Object都是一条roadmap.pat
     **.js     => /a/a.js,  /b.js, /a/a/a.js
     **/a/*.js => /a/a/a.js
     ```
-2. 正则模式，极为灵活强大的路径匹配方法，reg属性设置为正则表达式则代表使用正则模式进行文件匹配。
+2. 正则模式，极为灵活强大的路径匹配方法，reg属性设置为**正则表达式**则代表使用正则模式进行文件匹配。
 
     基于正则模式，我们可以满足各种路径部署需求，由于正则的灵活性，不太适合展开描述，建议大家查看正则表达式的介绍教材。
 
@@ -71,9 +70,9 @@ roadmap.path属性是一个数组，内部每一个Object都是一条roadmap.pat
     /^\/modules\/(.*)/i => /modules/moduleA/a.js, /modules/moduleA/a.css
     ```
     
-    大概介绍一下，```/^\/modules\/(.*)/i``` 这个正则匹配了/modules目录下的所有文件，并且通过设置了正则捕获组，将modules目录后的整个路径都保存到分组1中了，即对于`/modules/moduleA/a.js`文件，这个正则不仅匹配了整体路径，还将`moduleA/a.js`这个路径保存到了分组1中，我们可以在[产出目录](#产出目录)和[资源ID](#资源ID)一节使用这个值调整产出目录。
+    ```/^\/modules\/(.*)/i``` 这个正则匹配了/modules目录下的所有文件，并且通过设置了正则捕获组，将modules目录后的整个路径都保存到分组1中了，即对于`/modules/moduleA/a.js`文件，这个正则不仅匹配了整体路径，还将`moduleA/a.js`这个路径保存到了分组1中，我们可以在[产出目录](#产出目录)和[资源ID](#资源ID)一节使用这个值调整产出目录。
 
-我们通过reg属性设置了规则的匹配条件，就可以将当前规则内设置的各种属性设置给匹配成功的文件了。接下来看看我们可以设置哪些目录属性。
+我们通过`reg`属性设置了规则的匹配条件，就可以将当前规则内设置的各种属性设置给匹配成功的文件了。接下来看看我们可以设置哪些目录属性。
 
 #### 产出目录
 
@@ -107,7 +106,7 @@ fis.config.set('roadmap.path',[
 
 #### 资源引用路径
 
-当我们移动了各种静态资源和网页后，FIS会帮助我们调整各种资源引用路径，来保证各个资源间的引用关系是正确的。
+当我们通过release设置调整了产出目录中的目录结构后，FIS会自动帮助我们调整各种资源引用路径，来保证各个资源间的引用关系是正确的。
 
 ```html
 <!-- index.html -->
@@ -178,7 +177,7 @@ fis.config.set('roadmap.path',[
 
 #### 默认依赖
 
-默认依赖的设置用于批量添加一些基础资源的依赖，而不用在每个文件中重复添加，比如最常见的base.css， 我们可以设置所有样式都依赖这个基础样式，这样在加载样式时，base.css就会被自动加载进来，当然前提是使用了模块化框架。
+默认依赖的设置用于批量添加一些基础资源的依赖，而不用在每个文件中重复添加，比如最常见的base.css， 我们可以设置所有样式都依赖这个基础样式，这样输出map.json文件时，依赖中就会自动添加base.css项。
 
 ```javascript
 fis.config.set('roadmap.path',[
@@ -223,9 +222,13 @@ FIS提供了大量的编译属性用于控制核心编译流程与插件编译�
 
 其中**特殊控制**是大家经常会问到的地方，建议再看一遍！
 
-#### 额外注意
+通过语言能力扩展设置，我们可以调整文件在语言标准化处理流程中的处理规则、通过编译流程控制，我们可以细粒度的控制文件的编译流程。
 
-大家已经对roadmap.path的配置有了全面地了解，但是这个配置是有**潜规则**的！所以请大家集中注意力，仔细看看下面的内容。
+特殊控制的分类可能有些不恰当，但是这几项都是roadmap.path配置中需要额外关注的配置。 `useHash`, `useDomain`, `useCache` 三项对应了 `fis release` 中的三个参数 `--md5`, `--domain`, `--clean`，通过设置这三个参数我们可以细粒度的控制静态资源在上述三种处理中的表现。
+
+#### 注意事项
+
+看到大家已经对roadmap.path的配置有了一个总体了解，但是这个配置是有**潜规则**的！所以请大家集中注意力，仔细看看下面的内容。
 
 ##### 多次配置
 
@@ -276,9 +279,9 @@ fis.config.set('roadmap.path',[
 
 看似我们设置的很正确，但是一旦执行构建，你就会发现所有modules文件夹下的css文件没有被产出到static目录下，这就是因为CSS文件已经命中了第一条规则，而第一条规则中没有release属性，因此就无法产出到static目录中。如何修改正确？自然就是给第一条规则也加上同样的release设置使其和原输出目录保持一致。
 
-##### 配置替换能力
+##### 引用配置
 
-比如[资源引用路径](#资源引用路径)的时间戳功能，我们可能希望不用自己写具体的日期，实际上规则的release属性支持配置替换能力
+比如[资源引用路径](#资源引用路径)的时间戳功能，我们可能希望不用自己写具体的日期，实际上规则的release属性支持配置替换能力，举个例子
 
 ```javascript
 fis.config.set('static','/static');
@@ -295,4 +298,82 @@ fis.config.set('roadmap.path',[
 
 ### roadmap.ext
 
+roadmap.ext是FIS设置中一个非常精巧的配置，通过这个配置我们再处理less, coffee, uct等非标准语言时会非常方便。举个例子，我们通过roadmap.path配置将所有的脚本文件使用uglifyjs压缩，并输出到指定目录
+
+```javascript
+//此处实际上是FIS的默认配置，无需额外设置
+fis.config.merge('module', {
+    optimizer: {
+        js : 'uglify-js'
+    }
+});
+
+fis.config.set('roadmap.path',[
+    {
+        reg: '**.js',
+        release: '/static/$1'
+    }
+]);
+```
+
+同时我们将CoffeeScript也引入到了我们的项目中，他的后缀名是*.coffee，那么我们通过parser的配置可以将CoffeeScript文件转为Javascript文件。
+
+```javascript
+fis.config.merge('module', {
+    parser: {
+        coffee : 'coffee-script'
+    }
+});
+```
+
+那么很自然的，我们会希望CoffeeScript通过parser处理后生成的内容可以按照Javascript文件的标准进行处理，这里就是`roadmap.ext`配置的用武之地了。
+
+```javascript
+fis.config.merge({
+    roadmap : {
+        ext : {
+            //coffee后缀的文件将输出为js文件
+            //并且在parser之后的其他处理流程中被当做js文件处理
+            coffee : 'js',
+        }
+    }
+});
+```
+
+这样配置后，我们就会发现所有coffee文件都被编译为了js文件，并且也会按照我们的第一条 `roadmap.path` 配置，在压缩后被移动到static目录下，无需再为 `*.coffee` 文件独立设置一条 `roadmap.path` 。
+
 ### roadmap.domain
+
+domain配置用于满足在代码部署上线时添加CDN或域名子目录需求，具体的使用方式可以参考[文档](http://fis.baidu.com/docs/api/fis-conf.html#roadmapdomain)，本文将会主要介绍一下域名子目录为何需要使用domain来处理。
+
+为了扩展前端语言能力，完善资源定位功能，FIS会将所有相对路径改为绝对路径，具体原因可以参见[FAQ#86](https://github.com/fex-team/fis/issues/86)
+
+但是我们解决了资源定位能力后会发现一旦我们部署到诸如 http://hefangshi.github.io/fis-pure-demo 这类子域名时，由于资源路径是绝对路径，就会导致资源找不到的情况。
+
+![](https://raw.githubusercontent.com/hefangshi/doc/master/pic/domain.png)
+
+那么在这种情况，我们也可以利用roadmap.domain来调整我们的静态资源在发布时的目录来满足发布时的需求
+
+```javascript
+fis.config.merge({
+    roadmap : {
+        domain : "http://hefangshi.github.io/fis-pure-demo"
+    }
+});
+```
+
+我们的项目在通过 ``` fis release --domain``` 添加了domain后资源引用的路径就变为了
+
+```html
+<script src="http://hefangshi.github.io/fis-pure-demo/static/moduleA/a.js"></script>
+```
+
+这样就解决了绝对路径与子目录之间的冲突问题。
+
+我们之所以不在roadmap.path的配置中完成子目录的调整是为了同时满足本地调试需要和发布上线的需要，通过domain参数，我们可以使开发时的资源引用路径与发布时的资源引用路径分离，更加方便开发工作。
+
+### 最后
+
+roadmap的配置的确较为生涩，建议大家的使用的过程中多尝试，上手后就会发现roadmap配置能力是十分灵活强大的，我们也会进一步的改进FIS，让roadmap的配置更加容易上手，如果有好的建议也非常非常欢迎[反馈](https://github.com/fex-team/fis/issues/new) ;)
+
+The End.

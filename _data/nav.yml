@@ -25,8 +25,8 @@
   url: /docs/more/fis-standard.html
   type: sub
 
-- title: 项目部署
-  url: /docs/advance/deploy.html
+- title: 详解roadmap
+  url: /docs/advance/roadmap.html
   type: sub
 
 - title: 前端模块化
