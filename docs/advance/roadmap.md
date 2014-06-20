@@ -6,7 +6,8 @@ category: advance
 
 # 详解roadmap
 
-> 相信大家在使用FIS的过程中，roadmap的配置一直都难点之一，本文会详细讲解roadmap的配置方法，建议与[roadmap文档](http://fis.baidu.com/docs/api/fis-conf.html#roadmap)对照阅读。
+> 相信大家在使用FIS的过程中，roadmap的配置一直都难点之一，本文会详细讲解roadmap的配置方法。
+> 本文介绍的内容是面向已经对FIS基本使用有一定了解，但是对roadmap配置有疑问的同学。建议与[roadmap文档](http://fis.baidu.com/docs/api/fis-conf.html#roadmap)对照阅读。
 
 roadmap配置拥有三个配置项
 
