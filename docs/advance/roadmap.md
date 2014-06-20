@@ -354,7 +354,7 @@ domain配置用于满足在代码部署上线时添加CDN或域名子目录需�
 
 为了扩展前端语言能力，完善资源定位功能，FIS会将所有相对路径改为绝对路径，具体原因可以参见[FAQ#86](https://github.com/fex-team/fis/issues/86)
 
-但是我们解决了资源定位能力后会发现一旦我们部署到诸如 http://hefangshi.github.io/fis-pure-demo 这类子域名时，由于资源路径是绝对路径，就会导致资源找不到的情况。
+但是我们解决了资源定位能力后会发现一旦我们部署到诸如 http://hefangshi.github.io/fis-pure-demo 这类子目录时，由于资源路径是绝对路径，就会导致资源找不到的情况。
 
 ![](https://raw.githubusercontent.com/hefangshi/doc/master/pic/domain.png)
 
