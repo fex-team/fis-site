@@ -240,7 +240,7 @@ $ fis release -omp
 * 阅读[辅助开发](/docs/beginning/assist.html)了解除了构建能力外，FIS提供的**文件监听、自动编译、自动刷新**等开发辅助能力。
 * 阅读[命令行](/docs/api/cli.html)全面了解FIS命令行参数。
 * 阅读[语言能力](/docs/more/fis-standard.html)了解FIS的语言扩展能力。
-* 阅读[配置API](/docs/api/fis-conf.html)了解FIS完整的功能配置。
+* 阅读[配置API](/docs/api/fis-conf.html)了解FIS完整的功能配置，由于内容较多，可以先大概浏览内容，使用时再详细查阅。
 * 有兴趣的同学还可以阅读[更多文档](/docs/dev/more.html)了解FIS的基础原理与设计思想，让你可以更好的理解和使用FIS打造自己解决方案。
 
 FIS完全开源并托管在Github，欢迎大家Star、关注[FIS](https://github.com/fex-team/fis)的项目主页，大家的支持是我们最大的动力；）
