@@ -62,7 +62,22 @@ roadmap配置拥有三个配置项
     /^\/modules\/(.*)/i => /modules/moduleA/a.js, /modules/moduleA/a.css
     ```
     
-    ```/^\/modules\/(.*)/i``` 这个正则匹配了/modules目录下的所有文件，并且通过设置了正则捕获组，将modules目录后的整个路径都保存到分组1中了，即对于`/modules/moduleA/a.js`文件，这个正则不仅匹配了整体路径，还将`moduleA/a.js`这个路径保存到了分组1中，我们可以在[产出目录](#产出目录)和[资源ID](#资源ID)一节使用这个值调整产出目录。
+    `/^\/modules\/(.*)/i` 这个正则匹配了/modules目录下的所有文件，并且通过设置了正则捕获组，将modules目录后的整个路径都保存到分组1中了，即对于`/modules/moduleA/a.js`文件，这个正则不仅匹配了整体路径，还将`moduleA/a.js`这个路径保存到了分组1中，我们可以在[产出目录](#产出目录)和[资源ID](#资源ID)一节使用这个值调整产出目录。
+
+举个例子
+
+```javascript
+fis.config.set('roadmap.path',[
+    {
+        reg: /^\/modules\/(.*)/i,
+        release: '/static/$1'
+    },
+    {
+        reg: "**.html",
+        release: '$&'
+    }
+]);
+```
 
 我们通过`reg`属性设置了规则的匹配条件，就可以将当前规则内设置的各种属性设置给匹配成功的文件了。接下来看看我们可以设置哪些目录属性。
 
