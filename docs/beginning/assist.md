@@ -8,7 +8,7 @@ category: beginning
 
 ## 语言扩展
 
-使用FIS可以方便的将各种异构语言转换为前端语言，比如说可以将CoffeeScript编译为JavaScript、LESS编译为CSS、前端模板预编译、Markdown编译为HTML等等，并且可以做到各种异构语言无缝混用，我们以LESS为例演示如何使用FIS来扩展前端开发语言。
+使用FIS可以方便的将各种异构语言转换为前端语言，比如说可以将CoffeeScript编译为JavaScript、Less编译为CSS、前端模板预编译等等，并且可以做到各种异构语言无缝混用，我们以Less为例演示如何使用FIS来扩展前端开发语言。
 
 > 更多的语言扩展类插件可以查看[更多插件](/docs/advance/plugin-list.html)
 
