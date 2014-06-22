@@ -20,6 +20,26 @@ body {
     background-color: @sidebar-color;
 }
 
+table {
+  width: 100%;
+  overflow: auto;
+  display: block;
+
+  tr {
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+  }
+
+  tr:nth-child(2n) {
+    background-color: #f8f8f8;
+  }
+
+  td,th {
+    border: 1px solid #ddd;
+    padding: 6px 13px;
+  }
+}
+
 #wrap {
   max-width: 1366px;
   margin: 0 auto;

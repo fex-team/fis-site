@@ -120,5 +120,7 @@ JB :
   # where [HELPER] is the name of the helper you are overriding.
   
 markdown: redcarpet
+redcarpet:
+  extensions: ["autolink", "tables"]
 
 highlighter: pygments

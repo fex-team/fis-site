@@ -2,6 +2,23 @@ body {
   font-size: 13px;
   background-color: #f5f5f5;
 }
+table {
+  width: 100%;
+  overflow: auto;
+  display: block;
+}
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 6px 13px;
+}
 #wrap {
   max-width: 1366px;
   margin: 0 auto;
