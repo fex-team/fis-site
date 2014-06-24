@@ -71,10 +71,10 @@ $ fis server start
 
 ```bash
 $ cd fis-quickstart-demo #进入DEMO目录
-$ fis release #使用FIS编译项目，默认发布至本地调试服务器
+$ fis release
 ```
 
-再次刷新浏览器页面，我们就可以到fis-quickstart-demo项目的主页了。
+`fis release` 命令会将编译后的项目发布至本地调试服务器，再次刷新浏览器页面，我们就可以到fis-quickstart-demo项目的主页了。
 
 <!-- 我们可以利用浏览器的开发者工具查看一下网站的静态资源统计 ```15 requests|399KB transferred``` -->
 
