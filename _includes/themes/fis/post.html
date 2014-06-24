@@ -8,7 +8,9 @@
         if ($(ele).attr('href').indexOf('/') === 0){
             $(ele).attr('href',"{{ BASE_PATH }}"+$(ele).attr('href'));
         }else{
-            $(ele).attr('target','_blank');
+            if ($(ele).attr('href').indexOf('#') !== 0){
+                $(ele).attr('target','_blank');
+            }
         }
     });
 </script>
