@@ -71,7 +71,7 @@ $ fis server start
 
 ```bash
 $ cd fis-quickstart-demo #进入DEMO目录
-$ fis release
+$ fis release #编译并发布DEMO
 ```
 
 `fis release` 命令会将编译后的项目发布至本地调试服务器，再次刷新浏览器页面，我们就可以到fis-quickstart-demo项目的主页了。
