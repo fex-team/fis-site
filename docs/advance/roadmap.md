@@ -1,13 +1,13 @@
 ---
 layout: post
-title: 详解roadmap- F.I.S
+title: roadmap详解- F.I.S
 category: advance
 ---
 
-# 详解roadmap
+# roadmap详解
 
-> 相信大家在使用FIS的过程中，roadmap的配置一直都难点之一，本文会详细讲解roadmap的配置方法。
-> 本文介绍的内容是面向已经对FIS基本使用有一定了解，但是对roadmap配置有疑问的同学。建议与[roadmap文档](http://fis.baidu.com/docs/api/fis-conf.html#roadmap)对照阅读。
+> 相信大家在使用FIS的过程中，roadmap的配置一直都难点之一，本文将帮助已经对FIS基本使用有一定了解，但是对roadmap配置有疑问的同学更好的了解这个强大的配置。
+> 强烈建议与[roadmap文档](http://fis.baidu.com/docs/api/fis-conf.html#roadmap)对照阅读。
 
 FIS无需任何配置即可自动理解前端项目进行构建工作，通过[配置API](/docs/api/fis-conf.html)，我们可以定制FIS的功能，而其中最复杂的配置就是 `roadmap` 了，通过此配置我们可以细粒度调整FIS的编译流程、产出目录结构、资源引用路径等一系列与最终产出内容密切相关的配置，因此可以说是FIS最重要的配置，使用好这个配置，我们可以满足各式各样的产出需求。
 
