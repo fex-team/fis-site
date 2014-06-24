@@ -67,10 +67,10 @@ $ fis server start
 
 * 命令执行后内置服务器会一直运行，可以通过 `fis server stop` 命令关闭内置服务器。
 
-本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080``` ，但是此时服务器内没有任何内容。我们还需要通过FIS发布我们的项目才能进行预览
+本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080``` ，但是此时服务器内没有任何内容。我们还需要通过FIS发布DEMO项目才能进行预览
 
 ```bash
-$ cd fis-quickstart-demo #进入demo目录
+$ cd fis-quickstart-demo #进入DEMO目录
 $ fis release #使用FIS编译项目，默认发布至本地调试服务器
 ```
 
