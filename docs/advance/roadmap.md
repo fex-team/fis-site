@@ -248,11 +248,27 @@ roadmap.path **不建议**多次配置，由于roadmap.path本身是一个数组
 比如希望添加一个高优先级的处理设置，则可以通过unshift将规则插入配置
 
 ```javascript
-fis.config.get('roadmap.path').unshift({
-    reg : '**.css',
-    extra : {
-        blahblah : true
+fis.config.set('roadmap.path',[
+    {
+        reg : '**.css',
+        useHash: true
     }
+]);
+
+/*
+//错误的方法，将会导致roadmap.path设置只有aio.css的规则
+fis.config.set('roadmap.path',[
+    {
+        reg : 'aio.css',
+        useHash: false
+    }
+]);
+*/
+
+//正确的方法
+fis.config.get('roadmap.path').unshift({
+    reg : 'aio.css',
+    useHash: false
 });
 ```
 
