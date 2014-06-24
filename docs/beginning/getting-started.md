@@ -56,16 +56,25 @@ $ lights install fis-quickstart-demo
 首先我们可以通过 ```fis server start``` 命令启动FIS的本地调试服务器功能对构建发布的项目进行预览调试
 
 ```bash
-$ cd fis-quickstart-demo
-$ fis release #不进行任何优化发布一次，注意fis release需要在项目的根目录执行
-$ fis server start #如果8080端口被占用，使用-p参数设置可用的端口
+$ fis server start
 ```
 
-> 如果没有java、php环境，可以通过 ```fis server start --type node``` 启动Node版fis server。
+**注意**
 
-> fis server start启动后内置服务器会一直运行，可以通过fis server stop命令关闭内置服务器。
+* 如果8080端口被占用，使用-p参数设置可用的端口
 
-本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080```
+* 如果没有java、php环境，可以通过 ```fis server start --type node``` 启动Node版fis server。
+
+* fis server start启动后内置服务器会一直运行，可以通过fis server stop命令关闭内置服务器。
+
+本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080``` ，但是此时服务器内没有任何内容。我们还需要通过FIS发布我们的项目才能进行预览
+
+```bash
+$ cd fis-quickstart-demo #进入demo目录
+$ fis release #使用FIS编译项目，默认发布至本地调试服务器
+```
+
+再次刷新浏览器页面，我们就可以到fis-quickstart-demo项目的主页了。
 
 <!-- 我们可以利用浏览器的开发者工具查看一下网站的静态资源统计 ```15 requests|399KB transferred``` -->
 
