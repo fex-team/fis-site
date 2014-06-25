@@ -119,7 +119,7 @@ regex = /.*\.css$/;
 regex = /.*\.js$|.*\.css$/;
 
 //匹配js或css文件
-regex = /.*\.(js|css)$$/;
+regex = /.*\.(js|css)$/;
 ```
 
 ### 反义
@@ -172,7 +172,7 @@ var regex = /^\/modules\/(.*)\.js$/;
 fis.config.set('roadmap.path', [
     {
         reg : /^\/modules\/(.*)\.js$/,
-        release : '/static/$$',
+        release : '/static/$&',
         id : '$1'
     }
 ]);
@@ -198,7 +198,7 @@ FIS中由于我们的正则表达式均是用来匹配路径，因此我们一�
 fis.config.set('roadmap.path', [
     {
         reg : /^\/modules\/(.*)\.js$/i,
-        release : '/static/$$',
+        release : '/static/$&',
         id : '$1'
     }
 ]);
