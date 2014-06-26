@@ -431,16 +431,22 @@ a.button {
 	width: 100%;
 	max-width: 1140px;
 	margin: 0px auto  ;
-	padding:50px 20px 0;
+	padding:70px 20px 0;
 }
 @media screen and (min-width:1400px){
 	.wrap{
-		padding:150px 20px 0;
 		max-width: 1340px;
 	}
-	.title{
-		margin-bottom: 100px;
-	}
+}
+
+@media screen and (min-height:800px){
+    .wrap{
+        padding:150px 20px 0;
+    }
+
+    .title{
+        margin-bottom: 100px;
+    }
 }
 #front{
 	padding-top:100px;
