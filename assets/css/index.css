@@ -439,7 +439,7 @@ a.button {
 	}
 }
 
-@media screen and (min-height:800px){
+@media screen and (min-height:885px){
     .wrap{
         padding:150px 20px 0;
     }
