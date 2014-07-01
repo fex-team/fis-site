@@ -82,7 +82,7 @@ fis release --watch --live #fis release -wL
 ```
 随意修改项目内容，页面将会应用修改并自动刷新。
 
-> 目前FIS采用的方案是在页面底部插入[liveload.js](https://github.com/livereload/livereload-js)来实现自动刷新，因此要求浏览器环境支持WebSocket。
+> 要求浏览器环境支持WebSocket。
 
 ### 快速部署
 
