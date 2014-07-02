@@ -132,14 +132,25 @@ $ fis release --optimize --md5 # fis release -om
 
 ## 资源合并
 
-<!-- > 通过FIS，我们可以引入多种静态资源管理模式，比如百度内部使用的FIS-PLUS解决方案，通过Smarty插件扩展的形式收集静态资源，同时可以根据模块的线上调用统计日志智能化的进行资源合并管理。
 
-> 关于FIS的静态资源管理思路，可以参考 [静态资源管理与模板框架](http://www.infoq.com/cn/articles/front-end-engineering-and-performance-optimization-part2/)，但是这里描述的是一种较完备的方案，需要根据后端的技术选型进行一些后端模板开发。本篇指南则是介绍一种利用FIS在构建阶段自动完成资源合并工作的方法，使用成本更加低，更加适合中小型项目。
- -->
+### 设置打包
 
-FIS内置提供了[pack](/docs/api/fis-conf.html#pack)设置为资源进行打包，同时为了达到静态资源引用标签自动合并的目的，我们需要扩展FIS的功能，添加简单打包插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)。
+FIS可以通过[pack](/docs/api/fis-conf.html#pack)来进行资源文件的合并，比如我们需要将DEMO中的公共库文件打包在一起，可以修改fis-conf.js配置，加入pack配置
 
-<!-- 它的功能是收集页面中的已有的script和link标签，将这些标签引用的资源进行自动合并，并将原有的script和link标签替换为自动合并后的标签，最终达到页面级的静态资源合并能力。-->
+```javascript
+fis.config.set('pack', {
+    'pkg/lib.js': [
+        '/lib/mod.js',
+        '/modules/underscore/**.js',
+        '/modules/backbone/**.js',
+        '/modules/jquery/**.js',
+        '/modules/vendor/**.js',
+        '/modules/common/**.js'
+    ]
+});
+```
+
+设置完pack后，FIS默认只会进行文件打包，不会对页面中的静态资源引用进行替换，我们可以通过引入后端静态资源管理来加载打包模块。不过也可以利用[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)插件，可以自动将页面中独立的资源引用替换为打包资源。
 
 ### 插件安装
 
@@ -163,9 +174,7 @@ $ vi fis-conf.js #vi是linux下的文本编辑器，windows用户可以选用任
 fis.config.set('modules.postpackager', 'simple');
 ```
 
-### 资源合并优化
-
-对于[减少HTTP连接数](http://www.baidu.com/?isidx=1#wd=%E5%87%8F%E5%B0%91HTTP%E8%BF%9E%E6%8E%A5%E6%95%B0)的必要性在这里我们就不再赘述。让我们直接试试看在fis-postpackager-simple插件支持下，如何通过FIS对这些独立的请求进行合并。
+### 应用打包
 
 为了开发调试时更加方便 ```fis release``` 默认不会合并资源，在指定了 ```--pack``` 参数后，FIS才会进行打包合并处理。
 
@@ -173,27 +182,18 @@ fis.config.set('modules.postpackager', 'simple');
 $ fis release --optimize --md5 --pack # fis release -omp
 ```
 
-再次浏览我们可以发现所有的脚本资源均被自动合并为了一个文件，关于fis-postpackager-simple插件更多的静态资源处理策略和使用方法，请参考[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5)。
+再次浏览我们可以发现原有的基础类库引用已经被替换为了 ```lib.js``` ，关于fis-postpackager-simple插件更多的静态资源处理策略和使用方法，请参考[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5)。
 
-![资源合并](img/quickstart/combine_2.png)
+![资源合并](img/quickstart/combine.png)
 
-### 人工干预合并
+### 自动打包
 
-我们可以通过[pack](/docs/api/fis-conf.html#pack)设置来干预合并结果。人工干预的必要性在于我们可以将类似underscore、jquery、backbone等基础库固定打包，首先我们可以让不同页面之间公用这些基础库而不用重新下载，其次由于基础库不容易改变，这种策略也对缓存更加友好。
-
-修改fis-conf.js配置，加入pack配置
+利用simple插件，我们还可以按页面进行自动合并，将没有通过pack设置打包的零散资源自动合并起来。
 
 ```javascript
-fis.config.set('pack', {
-    'pkg/lib.js': [
-        '/lib/mod.js',
-        '/modules/underscore/**.js',
-        '/modules/backbone/**.js',
-        '/modules/jquery/**.js',
-        '/modules/vendor/**.js',
-        '/modules/common/**.js'
-    ]
-});
+//file : fis-conf.js
+//开启autoCombine可以将零散资源进行自动打包
+fis.config.set('settings.postpackager.simple.autoCombine', true);
 ```
 
 再次运行FIS构建项目
@@ -202,9 +202,9 @@ fis.config.set('pack', {
 $ fis release -omp
 ```
 
-我们会发现 ```lib.js``` 已经被独立打包加载了
+我们会发现剩余的零散资源已经被自动合并了。
 
-![人工干预合并](img/quickstart/pack_combine_2.png)
+![人工干预合并](img/quickstart/combine_2.png)
 
 ### 合并图片
 
