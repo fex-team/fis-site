@@ -9,7 +9,15 @@
 <title>F.I.S -前端工具框架</title>
 <link rel="stylesheet" type="text/css" href="assets/css/index.css" media="all">
 <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-
+<script type="text/javascript">
+    //检查页面域名
+    (function(){
+        var url = window.location.href;
+        if (url.indexOf('http://fex.baidu.com/fis-site') !== -1) {
+            window.location.href = url.replace('http://fex.baidu.com/fis-site','http://fis.baidu.com');
+        }
+    })();
+</script>
 </head>
 <body>
 <div id="nav">
