@@ -49,8 +49,8 @@ define('main', function(require, exports, module){
 首先我们不附加任何优化参数，进行发布预览
 
 ```bash
-$ pure release
-$ pure server start #如果提示端口冲突可以添加-p参数调整端口
+$ pure release # pure server open可以查看构建结果
+$ pure server start # 如果提示端口冲突可以添加-p参数调整端口
 ```
 
 打开页面，我们会发现fis-pure-demo与fis-quickstart-demo一样，在页面内准确的引用了需要的脚本与样式资源。而这不同之处在于，这些资源的引用不再需要人工维护，只要使用[pure](https://github.com/fex-team/fis-pure)进行构建工作，不需要任何配置就可以自动完成资源的加载。
