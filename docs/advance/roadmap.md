@@ -233,7 +233,7 @@ FIS提供了大量的编译属性用于控制核心编译流程与插件编译�
 
 通过语言能力扩展设置，我们可以调整文件在语言标准化处理流程中的处理规则、通过编译流程控制，我们可以细粒度的控制文件的编译流程。
 
-特殊控制的分类可能有些不恰当，但是这几项都是roadmap.path配置中需要额外关注的配置。 `useHash`, `useDomain`, `useCache` 三项对应了 `fis release` 中的三个参数 `--md5`, `--domain`, `--clean`，通过设置这三个参数我们可以细粒度的控制静态资源在上述三种处理中的表现。
+特殊控制的分类可能有些不恰当，但是这几项都是roadmap.path配置中需要额外关注的配置。 `useHash`, `useDomain`, `useCache` 三项对应了 `fis release` 中的三个参数 `--md5`, `--domains`, `--clean`，通过设置这三个参数我们可以细粒度的控制静态资源在上述三种处理中的表现。
 
 ### 注意事项
 
@@ -387,7 +387,7 @@ fis.config.merge({
 });
 ```
 
-我们的项目在通过 ``` fis release --domain``` 添加了domain后资源引用的路径就变为了
+我们的项目在通过 ``` fis release --domains``` 添加了domain后资源引用的路径就变为了
 
 ```html
 <script src="http://hefangshi.github.io/fis-pure-demo/static/moduleA/a.js"></script>
