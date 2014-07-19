@@ -94,7 +94,7 @@ $ fis release --optimize
 $ fis release -o
 ```
 
-FIS默认的产出目录可以通过 ```fis server open``` 打开，详情可以参考[FAQ](https://github.com/fex-team/fis/issues/70)
+FIS构建并**不会**修改源代码目录中的内容，而是拥有独立的产出的目录，FIS默认的产出目构录可以通过 ```fis server open``` 打开，你也可以通过 `fis release -d path/to/output` 指定你希望的输出目录，详情可以参考[FAQ](https://github.com/fex-team/fis/issues/70)
 
 查看一下网站的静态资源，我们会发现脚本、样式、图片资源都已经压缩完成。无需额外的插件和配置编写，一条命令就完成了压缩工作，是不是非常方便快捷？
 
