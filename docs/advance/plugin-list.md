@@ -51,6 +51,10 @@ category: plugin
 * [fis-optimizer-png-compressor](https://github.com/fex-team/fis-optimizer-png-compressor):压缩图片，已内置。
 * [fis-optimizer-shutup](https://github.com/fouber/fis-optimizer-shutup)：移除alert，console，console.log等调试信息
 
+## 打包前处理插件
+
+* [fis-prepackager-csswarpper](https://github.com/hefangshi/fis-prepackager-csswarpper)：将css包装为Javascript，方便模块加载器异步加载。
+
 ## 打包后处理插件
 
 > 在项目进行打包处理操作后，用于处理整个项目的插件。在这个阶段的插件除了源代码插件信息，还能够获取到打包文件信息。
