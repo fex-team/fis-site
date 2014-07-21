@@ -53,7 +53,7 @@ category: plugin
 
 ## 打包前处理插件
 
-* [fis-prepackager-csswarpper](https://github.com/hefangshi/fis-prepackager-csswarpper)：将css包装为Javascript，方便模块加载器异步加载。
+* [fis-prepackager-csswrapper](https://github.com/hefangshi/fis-prepackager-csswrapper)：将css包装为Javascript，方便模块加载器异步加载。
 
 ## 打包后处理插件
 
