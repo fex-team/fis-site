@@ -65,7 +65,7 @@ JB :
  #   /assets
  #
   #ASSET_PATH : http://fex-team.github.io/fis-site/assets/themes/fis
-  ASSET_PATH : http://fis.baidu.com
+  ASSET_PATH : http://fis.baidu.com/assets/themes/fis
 
   # These paths are to the main pages Jekyll-Bootstrap ships with.
   # Some JB helpers refer to these paths; change them here if needed.
