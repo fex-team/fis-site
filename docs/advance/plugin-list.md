@@ -44,7 +44,7 @@ category: plugin
 
 ## 代码优化插件
 
-> 用于各种文件优化，比如脚本、图片、样式文件压缩
+> 用于各种文件优化，通常是压缩、xss修复等工作
 
 * [fis-optimizer-uglify-js](https://github.com/fex-team/fis-optimizer-uglify-js)：使用uglify-js压缩脚本资源，已内置。
 * [fis-optimizer-clean-css](https://github.com/fex-team/fis-optimizer-clean-css)：使用clean-css压缩样式资源，已内置。
