@@ -208,7 +208,7 @@ namespace :site do
     sh "bundle exec jekyll build"
 
     # Build with fis
-    sh "fis release -r #{CONFIG["destination"]} -ompDd #{CONFIG["git_folder"]} --verbose"
+    sh "fis release -r #{CONFIG["destination"]} -ompDd #{CONFIG["git_folder"]}"
 
     # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]

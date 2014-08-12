@@ -138,5 +138,5 @@ highlighter: pygments
 username: hefangshi
 repo: fis-site
 branch: master
-destination: ./dist/
-git_folder: ./git_folder/
+destination: ../dist/
+git_folder: ../git_folder/
