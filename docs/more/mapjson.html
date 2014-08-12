@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="zhCN"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="_FIS_构建工具_前端工具框架"><meta name="keywords" content=",百度前端团队,FIS,百度FIS,百度前端,fis,前端模块化,前端工程,性能优化,web performance"><title>基于map.json的前后端架构设计指导- F.I.S</title><meta name="author" content="fis team"><!-- Enable responsive viewport --><meta name="viewport" content="width=device-width,initial-scale=1"><!-- Custom styles --><!--<link href="/assets/themes/fis/css/highlight/monokai_sublime.css" rel="stylesheet" type="text/css" media="all">--><!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --><!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
+    <script src="http://127.0.0.1:8080/assets/themes/fis/js/html5shiv_3855464.js"></script>
+    <script src="http://127.0.0.1:8080/assets/themes/fis/js/respond.min_504acdd.js"></script>
+    <![endif]--><!-- Fav and touch icons --><!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    --><link type="text/css" rel="stylesheet" href="http://127.0.0.1:8080/pkg/auto_combine_1_54ecba7.css">
+</head><body><header class="navbar"><section><a href="/index.html"><div class="logo"><i class="fa fa-cogs"></i> F.I.S - 前端工具框架</div></a><div class="nav-items"><a href="/index.html"><div class="nav-item">首页</div></a> <a href="/docs/beginning/getting-started.html"><div class="nav-item">使用文档</div></a> <a href="http://oak.baidu.com"><div class="nav-item">解决方案</div></a> <a target="_blank" href="http://fex.baidu.com"><div class="nav-item">FEX官网</div></a></div></section></header><div id="wrap"><aside><nav class="sidebar"><ul><li class="item-category"><a href="/docs/beginning/getting-started.html">快速入门</a></li><li class="item-sub"><a href="/docs/beginning/getting-started.html#optimize">资源压缩</a></li><li class="item-sub"><a href="/docs/beginning/getting-started.html#combine">资源合并</a></li><li class="item-sub"><a href="/docs/beginning/assist.html">辅助开发</a></li><li class="item-sub"><a href="/docs/api/cli.html">命令行</a></li><li class="item-category"><span>进阶使用</span></li><li class="item-sub"><a href="/docs/more/fis-standard.html">语言能力</a></li><li class="item-sub"><a href="/docs/advance/roadmap.html">roadmap详解</a></li><li class="item-sub"><a href="/docs/advance/modjs-solution.html">前端模块化</a></li><li class="item-sub"><a href="/docs/advance/plugin-list.html">更多插件</a></li><li class="item-category"><a href="/docs/dev/intro.html">二次开发</a></li><li class="item-sub"><a href="/docs/dev/plugin.html">插件开发</a></li><li class="item-sub"><a href="/docs/dev/solution.html">解决方案封装</a></li><li class="item-category"><a href="/docs/dev/more.html">更多文档</a></li><li class="item-category"><a href="/docs/api/fis-conf.html">配置API</a></li><li class="item-sub"><a href="/docs/api/fis-conf.html">配置文件</a></li><li class="item-sub"><a href="/docs/api/fis-conf.html#project">project</a></li><li class="item-sub"><a href="/docs/api/fis-conf.html#modules">modules</a></li><li class="item-sub"><a href="/docs/api/fis-conf.html#settings">settings</a></li><li class="item-sub"><a href="/docs/api/fis-conf.html#roadmap">roadmap</a></li><li class="item-sub"><a href="/docs/api/fis-conf.html#pack">pack</a></li><li class="item-sub"><a href="/docs/api/fis-conf.html#deploy">deploy</a></li><li class="item-category"><a href="/docs/api/dev.html">插件开发API</a></li><li class="item-sub"><a href="/docs/api/dev.html#fisutil">fis.util</a></li><li class="item-sub"><a href="/docs/api/dev.html#fiscli">fis.cli</a></li><li class="item-sub"><a href="/docs/api/dev.html#fisfile">fis.file</a></li><li class="item-sub"><a href="/docs/api/dev.html#fisconfig">fis.config</a></li><li class="item-sub"><a href="/docs/api/dev.html#fiscompile">fis.compile</a></li><li class="item-sub"><a href="/docs/api/dev.html#fislog">fis.log</a></li><li class="item-category"><a href="https://github.com/fex-team/fis/issues/new">问题反馈</a></li><li class="item-category"><a href="https://github.com/fex-team/fis/issues?labels=faq&page=1&state=open">FAQ</a></li></ul></nav><div class="bottom-shadow"></div></aside><div class="container"><article class="doc-content"><div class="toc affix"></div><h1>基于map.json的前后端架构设计指导</h1><p>前端工具在解决了编译、优化之后，最重要的问题就是打包（静态资源合并）了。我们来看一个最常见的前端开发栗子：</p><blockquote><p>这个例子来自<a href="http://velocity.oreilly.com.cn/2010/index.php?func=session&amp;name=%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5%E8%B5%84%E6%BA%90%E7%9A%84%E7%AE%A1%E7%90%86%E5%92%8C%E4%BC%98%E5%8C%96">Facebook静态网页资源的管理和优化@Velocity China 2010</a></p></blockquote><div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;link href=&quot;A.css&quot;&gt;</span>
+<span class="x">    &lt;link href=&quot;B.css&quot;&gt;</span>
+<span class="x">    &lt;link href=&quot;C.css&quot;&gt;</span>
+<span class="x">    &lt;div&gt;html of A&lt;/div&gt;</span>
+<span class="x">    &lt;div&gt;html of B&lt;/div&gt;</span>
+<span class="x">    &lt;div&gt;html of C&lt;/div&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div><p>传统的前端开发模式选择 <strong>简单的文件合并</strong> 策略，直观的认为，A、B、C经常一起使用，那我们把它打包好了，于是得到：</p><div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;link href=&quot;A-B-C.css&quot;&gt;</span>
+<span class="x">    &lt;div&gt;html of A&lt;/div&gt;</span>
+<span class="x">    &lt;div&gt;html of B&lt;/div&gt;</span>
+<span class="x">    &lt;div&gt;html of C&lt;/div&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div><p>某天，C功能有些变化了，会有后端逻辑控制C功能的输出，代码变成了这样：</p><div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;link href=&quot;A-B-C.css&quot;&gt;</span>
+<span class="x">    &lt;div&gt;html of A&lt;/div&gt;</span>
+<span class="x">    &lt;div&gt;html of B&lt;/div&gt;</span>
+<span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nv">$user_has_C</span><span class="p">){</span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        &lt;div&gt;html of C&lt;/div&gt;</span>
+<span class="x">    </span><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div><p>这时候我们再看页面使用的资源A-B-C.css，A和B还好啦，可是 <strong>C资源已经不是那么合群了</strong> 。。。</p><p>又过了几天，项目经理突然说，C这个功能我们不用了！，把它注释掉吧，这个时候，代码就这样了：</p><div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;link href=&quot;A-B-C.css&quot;&gt;</span>
+<span class="x">    &lt;div&gt;html of A&lt;/div&gt;</span>
+<span class="x">    &lt;div&gt;html of B&lt;/div&gt;</span>
+<span class="x">    &lt;!--</span>
+<span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nv">$user_has_C</span><span class="p">){</span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        &lt;div&gt;html of C&lt;/div&gt;</span>
+<span class="x">    </span><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    --&gt;</span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div><p>再看看我们使用的资源A-B-C.css，工程师经常会忘记（或者主动避免）将C资源从打包中移除，尤其是在规模稍大一些的团队里，工程师通常没有十足的把握可以确保删除这个资源之后页面其他功能都是ok的，而且不删除C资源，线上的代码运行的还很正确嘛，yep！然而，一个月后：</p><div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="x">&lt;html&gt;</span>
+<span class="x">    &lt;link href=&quot;A-B-C-D-E-F-G-H....css&quot;&gt;</span>
+<span class="x">    &lt;div&gt;html of A&lt;/div&gt;</span>
+<span class="x">    &lt;div&gt;html of B&lt;/div&gt;</span>
+<span class="x">    ...</span>
+<span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nv">$not_used_F</span><span class="p">){</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        &lt;div&gt;html of E&lt;/div&gt;</span>
+<span class="x">    </span><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">        &lt;div&gt;html of F&lt;/div&gt;</span>
+<span class="x">        &lt;div&gt;html of G&lt;/div&gt;</span>
+<span class="x">    </span><span class="cp">&lt;?php</span> <span class="p">}</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">    ...</span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div><p>我们在页面有了一堆冗余的资源，有些资源（比如皮肤）， <strong>甚至是互斥的</strong>！大家可以看到，传统的前端性能优化方式在大型互联网项目中很有可能非但不能优化性能，反倒会导致性能的下降。相信每个开发过大型互联网应用的前端er都遇到过这样的问题，那么，我们如何将性能优化理论在大规模的平台上应用起来呢？这将是一个非常大的挑战！让我们来看看fis是如何解决这个问题的：</p><h2>FIS的静态资源管理方案</h2><h4>组件化拆分你的页面</h4><p>首先，我们将页面的每个小部件，当做一个组件，在fis中，我们叫它 <strong>widget</strong> ——你也可以叫它pagelet、component神马的——接下来，让我们回到上面小栗子的开始，经过我们的 <strong>组件化</strong> 之后，页面代码变成了：</p><div class="highlight"><pre><code class="php language-php" data-lang="php"><span class="x">&lt;html&gt;</span>
+<span class="cp">&lt;?php</span> <span class="nx">load_widget</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">&lt;?php</span> <span class="nx">load_widget</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">&lt;?php</span> <span class="nx">load_widget</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;/html&gt;</span>
+</code></pre></div><p>这个网站的目录结构变成了：</p><div class="highlight"><pre><code class="text language-text" data-lang="text">根目录
+  ├ index.tpl
+  ├ A
+  │ ├ A.tpl
+  │ └ A.css
+  ├ B
+  │ ├ B.tpl
+  │ └ B.css
+  └ C
+    ├ C.tpl
+    └ C.css
+</code></pre></div><h4>让fis帮你产出静态资源表</h4><p>大家还记得fis会产出的那个 <a href="/docs/more/fis-base.html#pack">map.json</a> 么？使用fis，加入适当的配置，对这个项目进行编译会得到一个 map.json的文件，它的内容是：</p><div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&quot;res&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;A/A.tpl&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/template/A.tpl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deps&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;A/A.css&quot;</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;A/A.css&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/static/css/A_7defa41.css&quot;</span>
+        <span class="p">},</span>
+
+        <span class="nt">&quot;B/B.tpl&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/template/B.tpl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deps&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;B/B.css&quot;</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;B/B.css&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/static/css/B_33c5143.css&quot;</span>
+        <span class="p">},</span>
+
+        <span class="nt">&quot;C/C.tpl&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/template/C.tpl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deps&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;C/C.css&quot;</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;C/C.css&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/static/css/C_ba59c31.css&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>到这里或许你已经猜到我们的 <strong>load_widget(id)</strong> 是如何工作的了：</p><h4>静态资源管理系统</h4><ol><li>准备两个数据结构：<ul><li>uris = []，数组，顺序存放要输出资源的uri</li><li>has = {}，hash表，存放已收集的静态资源，防止重复加载</li></ul></li><li>加载资源表 <strong>map.json</strong></li><li><p>执行 &lt;?php load_widget(&#39;A&#39;);?&gt;</p><ol><li>在表中查找id为 <strong>A/A.tpl</strong> 的资源，取得它的资源路径 <em>/template/A.tpl</em>，记为 <strong>tpl_path</strong></li><li>模板引擎加载并渲染 tpl_path 所指向的模板文件，即 /template/A.tpl，并输出它的html内容</li><li>查看 A/A.tpl 资源的 <strong>deps</strong> 属性，发现它依赖资源 <strong>A/A.css</strong></li><li><p>在表中查找id为 A/A.css 的资源，取得它的资源路径为 <em>/static/css/A</em>7defa41.css_，存入 <strong>uris数组</strong> 中，并在 <strong>has表</strong> 里标记已加载 A/A.css 资源，我们得到：</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">uris</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;/static/css/A_7defa41.css&#39;</span>
+<span class="p">];</span>
+<span class="nx">has</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;A/A.css&#39;</span> <span class="o">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+</code></pre></div></li></ol></li><li><p>执行 load_widget(&#39;B&#39;)，步骤与上述步骤3相同，我们得到：</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">uris</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;/static/css/A_7defa41.css&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/static/css/B_33c5143.css&#39;</span>
+<span class="p">];</span>
+<span class="nx">has</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;A/A.css&#39;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;B/B.css&#39;</span> <span class="o">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+</code></pre></div></li><li><p>执行 load_widget(&#39;C&#39;)，步骤与上述步骤3相同，我们得到：</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">uris</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;/static/css/A_7defa41.css&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/static/css/B_33c5143.css&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/static/css/C_ba59c31.css&#39;</span>
+<span class="p">];</span>
+<span class="nx">has</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;A/A.css&#39;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;B/B.css&#39;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;C/C.css&#39;</span> <span class="o">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+</code></pre></div></li><li><p>在要输出的html前面，我们读取 <strong>uris数组</strong> 的数据，生成静态资源外链，我们得到最终的html结果：</p><div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;/static/css/A_7defa41.css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;/static/css/B_33c5143.css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;/static/css/C_ba59c31.css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>html of A<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>html of B<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>html of C<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></li></ol><p>看到了么！！！，我们不但可以让资源按需加载，还能全部映射到正确的md5戳哦，这全依赖fis的表生成技术！那么，基于这项技术，我们是如何处理打包的呢：</p><h4>打包——资源的备份读取</h4><p>现在，我们再来使用fis的 <a href="/docs/api/fis-conf.html#pack">pack配置项</a>，对网站的静态资源进行打包，配置文件大致为：</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">merge</span><span class="p">({</span>
+    <span class="nx">pack</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;pkg/aio.css&#39;</span> <span class="o">:</span> <span class="s1">&#39;**.css&#39;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><p>执行fis的编译命令并使用 <strong>pack、md5</strong> 等功能：</p><div class="highlight"><pre><code class="text language-text" data-lang="text">fis release --pack --md5
+</code></pre></div><p>再来查看我们的 map.json, 它的内容变为：</p><div class="highlight"><pre><code class="json language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&quot;res&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;A/A.tpl&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/template/A.tpl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deps&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;A/A.css&quot;</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;A/A.css&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/static/css/A_7defa41.css&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;pkg&quot;</span> <span class="p">:</span> <span class="s2">&quot;p0&quot;</span>
+        <span class="p">},</span>
+
+        <span class="nt">&quot;B/B.tpl&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/template/B.tpl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deps&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;B/B.css&quot;</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;B/B.css&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/static/css/B_33c5143.css&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;pkg&quot;</span> <span class="p">:</span> <span class="s2">&quot;p0&quot;</span>
+        <span class="p">},</span>
+
+        <span class="nt">&quot;C/C.tpl&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/template/C.tpl&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;deps&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;C/C.css&quot;</span> <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;C/C.css&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/static/css/C_ba59c31.css&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;pkg&quot;</span> <span class="p">:</span> <span class="s2">&quot;p0&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;pkg&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;p0&quot;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;uri&quot;</span> <span class="p">:</span> <span class="s2">&quot;/static/pkg/aio_0cb4a19.css&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;has&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;A/A.css&quot;</span><span class="p">,</span> <span class="s2">&quot;B/B.css&quot;</span><span class="p">,</span> <span class="s2">&quot;C/C.css&quot;</span> <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>大家注意到了么，表里多了一张 <strong>pkg</strong> 表，所有被打包的资源会有一个 <strong>pkg属性</strong> 指向该表中的资源，而这个资源，正是我们配置的打包策略。好，让我们看看这种情况下，我们的 <strong>load_widget(id)</strong>是怎么工作的吧（ <strong>注意，这个过程工程师的代码从未改动过哦</strong> ）：</p><ol><li>准备两个数据结构：<ul><li>uris = []，数组，顺序存放要输出资源的uri</li><li>has = {}，hash表，存放已收集的静态资源，防止重复加载</li></ul></li><li>加载资源表 <strong>map.json</strong></li><li><p>执行 <code>load_widget(&#39;A&#39;)</code></p><ol><li>在表中查找id为 <strong>A/A.tpl</strong> 的资源，取得它的资源路径 <em>/template/A.tpl</em>，记为 <strong>tpl_path</strong></li><li>模板引擎加载并渲染 tpl_path 所指向的模板文件，即 /template/A.tpl，并输出它的html内容</li><li>查看 A/A.tpl 资源的 <strong>deps</strong> 属性，发现它依赖资源 <strong>A/A.css</strong></li><li>在表中查找id为 A/A.css 的资源，我们发现该资源有 <strong>pkg属性</strong>，表明它被 <strong>备份</strong> 在了一个打包文件中。</li><li>我们使用它的pkg属性值 <strong>p0</strong> 作为key，在pkg表里读取信息，取的这个包的资源路径为 <em>/static/pkg/aio</em>0cb4a19.css_ 存入 <strong>uris数组</strong> 中</li><li><p>将p0包的 <strong>has</strong> 属性所声明的资源加入到 <strong>has表</strong> 里我们得到：</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">uris</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;/static/pkg/aio_0cb4a19.css&#39;</span>
+<span class="p">];</span>
+<span class="nx">has</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;A/A.css&#39;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;B/B.css&#39;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;C/C.css&#39;</span> <span class="o">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+</code></pre></div></li></ol></li><li><p>执行 <code>load_widget(&#39;B&#39;)</code>，步骤与上述步骤3相同，但当我们要加载B/B.tpl的资源B/B.css时，发现它已经被has表标记为 <strong>已收集</strong>，因此跳过资源收集过程</p></li><li><p>执行 <code>load_widget(&#39;C&#39;)</code>，结果与步骤4相同</p></li><li><p>在要输出的html前面，我们读取 <strong>uris数组</strong> 的数据，生成静态资源外链，我们得到最终的html结果：</p></li></ol><div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;/static/pkg/aio_0cb4a19.css&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>html of A<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>html of B<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>html of C<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div><p><strong>出现打包了有木有啊！！！</strong></p><h4>这样做的好处</h4><blockquote><p>抱歉，这货好处实在太多了。</p></blockquote><ul><li>我们可以统计 <code>load_widget(id)</code> 插件的调用情况，然后自动生成最优的打包配置，让网站可以 <strong>自适应优化</strong></li><li>工程师不用关心资源在哪，怎么来的，怎么没的，所有 <a href="/docs/more/fis-standard.html">资源定位</a> 的事情，都交给fis好了。解决了前面说的 <strong>功能下线不敢删除相应资源</strong> 的问题</li><li>静态资源路径都带md5戳，这个值只跟内容有关，静态资源服务器从此可以放心开启强缓存了！还能实现静态资源的分级发布，回滚神马的超方便哦！</li><li>我们给 <code>load_widget(id)</code> 加一个小小的“后门”，我们可以利用cookie、url中的get参数来控制瞬间切换线上的页面输出结果为打包或者不打包、甚至是压缩或者不压缩的资源， <strong>方便定位线上问题</strong> 有木有！</li><li><p>我们再给 <code>load_widget(id)</code> 加一个小小的“后门”，让它可以读取一个 domains.conf 配置文件，内容形如：</p><div class="highlight"><pre><code class="ini language-ini" data-lang="ini"><span class="na">default</span><span class="o">=</span><span class="s">http://static.example.com</span>
+<span class="na">debug</span><span class="o">=</span><span class="s">http://localhost:8080</span>
+</code></pre></div><p>然后我们约定一个cookie或者url值，可以一键 <strong>把线上资源映射到本地</strong> 有木有！！！方便调试啊，魂淡！</p></li><li><p>我们还可以继续折腾，比如根据国际化、皮肤，终端等信息约定一种资源路径规范，当后端适配到特定地区、特定机型的访问时，静态资源管理系统帮你 <strong>送达不同的资源给不同的用户</strong> 啊，有木有！</p></li><li><p>更多好处，等你来挖掘，请鞭挞我吧，公瑾！</p></li></ul><h4>说到这里，一些同学可能会问：</h4><blockquote><p>这样做岂不是增加了后端性能开销？</p></blockquote><p>对于这个问题，我只想说，这非常值得！其实这个后端开销很少，算法非常简单直白，但他所换来的前端工程化水平提高非常大！！</p><blockquote><p>你们还不是抄袭了facebook</p></blockquote><p>不可否认，我们在一开始是受了fb的启发，他是理想社会的老大哥，但后来我们发现已知的信息实在太少了，建设有fis特色的解决方案必须靠我们自己，这个探索，花了1年多的时间。况且facebook这个网站根本不存在嘛！</p><!-- 多说评论框 start --><div class="ds-thread" data-thread-key="" data-title="基于map.json的前后端架构设计指导- F.I.S" data-url="/docs/more/mapjson.html"></div><!-- 多说评论框 end --><!-- 多说公共JS代码 start --><!-- 多说公共JS代码 end --></article></div></div><!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) --><!-- Placed at the end of the document so the pages load faster --><script type="text/javascript" charset="utf-8" src="http://127.0.0.1:8080/pkg/auto_combine_0_30c4df7.js"></script>
+<script type="text/javascript">!function(){var i=window.location.href;-1!==i.indexOf("http://fex.baidu.com/fis-site")&&(window.location.href=i.replace("http://fex.baidu.com/fis-site","http://fis.baidu.com"))}();</script><script type="text/javascript">var duoshuoQuery={short_name:"fis-site"};!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==document.location.protocol?"https:":"http:")+"//static.duoshuo.com/embed.js",t.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(t)}();</script><script type="text/javascript">$("a").each(function(t,r){0===$(r).attr("href").indexOf("/")?$(r).attr("href",""+$(r).attr("href")):0!==$(r).attr("href").indexOf("#")&&$(r).attr("target","_blank")});</script><script type="text/javascript">!function(){function e(e,n){var i=$('<div style="display:none;"/>').appendTo($("body"));i.html("<!--[if "+(n||"")+" IE "+(e||"")+"]><a>&nbsp;</a><![endif]-->");var o=i.find("a").length;return i.remove(),o}function n(){function e(){i||(console.log("enable"),i=!0,$(".sidebar").perfectScrollbar({wheelSpeed:10,wheelPropagation:!1}))}function n(){i&&(console.log("disable"),i=!1,$(".sidebar").perfectScrollbar("destroy"))}$(window).width()>760&&$(".sidebar").height()<$(".sidebar ul").height()?e():n()}var i=!1;e(8,"lte")||($(".sidebar").addClass("scrollbar"),n(),$(window).resize(n))}();</script></body></html>
