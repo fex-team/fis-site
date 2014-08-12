@@ -140,4 +140,3 @@ repo: fis-site
 branch: master
 destination: ./dist/
 git_folder: ./git_folder/
-fis_dest: ../git_folder/
