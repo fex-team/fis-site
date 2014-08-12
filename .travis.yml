@@ -4,13 +4,13 @@ install:
 - npm install -g fis
 - npm install -g fis-postpackager-simple
 - npm install -g fis-optimizer-html-minifier
-script: bundle exec rake site:deploy
+script: bundle exec rake site:deploy --quiet
 branches:
   only:
   - master
-cache: 
-  - bundler
-  - npm
+cache:
+- bundler
+- npm
 env:
   global:
-  - secure: Q/gMDp4lRMDr1jjhjVqe5NA2xBg3ptt7JNP7JlrZbnwXD6UVVz93nxBclao9XE/NT6vbTgPiilixiKF5wIL7crm1nyN79HIPY7rPes2k7J72W1YNHM4O5LH6w3vVNT7ypKpdH5YAw+TjfduZDB9WNCDGS4GsjMSB996AvAH1Zt4=
+    secure: Vtm8/KFWPPrczMkezlmROewru/H4C7sL3ptR14wetP0v6pwuFl51xTV9QMforUa7EaI838griM4WLMGL1wHv7N1buDHocWGshJXwbXHQK8fm5F2q3CmcJe01zpBKhEtiP8ySci0MeGVuEDH16omIjIUzMlkFkLVUS/0QXcPyc/o=
