@@ -4,7 +4,7 @@ install:
 - npm install -g fis
 - npm install -g fis-postpackager-simple
 - npm install -g fis-optimizer-html-minifier
-script: bundle exec rake site:deploy --quiet
+script: bundle exec rake site:deploy
 branches:
   only:
   - master
