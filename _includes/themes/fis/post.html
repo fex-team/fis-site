@@ -1,0 +1,17 @@
+<article class="doc-content">
+    <div class="toc affix"></div>
+    {{ content }}
+    {% include JB/comments %}
+</article>
+<script type="text/javascript">
+    $("a").each(function(index,ele){
+        if ($(ele).attr('href').indexOf('/') === 0){
+            $(ele).attr('href',"{{ BASE_PATH }}"+$(ele).attr('href'));
+        }else{
+            if ($(ele).attr('href').indexOf('#') !== 0){
+                $(ele).attr('target','_blank');
+            }
+        }
+    });
+</script>
+<script type="text/javascript" src="{{ ASSET_PATH }}/js/document.js"></script>

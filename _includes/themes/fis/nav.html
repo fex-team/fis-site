@@ -1,0 +1,20 @@
+<aside>
+    <nav class="sidebar">
+        <ul>
+            {% for config in site.data.nav %}
+            <li class="item-{{ config.type }}">
+                {% if (config.url) %}
+                <a href="{{ config.url }}">
+                    {{ config.title }}
+                </a>
+                {% else %}
+                <span>
+                    {{ config.title }}
+                </span>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <div class="bottom-shadow"></div>
+</aside>
