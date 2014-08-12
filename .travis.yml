@@ -1,0 +1,13 @@
+language: ruby
+install:
+- bundle install
+- npm install -g fis
+- npm install -g fis-postpackager-simple
+- npm install -g fis-optimizer-html-minifier
+script: bundle exec rake site:deploy
+branches:
+  only:
+  - master
+env:
+  global:
+  - secure: Q/gMDp4lRMDr1jjhjVqe5NA2xBg3ptt7JNP7JlrZbnwXD6UVVz93nxBclao9XE/NT6vbTgPiilixiKF5wIL7crm1nyN79HIPY7rPes2k7J72W1YNHM4O5LH6w3vVNT7ypKpdH5YAw+TjfduZDB9WNCDGS4GsjMSB996AvAH1Zt4=
