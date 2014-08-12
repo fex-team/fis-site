@@ -13,4 +13,4 @@ cache:
 - npm
 env:
   global:
-  	secure: WBqv5Gp1n2Ks0XCB/AZaNJ9VwIbI+tf2bXgLE244eU9VhdvVoPE3etB+fE2MAaQPy81R4Z097W0JooiVwLalzSV+7ezPd6EjD9pLO7L/Tu1o2igBeu7EmuKgyalMPxmPCPGvm2l6Gwr+8QoNTIQwswpAk3e9UytsZYLyGsWFSBQ=
+    secure: WBqv5Gp1n2Ks0XCB/AZaNJ9VwIbI+tf2bXgLE244eU9VhdvVoPE3etB+fE2MAaQPy81R4Z097W0JooiVwLalzSV+7ezPd6EjD9pLO7L/Tu1o2igBeu7EmuKgyalMPxmPCPGvm2l6Gwr+8QoNTIQwswpAk3e9UytsZYLyGsWFSBQ=
