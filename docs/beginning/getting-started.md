@@ -26,7 +26,7 @@ category: beginning
 * **fis release:** 命令用于编译并发布的你的项目，拥有多个参数调整编译发布操作。
 * **fis server:** 命令可以启动一个本地调试服务器用于预览fis release产出的项目。
 
-可以通过下面一张图来快速了解FIS的整个使用流程
+下面这张图描述了FIS的整个使用流程
 
 ![](./img/quickstart/flow.jpg)
 
