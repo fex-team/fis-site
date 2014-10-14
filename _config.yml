@@ -135,7 +135,7 @@ redcarpet:
 
 highlighter: pygments
 
-username: hefangshi
+username: fex-team
 repo: fis-site
 branch: master
 destination: ../dist/
