@@ -248,6 +248,7 @@ $ fis release -omp
 
 * 在Github中提交[Issue](https://github.com/fex-team/fis/issues/new)
 * 在文档评论中提问
+* 在百度HI群**1383676**中交流
 * 在QQ交流群315973236中直接沟通
 
 ## 下一步
