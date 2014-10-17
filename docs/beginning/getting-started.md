@@ -166,6 +166,8 @@ fis.config.set('pack', {
 $ npm install -g fis-postpackager-simple
 ```
 
+> **fis-postpackager-simple插件是提供给纯前端应用的打包合并插件，其他定制解决方案，如`fis-plus`、`yogurt`等不需要这个插件，需要查看各自的文档了解使用方式。**
+
 插件安装到本地后，我们还需要通过项目配置文件开启插件，修改项目根目录下的fis-conf.js配置，开启fis-postpackager-simple插件
 
 ```bash
@@ -246,7 +248,6 @@ $ fis release -omp
 
 * 在Github中提交[Issue](https://github.com/fex-team/fis/issues/new)
 * 在文档评论中提问
-* 在QQ交流群315973236中直接沟通
 
 ## 下一步
 
