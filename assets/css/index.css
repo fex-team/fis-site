@@ -127,7 +127,7 @@ p a:hover { color: rgb(82, 11, 7); transition: all 300ms ease-out 0s; }
 	width: 50%; 
 	float: right; 
 }
-.nav-item { position: relative; padding-left: 0.9375em; padding-right: 0.9375em; width: 25%; float: left; }
+.nav-item { position: relative; padding-left: 0.9375em; padding-right: 0.9375em; width: 20%; float: left; }
 .view { width: 100%; height: 100%; float: left; overflow: hidden; position: relative; text-align: center; }
 .view .mask, .view .content { 
 	width: 100%; height: 100%; 
@@ -234,7 +234,7 @@ p a:hover { color: rgb(82, 11, 7); transition: all 300ms ease-out 0s; }
 .hovv:hover { animation: 2s linear 0s normal none infinite floating; position: relative; }
 @media only screen and (max-width: 767px) {
 	body { text-align: center; }
-	.nav-item { position: relative; padding-left: 0.9375em; padding-right: 0.9375em; width: 25%; float: left; }
+	.nav-item { position: relative; padding-left: 0.9375em; padding-right: 0.9375em; width: 20%; float: left; }
 	.about-vid-left, .about-vid, .about-three, .about-two, .about-one, .blog-main, .blog-right, .blog-right-single, .about-left, .about-right, .main-holder, .footer-one, .footer-two, .footer-two-item, .nav-items, .logo, .front-left, .front-right, .blog-item, .work-item { position: relative; padding-left: 0.9375em; padding-right: 0.9375em; width: 100%; left: 0%; right: auto; float: left; }
 	img { display: block; margin-left: auto; margin-right: auto; padding: 10px; }
 	.about-vid-left li { position: relative; padding-left: 0.9375em; padding-right: 0.9375em; width: 50%; float: left; }
