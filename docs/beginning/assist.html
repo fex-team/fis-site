@@ -20,8 +20,8 @@
         <span class="k">width</span><span class="o">:</span> <span class="m">980px</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="err">}</span>
-</code></pre></div><p>使用发布到当前</p><div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>fis release -wd ./
-</code></pre></div><p>可以看到同目录下出现一个同名的CSS文件</p><div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="nt">body</span> <span class="nc">.container</span> <span class="p">{</span>
+</code></pre></div><p>使用发布到output目录中</p><div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>fis release -wd output
+</code></pre></div><p>可以看到在output目录中，原有的less文件已经被编译为了css文件</p><div class="highlight"><pre><code class="css language-css" data-lang="css"><span class="nt">body</span> <span class="nc">.container</span> <span class="p">{</span>
   <span class="k">width</span><span class="o">:</span> <span class="m">980px</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><p>由于我们添加了 <code>-w</code> 参数，你还可以随意修改LESS文件，FIS将会自动监听文件修改，自动编译发布CSS文件</p><h2>自动化</h2><h3>文件监视</h3><p>通过文件监视功能，我们可以要求FIS在项目文件出现修改时，自动增量构建项目文件。并且增量构建是考虑了各种<strong>嵌入关系</strong>的，比如a.css文件内嵌了b.css文件，那么当b.css文件修改时，FIS会自动重新构建a.css和b.css两个文件。</p><p>可以使用快速入门中的fis-quickstart-demo试试看，首先开启文件监听功能</p><div class="highlight"><pre><code class="bash language-bash" data-lang="bash">fis release --watch <span class="c">#fis release -w</span>
