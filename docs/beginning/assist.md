@@ -42,13 +42,13 @@ body {
 }
 ```
 
-使用发布到当前
+使用发布到output目录中
 
 ```bash
-$ fis release -wd ./
+$ fis release -wd output
 ```
 
-可以看到同目录下出现一个同名的CSS文件
+可以看到在output目录中，原有的less文件已经被编译为了css文件
 
 ```css
 body .container {
