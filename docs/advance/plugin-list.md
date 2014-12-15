@@ -34,6 +34,7 @@ category: plugin
 
 * [fis-postprocessor-require-async](https://github.com/xiangshouding/fis-postprocessor-require-async)：识别代码中的 ```require.async('path/to/js')``` ，将动态加载的组件信息加入map.json中，方便后续在打包和资源管理等插件中调用。
 * [fis-postprocessor-jswrapper](https://github.com/fex-team/fis-postprocessor-jswrapper)：自动为代码添加amd包装代码，在代码编写时就无需手动添加，使得编写前端模块化代码的开发体验与Node.js一致，已内置。
+* [fis-postprocessor-ssi](https://github.com/darkmirrors/fis-postprocessor-ssi)：编译期实现ssi include语法
 
 ## 代码检查插件
 
