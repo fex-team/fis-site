@@ -25,6 +25,7 @@ category: plugin
 * [fis-parser-utc](https://github.com/fouber/fis-parser-utc)：将[Underscore](http://underscorejs.org)前端模板编译成JavaScript
 * [fis-parser-bdtmpl](https://github.com/fouber/fis-parser-bdtmpl)：将[baiduTemplate](http://baidufe.github.io/BaiduTemplate/)前端模板文件编译成JavaScript
 * [fis-parser-react](https://github.com/fouber/fis-parser-react)：预编译[react](http://facebook.github.io/react/)项目
+* [fis-parser-nunjucks](https://github.com/hefangshi/fis-parser-nunjucks)：预编译[nunjucks](http://mozilla.github.io/nunjucks/)项目
 
 > 此类插件一般都会使用parser扩展点，可以在npm中搜索[fis parser](https://www.npmjs.org/search?q=fis+parser)找到更多。
 
