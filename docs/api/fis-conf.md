@@ -113,7 +113,7 @@ fis.config.init({
 ### include
 
 * 解释：设置项目源码文件include过滤器。只有命中include的文件才被视为源码，其他文件则忽略。
-* 值类型：``string`` | ``RegExp``
+* 值类型：``Array`` | ``string`` | ``RegExp``
 * 默认值：无
 * 用法：在项目的fis-conf.js里可以修改为
 
@@ -129,10 +129,16 @@ fis.config.init({
     });
     ```
 
+    或者
+
+    ```javascript
+    fis.config.set('project.include', ['src/**', /^\/vendor\//i]);
+    ```
+
 ### exclude
 
 * 解释：设置项目源码文件exclude过滤器。如果同时设置了 [project.include](/docs/api/fis-conf.html#include) 和 ``project.exclude`` 则表示在include所命中的文件中排除掉某些文件。
-* 值类型：``string`` | ``RegExp``
+* 值类型：``Array`` | ``string`` | ``RegExp``
 * 默认值：无
 * 用法：在项目的fis-conf.js里可以修改为
 
@@ -146,6 +152,13 @@ fis.config.init({
     fis.config.merge({
         project : { exclude : /^\/_build\//i }
     });
+    ```
+
+
+    或者
+
+    ```javascript
+    fis.config.set('project.exclude', ["dist/**", /^\/_build\//i]);
     ```
 
 ### fileType.text
