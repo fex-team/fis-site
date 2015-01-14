@@ -19,7 +19,7 @@ category: plugin
 * [fis-parser-coffee-script](https://github.com/fouber/fis-parser-coffee-script)：将[CoffeeScript](http://coffeescript.org/)编译成JavaScript
 * [fis-parser-less](https://github.com/fouber/fis-parser-less)：将[Less](http://lesscss.org/)编译成CSS
 * [fis-parser-sass](https://github.com/fouber/fis-parser-sass)：将[Sass](http://www.sass-lang.com/)编译成CSS
-* [fis-parser-jade](fis-parser-jade)：将[Jade](http://jade-lang.com)编译成HTML
+* [fis-parser-jade](https://github.com/ssddi456/fis-parser-jade)：将[Jade](http://jade-lang.com)编译成HTML
 * [fis-parser-marked](https://github.com/fouber/fis-parser-marked)：将Markdown文件编译成HTML
 * [fis-parser-handlebars](https://github.com/fouber/fis-parser-handlebars)：将[handlebars](http://handlebarsjs.com/)前端模板编译成JavaScript
 * [fis-parser-utc](https://github.com/fouber/fis-parser-utc)：将[Underscore](http://underscorejs.org)前端模板编译成JavaScript
