@@ -21,9 +21,17 @@
 - title: 进阶使用
   type: category
 
-- title: 语言能力
-  url: /docs/more/fis-standard.html
+- title: 资源定位
+  url: /docs/more/fis-standard.html#资源定位
   type: sub
+
+- title: 语言能力
+  url: /docs/more/fis-standard.html#资源定位
+  type: sub
+
+- title: 依赖声明
+  url: /docs/more/fis-standard.html#依赖声明
+  type: sub  
 
 - title: roadmap详解
   url: /docs/advance/roadmap.html
@@ -103,29 +111,29 @@
   url: /docs/api/dev.html
   type: category
 
-- title: fis.util
-  url: /docs/api/dev.html#fisutil
-  type: sub
+# - title: fis.util
+#   url: /docs/api/dev.html#fisutil
+#   type: sub
 
-- title: fis.cli
-  url: /docs/api/dev.html#fiscli
-  type: sub
+# - title: fis.cli
+#   url: /docs/api/dev.html#fiscli
+#   type: sub
 
-- title: fis.file
-  url: /docs/api/dev.html#fisfile
-  type: sub
+# - title: fis.file
+#   url: /docs/api/dev.html#fisfile
+#   type: sub
 
-- title: fis.config
-  url: /docs/api/dev.html#fisconfig
-  type: sub
+# - title: fis.config
+#   url: /docs/api/dev.html#fisconfig
+#   type: sub
 
-- title: fis.compile
-  url: /docs/api/dev.html#fiscompile
-  type: sub
+# - title: fis.compile
+#   url: /docs/api/dev.html#fiscompile
+#   type: sub
 
-- title: fis.log
-  url: /docs/api/dev.html#fislog
-  type: sub
+# - title: fis.log
+#   url: /docs/api/dev.html#fislog
+#   type: sub
 
 - title: 问题反馈
   url: https://github.com/fex-team/fis/issues/new
