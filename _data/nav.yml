@@ -25,8 +25,8 @@
   url: /docs/more/fis-standard.html#资源定位
   type: sub
 
-- title: 语言能力
-  url: /docs/more/fis-standard.html#资源定位
+- title: 内容嵌入
+  url: /docs/more/fis-standard.html#内容嵌入
   type: sub
 
 - title: 依赖声明
