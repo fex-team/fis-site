@@ -291,7 +291,7 @@ fis.config.init({
     { js : 'jswrapper' }
     ```
 * 说明：标准化处理之后，fis已经完成了对前端领域语言的 [三种语言能力](/docs/more/fis-standard.html) 扩展，此时文件对象的相关信息已经获取到了，这个阶段我们可以对文件进行一些相关处理，比如amd包装等。fis内置的 [fis-postprocessor- jswrapper](https://github.com/fis-dev/fis-postprocessor-jswrapper) 插件就是在这个阶段对js进行包装的。
-* 用法：类似 [modules.preprocessor](docs/api/fis-conf.html#preprocessor)
+* 用法：类似 [modules.preprocessor](#preprocessor)
 
 ### lint
 
