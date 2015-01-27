@@ -12,7 +12,7 @@ category: more
 
 ## 单文件编译过程
 
-该过程对每个文件采用管道式处理流程，并在最开始处建立缓存，以提升编译性能，可以点击查看[源码]([源码](https://github.com/fis-dev/fis-kernel/blob/master/lib/compile.js#L246-L260)。每个文件的处理过程又可细分为：
+该过程对每个文件采用管道式处理流程，并在最开始处建立缓存，以提升编译性能，可以点击查看[源码](https://github.com/fis-dev/fis-kernel/blob/master/lib/compile.js#L246-L260)。每个文件的处理过程又可细分为：
 
 1. **parser**(编译器)：将其他语言编译为标准js、css，比如将前端模板、coffee-script编译为js，将less、sass编译为css。
 1. **preprocessor**(标准预处理器)：在fis进行标准化处理之前进行某些修改，比如 [支持image-set语法的预处理插件](https://github.com/fouber/fis-preprocessor-image-set)
