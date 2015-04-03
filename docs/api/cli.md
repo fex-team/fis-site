@@ -37,7 +37,31 @@ category: api
 
 > 难度等级：★☆☆☆☆
 
-fis install命令经过全新升级，目前可以从Github或者各类私有Gitlab仓库下载前端组件使用，只需要两部就可以加载一个前端组件，详情请参考 [fis-components](https://github.com/fis-components/components)
+fis install命令经过全新升级，目前可以从Github或者各类私有Gitlab仓库下载前端组件使用，只需要两步就可以加载一个前端组件
+
+首先我们安装一个组件
+
+```
+$ fis install jquery bootstrap
+
+Installed
+├── github:fis-components/jquery@1.9.1
+└── github:fis-components/bootstrap@v3.3.1
+```
+
+然后我们就可以在Javascript中调用组件
+
+```javascript
+require('bootstrap/button');
+var $ = require('jquery');
+
+
+$('.btn').click(function() {
+    alert('Magic');
+});
+```
+
+更多详情请参考 [fis-components](https://github.com/fis-components/components)
 
 
 ## fis release [options]
