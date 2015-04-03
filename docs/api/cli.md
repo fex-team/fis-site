@@ -37,19 +37,8 @@ category: api
 
 > 难度等级：★☆☆☆☆
 
-install命令被设计用来 **各种安装**，无论你是想初始化一个模块，还是想下载一个前端基础库，亦或下载一份配置文件，总之但凡开发需要的，只要fis仓库里有，你就用它来安装就对了。 理论上任何资源都可以通过这个命令来获取，因为它的实现非常简单： **从fis代码仓库下载->解压到当前目录**。
+fis install命令经过全新升级，目前可以从Github或者各类私有Gitlab仓库下载前端组件使用，只需要两部就可以加载一个前端组件，详情请参考 [fis-components](https://github.com/fis-components/components)
 
-![fis install](https://raw.githubusercontent.com/fouber/fis-wiki-img/master/install.png)
-
-少说多练，咱们先来装个小东西瞧瞧：
-
-```bash
-$ fis install firstblood-demo
-install [firstblood-demo@latest]
-```
-如果你在执行命令的目录下发现了一个叫firstblood的目录，恭喜你，你已踏出前端工业化之路的第一步啦！
-
-<i class="anchor" id='release'></i>
 
 ## fis release [options]
 
