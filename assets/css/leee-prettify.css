@@ -1,0 +1,24 @@
+#sidr {
+	display: none;
+}
+#igniter {
+	position: relative;
+	float: left;
+	padding: 20px 15px;
+	display: none;
+}
+#igniter a {
+	color: rgb(0, 102, 129);
+}
+@media only screen and (max-width: 767px){
+    #igniter {
+        display: block;
+    }
+    #nav {
+		float: left;
+		position: relative;
+	}
+    #nav .nav_wrap, #forkongithub {
+    	display: none;
+    }
+}
