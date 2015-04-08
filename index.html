@@ -10,7 +10,8 @@
 <meta name="baidu-site-verification" content="t7hpVglktH" />
 <link rel="stylesheet" type="text/css" href="assets/css/index.css" media="all">
 <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-<link href="assets/css/jquery.sidr.light.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.fullPage.css">
+<link href="assets/css/responsive-nav.css" rel="stylesheet">
 <link href="assets/css/leee-prettify.css" rel="stylesheet">
 <script type="text/javascript">
     //检查页面域名
@@ -23,7 +24,7 @@
 </script>
 </head>
 <body>
-<div id="sidr">
+<nav class="nav-collapse">
 	<ul>
 		<li><a href="index.html">首页</a></li>
 		<li><a href="docs/beginning/getting-started.html">使用文档</a></li>
@@ -31,7 +32,7 @@
 		<li><a href="http://www.imooc.com/learn/220">在线课程</a></li>
 		<li><a href="http://fex.baidu.com">FEX</a></li>
 	</ul>
-</div>
+</nav>
 <div id="nav">
 	<div id="igniter"><a href="#"><i class="fa fa-cogs"></i> F.I.S</a></div>
 	<div class="nav_wrap">
@@ -440,14 +441,9 @@
 <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.fullPage.js"></script>
 <script type="text/javascript" src="assets/js/jquery.mixitup.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery.sidr.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="assets/css/jquery.fullPage.css">
+<script type="text/javascript" src="assets/js/responsive-nav.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		// sidr
-		$('#igniter').sidr();
-
 		// full page
 		$('#fullpage').fullpage({
 			'verticalCentered': false,
@@ -457,7 +453,7 @@
 			'resize' : false,
 			'responsive' : 900,
 			'anchors':['FIS', 'about-sec','download-sec','guider-sec','update-sec','contact-sec'],
-			'scrollingSpeed': 767,
+			'scrollingSpeed': 768,
 			'navigation': true,
 			'navigationPosition': 'right',
 			'navigationTooltips': ['FIS介绍','能做什么', '下载安装', '使用文档', '最近更新', '联系我们']
@@ -484,7 +480,12 @@
 			$("#timeline-line-top").animate({width:rate+"%"});
         });
 	});
-	// 
+	// responsive-nav
+	var nav = responsiveNav(".nav-collapse", {
+		animate: true,
+		customToggle: "igniter"
+	});
+	// escape
     var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
     document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4206d67a3ea708c0d2a9354c8d88525f' type='text/javascript'%3E%3C/script%3E"));
 </script>

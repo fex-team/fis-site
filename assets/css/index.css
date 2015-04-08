@@ -119,15 +119,16 @@ p a:hover { color: rgb(82, 11, 7); transition: all 300ms ease-out 0s; }
 
 .nav-v, .logo, .nav-item { text-align: center; padding: 20px; color: #999; }
 .nav-v:hover, .nav-item:hover {  color: #000; transition: all 300ms ease-out 0s; }
-.logo { font-size: 18px; position: relative; padding-left: 0.9375em; padding-right: 0.9375em; width: 41.6667%; float: left; color:rgb(0, 102, 129);text-align: left;}
+.logo { font-size: 18px; position: relative; padding-left: 0.9375em; padding-right: 0.9375em;
+	float: left; color:rgb(0, 102, 129);text-align: left;}
 .nav-items { 
 	position: relative; 
 	padding-left: 0.9375em;
-	padding-right: 0.9375em; 
-	width: 50%; 
+	padding-right: 0.9375em;
 	float: right; 
 }
 .nav-item { position: relative; padding-left: 0.9375em; padding-right: 0.9375em; width: 20%; float: left; }
+
 .view { width: 100%; height: 100%; float: left; overflow: hidden; position: relative; text-align: center; }
 .view .mask, .view .content { 
 	width: 100%; height: 100%; 
@@ -137,6 +138,16 @@ p a:hover { color: rgb(82, 11, 7); transition: all 300ms ease-out 0s; }
 	top: 0px; 
 	left: 0px;
 }
+@media only screen and (min-width: 1500px) {
+	.logo {width: 40%;} .nav-items { width: 40%; }
+}
+@media only screen and (min-width: 900px) and (max-width: 1500px)  {
+	.logo {width: 40%;} .nav-items { width: 55%; }
+}
+@media only screen and (max-width: 900px) {
+	.logo {width: 30%;} .nav-items { width: 70%; }
+}
+
 .mask { 
 	color: rgb(255, 255, 255); 
 	display: none\9;

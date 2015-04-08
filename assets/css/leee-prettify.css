@@ -1,16 +1,14 @@
-#sidr {
-	display: none;
-}
 #igniter {
 	position: relative;
-	float: left;
-	padding: 20px 15px;
 	display: none;
 }
 #igniter a {
 	color: rgb(0, 102, 129);
+	display: block;
+	padding: 20px 0;
+	width: 100%;
 }
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 768px){
     #igniter {
         display: block;
     }
