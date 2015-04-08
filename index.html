@@ -2,11 +2,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <meta charset="utf-8">
 <meta name="description" content="_FIS_构建工具_前端工具框架" />
 <meta name="keywords" content=",百度前端团队,FIS,百度FIS,百度前端,fis,前端模块化,前端工程,性能优化,web performance" />
 <title>F.I.S -前端工具框架</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <meta name="baidu-site-verification" content="t7hpVglktH" />
 <link rel="stylesheet" type="text/css" href="assets/css/index.css" media="all">
 <link href="assets/css/font-awesome.min.css" rel="stylesheet">
@@ -50,9 +50,9 @@
 <!-- fork on github -->
 <div id="forkongithub"><a target="_blank" href="https://github.com/fex-team/fis">Github</a></div>
 
-<div id="fullpage">
+<div id="fullpage" class="">
 	<!-- 第一屏 概览 start-->
-	<div id="front" class="section">	
+	<div id="front" class="section ">	
 		<div class="wrap clearfix">
 			<!-- 左侧图片-->
 			<div class="front-right">
@@ -84,7 +84,7 @@
 
 
 	<!-- 第二屏 功能介绍 start-->
-	<div id="about" class="section about-viddy">
+	<div id="about" class="section about-viddy ">
 		
 		<div class="wrap clearfix">
 			<div class="title clearfix">	
@@ -137,7 +137,7 @@
 
 
 	<!-- 第三屏 安装使用 start-->
-	<div id="download" class="section">
+	<div id="download" class="section ">
 		
 		<div class="wrap clearfix">
 			<div class="title">	
@@ -157,7 +157,7 @@
 	<!-- 第三屏 安装使用 end-->
 
 	<!-- 第四屏 使用指南 start-->
-	<div id="guider" class="section">
+	<div id="guider" class="section ">
 		<div class="wrap clearfix">
 			<div class="title">	
 				<div class="circle"><i class="fa fa-empire fa-2x"></i></div>
@@ -339,7 +339,7 @@
 
 
 	<!-- 第五屏 升级日志 start-->
-	<div id="update" class="section">
+	<div id="update" class="section ">
 		
 		<div class="wrap clearfix">
 			<div class="title ">	
@@ -438,7 +438,7 @@
 
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery.fullPage.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.fullPage.js"></script>
 <script type="text/javascript" src="assets/js/jquery.mixitup.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.sidr.min.js"></script>
 
@@ -451,12 +451,13 @@
 		// full page
 		$('#fullpage').fullpage({
 			'verticalCentered': false,
-            'animateAnchor' : false,
+            // 'animateAnchor' : false,
 			'css3': true,
-            'autoScrolling': true,
+            // 'autoScrolling': true,
 			'resize' : false,
+			'responsive' : 900,
 			'anchors':['FIS', 'about-sec','download-sec','guider-sec','update-sec','contact-sec'],
-			'scrollingSpeed': 50,
+			'scrollingSpeed': 767,
 			'navigation': true,
 			'navigationPosition': 'right',
 			'navigationTooltips': ['FIS介绍','能做什么', '下载安装', '使用文档', '最近更新', '联系我们']

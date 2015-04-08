@@ -693,3 +693,7 @@ h5{
 	top: 9px;
 	background-position: -31px top;
 }
+
+.fp-responsive .fp-section {
+	height: auto!important;
+}

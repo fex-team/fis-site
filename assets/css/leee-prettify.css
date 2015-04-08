@@ -16,7 +16,7 @@
     }
     #nav {
 		float: left;
-		position: relative;
+		position: relative!important;
 	}
     #nav .nav_wrap, #forkongithub {
     	display: none;
