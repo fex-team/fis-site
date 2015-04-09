@@ -81,7 +81,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none repeat 
 .N-n, body { font-family: "微软雅黑","NiveauGrotesk",sans-serif; font-weight: normal; font-style: normal; }
 .N-b, h1, h2, h3, h4, h5, .logo { font-family: "微软雅黑", "Helvetica",sans-serif; font-weight: bold; font-style: normal; }
 header { position: relative; padding-left: 0.9375em; padding-right: 0.9375em; width: 100%; float: left; text-align: center; }
-#footer{ width: 100%; margin: 200px 0 0 3%; padding-top: 200px; }
+#footer{ width: 100%; margin: 200px 0 0 3%; padding-top: 19%; }
 @media only screen and (max-width: 768px) {
 	#footer {
 		margin: 200px 0;
@@ -498,11 +498,21 @@ a.button {
 #command{
 	border: 1px solid #ddd;
 	padding: 15px;
-	margin: 25px 0 50px;
-	width: 200px;
 	border-radius: 10px  0px 10px 0px;
 	color:#eee;
 	text-shadow:1px 1px 0 #000;
+}
+@media screen and (min-width:768px){
+	#command{
+		margin: 25px 0 50px;
+		width: 200px;
+	}
+}
+@media screen and (max-width:768px){
+	#command{
+		max-width: 300px;
+		margin: 25px auto 50px;
+	}
 }
 #command span{
 	display: block;
