@@ -454,6 +454,7 @@ a.button {
 .title span{
 	font-size: 30px;
 	line-height: 70px;
+	padding-left: 30px;
 	vertical-align: middle;
 	display: inline-block;
 }
