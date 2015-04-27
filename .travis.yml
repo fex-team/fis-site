@@ -2,7 +2,7 @@ language: ruby
 install:
 - bundle install
 - npm install -g fis
-- npm install -g fis-postpackager-simple@0.0.22
+- npm install -g fis-postpackager-simple
 - npm install -g fis-optimizer-html-minifier
 script: bundle exec rake site:deploy --quiet
 branches:
