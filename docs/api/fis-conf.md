@@ -209,6 +209,34 @@ fis.config.init({
     });
     ```
 
+### watch.exclude
+
+* 解释：设置项目源码监听时不监听的文件列表。
+* 值类型：``Array`` | ``string`` | ``RegExp``
+* 默认值：无
+* 用法：在项目的fis-conf.js里可以覆盖为
+
+    ```javascript
+    fis.config.set('project.watch.exclude', 'node_modules');
+    ```
+
+    或者
+
+    ```javascript
+    fis.config.set('project.watch.exclude', ['node_modules', /docs/]);
+    ```
+
+### watch.usePolling
+
+* 解释：设置项目源码监听的方式， `usePolling` 为 `true` 时会使用轮询的方式检查文件是否被修改，比较消耗CPU，但是适用场景更广。设置为 `false` 后会使用系统API进行文件修改检查，对性能消耗较小，但是可能由于系统版本不同，会存在兼容性问题。
+* 值类型：``boolean``
+* 默认值：`false`
+* 用法：在项目的fis-conf.js里可以覆盖为
+
+    ```javascript
+    fis.config.set('project.watch.usePolling', true);
+    ```
+
 <i class="anchor" id='modules'></i>
 
 ## 插件配置
