@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
-      <url><loc>http://fis.baidu.com/sitemap.xml</loc></url>
-  
       <url><loc>http://fis.baidu.com/docs/FAQ/FAQ.html</loc></url>
+  
+      <url><loc>http://fis.baidu.com/docs/advance/roadmap.html</loc></url>
   
       <url><loc>http://fis.baidu.com/docs/advance/deploy.html</loc></url>
   
       <url><loc>http://fis.baidu.com/docs/advance/modjs-solution.html</loc></url>
   
-      <url><loc>http://fis.baidu.com/docs/advance/roadmap.html</loc></url>
-  
       <url><loc>http://fis.baidu.com/docs/advance/plugin-list.html</loc></url>
   
-      <url><loc>http://fis.baidu.com/docs/more/mapjson.html</loc></url>
+      <url><loc>http://fis.baidu.com/docs/api/dev.html</loc></url>
+  
+      <url><loc>http://fis.baidu.com/docs/api/fis-conf.html</loc></url>
+  
+      <url><loc>http://fis.baidu.com/docs/api/cli.html</loc></url>
+  
+      <url><loc>http://fis.baidu.com/docs/dev/plugin.html</loc></url>
+  
+      <url><loc>http://fis.baidu.com/docs/dev/solution.html</loc></url>
+  
+      <url><loc>http://fis.baidu.com/docs/dev/more.html</loc></url>
+  
+      <url><loc>http://fis.baidu.com/docs/dev/intro.html</loc></url>
   
       <url><loc>http://fis.baidu.com/docs/more/how-plugin-works.html</loc></url>
+  
+      <url><loc>http://fis.baidu.com/docs/more/fis-mod.html</loc></url>
+  
+      <url><loc>http://fis.baidu.com/docs/more/fis-standard.html</loc></url>
   
       <url><loc>http://fis.baidu.com/docs/more/fis-standard-inline.html</loc></url>
   
       <url><loc>http://fis.baidu.com/docs/more/extension-point.html</loc></url>
   
-      <url><loc>http://fis.baidu.com/docs/more/regex.html</loc></url>
+      <url><loc>http://fis.baidu.com/docs/more/fis-base.html</loc></url>
   
-      <url><loc>http://fis.baidu.com/docs/more/fis-standard.html</loc></url>
+      <url><loc>http://fis.baidu.com/docs/more/mapjson.html</loc></url>
   
       <url><loc>http://fis.baidu.com/docs/more/fis-standard-location.html</loc></url>
   
+      <url><loc>http://fis.baidu.com/docs/more/regex.html</loc></url>
+  
       <url><loc>http://fis.baidu.com/docs/more/fis-standard-require.html</loc></url>
   
-      <url><loc>http://fis.baidu.com/docs/more/fis-mod.html</loc></url>
-  
-      <url><loc>http://fis.baidu.com/docs/more/fis-base.html</loc></url>
-  
-      <url><loc>http://fis.baidu.com/docs/dev/solution.html</loc></url>
-  
-      <url><loc>http://fis.baidu.com/docs/dev/intro.html</loc></url>
-  
-      <url><loc>http://fis.baidu.com/docs/dev/more.html</loc></url>
-  
-      <url><loc>http://fis.baidu.com/docs/dev/plugin.html</loc></url>
+      <url><loc>http://fis.baidu.com/docs/beginning/resource-combine.html</loc></url>
   
       <url><loc>http://fis.baidu.com/docs/beginning/assist.html</loc></url>
   
       <url><loc>http://fis.baidu.com/docs/beginning/getting-started.html</loc></url>
   
-      <url><loc>http://fis.baidu.com/docs/beginning/resource-combine.html</loc></url>
-  
-      <url><loc>http://fis.baidu.com/docs/api/dev.html</loc></url>
-  
-      <url><loc>http://fis.baidu.com/docs/api/cli.html</loc></url>
-  
-      <url><loc>http://fis.baidu.com/docs/api/fis-conf.html</loc></url>
+      <url><loc>http://fis.baidu.com/sitemap.xml</loc></url>
   
   
 </urlset>
