@@ -142,13 +142,11 @@ FIS可以通过[pack](/docs/api/fis-conf.html#pack)来进行资源文件的合�
 
 ```javascript
 fis.config.set('pack', {
-    'pkg/lib.js': [
-        '/lib/mod.js',
-        '/modules/underscore/**.js',
-        '/modules/backbone/**.js',
-        '/modules/jquery/**.js',
-        '/modules/vendor/**.js',
-        '/modules/common/**.js'
+    '/pkg/lib.js': [
+        'js/lib/jquery.js',
+        'js/lib/underscore.js',
+        'js/lib/backbone.js',
+        'js/lib/backbone.localStorage.js',
     ]
 });
 ```
@@ -209,25 +207,29 @@ $ fis release -omp
 
 我们会发现剩余的零散资源已经被自动合并了。
 
-![人工干预合并](img/quickstart/combine_2.png)
+![自动合并](img/quickstart/combine_2.png)
 
 ### 合并图片
 
 通过上述几个步骤，我们已经成功将脚本资源和样式表资源进行了合并，但是为了进一步的减少HTTP连接数，我们还可以对引用的图片资源进行进一步的合并。
 
-用于图片合并的插件[csssprites](https://github.com/fex-team/fis-spriter-csssprites)已经在FIS中内置了，因此无需安装，只需要在fis-conf.js的配置中开启即可
+在FIS中，如果CSS引用图片时，添加了 `?__` query，那么CSS在使用 `pack` 设置进行合并时，不仅仅会合并CSS文件，还会将所有标识了合并的图片进行合并处理。
+
+我们通过 `pack` 设置，将所有 `CSS` 文件合并为 `aio.css` 文件
 
 ```javascript
-//为所有样式资源开启csssprites
-fis.config.set('roadmap.path', [{
-    reg: '**.css',
-    useSprite: true
-}]);
-//设置csssprites的合并间距
-fis.config.set('settings.spriter.csssprites.margin', 20);
+fis.config.set('pack', {
+    '/pkg/lib.js': [
+        'js/lib/jquery.js',
+        'js/lib/underscore.js',
+        'js/lib/backbone.js',
+        'js/lib/backbone.localStorage.js',
+    ],
+    '/pkg/aio.css': '**.css'
+});
 ```
 
-> 使用csssprites合并的图片需要在图片路径处添加query标识，示例项目中已经预先添加，更详细的使用方法可以参考[使用文档](https://github.com/fex-team/fis-spriter-csssprites#%E4%BD%BF%E7%94%A8)
+> 关于图片合并，更详细的使用方法可以参考[使用文档](https://github.com/fex-team/fis-spriter-csssprites#%E4%BD%BF%E7%94%A8)
 
 再次运行FIS构建项目
 
@@ -237,7 +239,7 @@ $ fis release -omp
 
 刷新一下，添加几个待办项，我们会发现所有待办项的图片都合并在了一张图片中。
 
-![人工干预合并](img/quickstart/pic_combine_2.png)
+![图片合并](img/quickstart/pic_combine_3.png)
 
 ## 问题反馈
 
