@@ -969,11 +969,13 @@ fis.config.init({
 
 * 小贴士：--dest参数支持使用逗号（,）分割多个发布配置，比如上面的例子，我们可以使用fis release --dest **remote,local,remote2** 命令在一次编译中同时发布多个目标。
 
-## 打包配置
-
 <i class="anchor" id='pack'></i>
 
-### pack
+## 打包配置
+
+
+配置项 `pack`
+
 * 解释：配置要打包合并的文件。
 * 值类型：``Object``
 * 默认值：无
