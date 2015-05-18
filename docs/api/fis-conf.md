@@ -53,6 +53,8 @@ fis.config.init({
 
 ## 项目配置
 
+配置项 `project`
+
 ### charset
 
 * 解释：指定项目编译后产出文件的编码。
@@ -240,6 +242,8 @@ fis.config.init({
 <i class="anchor" id='modules'></i>
 
 ## 插件配置
+
+配置项 `modules`
 
 > fis系统有非常灵活的插件扩展能力，详细内容请参看 [运行原理](/docs/more/fis-base.html)，[插件调用机制](/docs/more/how-plugin-works.html)，[插件扩展点列表](/docs/more/extension-point.html)等文档。
 >
@@ -503,11 +507,11 @@ fis.config.init({
     });
     ```
 
-## 插件运行配置
-
 <i class="anchor" id='settings'></i>
 
-### settings
+## 插件运行配置
+
+配置项 `settings`
 
 * 解释：插件的运行配置节点。
 * 值类型：``Object``
@@ -712,9 +716,11 @@ fis.config.init({
     });
     ```
 
+<i class="anchor" id='roadmap'></i>
+
 ## 目录规范与域名配置
 
-<i class="anchor" id='roadmap'></i>
+配置项 `roadmap`
 
 ### roadmap.path
 
@@ -897,11 +903,12 @@ fis.config.init({
     $ fis release --domains --dest ../output
     ```
 
-## 部署配置
-
 <i class="anchor" id='deploy'></i>
 
-### deploy
+## 部署配置
+
+配置项 `deploy`
+
 * 解释：设置项目的发布方式。
 * 值类型：``Object``
 * 默认值：无
