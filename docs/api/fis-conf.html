@@ -397,7 +397,7 @@
         <span class="p">]</span>
     <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div></li><li><p>小贴士：--dest参数支持使用逗号（,）分割多个发布配置，比如上面的例子，我们可以使用fis release --dest <strong>remote,local,remote2</strong> 命令在一次编译中同时发布多个目标。</p></li></ul><h2>打包配置</h2><p><i class="anchor" id="pack"></i></p><h3>pack</h3><ul><li>解释：配置要打包合并的文件。</li><li>值类型：<code>Object</code></li><li>默认值：无</li><li>说明：fis内置的 <a href="/docs/more/fis-base.html#pack">打包策略</a> 与传统的打包概念不同，fis的打包实际上是在建立一个资源表，并将其描述并产出为一份map.json文件，用户应该围绕着这份描述文件来设计前后端运行框架，从而实现运行时判断打包输出策略的架构。</li><li><p>用法：</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">//fis-conf.js</span>
+</code></pre></div></li><li><p>小贴士：--dest参数支持使用逗号（,）分割多个发布配置，比如上面的例子，我们可以使用fis release --dest <strong>remote,local,remote2</strong> 命令在一次编译中同时发布多个目标。</p></li></ul><p><i class="anchor" id="pack"></i></p><h2>打包配置</h2><p>配置项 <code>pack</code></p><ul><li>解释：配置要打包合并的文件。</li><li>值类型：<code>Object</code></li><li>默认值：无</li><li>说明：fis内置的 <a href="/docs/more/fis-base.html#pack">打包策略</a> 与传统的打包概念不同，fis的打包实际上是在建立一个资源表，并将其描述并产出为一份map.json文件，用户应该围绕着这份描述文件来设计前后端运行框架，从而实现运行时判断打包输出策略的架构。</li><li><p>用法：</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">//fis-conf.js</span>
 <span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">merge</span><span class="p">({</span>
     <span class="nx">pack</span> <span class="o">:</span> <span class="p">{</span>
         <span class="c1">//打包所有的demo.js, script.js文件</span>
