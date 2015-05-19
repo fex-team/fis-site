@@ -967,7 +967,25 @@ fis.config.init({
     });
     ```
 
-* 小贴士：--dest参数支持使用逗号（,）分割多个发布配置，比如上面的例子，我们可以使用fis release --dest **remote,local,remote2** 命令在一次编译中同时发布多个目标。
+* 小贴士：
+
+* **--dest参数** 支持使用逗号（,）分割多个发布配置，比如上面的例子，我们可以使用fis release --dest **remote,plugin** 命令在一次编译中同时发布多个目标。
+
+* ``subOnly参数``
+默认上传from整个目录到测试机。添加subOnly参数仅上传from目录下文件。
+
+* replace替换多个字符串
+需要replace替换多个字符串，可以使用正则的方式。例如：
+
+```javascript
+replace : {
+    from : /www\.a\.com|www\.b\.com/,
+    to : function(m){
+        if(m === 'www.a.com') return 'www.x.com';
+        if(m === 'www.b.com') return 'www.y.com';
+    }
+}
+```
 
 <i class="anchor" id='pack'></i>
 
