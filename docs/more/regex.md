@@ -198,7 +198,7 @@ FIS中由于我们的正则表达式均是用来匹配路径，因此我们一�
 fis.config.set('roadmap.path', [
     {
         reg : /^\/modules\/(.*)\.js$/i,
-        release : '/static/$&',
+        release : '/static/modules/$&',
         id : '$1'
     }
 ]);

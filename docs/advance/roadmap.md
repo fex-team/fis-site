@@ -95,7 +95,7 @@ fis.config.set('roadmap.path',[
 fis.config.set('roadmap.path',[
     {
         reg: /^\/modules\/(.*)/i,
-        release: '/static/$1'
+        release: '/static/modules/$1'
     }
 ]);
 ```
@@ -135,7 +135,7 @@ fis.config.set('roadmap.path',[
 fis.config.set('roadmap.path',[
     {
         reg: /^\/modules\/(.*)/i,
-        release: '/static/$1',
+        release: '/static/modules/$1',
         url: '/$1'
     }
 ]);
@@ -177,7 +177,7 @@ fis.config.set('roadmap.path',[
     {
         reg : /^\/modules\/(.*)\.js$/i,
         id : '$1',
-        release : '/static/$1.js'
+        release : '/static/modules/$1.js'
     },
 ]);
 ```
@@ -282,7 +282,7 @@ roadmap.path 是 **顺序敏感** 的，每个文件在处理过程中都会使�
 fis.config.set('roadmap.path',[
     {
         reg: /^\/modules\/(.*)/i,
-        release: '/static/$1'
+        release: '/static/modules/$1'
     }
 ]);
 ```
@@ -297,7 +297,7 @@ fis.config.set('roadmap.path',[
     },
     {
         reg: /^\/modules\/(.*)/i,
-        release: '/static/$1'
+        release: '/static/modules/$1'
     }
 ]);
 ```
@@ -314,7 +314,7 @@ fis.config.set('static','/static');
 fis.config.set('roadmap.path',[
     {
         reg: /^\/modules\/(.*)/i,
-        release: '${static}/$1'
+        release: '${static}/modules/$1'
     }
 ]);
 ```
