@@ -72,7 +72,7 @@ roadmap配置拥有三个配置项
 fis.config.set('roadmap.path',[
     {
         reg: /^\/modules\/(.*)/i,
-        release: '/static/$1'
+        release: '/static/modules/$1'
     },
     {
         reg: "**.html",
