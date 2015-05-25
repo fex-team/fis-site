@@ -998,14 +998,16 @@ replace : {
 此外还有社区贡献的如
 
 - https://github.com/suiqirui1987/fis-deploy-aliyun
-- https://github.com/qdsang/fis-deploy-ftp
 - https://github.com/zhaoran/fis-deploy-zip
+- https://github.com/qdsang/fis-deploy-ftp
 
 * 用法：
 
 ```javascript
+// 设置开启deploy扩展，可以输入数组来开启多个扩展
 fis.config.set('modules.deploy', 'tar');
 
+// 为指定扩展设置发布配置
 fis.config.set('settings.deploy.tar', {
     publish : {
         from : '/',
@@ -1019,6 +1021,7 @@ fis.config.set('settings.deploy.tar', {
 ```
 
 ```bash
+# 发布至output/output.tar.gz
 fis release -d publish
 ```
 
