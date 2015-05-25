@@ -404,12 +404,12 @@
         <span class="k">if</span><span class="p">(</span><span class="nx">m</span> <span class="o">===</span> <span class="s1">&#39;www.b.com&#39;</span><span class="p">)</span> <span class="k">return</span> <span class="s1">&#39;www.y.com&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h3>deploy 扩展</h3><p>通过 <code>deploy扩展</code> 能力，用户可以自定义 fis 的产出功能，目前官方提供的 <code>deploy扩展</code> 有</p><div class="highlight"><pre><code class="text language-text" data-lang="text">- https://github.com/fex-team/fis-deploy-tar
-- https://github.com/fex-team/fis-deploy-git
-- https://github.com/fex-team/fis-deploy-bcs
-</code></pre></div><p>此外还有社区贡献的如</p><div class="highlight"><pre><code class="text language-text" data-lang="text">- https://github.com/suiqirui1987/fis-deploy-aliyun
-- https://github.com/zhaoran/fis-deploy-zip
-- https://github.com/qdsang/fis-deploy-ftp
+</code></pre></div><h3>deploy 扩展</h3><p>通过 <code>deploy扩展</code> 能力，用户可以自定义 fis 的产出功能，更方便的实现自动化部署功能。目前官方提供的 <code>deploy扩展</code> 有</p><div class="highlight"><pre><code class="text language-text" data-lang="text">- [tar](https://github.com/fex-team/fis-deploy-tar)
+- [git](https://github.com/fex-team/fis-deploy-git)
+- [bcs](https://github.com/fex-team/fis-deploy-bcs)
+</code></pre></div><p>此外还有社区贡献的如</p><div class="highlight"><pre><code class="text language-text" data-lang="text">- [aliyun](https://github.com/suiqirui1987/fis-deploy-aliyun)
+- [zip](https://github.com/zhaoran/fis-deploy-zip)
+- [ftp](https://github.com/qdsang/fis-deploy-ftp)
 </code></pre></div><ul><li>用法：</li></ul><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">// 设置开启deploy扩展，可以输入数组来开启多个扩展</span>
 <span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;modules.deploy&#39;</span><span class="p">,</span> <span class="s1">&#39;tar&#39;</span><span class="p">);</span>
 
