@@ -22,7 +22,7 @@
 </code></pre></div><p><code>/^\/modules\/(.*)/i</code> 这个正则匹配了/modules目录下的所有文件，并且通过设置了正则捕获组，将modules目录后的整个路径都保存到分组1中了，即对于<code>/modules/moduleA/a.js</code>文件，这个正则不仅匹配了整体路径，还将<code>moduleA/a.js</code>这个路径保存到了分组1中，我们可以在<a href="#%E4%BA%A7%E5%87%BA%E7%9B%AE%E5%BD%95">产出目录</a>和<a href="#%E8%B5%84%E6%BA%90ID">资源ID</a>一节使用这个值调整产出目录。</p></li></ol><p>举个例子</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;roadmap.path&#39;</span><span class="p">,[</span>
     <span class="p">{</span>
         <span class="nx">reg</span><span class="o">:</span> <span class="sr">/^\/modules\/(.*)/i</span><span class="p">,</span>
-        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;/static/$1&#39;</span>
+        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;/static/modules/$1&#39;</span>
     <span class="p">},</span>
     <span class="p">{</span>
         <span class="nx">reg</span><span class="o">:</span> <span class="s2">&quot;**.html&quot;</span><span class="p">,</span>
