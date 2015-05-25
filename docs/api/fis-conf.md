@@ -989,17 +989,17 @@ replace : {
 
 ### deploy 扩展
 
-通过 `deploy扩展` 能力，用户可以自定义 fis 的产出功能，目前官方提供的 `deploy扩展` 有
+通过 `deploy扩展` 能力，用户可以自定义 fis 的产出功能，更方便的实现自动化部署功能。目前官方提供的 `deploy扩展` 有
 
-    - https://github.com/fex-team/fis-deploy-tar
-    - https://github.com/fex-team/fis-deploy-git
-    - https://github.com/fex-team/fis-deploy-bcs
+    - [tar](https://github.com/fex-team/fis-deploy-tar)
+    - [git](https://github.com/fex-team/fis-deploy-git)
+    - [bcs](https://github.com/fex-team/fis-deploy-bcs)
 
 此外还有社区贡献的如
 
-    - https://github.com/suiqirui1987/fis-deploy-aliyun
-    - https://github.com/zhaoran/fis-deploy-zip
-    - https://github.com/qdsang/fis-deploy-ftp
+    - [aliyun](https://github.com/suiqirui1987/fis-deploy-aliyun)
+    - [zip](https://github.com/zhaoran/fis-deploy-zip)
+    - [ftp](https://github.com/qdsang/fis-deploy-ftp)
 
 * 用法：
 
