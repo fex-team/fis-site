@@ -32,7 +32,7 @@
 </code></pre></div><p>我们通过<code>reg</code>属性设置了规则的匹配条件，就可以将当前规则内设置的各种属性设置给匹配成功的文件了。接下来看看我们可以设置哪些目录属性。</p><h3>产出目录</h3><p>通过release属性我们可以调整文件的产出目录，比如我们希望将modules目录下的内容都保存到static文件夹中，同时还要保持原有的内部文件夹结构该怎么办呢？</p><p>首先我们需要先设置reg属性匹配到modules文件夹，如<a href="#%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6">指定文件</a>一节中提到的，我们设定 <code>/^\/modules\/(.*)/i</code> 匹配modules文件夹，同时将内部文件夹结构保存在了分组1中，那么我们就可以在release时通过<code>$1</code>来替换这个内部文件夹结构。</p><p>因此我们将release设置为<code>/static/$1</code>， 还记得$1的内容是<code>moduleA/a.js</code>么？通过$1引用捕获路径我们就可以将<code>/modules/moduleA/a.js</code> 在产出目录中移动到 <code>/static/moduleA/a.js</code>了。</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;roadmap.path&#39;</span><span class="p">,[</span>
     <span class="p">{</span>
         <span class="nx">reg</span><span class="o">:</span> <span class="sr">/^\/modules\/(.*)/i</span><span class="p">,</span>
-        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;/static/$1&#39;</span>
+        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;/static/modules/$1&#39;</span>
     <span class="p">}</span>
 <span class="p">]);</span>
 </code></pre></div><p><img src="https://raw.githubusercontent.com/hefangshi/doc/127ff7dcbba76b53c3b73c3c42e4723ac52380ef/pic/path.png" alt=""></p><p>当然，使用glob规则我们也可以移动文件，但是由于没有正则捕获组的支持，我们只能通过<code>$&amp;</code>获取整体路径，比如通过下面这个规则，我们可以将所有html文件在产出目录中移动到/page目录下</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;roadmap.path&#39;</span><span class="p">,[</span>
@@ -51,7 +51,7 @@
 </code></pre></div><p>可是人生不如意事十之八九，总会因为各种原因我们的url路径和实体文件的路径无法匹配，举个例子，express中设定了静态资源目录后，静态资源uri路径是无需加上静态资源目录的，因此我们需要通过<code>&lt;script src=&quot;/moduleA/a.js&quot;&gt;&lt;/script&gt;</code>来引用资源。</p><p>那么如何通过配置让FIS能够支持这种特殊需求呢？我们可以添加<code>url</code>参数来指定文件的资源引用路径。</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;roadmap.path&#39;</span><span class="p">,[</span>
     <span class="p">{</span>
         <span class="nx">reg</span><span class="o">:</span> <span class="sr">/^\/modules\/(.*)/i</span><span class="p">,</span>
-        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;/static/$1&#39;</span><span class="p">,</span>
+        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;/static/modules/$1&#39;</span><span class="p">,</span>
         <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/$1&#39;</span>
     <span class="p">}</span>
 <span class="p">]);</span>
@@ -70,7 +70,7 @@
     <span class="p">{</span>
         <span class="nx">reg</span> <span class="o">:</span> <span class="sr">/^\/modules\/(.*)\.js$/i</span><span class="p">,</span>
         <span class="nx">id</span> <span class="o">:</span> <span class="s1">&#39;$1&#39;</span><span class="p">,</span>
-        <span class="nx">release</span> <span class="o">:</span> <span class="s1">&#39;/static/$1.js&#39;</span>
+        <span class="nx">release</span> <span class="o">:</span> <span class="s1">&#39;/static/modules/$1.js&#39;</span>
     <span class="p">},</span>
 <span class="p">]);</span>
 </code></pre></div><p>我们稍微调整了一下捕获的内容，将<code>.js</code>排除在捕获组外，这样我们就可以直接将分组1的内容赋给id属性，对于 <code>/modules/moduleA/a.js</code> ，<code>$1</code>的内容是 <code>moduleA/a</code> ，引用起来是不是更加方便了呢？搞定，看下一个！</p><h3>默认依赖</h3><p>默认依赖的设置用于批量添加一些基础资源的依赖，而不用在每个文件中重复添加，比如最常见的base.css， 我们可以设置所有样式都依赖这个基础样式，这样输出map.json文件时，依赖中就会自动添加base.css项。</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;roadmap.path&#39;</span><span class="p">,[</span>
@@ -104,7 +104,7 @@
 </code></pre></div><h4>优先级</h4><p>roadmap.path 是 <strong>顺序敏感</strong> 的，每个文件在处理过程中都会使用roadmap.path从上到下对文件路径进行匹配，一旦匹配成功，就会停止匹配，并将匹配项的配置赋给文件。因此 <strong>最顶部的规则，优先级越高</strong> 。此外即使一个文件可以匹配多个规则，也只会获得 <strong>第一次</strong> 匹配的配置。</p><p>举个例子，我们可能已经有了一个配置，这个配置的含义是将/modules文件夹下的内容都复制到/static/modules下</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;roadmap.path&#39;</span><span class="p">,[</span>
     <span class="p">{</span>
         <span class="nx">reg</span><span class="o">:</span> <span class="sr">/^\/modules\/(.*)/i</span><span class="p">,</span>
-        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;/static/$1&#39;</span>
+        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;/static/modules/$1&#39;</span>
     <span class="p">}</span>
 <span class="p">]);</span>
 </code></pre></div><p>但是我们可能会希望一些文件进行特殊的设置，比如设置所有CSS文件进行图片合并。</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;roadmap.path&#39;</span><span class="p">,[</span>
@@ -114,7 +114,7 @@
     <span class="p">},</span>
     <span class="p">{</span>
         <span class="nx">reg</span><span class="o">:</span> <span class="sr">/^\/modules\/(.*)/i</span><span class="p">,</span>
-        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;/static/$1&#39;</span>
+        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;/static/modules/$1&#39;</span>
     <span class="p">}</span>
 <span class="p">]);</span>
 </code></pre></div><p>看似我们设置的很正确，但是一旦执行构建，你就会发现所有modules文件夹下的css文件没有被产出到static目录下，这就是因为CSS文件已经命中了第一条规则，而第一条规则中没有release属性，因此就无法产出到static目录中。如何修改正确？自然就是给第一条规则也加上同样的release设置使其和原输出目录保持一致。</p><h4>引用配置</h4><p>比如<a href="#%E8%B5%84%E6%BA%90%E5%BC%95%E7%94%A8%E8%B7%AF%E5%BE%84">资源引用路径</a>的时间戳功能，我们可能希望不用自己写具体的日期，实际上规则的release属性支持配置替换能力，举个例子</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;static&#39;</span><span class="p">,</span><span class="s1">&#39;/static&#39;</span><span class="p">);</span>
@@ -122,7 +122,7 @@
 <span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;roadmap.path&#39;</span><span class="p">,[</span>
     <span class="p">{</span>
         <span class="nx">reg</span><span class="o">:</span> <span class="sr">/^\/modules\/(.*)/i</span><span class="p">,</span>
-        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;${static}/$1&#39;</span>
+        <span class="nx">release</span><span class="o">:</span> <span class="s1">&#39;${static}/modules/$1&#39;</span>
     <span class="p">}</span>
 <span class="p">]);</span>
 </code></pre></div><p>上面的例子中release中没有直接写<code>/static/$1</code>而是写为了<code>${static}/$1</code> ，FIS会将配置中的static属性自动替换<code>${static}</code>，那么自动生成时间戳该怎么写呢？不妨自己试试看=v=</p><h2>后缀映射</h2><p>roadmap.ext是FIS设置中一个非常精巧的配置，通过这个配置我们再处理less, coffee, uct等非标准语言时会非常方便。举个例子，我们通过roadmap.path配置将所有的脚本文件使用uglifyjs压缩，并输出到指定目录</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">//此处实际上是FIS的默认配置，无需额外设置</span>

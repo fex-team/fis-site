@@ -66,7 +66,7 @@
 </code></pre></div><p>其中 <code>$1</code> 就是对捕获组的引用，如果正则表达式中有多个分组，则会按照他们的出现顺序，按照$1, $2, $3的形式进行引用，而 <code>$&amp;</code> 则表示的是整个正则表达式匹配的内容。</p><p>因此以 <code>/moudles/moudleA/a.js</code> 为例，在上述规则中，release的值会设置为 <code>/static/moudles/moudleA/a.js</code> ，id的值会设置为 <code>moduleA/a</code> 。</p><h3>处理选项</h3><p>Javascript中我们拥有3种处理选项</p><table><thead><tr><th>字符</th><th>说明</th></tr></thead><tbody><tr><td>i</td><td>忽略大小写</td></tr><tr><td>g</td><td>多次匹配，适用于希望正则表达式在字符串中进行多次匹配而不是匹配到第一个内容就返回</td></tr><tr><td>m</td><td>多行匹配模式，^与$将会在每行独立计算而不是整体计算</td></tr></tbody></table><p>FIS中由于我们的正则表达式均是用来匹配路径，因此我们一般只会使用i模式用于忽略路径中的大小写，使用方法是在正则表达式的最后加上处理选项字符</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;roadmap.path&#39;</span><span class="p">,</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nx">reg</span> <span class="o">:</span> <span class="sr">/^\/modules\/(.*)\.js$/i</span><span class="p">,</span>
-        <span class="nx">release</span> <span class="o">:</span> <span class="s1">&#39;/static/$&amp;&#39;</span><span class="p">,</span>
+        <span class="nx">release</span> <span class="o">:</span> <span class="s1">&#39;/static/modules/$&amp;&#39;</span><span class="p">,</span>
         <span class="nx">id</span> <span class="o">:</span> <span class="s1">&#39;$1&#39;</span>
     <span class="p">}</span>
 <span class="p">]);</span>
