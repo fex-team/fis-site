@@ -971,7 +971,7 @@ fis.config.init({
 
 * **--dest参数** 支持使用逗号（,）分割多个发布配置，比如上面的例子，我们可以使用fis release --dest **remote,plugin** 命令在一次编译中同时发布多个目标。
 
-* ``subOnly参数``
+* subOnly参数
 默认上传from整个目录到测试机。添加subOnly参数仅上传from目录下文件。
 
 * replace替换多个字符串
@@ -985,6 +985,41 @@ replace : {
         if(m === 'www.b.com') return 'www.y.com';
     }
 }
+```
+
+### deploy 扩展
+
+通过 `deploy扩展` 能力，用户可以自定义 fis 的产出功能，目前官方提供的 `deploy扩展` 有
+
+- https://github.com/fex-team/fis-deploy-tar
+- https://github.com/fex-team/fis-deploy-git
+- https://github.com/fex-team/fis-deploy-bcs
+
+此外还有社区贡献的如
+
+- https://github.com/suiqirui1987/fis-deploy-aliyun
+- https://github.com/qdsang/fis-deploy-ftp
+- https://github.com/zhaoran/fis-deploy-zip
+
+* 用法：
+
+```javascript
+fis.config.set('modules.deploy', 'tar');
+
+fis.config.set('settings.deploy.tar', {
+    publish : {
+        from : '/',
+        to: '/',
+        gzip: true,
+        level: 0, //压缩质量 0-9，越大压缩比越高
+        memLevel: 6, //压缩使用的内存量 1-9， 越大占用内存越多，执行速度越快
+        file: './output/output.tar.gz'
+    }
+});
+```
+
+```bash
+fis release -d publish
 ```
 
 <i class="anchor" id='pack'></i>
