@@ -47,7 +47,7 @@ FIS API
 
 ### 编译阶段插件
 
-** 插件接口 **
+**插件接口**
 
 ```js
 /**
@@ -77,7 +77,7 @@ fis 的插件是以 NPM 包的形式提供的，这将意味着 fis 的插件都
 
 Windows & 类 Unix 都可以通过**软链**的方式把你开发插件的目录软链过去。
 
-一下示例插件都放到** NPM 全局安装目录下**，我们假定这个目录叫 `<npm/global/path>`
+一下示例插件都放到 **NPM 全局安装目录下**，我们假定这个目录叫 `<npm/global/path>`
 
 **插件目录**
 
@@ -85,6 +85,7 @@ Windows & 类 Unix 都可以通过**软链**的方式把你开发插件的目录
 <npm/global/path>/fis-<type>-<name>
 <npm/global/path>/fis-<type>-<name>/index.js
 ```
+
 - `<type>` 插件扩展点名字
 - `<name>` 插件名，只要不跟 NPM 平台上其他插件重名即可，不然无法发布上去
 
@@ -172,6 +173,7 @@ module.exports = function (ret, conf, settings, opt) {
     <npm/global/path>/fis-prepackager-append-build-time/index.js
     ```
     *index.js*
+
     ```javascript
     module.exports = function(ret, conf, settings, opt) {
         fis.util.map(ret.src, function(subpath, file) {
@@ -198,7 +200,7 @@ module.exports = function (ret, conf, settings, opt) {
     
     发布 NPM 请参考，https://docs.npmjs.com/getting-started/publishing-npm-packages
 
------
+--------
 
 当然为了更快速的搞定一些小需求，可以把插件功能直接写到配置文件 `fis-conf.js` 中；
 
