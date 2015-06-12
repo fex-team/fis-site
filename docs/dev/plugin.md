@@ -190,7 +190,7 @@ module.exports = function (ret, conf, settings, opt) {
 
     ```js
     // vi fis-conf.js
-    fis.config.set('modules.prepackager', 'append-build-time'); # packager阶段插件处理所有文件，所以不需要给某一类后缀的文件设置。
+    fis.config.set('modules.prepackager', 'append-build-time'); // packager阶段插件处理所有文件，所以不需要给某一类后缀的文件设置。
     fis.config.set('settings.prepackager.append-build-time', {
         // settings
     })
