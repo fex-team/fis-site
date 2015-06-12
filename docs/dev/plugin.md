@@ -5,7 +5,15 @@ category: dev
 ---
 # 插件开发
 
-按照[插件扩展点](/docs/dev/intro.html#插件扩展点)文档的介绍，在整个编译流程可以扩展的点有；
+**前置阅读**，*请详细阅读以下文档，因为这些文档非常重要*
+
++ [编译过程运行原理](/docs/more/fis-base.html)
++ [插件调用机制](/docs/more/how-plugin-works.html)
++ [插件扩展点列表](/docs/more/extension-point.html)
+
+> 注意，**FIS 插件不支持异步**
+
+按照[插件扩展点列表](/docs/more/extension-point.html)文档的介绍，在整个编译流程可以扩展的点有；
 
 * 编译阶段
     * parser
@@ -13,6 +21,7 @@ category: dev
     * postprocessor
     * lint
     * test
+
 * 打包阶段
     * prepackager
     * packager
@@ -24,9 +33,6 @@ category: dev
 
 以上扩展点也可以理解为FIS的几类插件，接下来详细说明每一类插件自定制。
 
-* 开发插件
-* 发布插件
-* 使用插件
 
 ## 开发插件
 
@@ -41,89 +47,177 @@ FIS API
 
 ### 编译阶段插件
 
+** 插件接口 **
+
+```js
+/**
+ * Compile 阶段插件接口
+ * @param  {string} content     文件内容
+ * @param  {File}   file        fis 的 File 对象
+ * @param  {object} settings    插件配置属性
+ * @return {string}             处理后的文件内容
+ */
+module.exports = function (content, file, settings) {
+    // 你在此处设置你的逻辑修改文件内容 content，或者文件对象 file
+    return content;
+};
+```
+
+fis 的插件是以 NPM 包的形式提供的，这将意味着 fis 的插件都是一个 NPM 包，并且最终也需要发布到 NPM 平台上。为了方便管理，FIS 只能加载 NPM 全局安装的插件，这将意味着你开发的时候需要把你的插件放到 NPM 全局插件目录下。
+
+我们如何知道这个全局插件目录在什么地方呢，一般需要通过在 CMD （Windows） 或者 终端
+ （类 Unix）执行命令 `npm prefix -g` 得到一个目录，比如
+
+ ```bash
+➜  fis-site git:(master) npm prefix -g
+/Users/shouding/Bin
+ ```
+
+那么这个全局安装的目录就是 `/Users/shouding/Bin/lib/node_modules`，在命令输出的路径后跟 `lib/node_modules`，这个就是全局安装的目录了。
+
+Windows & 类 Unix 都可以通过**软链**的方式把你开发插件的目录软链过去。
+
+一下示例插件都放到** NPM 全局安装目录下**，我们假定这个目录叫 `<npm/global/path>`
+
+**插件目录**
+
+```
+<npm/global/path>/fis-<type>-<name>
+<npm/global/path>/fis-<type>-<name>/index.js
+```
+- `<type>` 插件扩展点名字
+- `<name>` 插件名，只要不跟 NPM 平台上其他插件重名即可，不然无法发布上去
+
+
 以parser插件为例，如果使用了less、sass、coffescript等开发维护css和js。在这个阶段就是要把它们解析为标准的css和js。
 
-Sample:
+- 插件开发
 
-```javascript
-/*
- * fis
- * http://fis.baidu.com/
- */
+    那么我们要解析的是 sass 文件，插件扩展点为 parser，我们可以取名叫 `my-sass`
 
-'use strict';
+    ```
+    <npm/global/path>/fis-parser-my-sass
+    <npm/global/path>/fis-parser-my-sass/index.js
+    ```
 
-var sass = require('node-sass');
+    *index.js*
 
-module.exports = function(content, file, conf){
-    var opts = fis.util.clone(conf);
-    opts.data = content;
-    return sass.renderSync(opts);
-};
+    ```javascript
+    /*
+     * fis
+     * http://fis.baidu.com/
+     */
 
-```
+    'use strict';
 
-如上示例代码，插件需要导出一个function，参数分别是content，file，conf。
+    var sass = require('node-sass');
 
-* content 源码内容
-* file 文件对象，可以获取文件路径、文件名...
-* conf 用户配置信息
+    module.exports = function(content, file, settings){
+        var opts = fis.util.clone(settings);
+        opts.data = content;
+        return sass.renderSync(opts);
+    };
 
-最后return处理后的结果。
+    ```
+
+- 插件配置调用
+
+    我们开发完了 `fis-parser-my-sass`，那么改如何使用呢，如上我们就是在`<npm/global/path>` 目录下开发的插件，那么这时候配置调用就很简单了。
+
+    ```js
+    // vi fis-conf.js
+    // 文件后缀 .scss 的调用插件 my-sass 进行解析
+    fis.config.set('modules.parser.scss', 'my-sass');
+    fis.config.set('settings.parser.my-sass', {
+        // my-sass 的配置
+    });
+    fis.config.set('roadmap.ext.scss', 'css'); // 由于 scss 文件最终会编译成 css，设置最终产出文件后缀为 css
+    ```
+
+- 发布到 NPM 平台
+
+    发布 NPM 请参考，https://docs.npmjs.com/getting-started/publishing-npm-packages
 
 ### 打包阶段插件
+
+如运行原理，打包阶段是多文件处理的阶段；
+
+**插件接口**
+
+```js
+/**
+ * 打包阶段插件接口
+ * @param  {Object} ret      一个包含处理后源码的结构
+ * @param  {Object} conf     一般不需要关心，自动打包配置文件
+ * @param  {Object} settings 插件配置属性
+ * @param  {Object} opt      命令行参数
+ * @return {undefined}          
+ */
+module.exports = function (ret, conf, settings, opt) {
+    // ret.src 所有的源码，结构是 {'<subpath>': <File 对象>}
+    // ret.ids 所有源码列表，结构是 {'<id>': <File 对象>}
+    // ret.map 如果是 spriter、postpackager 这时候已经能得到打包结果了，
+    //         可以修改静态资源列表或者其他
+}
+```
+
 以prepackager插件为例。prepackager即打包前需要对文件做某些处理，比如想在所有的html注释里面插入编译时间。
 
-Sample:
+- 插件开发
 
-```javascript
-module.exports = function(ret, conf, settings, opt) {
-    fis.util.map(ret.src, function(subpath, file) {
-        if (file.isHtmlLike) {
-            var content = file.getContent();
-            content += '<!-- build '+ (new Date())+'-->';
-            file.setContent(content);
-        }
-    });
-};
-```
+    我们为这个插件取名叫 `append-build-time`
 
-如上，导出function参数；
+    ```
+    <npm/global/path>/fis-prepackager-append-build-time
+    <npm/global/path>/fis-prepackager-append-build-time/index.js
+    ```
+    *index.js*
+    ```javascript
+    module.exports = function(ret, conf, settings, opt) {
+        fis.util.map(ret.src, function(subpath, file) {
+            if (file.isHtmlLike) {
+                var content = file.getContent();
+                content += '<!-- build '+ (new Date())+'-->';
+                file.setContent(content);
+            }
+        });
+    };
+    ```
 
-* ret    所有文件信息
-* conf   打包信息 -- 一般用不到
-* settings  插件用户配置信息
-* opt    命令行参数
+- 配置使用
 
-## 发布插件
+    ```js
+    // vi fis-conf.js
+    fis.config.set('modules.prepackager', 'append-build-time'); # packager阶段插件处理所有文件，所以不需要给某一类后缀的文件设置。
+    fis.config.set('settings.prepackager.append-build-time', {
+        // settings
+    })
+    ```
 
-在插件开发目录下执行
+- 发布 NPM
+    
+    发布 NPM 请参考，https://docs.npmjs.com/getting-started/publishing-npm-packages
 
-```bash
-$ npm init
-```
-比如开发一个sass的parser插件。name必须为fis-parser-为前缀的名字，如"fis-parser-sass"
+-----
 
-```bash
-$ npm publish . #发布
-```
+当然为了更快速的搞定一些小需求，可以把插件功能直接写到配置文件 `fis-conf.js` 中；
 
-## 使用插件
-
-先全局安装
-
-```bash
-$ npm install -g fis-parser-sass
-```
-
-然后在fis-conf.js里面配置使用
-
-```javascript
-fis.config.merge({
-    modules: {
-        parser: {
-            sass: 'sass' // sass后缀的使用fis-parser-sass处理
-        }
-    }
+```js
+// vi fis-conf.js
+fis.config.set('modules.postprocessor.js', function (content) {
+    return content += '\n// build time: ' + Date.now();
 });
+```
+
+**注意**
+
+配置使用插件时，同一个扩展点可以配置多个插件，比如；
+
+```js
+// 调用 fis-prepackager-a, fis-prepackager-b ...插件
+fis.config.set('modules.prepackager', 'a,b,c,d');
+// or
+fis.config.set('modules.prepackager', ['a', 'b', 'c', 'd']);
+// or
+fis.config.set('modules.prepackager', [function () {}, function () {}])
 ```
