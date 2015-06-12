@@ -22,7 +22,7 @@ category: beginning
 
 首先我们了解一下FIS的基本命令
 
-* **fis install <name>:** 此命令支持一些公共库组件比如 jQuery、echarts，我们提供的组件都放在 [https://github.com/fis-components](https://github.com/fis-components) 仓库中。
+* **fis install <name>:** 此命令安装一些公共库组件比如 jQuery、echarts，我们提供的组件都放在 [https://github.com/fis-components](https://github.com/fis-components) 仓库中。
 * **fis release:** 命令用于编译并发布的你的项目，拥有多个参数调整编译发布操作。
 * **fis server:** 命令可以启动一个本地调试服务器用于预览fis release产出的项目。
 

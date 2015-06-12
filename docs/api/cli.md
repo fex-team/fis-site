@@ -28,7 +28,7 @@ category: api
 正如你所见，使用fis你需要——也只需要——记住三条命令：
 
 * **fis release**： 编译并发布你的项目
-* **fis install**：安装fis仓库提供的各种 **组件，框架，库，样例项目，甚至配置文件** 等模块
+* **fis install**：此命令安装一些公共库组件比如 jQuery、echarts，我们提供的组件都放在 [https://github.com/fis-components](https://github.com/fis-components) 仓库中。
 * **fis server**：启动一个 **1.8M** 大小的内置调试服务器，它采用php-java-bridge技术实现， _依赖java、php-cgi外部环境_ ，可以 **完美支持运行php程序** 哦。
 
 接下来，就让小编分别介绍这三个命令的使用，见证奇迹的时刻到了。。。
