@@ -264,8 +264,8 @@ FIS完全开源并托管在Github，欢迎大家Star、关注[FIS](https://githu
 ## 本文提到的
 
 - [fis-spriter-csssprites](https://github.com/fex-team/fis-spriter-csssprites) 图片合并 csssprites 插件，用来做图片合并，详细信息请戳进去查看
-- [fis-optimizer-uglify-js](https://github.com/fouber/fis-optimizer-uglify-js) `fis release -o` 时调用这个插件来压缩 JS，其用的是 [UglifyJS2](https://github.com/mishoo/UglifyJS2)
-- [fis-optimizer-clean-css](https://github.com/fouber/fis-optimizer-clean-css) `fis release -o` 时调用这个插件压缩 CSS，其用的是 [clean-css@1.x](https://github.com/jakubpawlowicz/clean-css)
+- [fis-optimizer-uglify-js](https://github.com/fex-team/fis-optimizer-uglify-js) `fis release -o` 时调用这个插件来压缩 JS，其用的是 [UglifyJS2](https://github.com/mishoo/UglifyJS2)
+- [fis-optimizer-clean-css](https://github.com/fex-team/fis-optimizer-clean-css) `fis release -o` 时调用这个插件压缩 CSS，其用的是 [clean-css@1.x](https://github.com/jakubpawlowicz/clean-css)
 
 <!-- ## 写在最后
 
