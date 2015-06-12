@@ -20,7 +20,7 @@
       -h, --help     output usage information
       -v, --version  output the version number
       --no-color     disable colored output
-</code></pre></div><p>正如你所见，使用fis你需要——也只需要——记住三条命令：</p><ul><li><strong>fis release</strong>： 编译并发布你的项目</li><li><strong>fis install</strong>：安装fis仓库提供的各种 <strong>组件，框架，库，样例项目，甚至配置文件</strong> 等模块</li><li><strong>fis server</strong>：启动一个 <strong>1.8M</strong> 大小的内置调试服务器，它采用php-java-bridge技术实现， <em>依赖java、php-cgi外部环境</em> ，可以 <strong>完美支持运行php程序</strong> 哦。</li></ul><p>接下来，就让小编分别介绍这三个命令的使用，见证奇迹的时刻到了。。。</p><h2>fis install &lt;name&gt;</h2><blockquote><p>难度等级：★☆☆☆☆</p></blockquote><p>fis install命令经过全新升级，目前可以从Github或者各类私有Gitlab仓库下载前端组件使用，只需要两步就可以加载一个前端组件</p><p>首先我们安装一个组件</p><div class="highlight"><pre><code class="text language-text" data-lang="text">$ fis install jquery bootstrap
+</code></pre></div><p>正如你所见，使用fis你需要——也只需要——记住三条命令：</p><ul><li><strong>fis release</strong>： 编译并发布你的项目</li><li><strong>fis install</strong>：此命令安装一些公共库组件比如 jQuery、echarts，我们提供的组件都放在 <a href="https://github.com/fis-components">https://github.com/fis-components</a> 仓库中。</li><li><strong>fis server</strong>：启动一个 <strong>1.8M</strong> 大小的内置调试服务器，它采用php-java-bridge技术实现， <em>依赖java、php-cgi外部环境</em> ，可以 <strong>完美支持运行php程序</strong> 哦。</li></ul><p>接下来，就让小编分别介绍这三个命令的使用，见证奇迹的时刻到了。。。</p><h2>fis install &lt;name&gt;</h2><blockquote><p>难度等级：★☆☆☆☆</p></blockquote><p>fis install命令经过全新升级，目前可以从Github或者各类私有Gitlab仓库下载前端组件使用，只需要两步就可以加载一个前端组件</p><p>首先我们安装一个组件</p><div class="highlight"><pre><code class="text language-text" data-lang="text">$ fis install jquery bootstrap
 
 Installed
 ├── github:fis-components/jquery@1.9.1
