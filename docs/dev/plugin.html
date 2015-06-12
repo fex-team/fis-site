@@ -71,7 +71,7 @@
     <span class="p">});</span>
 <span class="p">};</span>
 </code></pre></div></li><li><p>配置使用</p><div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="c1">// vi fis-conf.js</span>
-<span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;modules.prepackager&#39;</span><span class="p">,</span> <span class="s1">&#39;append-build-time&#39;</span><span class="p">);</span> <span class="err">#</span> <span class="nx">packager</span><span class="err">阶段插件处理所有文件，所以不需要给某一类后缀的文件设置。</span>
+<span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;modules.prepackager&#39;</span><span class="p">,</span> <span class="s1">&#39;append-build-time&#39;</span><span class="p">);</span> <span class="c1">// packager阶段插件处理所有文件，所以不需要给某一类后缀的文件设置。</span>
 <span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;settings.prepackager.append-build-time&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="c1">// settings</span>
 <span class="p">})</span>
