@@ -41,8 +41,8 @@ fis install命令经过全新升级，目前可以从Github或者各类私有Git
 
 首先我们安装一个组件
 
-```
-$ fis install jquery bootstrap
+```bash
+fis install jquery bootstrap
 
 Installed
 ├── github:fis-components/jquery@1.9.1
@@ -117,10 +117,9 @@ release是一个非常强大的命令，它的主要任务就是进行代码的 
 初步了解之后，让我们对刚刚下载的项目做一次编译，look at me：
 
 ```bash
-$ git clone https://github.com/fex-team/fis2-demo # 或者到 github 下载
-$ cd firstblood
-$ fis release --md5 --dest ./output
-[WARNI] missing fis-conf.js # 这是一个 warning
+git clone https://github.com/fex-team/fis2-demo # 或者到 github 下载
+cd fis2-demo/firstblood
+fis release --md5 --dest ./output
 ```
 
 这里有个小小的warning，说找不到fis的配置文件，咱们不用管它，因为我们要体验 **零配置** 使用。接下来进入到firstblood/output目录看一下产出的文件，尤其是index.html，你将看到fis的自动化工具对 **html、js、css各自扩展了三种语言能力**：
@@ -144,9 +143,9 @@ ok，回到刚刚的firstblood示例项目，进入到output目录，你将看�
 接下来，我们使用install命令安装一个配置文件，用于 **调整文件编译后的部署路径** ：
 
 ```bash
-$ git clone https://github.com/fex-team/fis2-demo # 或者 到 github 下载
-$ cd fis2-demo
-$ cp firstblood-conf/fis-conf.js ./firstblood # 拷贝 fis-conf.js 到 firstblood 目录下
+git clone https://github.com/fex-team/fis2-demo # 或者 到 github 下载
+cd fis2-demo
+cp firstblood-conf/fis-conf.js ./firstblood # 拷贝 fis-conf.js 到 firstblood 目录下
 ```
 此时firstblood项目目录下会多出一个fis-conf.js文件，让我们看一下里面的内容：
 
@@ -183,7 +182,7 @@ fis.config.merge({
 删除一下output目录，再次执行编译命令：
 
 ```bash
-$ fis release --md5 --domains --dest ./output
+fis release --md5 --domains --dest ./output
 ```
 就可以看到，fis调整了编译产出的目录结构。编辑output目录下的index.html，还会发现，fis将所有引用资源的地方也都调整为了发布路径，所有css也自动添加了域名！
 
@@ -210,7 +209,7 @@ fis的调试服务器依赖于用户本地的 **jre** 和 **php-cgi** 环境，�
 搞定环境后，让我们来启动调试服务器看看：
 
 ```bash
-$ fis server start
+fis server start
 checking java support : version 1.6.0
 checking php-cgi support : version 5.2.11
 starting fis-server on port : 8080
@@ -223,7 +222,7 @@ starting fis-server on port : 8080
 在刚刚的firstblood项目中执行命令：
 
 ```bash
-$ fis release --md5 --optimize --watch
+fis release --md5 --optimize --watch
 ```
 现在，fis已经将编译好的代码发布到调试服务器中啦，刷新浏览器，你会看到我们的firstblood示例项目的运行效果。此时，你修改项目文件都将自动编译并发布到调试服务器目录下，看看页面源代码，你会发现更多惊喜！顺便恭喜你，至此你已完全掌握了fis的基本用法，你可以借助fis这个利器去挑战大型商业产品开发了！
 
