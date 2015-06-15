@@ -337,7 +337,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div><p>编译时使用fis release的 <code>--domains</code> 参数来控制是否添加domain</p><div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>fis release --domains --dest ../output
+</code></pre></div><p>编译时使用fis release的 <code>--domains</code> 参数来控制是否添加domain</p><div class="highlight"><pre><code class="bash language-bash" data-lang="bash">fis release --domains --dest ../output
 </code></pre></div></li></ul><h3>roadmap.domain.image</h3><ul><li>解释：设置图片资源的域名前缀。</li><li>值类型：<code>Array</code> | <code>string</code></li><li>默认值：无</li><li>说明：由于使用配置roadmap.domain.ext方式来配置图片资源太麻烦，fis提供了image字段，对于符合 <a href="/docs/api/fis-conf.html#fileTypeimage">project.fileType.image</a> 规则的文件，设置相应domain配置。</li><li><p>用法：</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">//fis-conf.js</span>
 <span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">merge</span><span class="p">({</span>
     <span class="nx">roadmap</span> <span class="o">:</span> <span class="p">{</span>
@@ -347,7 +347,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">});</span>
-</code></pre></div><p>编译时使用fis release的 <code>--domains</code> 参数来控制是否添加domain</p><div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nv">$ </span>fis release --domains --dest ../output
+</code></pre></div><p>编译时使用fis release的 <code>--domains</code> 参数来控制是否添加domain</p><div class="highlight"><pre><code class="bash language-bash" data-lang="bash">fis release --domains --dest ../output
 </code></pre></div></li></ul><p><i class="anchor" id="deploy"></i></p><h2>部署配置</h2><p>配置项 <code>deploy</code></p><ul><li>解释：设置项目的发布方式。</li><li>值类型：<code>Object</code></li><li>默认值：无</li><li>说明：当使用 fis release 命令时，参数 <strong>--dest &lt;name&gt;</strong> 可以指定项目发布配置。deploy配置是一个key-value的object对象，--dest参数的值如果与配置的key相同，则执行该配置的部署设置。fis支持使用post请求向http服务器发送文件，服务器端可以使用php、java等后端逻辑进行接收，<a href="https://github.com/fis-dev/fis-command-release">fis-command-release</a>插件中提供了一个这样的 <a href="https://github.com/fis-dev/fis-command-release/blob/master/tools/receiver.php">php版示例</a>，用户可以直接部署此文件于接收端服务器上。</li><li><p>用法：</p><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">//fis-conf.js</span>
 <span class="nx">fis</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">merge</span><span class="p">({</span>
     <span class="nx">deploy</span> <span class="o">:</span> <span class="p">{</span>
