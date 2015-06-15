@@ -41,7 +41,7 @@ category: beginning
 [FIS](https://github.com/fex-team/fis)使用[Node.js](http://nodejs.org/)开发，以[npm](http://npmjs.org/)包的形式发布。因此使用FIS需要先[安装Node.js](http://www.baidu.com/?isidx=1#wd=Node.js+%E5%AE%89%E8%A3%85)，再通过npm安装命令进行FIS安装。
 
 ```bash
-$ npm install -g fis
+npm install -g fis
 ```
 
 安装遇到困难？[点击这里](https://github.com/fex-team/fis/issues/65)
@@ -51,7 +51,7 @@ $ npm install -g fis
 在介绍FIS的主要功能前，需要先准备一个示例项目。可以从[Github](https://github.com/hefangshi/fis-quickstart-demo)上获取。
 
 ```bash
-$ git clone https://github.com/hefangshi/fis-quickstart-demo.git
+git clone https://github.com/hefangshi/fis-quickstart-demo.git
 ```
 
 ### 本地预览
@@ -59,7 +59,7 @@ $ git clone https://github.com/hefangshi/fis-quickstart-demo.git
 首先我们可以通过 ```fis server start``` 命令启动FIS的本地调试服务器功能对构建发布的项目进行预览调试
 
 ```bash
-$ fis server start
+fis server start
 ```
 
 **注意**
@@ -73,8 +73,8 @@ $ fis server start
 本地调试服务器启动成功后，就会自动打开 ```http://127.0.0.1:8080``` ，但是此时服务器内没有任何内容。我们还需要通过FIS发布DEMO项目才能进行预览
 
 ```bash
-$ cd fis-quickstart-demo #进入DEMO目录
-$ fis release #编译并发布DEMO
+cd fis-quickstart-demo #进入DEMO目录
+fis release #编译并发布DEMO
 ```
 
 `fis release` 命令会将编译后的项目发布至本地调试服务器，再次刷新浏览器页面，我们就可以到fis-quickstart-demo项目的主页了。
@@ -88,13 +88,13 @@ $ fis release #编译并发布DEMO
 资源压缩一直是前端项目优化中非常重要的一环，使用FIS我们无需任何配置，只需要一个命令就可以完成压缩工作。
 
 ```bash
-$ fis release --optimize
+fis release --optimize
 ```
 
 如果觉得参数输入比较麻烦，实际上也支持参数缩写，更多的参数可以参考 ```fis release -h``` 或[命令行](/docs/api/cli.html)。
 
 ```bash
-$ fis release -o
+fis release -o
 ```
 
 FIS构建并**不会**修改源代码目录中的内容，而是拥有**独立的产出的目录**，FIS默认的产出目构录可以通过 ```fis server open``` 打开，你也可以通过 `fis release -d path/to/output` 指定你希望的输出目录，详情可以参考[FAQ](https://github.com/fex-team/fis/issues/70)
@@ -122,7 +122,7 @@ FIS能够根据静态资源的内容自动生成文件版本，自动更新资�
 我们通过开启 ```--md5``` 参数，为项目中的静态资源添加md5版本号
 
 ```bash
-$ fis release --optimize --md5 # fis release -om
+fis release --optimize --md5 # fis release -om
 ```
 
 刷新页面，我们可以看到所有资源均加上了md5版本号
@@ -160,7 +160,7 @@ fis.config.set('pack', {
 插件的安装分为两步，首先我们需要通过[npm](http://npmjs.org)包管理工具进行插件安装
 
 ```
-$ npm install -g fis-postpackager-simple
+npm install -g fis-postpackager-simple
 ```
 
 > **fis-postpackager-simple插件是提供给纯前端应用的打包合并插件，其他定制解决方案，如`fis-plus`、`yogurt`等不需要这个插件，需要查看各自的文档了解使用方式。**
@@ -168,8 +168,8 @@ $ npm install -g fis-postpackager-simple
 插件安装到本地后，我们还需要通过项目配置文件开启插件，修改项目根目录下的fis-conf.js配置，开启fis-postpackager-simple插件
 
 ```bash
-$ cd fis-quickstart-demo
-$ vi fis-conf.js #vi是linux下的文本编辑器，windows用户可以选用任意文本编辑器对fis-conf.js文件进行编辑。
+cd fis-quickstart-demo
+vi fis-conf.js #vi是linux下的文本编辑器，windows用户可以选用任意文本编辑器对fis-conf.js文件进行编辑。
 ```
 
 ```javascript
@@ -182,7 +182,7 @@ fis.config.set('modules.postpackager', 'simple');
 为了开发调试时更加方便 ```fis release``` 默认不会合并资源，在指定了 ```--pack``` 参数后，FIS才会进行打包合并处理。
 
 ```bash
-$ fis release --optimize --md5 --pack # fis release -omp
+fis release --optimize --md5 --pack # fis release -omp
 ```
 
 再次浏览我们可以发现原有的基础类库引用已经被替换为了 ```lib.js``` ，关于fis-postpackager-simple插件更多的静态资源处理策略和使用方法，请参考[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5)。
@@ -202,7 +202,7 @@ fis.config.set('settings.postpackager.simple.autoCombine', true);
 再次运行FIS构建项目
 
 ```bash
-$ fis release -omp
+fis release -omp
 ```
 
 我们会发现剩余的零散资源已经被自动合并了。
@@ -234,7 +234,7 @@ fis.config.set('pack', {
 再次运行FIS构建项目
 
 ```bash
-$ fis release -omp
+fis release -omp
 ```
 
 刷新一下，添加几个待办项，我们会发现所有待办项的图片都合并在了一张图片中。
