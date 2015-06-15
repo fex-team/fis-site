@@ -15,7 +15,7 @@ category: beginning
 ### 插件安装
 
 ```bash
-$ npm install -g fis-parser-less
+npm install -g fis-parser-less
 ```
 
 ### 开启插件
@@ -45,7 +45,7 @@ body {
 使用发布到output目录中
 
 ```bash
-$ fis release -wd output
+fis release -wd output
 ```
 
 可以看到在output目录中，原有的less文件已经被编译为了css文件

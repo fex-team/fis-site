@@ -18,8 +18,8 @@ fis插件系统巧妙的利用了nodejs的require机制来实现其扩展机制�
 
 1. 使用fis的用户，自己需要某种插件，可以在fis安装目录的 **同级**，安装自己扩展的插件。比如：
 ```bash
-$ npm install -g fis
-$ npm install -g fis-parser-coffee-script
+npm install -g fis
+npm install -g fis-parser-coffee-script
 ```
 1. fis团队会衡量某个插件的通用性，把它放到fis的依赖里，最优先加载。目前已经内置的插件包括：
     * [fis-kernel](https://github.com/fis-dev/fis-kernel)：fis编译机制内核

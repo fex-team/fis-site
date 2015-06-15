@@ -875,7 +875,7 @@ fis.config.init({
     编译时使用fis release的 ``--domains`` 参数来控制是否添加domain
 
     ```bash
-    $ fis release --domains --dest ../output
+    fis release --domains --dest ../output
     ```
 
 ### roadmap.domain.image
@@ -900,7 +900,7 @@ fis.config.init({
     编译时使用fis release的 ``--domains`` 参数来控制是否添加domain
 
     ```bash
-    $ fis release --domains --dest ../output
+    fis release --domains --dest ../output
     ```
 
 <i class="anchor" id='deploy'></i>
