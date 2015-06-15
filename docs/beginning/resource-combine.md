@@ -23,14 +23,14 @@ category: beginning
 插件的安装分为两步，首先我们需要通过[npm](http://npmjs.org)包管理工具进行插件安装
 
 ```
-$ npm install -g fis-postpackager-simple
+npm install -g fis-postpackager-simple
 ```
 
 插件安装到本地后，我们还需要通过项目配置文件开启插件，修改项目根目录下的fis-conf.js配置，加入fis-postpackager-simple插件
 
 ```
-$ cd fis-quickstart-demo
-$ vi fis-conf.js
+cd fis-quickstart-demo
+vi fis-conf.js
 ```
 
 ```javascript
@@ -45,9 +45,9 @@ fis.config.set('modules.postpackager', 'simple');
 首先我们按照快速入门中的方法开启本地预览服务器
 
 ```bash
-$ cd fis-quickstart-demo
-$ fis release --optimize
-$ fis server start #如果8080端口被占用，使用-p参数设置可用的端口，可以忽略Java与PHP环境依赖的报错
+cd fis-quickstart-demo
+fis release --optimize
+fis server start #如果8080端口被占用，使用-p参数设置可用的端口，可以忽略Java与PHP环境依赖的报错
 ```
 
 查看一下示例项目，我们可以发现所有的静态都是独立加载的。
@@ -57,13 +57,13 @@ $ fis server start #如果8080端口被占用，使用-p参数设置可用的端
 对于[减少HTTP连接数](http://www.baidu.com/?isidx=1#wd=%E5%87%8F%E5%B0%91HTTP%E8%BF%9E%E6%8E%A5%E6%95%B0)的必要性在这里我们就不再赘述。让我们直接试试看在fis-postpackager-simple插件支持下，如何通过FIS对这些独立的请求进行合并。
 
 ```bash
-$ fis release --optimize --pack
+fis release --optimize --pack
 ```
 
 如果觉得参数输入比较麻烦，实际上也有等价的更短的命令可以灵活组合，更多的参数可以参考[命令行](/docs/api/cli.html)。
 
 ```bash
-$ fis release -op
+fis release -op
 ```
 
 再次浏览我们可以发现所有的脚本资源均被自动合并为了一个文件，并且原来的script标签的引用路径也被自动替换为合并文件的路径。
@@ -92,7 +92,7 @@ fis.config.set('pack', {
 再次运行FIS构建项目
 
 ```bash
-$ fis release -op
+fis release -op
 ```
 
 我们会发现原有的 ```auto_combine_0.js``` 被分解为了 ```auto_combine_0.js``` 和 ```lib.js``` ，```lib.js``` 被独立打成了一个包。
@@ -118,7 +118,7 @@ fis.config.set('settings.spriter.csssprites.margin', 20);
 再次运行FIS构建项目
 
 ```bash
-$ fis release -op
+fis release -op
 ```
 
 再次查看项目，添加几个待办项，我们会发现所有待办项的图片都合并在了一张图片中。
