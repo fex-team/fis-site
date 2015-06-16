@@ -272,33 +272,56 @@ fis.config.get('namespace') //获取namespace
 
 ## fis.project
 
-### getProjectPath() 
+### getProjectPath()
+
 获得项目路径
+
 ### setProjectRoot(rPath) 
-设置项目路径
+- `rPath` String 目录路径
+
+设置项目路径，如果设置的是一个不存在的目录路径，FIS 会自动创建它；
 
 ## fis.file
+
 `fis.file`是一个比较主要的类型，每一个文件进入fis处理都会指向一个fis.file对象。可以获取文件的各种信息。比如修改事件、后缀、是否是文本、图片亦或是产出路径等等。
 
-### wrap()
+整个 FIS 编译阶段都是以 File 对象为基础进行编译的，所以的文件进入 FIS 编译都会被实例化成一个 File 对象；
+
+### wrap(file)
+- `file` String 文件路径
+
 实例化一个file对象
 
 ```javascript
 var file = fis.file.wrap('/home/fis/debug/static/demo.js');
 ```
-### Object file
-#### isHtmlLike  
+
+### File 对象
+
+#### isHtmlLike
+
 是否是类HTML文件，比如tpl
+
 #### isJsLike    
+
 是否是类JS文件，比如coffeescript
+
 #### isCssLike   
+
 是否是类CSS文件，比如less、sass
+
 #### requires    
+
 文件依赖的id列表
+
 #### extras      
+
 文件额外属性
+
 #### useMap      
+
 是否记录到map.json
+
 #### isMod       
 是否需要组件化
 
@@ -308,14 +331,16 @@ var file = fis.file.wrap('/home/fis/debug/static/demo.js');
 file.exists();
 // => true or false
 ```
-#### isText()  
+#### isText()
+
 是否为一文本文件
 
 ```javascript
 file.isText();
 // => true or false
 ```
-#### isImage() 
+#### isImage()
+
 是否为一个图像文件
     
 ```javascript
@@ -337,6 +362,8 @@ var mtime = file.getMtime();
 ```
 
 #### setContent(c) 
+- `c` String / Buffer 文件内容
+
 设置文件内容
 
 ```javascript
@@ -368,6 +395,9 @@ var id = file.getId();
 ```
 
 #### getUrl(withHash, withDomain)  
+- `withHash` Boolean 文件 Url 是否包含 md5 戳
+- `withDomain` Boolean 文件 Url 是否包含设置的 domain
+
 获取文件的url
 
 ```javascript
@@ -375,6 +405,8 @@ var url = file.getUrl(true, true);
 ```
 
 #### addRequire(id)  
+- `id` String 文件 id，用 [getId()](#gitid) 获得
+
 给文件添加依赖
 
 ```javascript
@@ -383,7 +415,10 @@ file.addRequire('a.js');
 //依赖与a.js
 ```
 #### removeRequire(id)
-    
+- `id` String 文件 id，用 [getId()](#gitid) 获得
+
+移除文件对某个其他文件的依赖
+
 ```javascript
 file.removeRequire('a.js');
 // 移除对a.js的依赖
@@ -392,6 +427,8 @@ file.removeRequire('a.js');
 ## fis.compile
 
 编译一个文件，注意文件的缓存控制；
+
+> 注意，它是一个函数，而非对象
 
 ```js
 var path = require('path');
@@ -404,25 +441,47 @@ console.log(file.getContent());
 ## fis.log
 打印log，适合调试报错等
 
-### debug
+### debug(str)
+- `str` String  要输出的调试信息
 
-```javascript
+输出一些调试信息，当执行 `release` 时，后面带命令行参数 `--verbose` 输出这些调试信息；
+
+```bash
+fis release --verbose
+```
+
+```js
 fis.log.debug('debugMessage');
 // [DEBUG] 18:49:46.0958 debugMessage
 ```
-### notice
+### notice(str)
+- `str` String 一些提示信息
+
+输出一些提示信息，调用了此方法会直接输出提示，不同于 `fis.debug()`
 
 ```javascript
 fis.log.notice('noticeMessage');
 // [NOTICE] 18:49:46.0958 noticeMessage
 ```
-### warning
+### warning(str)
+- `str` String 一些警告信息
+
+输出一些警告信息，调用了就会输出，不同于 `fis.debug()`
 
 ```javascript
 fis.log.warning('warningMessage');
 // [WARNING] 18:49:46.0958 warningMessage
 ```
-### error
+### error(err)
+- `err` String / Error 错误信息
+
+输出错误信息接口，当 `release` 添加命令行参数 `--verbose` 会打出所有的错误堆栈信息。
+
+调用此接口并被触发后，编译会中断，因为 `Error` 是一个不可挽回的错误。
+
+```bash
+fis release --verbose
+```
 
 ```javascript
 fis.log.error('errorMessage');
