@@ -223,3 +223,7 @@ fis.config.set('modules.prepackager', ['a', 'b', 'c', 'd']);
 // or
 fis.config.set('modules.prepackager', [function () {}, function () {}])
 ```
+
+## 扩展阅读
+
+- http://div.io/topic/1027 `require()` 源码解读

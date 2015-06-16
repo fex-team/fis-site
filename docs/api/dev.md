@@ -332,6 +332,16 @@ file.removeRequire('a.js');
 
 ## fis.compile
 
+编译一个文件，注意文件的缓存控制；
+
+```js
+var path = require('path');
+var file = fis.file.wrap(path.join(fis.project.getProjectPath(), 'a.js'));
+file.useCache = false; // @NOTICE
+fis.compile(file);
+console.log(file.getContent());
+```
+
 ## fis.log
 打印log，适合调试报错等
 

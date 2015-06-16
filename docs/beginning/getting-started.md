@@ -140,7 +140,7 @@ fis release --optimize --md5 # fis release -om
 
 ### 设置打包
 
-FIS可以通过[pack](/docs/api/fis-conf.html#pack)来进行资源文件的合并，比如我们需要将DEMO中的公共库文件打包在一起，可以修改fis-conf.js配置，加入pack配置
+FIS可以通过[pack](/docs/api/fis-conf.html#pack)来进行资源文件的合并，比如我们需要将DEMO中的公共库文件打包在一起，可以修改 fis-conf.js 配置，加入pack配置
 
 ```javascript
 fis.config.set('pack', {
