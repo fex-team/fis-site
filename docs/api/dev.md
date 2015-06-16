@@ -95,7 +95,9 @@ fis.util.escapeReg('/home/fis/a.js');
 ### escapeShellCmd(str)
 ### escapeShellArg(str)
 
-### stringQuote(str, quotes)
+### stringQuote(str [, quotes])
+- `str` String 字符串
+- `quotes` String 引号
 
 ```javascript
 fis.util.stringQuote('"fis"');
@@ -103,12 +105,17 @@ fis.util.stringQuote('"fis"');
 ```
 
 ### getMimeType(ext)
+- `ext` String 文件后缀
+
+获取对于文件后缀的 MIME
 
 ```javascript
 fis.util.getMimeType('png')
 // => image/png
 ```
+
 ### realpath(path)
+- `path` String
 
 ```javascript
 //cwd: /home/fis
@@ -116,8 +123,9 @@ fis.util.realpath('..');
 // => /home
 ```
 ### realpathSafe(path)
-    
-@see realpath，当目录或文件不存在时，不返回false，直接返回传入路径
+- `path` String 路径
+
+安全得获取文件的实际路径，有别于 [realpath](#realpath) 的是，其如果文件或者目录不存在返回 `false` 而此如果不存在返回传入的 `path` 。如果存在文件或者路径才返回实际路径。
 
 ```javascript
 //cwd: /home/fis
@@ -125,7 +133,11 @@ fis.util.realpathSafe('../a.js');
 ///home/a.js不存在
 // => ../a.js
 ```
+
 ### isAbsolute(path)
+- `path` String 路径
+
+判别给定路径是否是绝对路径，是返回 `true` 不是返回 `false`。
 
 ```javascript
 fis.util.isAbsolute('/usr/');
@@ -135,15 +147,62 @@ fis.util.isAbsolute('/usr');
 fis.util.isAbsolute('usr/');
 // => false
 ```
+
 ### isFile(path)
+- `path` String 路径
+
+判别给定路径是否是一个文件，如果是返回 `true` 不是返回 `false`。
+
+```js
+console.log(file.util.isFile('path/to/exist/file'));
+// => true
+```
+
 ### isDir(path)
+- `path` String 路径
+
+判别给定路径是否是一个文件夹，如果是返回 `true` 不是返回 `false`。
+
+```js
+console.log(file.util.isDir('/tmp'));
+// => true
+```
+
 ### mtime(path)
+- `path` String 文件路径
+
+获取文件的最后修改时间
+
+```js
+fis.util.mtime('/tmp/debug/log.log');
+// => Tue Jun 16 2015 15:36:13 GMT+0800 (CST)
+
+var mtime = fis.util.mtime('/tmp/debug/log.log');
+
+console.log(mtime instanceof Date);
+// => true
+```
+
 ### touch(path, mtime)
+- `path` String 文件路径
+- `mtime` Date  时间
+
+修改文件的最后修改时间，如果 `mtime` 未指定，使用当前时间；
+
 ### isWin()
+这个函数返回是否是 Windows 系统，如果是返回 `true` 如果不是返回 `false`。
+
 ### isTextFile()
+
+这个函数返回一个文件是否是文本文件，是返回 `true` 不是返回 `false`。FIS 中文件类型的判别是通过文件后缀做的。相关配置[project.fileType.text](https://github.com/fex-team/fis/wiki/%E9%85%8D%E7%BD%AEAPI#projectfiletypetext)
+
 ### isImageFile()
 
+这个函数返回一个文件是否是图片文件，是返回 `true` 不是返回 `false`，FIS 中文件类型的判别是通过文件后缀做的。相关配置[project.fileType.image](https://github.com/fex-team/fis/wiki/%E9%85%8D%E7%BD%AEAPI#projectfiletypeimage)
+
 ### md5(data, len)
+- `data` String 文件内容
+- `len` Int 最后获取文件的 md5 长度，默认长度为 7
 
 ```javascript
 fis.util.md5('fis'); //不设定len，默认7个。最长32个
