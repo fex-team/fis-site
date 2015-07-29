@@ -4,7 +4,7 @@
             {% for config in site.data.nav %}
             <li class="item-{{ config.type }}">
                 {% if (config.url) %}
-                <a href="{{ config.url }}">
+                <a href="/fis-site/{{ config.url }}">
                     {{ config.title }}
                 </a>
                 {% else %}
