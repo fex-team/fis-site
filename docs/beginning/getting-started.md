@@ -91,7 +91,7 @@ fis release #编译并发布DEMO
 fis release --optimize
 ```
 
-如果觉得参数输入比较麻烦，实际上也支持参数缩写，更多的参数可以参考 ```fis release -h``` 或[命令行](/docs/api/cli.html)。
+如果觉得参数输入比较麻烦，实际上也支持参数缩写，更多的参数可以参考 ```fis release -h``` 或[命令行](http://fex-team.github.io/fis-site/docs/api/cli.html)。
 
 ```bash
 fis release -o
@@ -140,7 +140,7 @@ fis release --optimize --md5 # fis release -om
 
 ### 设置打包
 
-FIS可以通过[pack](/docs/api/fis-conf.html#pack)来进行资源文件的合并，比如我们需要将DEMO中的公共库文件打包在一起，可以修改 fis-conf.js 配置，加入pack配置
+FIS可以通过[pack](http://fex-team.github.io/fis-site/docs/api/fis-conf.html#pack)来进行资源文件的合并，比如我们需要将DEMO中的公共库文件打包在一起，可以修改 fis-conf.js 配置，加入pack配置
 
 ```javascript
 fis.config.set('pack', {
@@ -157,7 +157,7 @@ fis.config.set('pack', {
 
 ### 插件安装
 
-> FIS的编译系统拥有一个使用简单、扩展方便的插件体系，这套插件体系保证了FIS编译工具的灵活性和生命力。这里我们简单介绍一下FIS插件的安装方法，更加详细的插件系统介绍可以查看配置API [modules](/docs/api/fis-conf.html#modules)。
+> FIS的编译系统拥有一个使用简单、扩展方便的插件体系，这套插件体系保证了FIS编译工具的灵活性和生命力。这里我们简单介绍一下FIS插件的安装方法，更加详细的插件系统介绍可以查看配置API [modules](http://fex-team.github.io/fis-site/docs/api/fis-conf.html#modules)。
 
 插件的安装分为两步，首先我们需要通过[npm](http://npmjs.org)包管理工具进行插件安装
 
@@ -254,11 +254,11 @@ fis release -omp
 
 ## 下一步
 
-* 阅读[辅助开发](/docs/beginning/assist.html)了解除了构建能力外，FIS提供的**文件监听、自动编译、自动刷新**等开发辅助能力。
-* 阅读[命令行](/docs/api/cli.html)全面了解FIS命令行参数。
-* 阅读[语言能力](/docs/more/fis-standard.html)了解FIS的语言扩展能力。
-* 阅读[配置API](/docs/api/fis-conf.html)了解FIS完整的功能配置，由于内容较多，可以先大概浏览内容，使用时再详细查阅。
-* 有兴趣的同学还可以阅读[更多文档](/docs/dev/more.html)了解FIS的基础原理与设计思想，让你可以更好的理解和使用FIS打造自己解决方案。
+* 阅读[辅助开发](http://fex-team.github.io/fis-site/docs/beginning/assist.html)了解除了构建能力外，FIS提供的**文件监听、自动编译、自动刷新**等开发辅助能力。
+* 阅读[命令行](http://fex-team.github.io/fis-site/docs/api/cli.html)全面了解FIS命令行参数。
+* 阅读[语言能力](http://fex-team.github.io/fis-site/docs/more/fis-standard.html)了解FIS的语言扩展能力。
+* 阅读[配置API](http://fex-team.github.io/fis-site/docs/api/fis-conf.html)了解FIS完整的功能配置，由于内容较多，可以先大概浏览内容，使用时再详细查阅。
+* 有兴趣的同学还可以阅读[更多文档](http://fex-team.github.io/fis-site/docs/dev/more.html)了解FIS的基础原理与设计思想，让你可以更好的理解和使用FIS打造自己解决方案。
 
 FIS完全开源并托管在Github，欢迎大家Star、关注[FIS](https://github.com/fex-team/fis)的项目主页，大家的支持是我们最大的动力；）
 

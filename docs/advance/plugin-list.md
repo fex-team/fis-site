@@ -6,9 +6,9 @@ category: plugin
 
 # 插件列表
 
-插件列表中并未列举所有FIS插件扩展点的插件，仅提供了比较具有通用性的插件。FIS的具体扩展点以及功能可以参见[插件扩展点列表](/docs/more/extension-point.html)。
+插件列表中并未列举所有FIS插件扩展点的插件，仅提供了比较具有通用性的插件。FIS的具体扩展点以及功能可以参见[插件扩展点列表](../more/extension-point.html)。
 
-通过FIS内置的[目录规范设置](/docs/api/fis-conf.html#roadmap)，配合下列插件，我们可以满足绝大部分的前端构建需求，如果这里的插件仍无法满足你的需求，你也可以考虑自行通过配置扩展或[插件扩展](/docs/dev/plugin.html)的形式定制构建流程。
+通过FIS内置的[目录规范设置](../api/fis-conf.html#roadmap)，配合下列插件，我们可以满足绝大部分的前端构建需求，如果这里的插件仍无法满足你的需求，你也可以考虑自行通过配置扩展或[插件扩展](../dev/plugin.html)的形式定制构建流程。
 
 希望将自己插件放在列表中的朋友也可以[联系我们](/index.html#contact-sec)添加。
 
@@ -68,6 +68,6 @@ category: plugin
 
 ## 命令行扩展插件
 
-> 命令行扩展插件是非常特殊的一类插件，实际上我们使用的fis release、fis server、fis install均是通过相应的插件扩展而来，详细内容可以查看[命令行扩展](/docs/more/extension-point.html)。
+> 命令行扩展插件是非常特殊的一类插件，实际上我们使用的fis release、fis server、fis install均是通过相应的插件扩展而来，详细内容可以查看[命令行扩展](../more/extension-point.html)。
 
 * [fis-command-init](https://github.com/xiangshouding/fis-command-init)：为FIS提供可扩展的脚手架功能。

@@ -15,14 +15,14 @@ FIS具有高扩展性，可以通过配置进行各种目录结构等的定制�
 
 在二次开发这一栏，我们要探讨如何写一个插件，以及包装自己的解决方案。
 
-+ [如何写插件](/docs/dev/plugin.html)
-+ [解决方案的包装](/docs/dev/solution.html)
++ [如何写插件](http://fex-team.github.io/fis-site/docs/dev/plugin.html)
++ [解决方案的包装](http://fex-team.github.io/fis-site/docs/dev/solution.html)
 
 插件开发需要对FIS的基础原理做一些了解；
 
-+ [编译过程运行原理](/docs/more/fis-base.html)
-+ [插件调用机制](/docs/more/how-plugin-works.html)
-+ [插件扩展点列表](/docs/more/extension-point.html)
-+ [基于map.json的前后端架构设计指导](/docs/more/mapjson.html)
++ [编译过程运行原理](http://fex-team.github.io/fis-site/docs/more/fis-base.html)
++ [插件调用机制](http://fex-team.github.io/fis-site/docs/more/how-plugin-works.html)
++ [插件扩展点列表](http://fex-team.github.io/fis-site/docs/more/extension-point.html)
++ [基于map.json的前后端架构设计指导](http://fex-team.github.io/fis-site/docs/more/mapjson.html)
 
 _如果嫌麻烦，也可以暂时不看原理部分，直接点击上面的链接进入实战，在实战的过程中对照参考_

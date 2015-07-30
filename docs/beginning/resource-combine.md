@@ -12,13 +12,13 @@ category: beginning
 
 ## 示例准备
 
-本篇指南使用的示例与资源压缩指南中使用的是相同的示例，示例项目的准备工作可以参考[资源压缩](/docs/beginning/getting-started.html)
+本篇指南使用的示例与资源压缩指南中使用的是相同的示例，示例项目的准备工作可以参考[资源压缩](http://fex-team.github.io/fis-site/docs/beginning/getting-started.html)
 
 为了达到静态资源自动合并的目的，我们需要扩展FIS的功能，添加插件[fis-postpackager-simple](https://github.com/hefangshi/fis-postpackager-simple)，它的功能是收集页面中的已有的script和link标签，将这些标签引用的资源进行自动合并，并将原有的script和link标签替换为自动合并后的标签，最终达到页面级的静态资源合并能力。
 
 ## 插件安装
 
-> FIS的编译系统拥有一个使用简单、扩展方便的插件体系，这套插件体系保证了FIS编译工具的灵活性和生命力。这里我们简单介绍一下FIS插件的安装方法，更加详细的插件系统介绍可以查看配置API [modules](/docs/api/fis-conf.html#modules)。
+> FIS的编译系统拥有一个使用简单、扩展方便的插件体系，这套插件体系保证了FIS编译工具的灵活性和生命力。这里我们简单介绍一下FIS插件的安装方法，更加详细的插件系统介绍可以查看配置API [modules](http://fex-team.github.io/fis-site/docs/api/fis-conf.html#modules)。
 
 插件的安装分为两步，首先我们需要通过[npm](http://npmjs.org)包管理工具进行插件安装
 
@@ -60,7 +60,7 @@ fis server start #如果8080端口被占用，使用-p参数设置可用的端�
 fis release --optimize --pack
 ```
 
-如果觉得参数输入比较麻烦，实际上也有等价的更短的命令可以灵活组合，更多的参数可以参考[命令行](/docs/api/cli.html)。
+如果觉得参数输入比较麻烦，实际上也有等价的更短的命令可以灵活组合，更多的参数可以参考[命令行](http://fex-team.github.io/fis-site/docs/api/cli.html)。
 
 ```bash
 fis release -op
@@ -72,7 +72,7 @@ fis release -op
 
 ### 人工干预合并
 
-我们可以通过[pack](/docs/api/fis-conf.html#pack)设置来干预合并结果。人工干预的必要性在于我们可以将类似underscore、jquery、backbone等基础库固定打包，首先我们可以让不同页面之间公用这些基础库而不用重新下载，其次由于基础库不容易改变，这种策略也对缓存更加友好。
+我们可以通过[pack](http://fex-team.github.io/fis-site/docs/api/fis-conf.html#pack)设置来干预合并结果。人工干预的必要性在于我们可以将类似underscore、jquery、backbone等基础库固定打包，首先我们可以让不同页面之间公用这些基础库而不用重新下载，其次由于基础库不容易改变，这种策略也对缓存更加友好。
 
 修改fis-conf.js配置，加入pack配置
 
@@ -129,4 +129,4 @@ fis release -op
 
 但是这样就满足还是太早了，有没有觉得就算有了资源自动合并，但是每次还要手动的添加资源引用是一件非常繁琐的事情，并且可能有一天某个资源已经不需要使用了，还需要去手工维护这段代码的引用是不是非常烦恼呢？
 
-实际上这些问题都可以用前端模块化来解决，通过前端模块化开发，我们可以不再担心各种资源加载问题，就像编写Node.js程序一样编写前端项目。那么除了业界流行的各种前端模块化加载库，FIS也提供了一种新的思路来解决模块化加载问题，点击[前端模块化](/docs/advance/modjs-solution.html)了解更多。
+实际上这些问题都可以用前端模块化来解决，通过前端模块化开发，我们可以不再担心各种资源加载问题，就像编写Node.js程序一样编写前端项目。那么除了业界流行的各种前端模块化加载库，FIS也提供了一种新的思路来解决模块化加载问题，点击[前端模块化](http://fex-team.github.io/fis-site/docs/advance/modjs-solution.html)了解更多。

@@ -7,9 +7,9 @@ category: advance
 # roadmap详解
 
 > 相信大家在使用FIS的过程中，roadmap的配置一直都难点之一，本文将帮助已经对FIS基本使用有一定了解，但是对roadmap配置有疑问的同学更好的了解这个强大的配置。
-> 强烈建议与[roadmap文档](http://fis.baidu.com/docs/api/fis-conf.html#roadmap)对照阅读。
+> 强烈建议与[roadmap文档](http://fex-team.github.io/fis-site/docs/api/fis-conf.html#roadmap)对照阅读。
 
-FIS无需任何配置即可自动理解前端项目进行构建工作，通过[配置API](/docs/api/fis-conf.html)，我们可以定制FIS的功能，而其中最复杂的配置就是 `roadmap` 了，通过此配置我们可以细粒度调整FIS的编译流程、产出目录结构、资源引用路径等一系列与最终产出内容密切相关的配置，因此可以说是FIS最重要的配置，使用好这个配置，我们可以满足各式各样的产出需求。
+FIS无需任何配置即可自动理解前端项目进行构建工作，通过[配置API](../api/fis-conf.html)，我们可以定制FIS的功能，而其中最复杂的配置就是 `roadmap` 了，通过此配置我们可以细粒度调整FIS的编译流程、产出目录结构、资源引用路径等一系列与最终产出内容密切相关的配置，因此可以说是FIS最重要的配置，使用好这个配置，我们可以满足各式各样的产出需求。
 
 roadmap配置拥有三个配置项
 
@@ -55,7 +55,7 @@ roadmap配置拥有三个配置项
     ```
 2. 正则模式，极为灵活强大的路径匹配方法，reg属性设置为 **正则表达式** 则代表使用正则模式进行文件匹配。
 
-    基于正则模式，我们可以满足各种路径部署需求，关于正则的使用说明，请参考[不完全正则指南](/docs/more/regex.html)
+    基于正则模式，我们可以满足各种路径部署需求，关于正则的使用说明，请参考[不完全正则指南](../more/regex.html)
 
     ```
     /modules/moduleA/a.js
@@ -203,9 +203,9 @@ FIS提供了大量的编译属性用于控制核心编译流程与插件编译�
 
 * 语言能力扩展设置
 
-    * ``isHtmlLike``：指定对文件进行html相关的 [语言能力扩展](http://fis.baidu.com/docs/more/fis-standard.html)
-    * ``isJsLike``：指定对文件进行js相关的 [语言能力扩展](http://fis.baidu.com/docs/more/fis-standard.html)
-    * ``isCssLike``：指定对文件进行css相关的 [语言能力扩展](http://fis.baidu.com/docs/more/fis-standard.html)
+    * ``isHtmlLike``：指定对文件进行html相关的 [语言能力扩展](http://fex-team.github.io/fis-site/docs/more/fis-standard.html)
+    * ``isJsLike``：指定对文件进行js相关的 [语言能力扩展](http://fex-team.github.io/fis-site/docs/more/fis-standard.html)
+    * ``isCssLike``：指定对文件进行css相关的 [语言能力扩展](http://fex-team.github.io/fis-site/docs/more/fis-standard.html)
 
 * 编译流程控制
     * ``useCompile``：指定文件是否经过fis的编译处理，如果为false，则该文件不会做任何编译处理。
@@ -369,7 +369,7 @@ fis.config.merge({
 
 ## 域名配置
 
-domain配置用于满足在代码部署上线时添加CDN或域名子目录需求，具体的使用方式可以参考[文档](http://fis.baidu.com/docs/api/fis-conf.html#roadmapdomain)，本文将会主要介绍一下域名子目录为何需要使用domain来处理。
+domain配置用于满足在代码部署上线时添加CDN或域名子目录需求，具体的使用方式可以参考[文档](http://fex-team.github.io/fis-site/docs/api/fis-conf.html#roadmapdomain)，本文将会主要介绍一下域名子目录为何需要使用domain来处理。
 
 为了扩展前端语言能力，完善资源定位功能，FIS会将所有相对路径改为绝对路径，具体原因可以参见[FAQ#86](https://github.com/fex-team/fis/issues/86)
 
