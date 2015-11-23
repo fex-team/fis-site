@@ -16,7 +16,7 @@ category: more
 
 1. **parser**(编译器)：将其他语言编译为标准js、css，比如将前端模板、coffee-script编译为js，将less、sass编译为css。
 1. **preprocessor**(标准预处理器)：在fis进行标准化处理之前进行某些修改，比如 [支持image-set语法的预处理插件](https://github.com/fouber/fis-preprocessor-image-set)
-1. **standard**(标准化处理)：前面两项处理会将文件处理为标准的js、css、html语法，fis内核的标准化处理过程对这些语言进行 [三种语言能力](http://fex-team.github.io/fis-site/docs/more/fis-standard.html) 扩展处理。这也就意味着，使用less、coffee等语法在fis系统中一样具备 **资源定位、内容嵌入，依赖声明** 的能力。该过程 **不可扩展**。
+1. **standard**(标准化处理)：前面两项处理会将文件处理为标准的js、css、html语法，fis内核的标准化处理过程对这些语言进行 [三种语言能力](/docs/more/fis-standard.html) 扩展处理。这也就意味着，使用less、coffee等语法在fis系统中一样具备 **资源定位、内容嵌入，依赖声明** 的能力。该过程 **不可扩展**。
 1. **postprocessor**(标准后处理器)：对文件进行标准化之后的处理，比如利用依赖声明能力实现的 [js包装器插件](https://github.com/fouber/fis-postprocessor-jswrapper)，可以获取js文件的依赖关系，并添加define包装。
 1. **lint**(校验器)：代码校验阶段，使用 fis release命令的 **--lint** 参数会调用该过程。
 1. **test**(测试器)：自动测试阶段，使用 fis release命令的 **--test** 参数会调用该过程。

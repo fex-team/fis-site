@@ -7,13 +7,13 @@ category: dev
 
 **前置阅读**，*请详细阅读以下文档，因为这些文档非常重要*
 
-+ [编译过程运行原理](http://fex-team.github.io/fis-site/docs/more/fis-base.html)
-+ [插件调用机制](http://fex-team.github.io/fis-site/docs/more/how-plugin-works.html)
-+ [插件扩展点列表](http://fex-team.github.io/fis-site/docs/more/extension-point.html)
++ [编译过程运行原理](/docs/more/fis-base.html)
++ [插件调用机制](/docs/more/how-plugin-works.html)
++ [插件扩展点列表](/docs/more/extension-point.html)
 
 > 注意，**FIS 插件不支持异步**
 
-按照[插件扩展点列表](http://fex-team.github.io/fis-site/docs/more/extension-point.html)文档的介绍，在整个编译流程可以扩展的点有；
+按照[插件扩展点列表](/docs/more/extension-point.html)文档的介绍，在整个编译流程可以扩展的点有；
 
 * 编译阶段
     * parser
@@ -43,7 +43,7 @@ FIS API
 * fis.util      util类
 * fis.compile   编译
 
-@see [开发插件API](http://fex-team.github.io/fis-site/docs/api/dev.html)
+@see [开发插件API](/docs/api/dev.html)
 
 ### 编译阶段插件
 

@@ -10,7 +10,7 @@ category: beginning
 
 使用FIS可以方便的将各种异构语言转换为前端语言，比如说可以将CoffeeScript编译为JavaScript、Less编译为CSS、前端模板预编译等等，并且可以做到各种异构语言无缝混用，我们以Less为例演示如何使用FIS来扩展前端开发语言。
 
-> 更多的语言扩展类插件可以查看[更多插件](http://fex-team.github.io/fis-site/docs/advance/plugin-list.html)
+> 更多的语言扩展类插件可以查看[更多插件](/docs/advance/plugin-list.html)
 
 ### 插件安装
 
@@ -85,9 +85,9 @@ fis release --watch --live #fis release -wL
 
 ### 快速部署
 
-通过配置我们可以快速的将FIS的编译结果上传至指定的文件夹甚至远程服务器与后端联调，结合文件监视、自动刷新功能我们可以做到修改文件后自动更新远程服务器内容，并刷新调试页面。详细配置可以参见[deploy](http://fex-team.github.io/fis-site/docs/api/fis-conf.html#deploy)。
+通过配置我们可以快速的将FIS的编译结果上传至指定的文件夹甚至远程服务器与后端联调，结合文件监视、自动刷新功能我们可以做到修改文件后自动更新远程服务器内容，并刷新调试页面。详细配置可以参见[deploy](/docs/api/fis-conf.html#deploy)。
 
-更多的辅助开发能力可以参考[命令行](http://fex-team.github.io/fis-site/docs/api/cli.html)。
+更多的辅助开发能力可以参考[命令行](/docs/api/cli.html)。
 
 <!--
 ## 功能介绍
