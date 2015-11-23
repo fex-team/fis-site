@@ -133,4 +133,4 @@ fis.require.prefixes.unshift('hello');
 
 原来写在 fis-conf.js 的内容，如果足够通用，其实可以完全写在 hello.js 文件里面。这样封装好后，其他同学可以减少使用成本。
 
-更多配置移步到[配置API](/docs/api/fis-conf.html)页面。
+更多配置移步到[配置API](http://fex.baidu.com/fis-site/docs/api/fis-conf.html)页面。

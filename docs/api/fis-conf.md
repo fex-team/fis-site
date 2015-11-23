@@ -139,7 +139,7 @@ fis.config.init({
 
 ### exclude
 
-* 解释：设置项目源码文件exclude过滤器。如果同时设置了 [project.include](/docs/api/fis-conf.html#include) 和 ``project.exclude`` 则表示在include所命中的文件中排除掉某些文件。
+* 解释：设置项目源码文件exclude过滤器。如果同时设置了 [project.include](http://fex.baidu.com/fis-site/docs/api/fis-conf.html#include) 和 ``project.exclude`` 则表示在include所命中的文件中排除掉某些文件。
 * 值类型：``Array`` | ``string`` | ``RegExp``
 * 默认值：无
 * 用法：在项目的fis-conf.js里可以修改为
@@ -245,7 +245,7 @@ fis.config.init({
 
 配置项 `modules`
 
-> fis系统有非常灵活的插件扩展能力，详细内容请参看 [运行原理](/docs/more/fis-base.html)，[插件调用机制](/docs/more/how-plugin-works.html)，[插件扩展点列表](/docs/more/extension-point.html)等文档。
+> fis系统有非常灵活的插件扩展能力，详细内容请参看 [运行原理](http://fex.baidu.com/fis-site/docs/more/fis-base.html)，[插件调用机制](http://fex.baidu.com/fis-site/docs/more/how-plugin-works.html)，[插件扩展点列表](http://fex.baidu.com/fis-site/docs/more/extension-point.html)等文档。
 >
 > fis所有的插件配置都支持定义一个 **数组或者逗号分隔的字符串序列** 来依次处理文件内容。
 
@@ -254,7 +254,7 @@ fis.config.init({
 * 解释：配置编译器插件，可以根据 **文件后缀** 将某种语言编译成标准的js、css、html语言。
 * 值类型：``Object``
 * 默认值：无
-* 说明：fis对文件进行编译时，首先进入的是parser阶段，该阶段的定义是： **将非标准语言编译成标准的html、js、css语言**。例如我们可以利用这个阶段的处理把coffee、前端模板文件编译成js，less、sass、compass编译成css。在该阶段配置的插件，实际调用的是 **fis-parser-xxx**，这是fis [parser插件命名规范](/docs/more/extension-point.html#parser) 所约束的。parser插件通常不会内置，如需要相关插件，可以使用npm安装，具体说明请参考文档 [插件调用机制](/docs/more/how-plugin-works.html)。由于parser的主要职责是统一标准语言，因此它经常会和 **roadmap.ext** 配置配合使用，用于标记某个后缀的文件在parser阶段之后当做某种标准语言进行处理。
+* 说明：fis对文件进行编译时，首先进入的是parser阶段，该阶段的定义是： **将非标准语言编译成标准的html、js、css语言**。例如我们可以利用这个阶段的处理把coffee、前端模板文件编译成js，less、sass、compass编译成css。在该阶段配置的插件，实际调用的是 **fis-parser-xxx**，这是fis [parser插件命名规范](http://fex.baidu.com/fis-site/docs/more/extension-point.html#parser) 所约束的。parser插件通常不会内置，如需要相关插件，可以使用npm安装，具体说明请参考文档 [插件调用机制](http://fex.baidu.com/fis-site/docs/more/how-plugin-works.html)。由于parser的主要职责是统一标准语言，因此它经常会和 **roadmap.ext** 配置配合使用，用于标记某个后缀的文件在parser阶段之后当做某种标准语言进行处理。
 * 用法：
 
     ```javascript
@@ -292,7 +292,7 @@ fis.config.init({
 * 解释：配置 标准化预处理器插件，可以根据 **文件后缀** 对文件进行预处理。
 * 值类型：``Object``
 * 默认值：无
-* 说明：标准化预处理的下一个阶段就是标准化处理阶段，标准化处理阶段主要责任是 [扩展三种语言能力](/docs/more/fis-standard.html)，因此preprocessor插件可以在标准化处理之前对内容进行某些修改，比如 [fis-preprocessor-image-set](https://github.com/fouber/fis-preprocessor-image-set) 插件，用于实现对retina屏的css的image-set属性支持。
+* 说明：标准化预处理的下一个阶段就是标准化处理阶段，标准化处理阶段主要责任是 [扩展三种语言能力](http://fex.baidu.com/fis-site/docs/more/fis-standard.html)，因此preprocessor插件可以在标准化处理之前对内容进行某些修改，比如 [fis-preprocessor-image-set](https://github.com/fouber/fis-preprocessor-image-set) 插件，用于实现对retina屏的css的image-set属性支持。
 * 用法：
 
     ```javascript
@@ -692,7 +692,7 @@ fis.config.init({
     * ``layout``：布局算法，默认是 'linear'，图片垂直布局，水平方向无需 ``遮盖处理`` 。可选项还有 ``matrix``，图片矩阵布局，面积最小化，但需要提供额外的dom控制水平方向图片的遮盖处理
 * 注意：使用csssprite需要满足以下条件
     1. 使用release命令时，添加 ``-p`` 或者 ``--pack`` 参数。由于csssprite处理需要消耗一定的计算资源，并且开发过程中并不需要时刻做图片合并，因此fis将其定义为打包处理流程，启动csssprite处理需要指定--pack参数。
-    1. 只有 [打包的css文件](/docs/api/fis-conf.html#pack) 或者 [roadmap.path](/docs/api/fis-conf.html#roadmappath) 中 ``useSprite`` 属性标记为 ``true`` 的文件才会进行csssprite处理，因此请合理安排要进行csssprite处理的文件，尽量对合并后的文件做处理。
+    1. 只有 [打包的css文件](http://fex.baidu.com/fis-site/docs/api/fis-conf.html#pack) 或者 [roadmap.path](http://fex.baidu.com/fis-site/docs/api/fis-conf.html#roadmappath) 中 ``useSprite`` 属性标记为 ``true`` 的文件才会进行csssprite处理，因此请合理安排要进行csssprite处理的文件，尽量对合并后的文件做处理。
     1. 在css中引用图片时，只要加上 ``?__sprite`` 这个query标记就可以使用csssprite了。详情请参考fis-spriter-csssprites插件的 [使用文档](https://github.com/fis-dev/fis-spriter-csssprites#%E4%BD%BF%E7%94%A8)。
 * 用法：
 
@@ -735,9 +735,9 @@ fis.config.init({
     * ``query``：指定文件的资源定位路径之后的query，比如'?t=123124132'。
     * ``id``：指定文件的资源id。默认是 ``namespace`` + ``subpath`` 的值。
     * ``charset``：指定文本文件的输出编码。默认是 ``utf8``，可以制定为 ``gbk`` 或 ``gb2312``等。
-    * ``isHtmlLike``：指定对文件进行html相关的 [语言能力扩展](/docs/more/fis-standard.html)
-    * ``isJsLike``：指定对文件进行js相关的 [语言能力扩展](/docs/more/fis-standard.html)
-    * ``isCssLike``：指定对文件进行css相关的 [语言能力扩展](/docs/more/fis-standard.html)
+    * ``isHtmlLike``：指定对文件进行html相关的 [语言能力扩展](http://fex.baidu.com/fis-site/docs/more/fis-standard.html)
+    * ``isJsLike``：指定对文件进行js相关的 [语言能力扩展](http://fex.baidu.com/fis-site/docs/more/fis-standard.html)
+    * ``isCssLike``：指定对文件进行css相关的 [语言能力扩展](http://fex.baidu.com/fis-site/docs/more/fis-standard.html)
     * ``useCompile``：指定文件是否经过fis的编译处理，如果为false，则该文件不会做任何编译处理。
     * ``useHash``：指定文件产出后是否添加md5戳。默认只有js、css、图片文件会添加。
     * ``useDomain``：指定文件引用处是否添加域名。
@@ -847,7 +847,7 @@ fis.config.init({
 * 解释：设置静态资源的域名前缀。
 * 值类型：``Object`` | ``string``
 * 默认值：无
-* 说明：fis扩展了html、js、css的[三种语言能力](/docs/more/fis-standard.html)，并支持对资源的定位，定位包括 **开发路径与发布路径的映射关系** 以及 **静态资源服务器域名设置**。roadmap.domain节点就是用于控制该能力的配置。
+* 说明：fis扩展了html、js、css的[三种语言能力](http://fex.baidu.com/fis-site/docs/more/fis-standard.html)，并支持对资源的定位，定位包括 **开发路径与发布路径的映射关系** 以及 **静态资源服务器域名设置**。roadmap.domain节点就是用于控制该能力的配置。
 * 注意：domain的值如果不是特殊需要，请 **不要以"/"结尾**。
 * 用法：
 
@@ -883,7 +883,7 @@ fis.config.init({
 * 解释：设置图片资源的域名前缀。
 * 值类型：``Array`` | ``string``
 * 默认值：无
-* 说明：由于使用配置roadmap.domain.ext方式来配置图片资源太麻烦，fis提供了image字段，对于符合 [project.fileType.image](/docs/api/fis-conf.html#fileTypeimage) 规则的文件，设置相应domain配置。
+* 说明：由于使用配置roadmap.domain.ext方式来配置图片资源太麻烦，fis提供了image字段，对于符合 [project.fileType.image](http://fex.baidu.com/fis-site/docs/api/fis-conf.html#fileTypeimage) 规则的文件，设置相应domain配置。
 * 用法：
 
     ```javascript
@@ -1037,7 +1037,7 @@ fis release -d publish
 * 解释：配置要打包合并的文件。
 * 值类型：``Object``
 * 默认值：无
-* 说明：fis内置的 [打包策略](/docs/more/fis-base.html#pack) 与传统的打包概念不同，fis的打包实际上是在建立一个资源表，并将其描述并产出为一份map.json文件，用户应该围绕着这份描述文件来设计前后端运行框架，从而实现运行时判断打包输出策略的架构。
+* 说明：fis内置的 [打包策略](http://fex.baidu.com/fis-site/docs/more/fis-base.html#pack) 与传统的打包概念不同，fis的打包实际上是在建立一个资源表，并将其描述并产出为一份map.json文件，用户应该围绕着这份描述文件来设计前后端运行框架，从而实现运行时判断打包输出策略的架构。
 * 用法：
 
     ```javascript

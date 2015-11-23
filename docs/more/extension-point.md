@@ -10,7 +10,7 @@ category: more
 
 ![编译流程](https://raw.githubusercontent.com/fouber/fis-wiki-img/master/workflow.png)
 
-fis编译系统具有一个既简单又容易扩展的插件体系，它是fis编译系统生命力的源泉。在了解插件机制之前，你可能需要了解一下fis的 [运行原理](/docs/more/fis-base.html)，使用插件的说明请阅读 [插件调用机制](/docs/more/how-plugin-works.html)
+fis编译系统具有一个既简单又容易扩展的插件体系，它是fis编译系统生命力的源泉。在了解插件机制之前，你可能需要了解一下fis的 [运行原理](http://fex.baidu.com/fis-site/docs/more/fis-base.html)，使用插件的说明请阅读 [插件调用机制](http://fex.baidu.com/fis-site/docs/more/how-plugin-works.html)
 
 fis在不做任何定制的情况下即可满足前端开发的基本需求，于此同时，系统也具有极强的可扩展性，fis的两大编译流程一共提供了10项扩展点，再加上命令行扩展能力，fis系统一共具有 **11项扩展点**：
 
