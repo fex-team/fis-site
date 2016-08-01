@@ -5,7 +5,7 @@ install:
 - npm install -g fis-postpackager-simple
 - npm install -g fis-optimizer-html-minifier
 script: bundle exec rake site:deploy --quiet
-after_script: sh pub.sh|grep -v "${GIT_TOKEN}"
+# after_script: sh pub.sh|grep -v "${GIT_TOKEN}"
 branches:
   only:
   - master

@@ -3,7 +3,7 @@ fis.config.set('roadmap.path', [{
     useDomain: true
 }]);
 
-fis.config.set('roadmap.domain', 'http://fex.baidu.com/fis-site');
+fis.config.set('roadmap.domain', 'http://fex-team.github.io/fis-site');
 // fis.config.set('roadmap.domain', 'http://hefangshi.github.io/fis-site');
 fis.config.set('modules.postpackager', 'simple');
 fis.config.set('modules.optimizer.html', 'html-minifier');
