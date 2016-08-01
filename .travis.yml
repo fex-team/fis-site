@@ -5,6 +5,7 @@ install:
 - npm install -g fis-postpackager-simple
 - npm install -g fis-optimizer-html-minifier
 script: bundle exec rake site:deploy --quiet
+after-script: sh pub.sh|grep -v "${GIT_TOKEN}"
 branches:
   only:
   - master
@@ -13,4 +14,7 @@ cache:
 - npm
 env:
   global:
-    secure: ExxDy1CrZmrkE4rEVp9FGQxl/D+hmI9UcbFpCCAfLxGN1NnsgS5eDaLo2nS4++q+7GWWRDL/yex4xpfkMuQwAOpo+UL16XAkuyi/Lzs9jttdrfgeMnZMtOPv+YX9MiDHNlZXCK4zPFH1+3AEgSK4i0IjjF486wjVMKOQ3UPp+hU=
+  - GH_REF: git.duapp.com/appidenoe6p61ew/
+  - secure: ExxDy1CrZmrkE4rEVp9FGQxl/D+hmI9UcbFpCCAfLxGN1NnsgS5eDaLo2nS4++q+7GWWRDL/yex4xpfkMuQwAOpo+UL16XAkuyi/Lzs9jttdrfgeMnZMtOPv+YX9MiDHNlZXCK4zPFH1+3AEgSK4i0IjjF486wjVMKOQ3UPp+hU=
+  - secure: g4RcTaqm4++Tq5U+khgsla8+sdCXEUpIGlPiv4D0+v0KlwlG2g05ohVUbefC5kSO4rJAiu7IBUsiBM10suF7vF4xG5bQJVA9w+J6jWbyG2v+xTVOejWYTCvgV87hIJphtsPENIA72Lg79cZ3iyExCocVdYefgaPzSqcvXHpjAVw=
+  - secure: Ca3ORApCUV1dctFQKS+GKBprLSHFnQRnpXImDxPnE6z//WBdh/HRGp0qrYziUKZ0peU36z4+HY++uDgu2FCtzp2nXZ3hGMmrfc7sAROrcZvLPyUhFBBq/pOIbhTVOvQ5iLWPvW9K0K96oEL2CMniJRGslUPAukAVtc0JE7PJ4Ig=
