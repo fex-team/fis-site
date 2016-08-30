@@ -97,7 +97,7 @@ release是一个非常强大的命令，它的主要任务就是进行代码的 
         # win
         fis release -d d:/work/output
         ```
-    * 使用配置文件的 [deploy节点配置](http://fex.baidu.com/fis-site/docs/api/fis-conf.html#deploy) 进行发布，此配置可将代码上传至远端
+    * 使用配置文件的 [deploy节点配置](http://fex-team.github.io/fis-site/docs/api/fis-conf.html#deploy) 进行发布，此配置可将代码上传至远端
 
         ```bash
         fis release -d remote
