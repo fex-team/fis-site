@@ -12,7 +12,7 @@ exclude:
   - vendor
   - .travis.yml
 
-pygments: true
+highlighter: pygments
 encoding: utf-8
 
 # Themes are encouraged to use these universal variables 
