@@ -9,9 +9,6 @@ script: bundle exec rake site:deploy --quiet
 branches:
   only:
   - master
-cache:
-- bundler
-- npm
 env:
   global:
   - GH_REF: git.duapp.com/appidenoe6p61ew/
