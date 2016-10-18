@@ -336,7 +336,6 @@ fis.config.merge({
     ```css
     .style {
         background: url('images/body-bg.png');
-        background: url('/static/pic/body-bg_1b8c3e0.png');
     }
     ```
 
